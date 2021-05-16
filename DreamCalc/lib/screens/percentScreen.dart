@@ -19,8 +19,8 @@ class _percentCalcState extends State<percentCalc> {
   TextEditingController userInputTwo = new TextEditingController();
   TextEditingController userInputThree = new TextEditingController();
   TextEditingController userInputFour = new TextEditingController();
-  String answer1 = 'answer';
-  String answer2 = 'answer';
+  String answer1 = ' ';
+  String answer2 = ' ';
 
   @override
   Widget build(BuildContext context) {
@@ -232,7 +232,7 @@ class _percentCalcState extends State<percentCalc> {
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        answer2 + " %",
+                        answer2 == ' '? answer2 : answer2 + " %",
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

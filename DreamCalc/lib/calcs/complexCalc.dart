@@ -2,62 +2,82 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 
-String mod(String a, String b){
-  final c = Complex(re: double.parse(a), im: double.parse(b));
-  return c.module.toDouble().toStringAsFixedNoZero(4);
+String formatComplex(String ans, int precision, {int isDiv = 0}){
+  int length = ans.length;
+  List signs = ['',''];
+  signs[0] = ans[0]=='-'? '-' : '';
+  ans = ans[0]=='-'? ans.substring(1,length-1) : ans.substring(0,length-1);
+  if(isDiv == 1)
+    ans = ans.contains('-')? ans.replaceAll('+', '') : ans;
+  signs[1] = ans.contains('-')? ' - ' : ' + ';
+  List sNumbers = ans.contains('-') ? ans.split('-') : ans.split('+');
+  sNumbers[0] = double.parse(sNumbers[0]).toStringAsFixedNoZero(precision);
+  sNumbers[1] = double.parse(sNumbers[1]).toStringAsFixedNoZero(precision);
+  return signs[0] + sNumbers[0] + signs[1] + sNumbers[1] + ' i';
 }
 
-String add(String a1, String b1, String a2, String b2){
+String mod(String a, String b, int precision){
+  final c = Complex(re: double.parse(a), im: double.parse(b));
+  return c.module.toDouble().toStringAsFixedNoZero(precision);
+}
+
+String add(String a1, String b1, String a2, String b2, int precision){
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 + B2 > 0 ? '+' : '';
-  return (A1+A2).toStringAsFixedNoZero(4) + 'i ' + sign + (B1+B2).toStringAsFixedNoZero(4) + 'i';
+  return (A1+A2).toStringAsFixedNoZero(precision) + 'i ' + sign + (B1+B2).toStringAsFixedNoZero(precision) + 'i';
 }
 
-String sub(String a1, String b1, String a2, String b2){
+String sub(String a1, String b1, String a2, String b2, int precision){
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 - B2 > 0 ? '+' : '';
-  return (A1-A2).toStringAsFixedNoZero(4) + 'i ' + sign + (B1-B2).toStringAsFixedNoZero(4) + 'i';
+  return (A1-A2).toStringAsFixedNoZero(precision) + 'i ' + sign + (B1-B2).toStringAsFixedNoZero(precision) + 'i';
 }
 
-String power(String a, String b, int power){
+String power(String a, String b, int power, int precision){
   final c = Complex(re: double.parse(a), im: double.parse(b));
-  return c.pow(power).toString();
+  return formatComplex(c.pow(power).toString(), precision);
 }
 
-String arg(String a, String b){
+String arg(String a, String b, int precision){
   final c = Complex(re: double.parse(a), im: double.parse(b));
-  return c.argument.toDouble().toStringAsFixedNoZero(4);
+  return c.argument.toDouble().toStringAsFixedNoZero(precision);
 }
 
-String roots(String a, String b, int power){
+String roots(String a, String b, int power, int precision){
   final c = Complex(re: double.parse(a), im: double.parse(b));
   List roots = c.rootsOf(power);
-  return c.rootsOf(power).toString();
+  if(power == 2){
+    return "√A = ${formatComplex(roots[0].toString(), precision)}\n√A = ${formatComplex(roots[1].toString(), precision)}";
+  }
+  if(power == 3){
+    return "∛A = ${formatComplex(roots[0].toString(), precision)}\n∛A = ${formatComplex(roots[1].toString(), precision)}\n∛A = ${formatComplex(roots[2].toString(), precision)}";
+  }
+  return " ";
 }
 
-String mul(String a1, String b1, String a2, String b2) {
+String mul(String a1, String b1, String a2, String b2, int precision) {
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   final c1 = Complex(re: A1, im: B1);
   final c2 = Complex(re: A2, im: B2);
-  return (c1*c2).toString();
+  return formatComplex((c1*c2).toString(), precision);
 }
 
 
-String div(String a1, String b1, String a2, String b2) {
+String div(String a1, String b1, String a2, String b2, int precision) {
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   final c1 = Complex(re: A1, im: B1);
   final c2 = Complex(re: A2, im: B2);
-  return (c1/c2).toString();
+  return formatComplex((c1/c2).toString(), precision, isDiv: 1);
 }

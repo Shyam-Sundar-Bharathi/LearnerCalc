@@ -1,7 +1,7 @@
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
 
-String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2,String A3, String B3, String C3, String D3){
+String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2,String A3, String B3, String C3, String D3, int precision){
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -19,8 +19,18 @@ String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2,
   final dx = SquareMatrix([[d1,b1,c1],[d2,b2,c2],[d3,b3,c3]]);
   final dy = SquareMatrix([[a1,d1,c1],[a2,d2,c2],[a3,d3,c3]]);
   final dz = SquareMatrix([[a1,b1,d1],[a2,b2,d2],[a3,b3,d3]]);
-  x = dx.determinant()/d.determinant();
-  y = dy.determinant()/d.determinant();
-  z = dz.determinant()/d.determinant();
-  return "x = " + x.toStringAsFixedNoZero(4) + "\ny = " + y.toStringAsFixedNoZero(4)+ "\nz = " + z.toStringAsFixedNoZero(4);
+  if(d.determinant() == 0){
+    if(dx.determinant() == 0 && dy.determinant() == 0 && dz.determinant() == 0 ){
+      return "INFINITE SOLUTIONS";
+    }
+    else
+      return "NO SOLUTION";
+  }
+
+    x = dx.determinant()/d.determinant();
+    y = dy.determinant()/d.determinant();
+    z = dz.determinant()/d.determinant();
+    return "x = " + x.toStringAsFixedNoZero(precision) + "\ny = " + y.toStringAsFixedNoZero(precision)+ "\nz = " + z.toStringAsFixedNoZero(precision);
+
+
 }

@@ -31,7 +31,6 @@ class _areaCalcState extends State<areaCalc> {
   Widget build(BuildContext context) {
     data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
     precision = data['precision'];
-    print(precision+100);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());

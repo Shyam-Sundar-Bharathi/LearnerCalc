@@ -1,7 +1,7 @@
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
 
-String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
+String calcxy(String a1, String b1, String c1, String a2, String b2, String c2, int precision){
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double C1 = double.parse(c1);
@@ -25,5 +25,5 @@ String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
     y = (dy.determinant())/(d.determinant());
 
   }
-  return "x = " + x.toStringAsFixedNoZero(4) + "\ny = " + y.toStringAsFixedNoZero(4);
+  return "x = " + x.toStringAsFixedNoZero(precision) + "\ny = " + y.toStringAsFixedNoZero(precision);
 }

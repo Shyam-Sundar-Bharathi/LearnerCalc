@@ -11,6 +11,10 @@ class linearTwo extends StatefulWidget {
 class _linearTwoState extends State<linearTwo> {
 
 
+  int precision;
+  Map data = {
+    'precision' : 4,
+  };
   String result = "";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -21,6 +25,8 @@ class _linearTwoState extends State<linearTwo> {
 
   @override
   Widget build(BuildContext context) {
+    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
+    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -234,7 +240,7 @@ class _linearTwoState extends State<linearTwo> {
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
-                      result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text);
+                      result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,precision);
                     });
                   },
                   child: Text(

@@ -10,7 +10,10 @@ class complex extends StatefulWidget {
 }
 
 class _complexState extends State<complex> {
-
+  int precision;
+  Map data = {
+    'precision' : 4,
+  };
   String choice = "" , result = "";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -19,6 +22,8 @@ class _complexState extends State<complex> {
 
   @override
   Widget build(BuildContext context) {
+    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
+    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -206,7 +211,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "| A |";
-                          result = mod(a1.text,b1.text);
+                          result = mod(a1.text,b1.text,precision);
                         });
                       },
                       child: Text(
@@ -225,7 +230,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "| B |";
-                          result = mod(a2.text,b2.text);
+                          result = mod(a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -244,7 +249,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A + B";
-                          result = add(a1.text,b1.text,a2.text,b2.text);
+                          result = add(a1.text,b1.text,a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -269,7 +274,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A * B";
-                          result = mul(a1.text,b1.text,a2.text,b2.text);
+                          result = mul(a1.text,b1.text,a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -288,7 +293,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A / B";
-                          result = div(a1.text,b1.text,a2.text,b2.text);
+                          result = div(a1.text,b1.text,a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -307,7 +312,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A - B";
-                          result = sub(a1.text,b1.text,a2.text,b2.text);
+                          result = sub(a1.text,b1.text,a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -332,7 +337,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A^2";
-                          result = power(a1.text,b1.text,2);
+                          result = power(a1.text,b1.text,2,precision);
                         });
                       },
                       child: Text(
@@ -351,7 +356,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A^3";
-                          result = power(a1.text,b1.text,3);
+                          result = power(a1.text,b1.text,3,precision);
                         });
                       },
                       child: Text(
@@ -370,7 +375,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "arg(A)";
-                          result = arg(a1.text,b1.text);
+                          result = arg(a1.text,b1.text,precision);
                         });
                       },
                       child: Text(
@@ -394,8 +399,8 @@ class _complexState extends State<complex> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "√A";
-                          result = roots(a1.text,b1.text,2);
+                          choice = "";
+                          result = roots(a1.text,b1.text,2,precision);
                         });
                       },
                       child: Text(
@@ -413,8 +418,8 @@ class _complexState extends State<complex> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "∛A";
-                          result = roots(a1.text,b1.text,3);
+                          choice = "";
+                          result = roots(a1.text,b1.text,3,precision);
                         });
                       },
                       child: Text(
@@ -433,7 +438,7 @@ class _complexState extends State<complex> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "arg(B)";
-                          result = arg(a2.text,b2.text);
+                          result = arg(a2.text,b2.text,precision);
                         });
                       },
                       child: Text(
@@ -448,14 +453,15 @@ class _complexState extends State<complex> {
                 SizedBox(height: 20,),
                 Container(
                   width: 300,
-                  height: 100,
+                  height: 150,
                   decoration: BoxDecoration(
                     border: Border.all(),
                   ),
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        (choice=="" || result =="") ? " " : "$choice = $result",
+                        (result =="") ? " " :
+                        choice == "" ? "$result" : "$choice = $result",
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
