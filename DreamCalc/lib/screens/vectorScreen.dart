@@ -1,6 +1,7 @@
 import 'package:dream_calc/calcs/vectorCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
 class vector extends StatefulWidget {
   const vector({Key key}) : super(key: key);
@@ -11,10 +12,6 @@ class vector extends StatefulWidget {
 
 class _vectorState extends State<vector> {
 
-  int precision;
-  Map data = {
-    'precision' : 4,
-  };
   String choice = "" , result = "";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -25,21 +22,19 @@ class _vectorState extends State<vector> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: Colors.blue[200],
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'VECTOR',
             style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),
@@ -275,7 +270,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "| A |";
-                          result = mod(a1.text, b1.text, c1.text,precision);
+                          result = mod(a1.text, b1.text, c1.text);
                         });
                       },
                       child: Text(
@@ -294,7 +289,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "| B |";
-                          result = mod(a2.text, b2.text, c2.text,precision);
+                          result = mod(a2.text, b2.text, c2.text);
                         });
                       },
                       child: Text(
@@ -313,7 +308,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A + B";
-                          result = add(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = add(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(
@@ -338,7 +333,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A - B";
-                          result = sub(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = sub(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(
@@ -357,7 +352,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A.B";
-                          result = dot(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = dot(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(
@@ -376,7 +371,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A x B";
-                          result = cross(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = cross(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(
@@ -401,7 +396,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "A * B";
-                          result = star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(
@@ -420,7 +415,7 @@ class _vectorState extends State<vector> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "Angle";
-                          result = angle(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text,precision);
+                          result = angle(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });
                       },
                       child: Text(

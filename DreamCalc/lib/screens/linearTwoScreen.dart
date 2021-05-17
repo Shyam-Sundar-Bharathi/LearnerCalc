@@ -1,6 +1,7 @@
-import 'package:dream_calc/calcs/linearTwoCalc.dart';
+import 'package:dream_calc/calcs/linearCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 class linearTwo extends StatefulWidget {
   const linearTwo({Key key}) : super(key: key);
 
@@ -10,12 +11,7 @@ class linearTwo extends StatefulWidget {
 
 class _linearTwoState extends State<linearTwo> {
 
-
-  int precision;
-  Map data = {
-    'precision' : 4,
-  };
-  String result = "";
+  String result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
   TextEditingController c1 = new TextEditingController();
@@ -25,21 +21,19 @@ class _linearTwoState extends State<linearTwo> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: Colors.blue[200],
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'LINEAR EQUATION',
             style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),
@@ -240,7 +234,7 @@ class _linearTwoState extends State<linearTwo> {
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
-                      result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,precision);
+                      result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text);
                     });
                   },
                   child: Text(
@@ -260,7 +254,7 @@ class _linearTwoState extends State<linearTwo> {
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        result==""? " ": result,
+                        result,
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

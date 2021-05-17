@@ -1,8 +1,9 @@
 import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
-String centTend(String userInput, int precision, int choice){
+String centTend(String userInput, int choice){
   if(userInput == '')
     return '0';
   if(userInput.endsWith(','))

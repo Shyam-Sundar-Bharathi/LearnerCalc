@@ -1,6 +1,7 @@
-import 'package:dream_calc/calcs/linearThreeCalc.dart';
+import 'package:dream_calc/calcs/linearCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 class linearThree extends StatefulWidget {
   const linearThree({Key key}) : super(key: key);
 
@@ -10,10 +11,6 @@ class linearThree extends StatefulWidget {
 
 class _linearThreeState extends State<linearThree> {
 
-  int precision;
-  Map data = {
-    'precision' : 4,
-  };
   String result = "";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -30,21 +27,19 @@ class _linearThreeState extends State<linearThree> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: Colors.blue[200],
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'LINEAR EQUATION',
             style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),
@@ -435,7 +430,7 @@ class _linearThreeState extends State<linearThree> {
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
-                      result = calcxyz(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text,precision);
+                      result = calcxyz(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text);
                     });
                   },
                   child: Text(

@@ -1,40 +1,37 @@
-import 'package:dream_calc/services/formatNumber.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/centTendCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 class centTendCalc extends StatefulWidget {
   @override
   _centTendCalcState createState() => _centTendCalcState();
 }
 
 class _centTendCalcState extends State<centTendCalc> {
-  Map data = {
-    'precision' : 4,
-  };
-  var choice = "Answer";
-  var result = "0";
+
+  var choice = " ";
+  var result = " ";
   TextEditingController userInput = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
             "Central Tendency Caculator",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
         ),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
@@ -69,7 +66,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "MEAN";
-                          result = centTend(userInput.text, precision,0);
+                          result = centTend(userInput.text,0);
                         });
                       },
                       child: Text(
@@ -89,7 +86,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "MEDIAN";
-                          result = centTend(userInput.text, precision,1);
+                          result = centTend(userInput.text,1);
                         });
                       },
                       child: Text(
@@ -109,7 +106,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "MODE";
-                          result = centTend(userInput.text, precision,2);
+                          result = centTend(userInput.text,2);
                         });
                       },
                       child: Text(
@@ -134,7 +131,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "STANDARD DEVIATION";
-                          result = centTend(userInput.text, precision,3);
+                          result = centTend(userInput.text,3);
                         });
                       },
                       child: Text(
@@ -154,7 +151,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "VARIANCE";
-                          result = centTend(userInput.text, precision,4);
+                          result = centTend(userInput.text,4);
                         });
                       },
                       child: Text(
@@ -179,7 +176,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "CV";
-                          result = centTend(userInput.text, precision,5);
+                          result = centTend(userInput.text,5);
                         });
                       },
                       child: Text(
@@ -199,7 +196,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "RANGE";
-                          result = centTend(userInput.text, precision, 6);
+                          result = centTend(userInput.text, 6);
                         });
                       },
                       child: Text(
@@ -224,7 +221,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "GM";
-                          result = centTend(userInput.text, precision,7);
+                          result = centTend(userInput.text,7);
                         });
                       },
                       child: Text(
@@ -244,7 +241,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "HM";
-                          result = centTend(userInput.text, precision, 8);
+                          result = centTend(userInput.text, 8);
                         });
                       },
                       child: Text(
@@ -264,12 +261,24 @@ class _centTendCalcState extends State<centTendCalc> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                Text(
-                  result,
-                  style: TextStyle(
-                    fontSize: 30,
+                Container(
+                  width: 300,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
                   ),
-                ),
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        result,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

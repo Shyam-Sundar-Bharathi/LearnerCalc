@@ -1,5 +1,5 @@
 import 'package:dream_calc/calcs/quadraticCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 class quadraticCalc extends StatefulWidget {
@@ -22,13 +22,14 @@ class _quadraticCalcState extends State<quadraticCalc> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'QUADRATIC SOLVER',
             style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),
@@ -40,7 +41,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
               children : [
               Center(
                 child: Text(
-                  'Format : ax² + bx + c = 0',
+                  'ax² + bx + c = 0',
                   style: TextStyle(
                     fontSize: 25,
                   ),

@@ -2,7 +2,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/volumeCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
 class volumeCalc extends StatefulWidget {
   @override
@@ -11,11 +11,8 @@ class volumeCalc extends StatefulWidget {
 
 class _volumeCalcState extends State<volumeCalc> {
 
-  Map data = {
-    'precision' : 4,
-  };
   var choice = "Answer";
-  var result = "0";
+  var result = " ";
   TextEditingController userInput = new TextEditingController();
   String dropDownValue = "CUBE";
   Map disp = {
@@ -28,24 +25,23 @@ class _volumeCalcState extends State<volumeCalc> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
             "Volume",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
           centerTitle: false,
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
         ),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
@@ -75,7 +71,7 @@ class _volumeCalcState extends State<volumeCalc> {
                   ),
                   onPressed: () {
                     setState(() {
-                      result = volume(userInput.text, dropDownValue, precision);
+                      result = volume(userInput.text, dropDownValue);
                     });
                   },
                   child: Text(
@@ -120,10 +116,22 @@ class _volumeCalcState extends State<volumeCalc> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                Text(
-                  formatNumber(double.parse(result)),
-                  style: TextStyle(
-                    fontSize: 25,
+                Container(
+                  width: 300,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                  ),
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        result == " "? result : formatNumber(double.parse(result)),
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

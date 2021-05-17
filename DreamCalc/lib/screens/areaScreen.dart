@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/areaCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 
 class areaCalc extends StatefulWidget {
@@ -11,9 +11,6 @@ class areaCalc extends StatefulWidget {
 
 class _areaCalcState extends State<areaCalc> {
 
-  Map data = {
-    'precision' : 4,
-  };
   var choice = "Answer";
   var result = "0";
   TextEditingController userInput = new TextEditingController();
@@ -29,24 +26,22 @@ class _areaCalcState extends State<areaCalc> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
             "Area of 2D Shapes Caculator",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
         ),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
@@ -75,8 +70,9 @@ class _areaCalcState extends State<areaCalc> {
                     minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                   ),
                   onPressed: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
-                      result = area(userInput.text, dropDownValue, precision);
+                      result = area(userInput.text, dropDownValue);
                     });
                   },
                   child: Text(
@@ -121,12 +117,24 @@ class _areaCalcState extends State<areaCalc> {
                   ),
                 ),
                 SizedBox(height: 10,),
-                Text(
-                  formatNumber(double.parse(result)),
-                  style: TextStyle(
-                    fontSize: 25,
+                Container(
+                  width: 300,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
                   ),
-                ),
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        formatNumber(double.parse(result)),
+                        style: TextStyle(
+                          fontSize: 25,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                ,
               ],
             ),
           ),

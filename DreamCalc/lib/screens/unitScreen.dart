@@ -1,5 +1,5 @@
-import 'package:dream_calc/services/drawer.dart';
-import 'package:dream_calc/services/formatNumber.dart';
+
+import 'package:dream_calc/screens/genScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/unitCalc.dart';
@@ -10,11 +10,6 @@ class unitconversion extends StatefulWidget {
 }
 
 class _unitconversionState extends State<unitconversion> {
-
-  Map data = {
-    'precision' : 4,
-  };
-
   bool inFocusOne = false;
   bool inFocusTwo = false;
   String answer = "answer";
@@ -37,10 +32,6 @@ class _unitconversionState extends State<unitconversion> {
 
   @override
   Widget build(BuildContext context) {
-
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
-
     unitChoiceOne = unitChoiceOne==''? unitChoices[unitElementsValue][0] : unitChoiceOne;
     unitChoiceTwo = unitChoiceTwo==''? unitChoices[unitElementsValue][1] : unitChoiceTwo;
 
@@ -49,16 +40,17 @@ class _unitconversionState extends State<unitconversion> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
             'Unit Conversion',
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
         ),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
@@ -110,7 +102,7 @@ class _unitconversionState extends State<unitconversion> {
                         },
                         textAlign: TextAlign.right,
                         onChanged: (text){
-                            userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text, precision);
+                            userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
                             },
                         controller: userInputOne,
                         keyboardType: TextInputType.number,
@@ -150,7 +142,7 @@ class _unitconversionState extends State<unitconversion> {
                             unitChoiceTwo = unitChoiceOne;
                           }
                           unitChoiceOne = newValue;
-                          userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text, precision);
+                          userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
                         });
                       },
                       items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {
@@ -177,7 +169,7 @@ class _unitconversionState extends State<unitconversion> {
                         },
                         textAlign: TextAlign.right,
                         onChanged: (text){
-                            userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text, precision);
+                            userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
                             print(precision);
                             },
                         controller: userInputTwo,
@@ -218,7 +210,7 @@ class _unitconversionState extends State<unitconversion> {
                             unitChoiceOne = unitChoiceTwo;
                           }
                           unitChoiceTwo = newValue;
-                          userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text, precision);
+                          userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
                         });
                       },
                       items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {

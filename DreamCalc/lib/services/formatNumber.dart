@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
 
 extension Ex on double {
-  String toStringAsFixedNoZero(int n) {
-    String result = double.parse(this.toStringAsFixed(n)).toString();
+  String toStringAsFixedNoZero(int precision) {
+    String result = double.parse(this.toStringAsFixed(precision)).toString();
     int length = result.length;
     if(result.substring(length-2,length) == '.0'){
       return result.substring(0,length-2);

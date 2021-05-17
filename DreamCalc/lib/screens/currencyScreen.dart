@@ -1,11 +1,9 @@
 import 'package:dream_calc/calcs/currencyCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
 import 'package:dream_calc/services/currencyConversion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:intl/intl.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 class currency extends StatefulWidget {
   const currency({Key key}) : super(key: key);
   @override
@@ -55,14 +53,15 @@ class _currencyState extends State<currency> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'Currency Conversion',
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),

@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
 List<String> cubeCalc(String A, String B, String C, String D){
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
@@ -37,23 +37,23 @@ List<String> cubeCalc(String A, String B, String C, String D){
     sign[2] = '';
   }
 
-  rootOne[0] = double.parse(rootOne[0]).toStringAsFixedNoZero(4);
-  rootTwo[0] = double.parse(rootTwo[0]).toStringAsFixedNoZero(4);
-  rootThree[0] = double.parse(rootThree[0]).toStringAsFixedNoZero(4);
+  rootOne[0] = double.parse(rootOne[0]).toStringAsFixedNoZero(precision);
+  rootTwo[0] = double.parse(rootTwo[0]).toStringAsFixedNoZero(precision);
+  rootThree[0] = double.parse(rootThree[0]).toStringAsFixedNoZero(precision);
 
   if(rootOne[1]!=''){
-    rootOne[1] = formatNumber(double.parse(double.parse(rootOne[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(4))) + ' i';
+    rootOne[1] = formatNumber(double.parse(double.parse(rootOne[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision))) + ' i';
   }
   if(rootTwo[1]!=''){
-    rootTwo[1] = double.parse(rootTwo[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(4) + ' i';
+    rootTwo[1] = double.parse(rootTwo[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision) + ' i';
   }
   if(rootThree[1]!=''){
-    rootThree[1] = double.parse(rootThree[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(4) + ' i';
+    rootThree[1] = double.parse(rootThree[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision) + ' i';
   }
 
 
   rootsFinal[0] = rootOne[0] + ' ' + sign[0] + ' ' + rootOne[1];
   rootsFinal[1] = rootTwo[0] + ' ' + sign[1] + ' ' + rootTwo[1];
   rootsFinal[2] = rootThree[0] + ' ' + sign[2] + ' ' + rootThree[1];
-  return [rootsFinal[0],rootsFinal[1],rootsFinal[2],formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(4)))];
+  return [rootsFinal[0],rootsFinal[1],rootsFinal[2],formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(precision)))];
 }

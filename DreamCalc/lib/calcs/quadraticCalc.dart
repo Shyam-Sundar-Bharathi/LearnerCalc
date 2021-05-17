@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
 List<String> quadCalc(String A, String B, String C){
   double a = double.parse(A);
@@ -11,13 +12,13 @@ List<String> quadCalc(String A, String B, String C){
   double d = (b*b)-(4*a*c);
   String rootOne, rootTwo;
   if(isReal){
-    rootOne = formatNumber(double.parse(((-b + pow(d,0.5))/2*a).toStringAsFixedNoZero(4)));
-    rootTwo = formatNumber(double.parse(((-b - pow(d,0.5))/2*a).toStringAsFixedNoZero(4)));
+    rootOne = formatNumber(double.parse(((-b + pow(d,0.5))/2*a).toStringAsFixedNoZero(precision)));
+    rootTwo = formatNumber(double.parse(((-b - pow(d,0.5))/2*a).toStringAsFixedNoZero(precision)));
   }
   else{
-    rootOne = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(4))) + ' + ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(4))) + ' i';
-    rootTwo = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(4))) + ' - ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(4))) + ' i';
+    rootOne = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(precision))) + ' + ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision))) + ' i';
+    rootTwo = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(precision))) + ' - ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision))) + ' i';
   }
 
-  return [rootOne,rootTwo,formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(4))), isReal.toString()];
+  return [rootOne,rootTwo,formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(precision))), isReal.toString()];
 }

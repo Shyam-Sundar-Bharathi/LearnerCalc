@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
-String area (String userInput, String dropDownValue, int precision) {
+String area (String userInput, String dropDownValue) {
   if(userInput == '')
     return '0';
   if(dropDownValue == "SQUARE"){
     var side = double.parse(userInput);
-    print(precision);
     return (side*side).toStringAsFixedNoZero(precision);
   }
   else if(dropDownValue == "CIRCLE"){

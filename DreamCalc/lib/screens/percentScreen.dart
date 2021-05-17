@@ -1,7 +1,6 @@
 import 'dart:core';
-
 import 'package:dream_calc/calcs/percentCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/percentCalc.dart';
@@ -12,9 +11,6 @@ class percentCalc extends StatefulWidget {
 
 class _percentCalcState extends State<percentCalc> {
 
-  Map data = {
-    'precision' : 4,
-  };
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   TextEditingController userInputThree = new TextEditingController();
@@ -24,23 +20,20 @@ class _percentCalcState extends State<percentCalc> {
 
   @override
   Widget build(BuildContext context) {
-
-    data = data.isEmpty ? data : ModalRoute.of(context).settings.arguments;
-    precision = data['precision'];
-
     return GestureDetector(
         onTap: () {
       FocusScope.of(context).requestFocus(FocusNode());
     },
     child: Scaffold(
+      backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
           title: Text(
             'PERCENTAGE CALCULATOR',
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
         ),
@@ -60,7 +53,7 @@ class _percentCalcState extends State<percentCalc> {
                       child: TextField(
                         onChanged: (text){
                           setState(() {
-                            answer1 = percentOne(userInputOne.text,userInputTwo.text, precision);
+                            answer1 = percentOne(userInputOne.text,userInputTwo.text);
                           });
                         },
                         controller: userInputOne,
@@ -94,7 +87,7 @@ class _percentCalcState extends State<percentCalc> {
                       child: TextField(
                         onChanged: (text){
                           setState(() {
-                            answer1 = percentOne(userInputOne.text,userInputTwo.text,precision);
+                            answer1 = percentOne(userInputOne.text,userInputTwo.text);
                           });
                         },
                         controller: userInputTwo,
@@ -159,7 +152,7 @@ class _percentCalcState extends State<percentCalc> {
                       child: TextField(
                         onChanged: (text){
                           setState(() {
-                            answer2 = percentTwo(userInputThree.text,userInputFour.text,precision);
+                            answer2 = percentTwo(userInputThree.text,userInputFour.text);
                           });
                         },
                         controller: userInputThree,
@@ -191,7 +184,7 @@ class _percentCalcState extends State<percentCalc> {
                       child: TextField(
                         onChanged: (text){
                           setState(() {
-                            answer2 = percentTwo(userInputThree.text,userInputFour.text,precision);
+                            answer2 = percentTwo(userInputThree.text,userInputFour.text);
                           });
                         },
                         controller: userInputFour,

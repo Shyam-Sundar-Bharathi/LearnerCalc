@@ -3,6 +3,7 @@ import 'package:dream_calc/screens/currencyScreen.dart';
 import 'package:dream_calc/screens/linearChoiceScreen.dart';
 import 'package:dream_calc/screens/linearThreeScreen.dart';
 import 'package:dream_calc/screens/linearTwoScreen.dart';
+import 'package:dream_calc/screens/loadingScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
@@ -16,6 +17,7 @@ import 'package:dream_calc/screens/settings.dart';
 import 'package:dream_calc/screens/percentScreen.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/cubicScreen.dart';
+import 'package:dream_calc/screens/linearOneScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +25,8 @@ void main() {
     runApp(MaterialApp(
       initialRoute: '/',
       routes: {
-        '/' : (context) => home(),
+        '/' : (context) => loading(),
+        '/genScreen' : (context) => home(),
         '/lcmhcf' : (context) => lcmhcfCalc(),
         '/centTend' : (context) => centTendCalc(),
         '/area' : (context) => areaCalc(),
@@ -38,7 +41,8 @@ void main() {
         '/complex' : (context) => complex(),
         '/linearChoice' : (context) => linearChoice(),
         '/linearTwo' : (context) => linearTwo(),
-        '/linearThree' : (context) => linearThree()
+        '/linearThree' : (context) => linearThree(),
+        '/linearOne' : (context) => linearOne(),
       },
     ));
   }

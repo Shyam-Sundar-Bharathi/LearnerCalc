@@ -2,7 +2,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/lcmhcfCalc.dart';
-import 'package:dream_calc/services/drawer.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
 class lcmhcfCalc extends StatefulWidget {
   @override
@@ -11,8 +11,8 @@ class lcmhcfCalc extends StatefulWidget {
 
 class _lcmhcfCalcState extends State<lcmhcfCalc> {
 
-  var choice = "Answer";
-  var result = "0";
+  var choice = " ";
+  var result = " ";
   TextEditingController userInput = new TextEditingController();
 
   @override
@@ -22,16 +22,17 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
             "LCM HCF Caculator",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: colors[colorTheme][1],
             ),
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: colors[colorTheme][9],
         ),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
@@ -104,13 +105,24 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Text(
-                  formatNumber(double.parse(result)),
-                  style: TextStyle(
-                    fontSize: 30,
+                Container(
+                  width: 300,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                  ),
+                  child: Center(
+                    child: FittedBox(
+                      child: Text(
+                        result == ' '? ' ' : formatNumber(double.parse(result)),
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-
               ],
             ),
           ),

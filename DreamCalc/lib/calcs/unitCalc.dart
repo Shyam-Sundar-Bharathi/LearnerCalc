@@ -1,6 +1,7 @@
 import 'package:dream_calc/services/formatNumber.dart';
+import 'package:dream_calc/screens/genScreen.dart';
 
-String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput, int precision){
+String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
   if(userInput == "")
     return "0";
   double input = 0;
