@@ -5,6 +5,7 @@ import 'package:dream_calc/screens/linearThreeScreen.dart';
 import 'package:dream_calc/screens/linearTwoScreen.dart';
 import 'package:dream_calc/screens/loadingScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
+import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,7 @@ void main() {
         '/linearTwo' : (context) => linearTwo(),
         '/linearThree' : (context) => linearThree(),
         '/linearOne' : (context) => linearOne(),
+        '/trigonometry' : (context) => trigonometry()
       },
     ));
   }

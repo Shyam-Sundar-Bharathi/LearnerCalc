@@ -11,7 +11,6 @@ class unitconversion extends StatefulWidget {
 
 class _unitconversionState extends State<unitconversion> {
   bool inFocusOne = false;
-  bool inFocusTwo = false;
   String answer = "answer";
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
@@ -95,7 +94,6 @@ class _unitconversionState extends State<unitconversion> {
                         onTap: (){
                           setState(() {
                             inFocusOne = true;
-                            inFocusTwo = false;
                             answer =  "";
                             userInputTwo.text=answer;
                           });
@@ -115,7 +113,7 @@ class _unitconversionState extends State<unitconversion> {
                              borderSide: const BorderSide(color: Colors.black, width: 2.0),
                              borderRadius: BorderRadius.zero,
                            ),
-                           labelText: inFocusTwo? 'answer' : 'Enter',
+                           labelText: inFocusOne? 'Enter' : 'answer',
                            labelStyle: TextStyle(
                              fontSize: 20.0,
                            ),
@@ -161,7 +159,6 @@ class _unitconversionState extends State<unitconversion> {
                       child: TextField(
                         onTap: (){
                           setState(() {
-                            inFocusTwo = true;
                             inFocusOne = false;
                             answer = "";
                             userInputOne.text = answer;
@@ -170,7 +167,6 @@ class _unitconversionState extends State<unitconversion> {
                         textAlign: TextAlign.right,
                         onChanged: (text){
                             userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
-                            print(precision);
                             },
                         controller: userInputTwo,
                         keyboardType: TextInputType.number,

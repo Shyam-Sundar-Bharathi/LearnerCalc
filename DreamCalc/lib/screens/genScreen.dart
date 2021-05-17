@@ -1,4 +1,3 @@
-import 'file:///Users/shyamsundarbharathi/DreamCalculator/DreamCalc/redundant/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +8,7 @@ class home extends StatefulWidget {
   _homeState createState() => _homeState();
 }
 
+dynamic result;
 int precision = 0;
 String colorTheme = '';
 Map colors = {
@@ -43,10 +43,11 @@ class _homeState extends State<home> {
     5 : ['PERCENTAGE', '/percentage'],
     6 : ['QUADRATIC\nEQUATION', '/quadratic'],
     7 : ['CUBIC\nEQUATION', '/cubic'],
-    8 : ['CURRENCY\nCONVERSION', '/currency'],
+    8 : ['TRIGONOMETRY', '/trigonometry'],
     9 : ['VECTOR', '/vector'],
     10 : ['COMPLEX\nNUMBERS', '/complex'],
-    11 : ['LINEAR\nEQUATIONS', '/linearChoice']
+    11 : ['LINEAR\nEQUATIONS', '/linearChoice'],
+    12 : ['CURRENCY\nCONVERSION', '/currency'],
   };
 
   @override
