@@ -126,7 +126,7 @@ class _settingsState extends State<settings> {
                             dropDownColor = newColor;
                           });
                         },
-                        items: <String>['BLACK','BLUE','GREEN','PINK','YELLOW', 'PURPLE'].map<DropdownMenuItem<String>>((String value) {
+                        items: <String>['BLACK','BLUE','GREEN','PINK','YELLOW', 'PURPLE','RED'].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
