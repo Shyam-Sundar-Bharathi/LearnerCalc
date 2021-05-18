@@ -46,9 +46,10 @@ class _homeState extends State<home> {
     7 : ['CUBIC\nEQUATION', '/cubic'],
     8 : ['TRIGONOMETRY', '/trigonometry'],
     9 : ['VECTOR', '/vector'],
-    10 : ['COMPLEX\nNUMBERS', '/complex'],
-    11 : ['LINEAR\nEQUATIONS', '/linearChoice'],
-    12 : ['CURRENCY\nCONVERSION', '/currency'],
+    10 : ['MATRIX','/matrixChoice'],
+    11 : ['COMPLEX\nNUMBERS', '/complex'],
+    12 : ['LINEAR\nEQUATIONS', '/linearChoice'],
+    13 : ['CURRENCY\nCONVERSION', '/currency'],
   };
 
   @override
