@@ -5,6 +5,7 @@ import 'package:dream_calc/screens/linearThreeScreen.dart';
 import 'package:dream_calc/screens/linearTwoScreen.dart';
 import 'package:dream_calc/screens/loadingScreen.dart';
 import 'package:dream_calc/screens/matrixChoiceScreen.dart';
+import 'package:dream_calc/screens/matrixFourScreen.dart';
 import 'package:dream_calc/screens/matrixThreeScreen.dart';
 import 'package:dream_calc/screens/matrixTwoScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
@@ -51,6 +52,7 @@ void main() {
         '/matrixChoice' : (context) => matrixChoice(),
         '/matrixTwo' : (context) => matrixTwo(),
         '/matrixThree' : (context) => matrixThree(),
+        '/matrixFour' : (context) => matrixFour(),
       },
     ));
   }

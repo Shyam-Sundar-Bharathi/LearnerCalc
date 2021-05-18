@@ -15,7 +15,7 @@ class _matrixChoiceState extends State<matrixChoice> {
       appBar: AppBar(
         backgroundColor: colors[colorTheme][9],
         title: Text(
-          'LINEAR EQUATION',
+          'MATRIX',
           style: TextStyle(
             fontSize: 20,
             color: colors[colorTheme][1],
@@ -82,7 +82,7 @@ class _matrixChoiceState extends State<matrixChoice> {
                 elevation: MaterialStateProperty.all(10),
               ),
               onPressed: (){
-                Navigator.pushNamed(context, '/linearThree');
+                Navigator.pushNamed(context, '/matrixFour');
               },
             ),
           ],

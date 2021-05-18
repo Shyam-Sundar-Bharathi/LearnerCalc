@@ -1,13 +1,12 @@
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/genScreen.dart';
-String formatComplex(String ans, {int isDiv = 0}){
+String formatComplex(String ans){
   int length = ans.length;
   List signs = ['',''];
   signs[0] = ans[0]=='-'? '-' : '';
   ans = ans[0]=='-'? ans.substring(1,length-1) : ans.substring(0,length-1);
-  if(isDiv == 1)
-    ans = ans.contains('-')? ans.replaceAll('+', '') : ans;
+  ans = ans.contains('-') && ans.contains('+')? ans.replaceAll('+', '') : ans;
   signs[1] = ans.contains('-')? ' - ' : ' + ';
   List sNumbers = ans.contains('-') ? ans.split('-') : ans.split('+');
   sNumbers[0] = double.parse(sNumbers[0]).toStringAsFixedNoZero(precision);
@@ -40,6 +39,7 @@ String sub(String a1, String b1, String a2, String b2){
 
 String power(String a, String b, int power){
   final c = Complex(re: double.parse(a), im: double.parse(b));
+  print(c.pow(power).toString());
   return formatComplex(c.pow(power).toString());
 }
 
@@ -78,5 +78,5 @@ String div(String a1, String b1, String a2, String b2) {
   double B2 = double.parse(b2);
   final c1 = Complex(re: A1, im: B1);
   final c2 = Complex(re: A2, im: B2);
-  return formatComplex((c1/c2).toString(), isDiv: 1);
+  return formatComplex((c1/c2).toString());
 }
