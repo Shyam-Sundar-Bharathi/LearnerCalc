@@ -65,11 +65,13 @@ class _linearOneState extends State<linearOne> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        '   x   + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          '   x   + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -97,11 +99,13 @@ class _linearOneState extends State<linearOne> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' =   0 ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' =   0 ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

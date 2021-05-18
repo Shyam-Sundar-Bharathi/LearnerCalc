@@ -191,6 +191,7 @@ class _trigonometryState extends State<trigonometry> {
                     ),
                   ],
                 ),
+                SizedBox(height: 30,),
                 Row(
                   children: [
                     Expanded(

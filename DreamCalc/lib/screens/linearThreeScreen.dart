@@ -74,11 +74,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' x + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' x + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -106,11 +108,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' y + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' y + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -138,11 +142,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' z =  ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' z =  ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -199,11 +205,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' x + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' x + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -231,11 +239,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' y + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' y + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -263,11 +273,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' z =  ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' z =  ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -324,11 +336,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' x + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' x + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -356,11 +370,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' y + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' y + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -388,11 +404,13 @@ class _linearThreeState extends State<linearThree> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' z =  ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' z =  ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

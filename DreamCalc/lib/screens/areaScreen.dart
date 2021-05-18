@@ -11,7 +11,7 @@ class areaCalc extends StatefulWidget {
 
 class _areaCalcState extends State<areaCalc> {
 
-  var choice = "Answer";
+  var choice = "";
   var result = "0";
   TextEditingController userInput = new TextEditingController();
   String dropDownValue = "SQUARE";
@@ -34,7 +34,7 @@ class _areaCalcState extends State<areaCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "Area of 2D Shapes Caculator",
+            "Area",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,

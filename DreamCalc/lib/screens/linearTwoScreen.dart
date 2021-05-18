@@ -68,11 +68,13 @@ class _linearTwoState extends State<linearTwo> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' x   + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' x   + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -100,11 +102,13 @@ class _linearTwoState extends State<linearTwo> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' y = ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' y = ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -160,11 +164,13 @@ class _linearTwoState extends State<linearTwo> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' x   + ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' x   + ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -192,11 +198,13 @@ class _linearTwoState extends State<linearTwo> {
                       ),
                     ),
                     Expanded(
-                      child: Text(
-                        ' y = ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: FittedBox(
+                        child: Text(
+                          ' y = ',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

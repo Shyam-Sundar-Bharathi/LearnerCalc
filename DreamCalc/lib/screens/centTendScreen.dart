@@ -24,7 +24,7 @@ class _centTendCalcState extends State<centTendCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "Central Tendency Caculator",
+            "Central Tendency",
             style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,

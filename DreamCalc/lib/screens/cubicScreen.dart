@@ -27,7 +27,7 @@ class _cubicCalcState extends State<cubicCalc> {
         appBar: AppBar(
           backgroundColor: colors[colorTheme][9],
           title: Text(
-            'CUBIC SOLVER',
+            'CUBIC EQUATION',
             style: TextStyle(
               fontSize: 20,
               color: colors[colorTheme][1],
