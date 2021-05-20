@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/areaCalc.dart';
 import 'package:dream_calc/screens/genScreen.dart';
-import 'package:dream_calc/services/formatNumber.dart';
+
 
 class areaCalc extends StatefulWidget {
   @override

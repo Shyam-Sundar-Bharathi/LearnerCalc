@@ -48,6 +48,8 @@ class _homeState extends State<home> {
     10 : ['MATRIX','/matrixChoice'],
     11 : ['COMPLEX\nNUMBERS', '/complex'],
     12 : ['LINEAR\nEQUATIONS', '/linearChoice'],
+    13 : ['FORMULAE\nSHEET', '/formulaChoice'],
+    14 : ['HOW TO\nUSE', '/howToUse']
   };
 
   @override
@@ -94,7 +96,6 @@ class _homeState extends State<home> {
                     crossAxisCount: 3,
                   ),
                   itemBuilder: (BuildContext context, int index){
-
                   return Container(
                     width: MediaQuery.of(context).size.width,
                     height: 5,

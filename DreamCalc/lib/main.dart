@@ -1,4 +1,7 @@
 import 'package:dream_calc/screens/complexScreen.dart';
+import 'package:dream_calc/screens/differentialScreen.dart';
+import 'package:dream_calc/screens/formulaeChoiceScreen.dart';
+import 'package:dream_calc/screens/integralScreen.dart';
 import 'file:///Users/shyamsundarbharathi/DreamCalculator/DreamCalc/redundant/currencyScreen.dart';
 import 'package:dream_calc/screens/linearChoiceScreen.dart';
 import 'package:dream_calc/screens/linearThreeScreen.dart';
@@ -52,6 +55,9 @@ void main() {
         '/matrixTwo' : (context) => matrixTwo(),
         '/matrixThree' : (context) => matrixThree(),
         '/matrixFour' : (context) => matrixFour(),
+        '/formulaChoice' : (context) => formulaChoice(),
+        '/differential' : (context) => differential(),
+        '/integral' : (context) => integral(),
       },
     ));
   }
