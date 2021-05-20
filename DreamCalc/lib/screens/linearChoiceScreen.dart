@@ -8,6 +8,14 @@ class linearChoice extends StatefulWidget {
 }
 
 class _linearChoiceState extends State<linearChoice> {
+
+  Map choices = {
+    0 : ['1 VARIABLE', 'linearOne'],
+    1 : ['2 VARIABLES', 'linearTwo'],
+    2 : ['3 VARIABLES', 'linearThree']
+  };
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,71 +32,46 @@ class _linearChoiceState extends State<linearChoice> {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "1 variable",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize:30
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: choices.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery. of(context). size. width - 100,
+                        child: ElevatedButton(
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              choices[index][0],
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize:30
+                              ),
+                            ),
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
+                            elevation: MaterialStateProperty.all(10),
+                          ),
+                          onPressed: (){
+                            Navigator.pushNamed(context, choices[index][1]);
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/linearOne');
-              },
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "2 variables",
-                  style: TextStyle(
-                    color: Colors.grey[800],
-                    fontSize:30
-                  ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/linearTwo');
-              },
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "3 variables",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize:30
-                  ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/linearThree');
-              },
-            ),
-          ],
+                  SizedBox(height: 10,),
+                ],
+              );
+            }
         ),
-      ),
+      )
     );
   }
 }

@@ -8,6 +8,13 @@ class formulaChoice extends StatefulWidget {
 }
 
 class _formulaChoiceState extends State<formulaChoice> {
+
+  Map choices = {
+    0 : ['COMING SOON', '/comingSoon'],
+    1 : ['DIFFERENTIAL', '/differential'],
+    2 : ['INTEGRAL', '/integral']
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,80 +31,46 @@ class _formulaChoiceState extends State<formulaChoice> {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery. of(context). size. width - 100,
-              child: ElevatedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "DIFFERENTIAL",
-                    style: TextStyle(
-                        color: Colors.grey[800],
-                        fontSize:30
-                    ),
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: choices.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: MediaQuery. of(context). size. width - 100,
+                          child: ElevatedButton(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                choices[index][0],
+                                style: TextStyle(
+                                    color: Colors.grey[800],
+                                    fontSize:30
+                                ),
+                              ),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
+                              elevation: MaterialStateProperty.all(10),
+                            ),
+                            onPressed: (){
+                              Navigator.pushNamed(context, choices[index][1]);
+                            },
+                          ),
+                        ),
+                      ],
                   ),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                  elevation: MaterialStateProperty.all(10),
-                ),
-                onPressed: (){
-                  Navigator.pushNamed(context, '/differential');
-                },
-              ),
-            ),
-            SizedBox(height: 20,),
-            Container(
-              width: MediaQuery. of(context). size. width - 100,
-              child: ElevatedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "INTEGRAL",
-                    style: TextStyle(
-                        color: Colors.grey[800],
-                        fontSize:30
-                    ),
-                  ),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                  elevation: MaterialStateProperty.all(10),
-                ),
-                onPressed: (){
-                  Navigator.pushNamed(context, '/integral');
-                },
-              ),
-            ),
-            SizedBox(height: 20,),
-            Container(
-              width: MediaQuery. of(context). size. width - 100,
-              child: ElevatedButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    "COMING SOON",
-                    style: TextStyle(
-                        color: Colors.grey[800],
-                        fontSize:30
-                    ),
-                  ),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                  elevation: MaterialStateProperty.all(10),
-                ),
-                onPressed: (){
-                  Navigator.pushNamed(context, '/comingSoon');
-                },
-              ),
-            ),
-          ],
+                  SizedBox(height: 10,),
+                ],
+              );
+          }
         ),
-      ),
+      )
     );
   }
 }

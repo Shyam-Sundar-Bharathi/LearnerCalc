@@ -8,6 +8,13 @@ class matrixChoice extends StatefulWidget {
 }
 
 class _matrixChoiceState extends State<matrixChoice> {
+
+  Map choices = {
+    0 : ['2 x 2', '/matrixTwo'],
+    1 : ['3 x 3', '/matrixThree'],
+    2 : ['4 x 4', '/matrixFour']
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,71 +31,46 @@ class _matrixChoiceState extends State<matrixChoice> {
         ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "2 x 2",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize:30
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: choices.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery. of(context). size. width - 100,
+                        child: ElevatedButton(
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              choices[index][0],
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                  fontSize:30
+                              ),
+                            ),
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
+                            elevation: MaterialStateProperty.all(10),
+                          ),
+                          onPressed: (){
+                            Navigator.pushNamed(context, choices[index][1]);
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/matrixTwo');
-              },
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "3 x 3",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize:30
-                  ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/matrixThree');
-              },
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  "4 x 4",
-                  style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize:30
-                  ),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                elevation: MaterialStateProperty.all(10),
-              ),
-              onPressed: (){
-                Navigator.pushNamed(context, '/matrixFour');
-              },
-            ),
-          ],
+                  SizedBox(height: 10,),
+                ],
+              );
+            }
         ),
-      ),
+      )
     );
   }
 }
