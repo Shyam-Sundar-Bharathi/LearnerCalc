@@ -16,8 +16,8 @@ String add(String a1, String b1, String c1, String a2, String b2, String c2){
   double B2 = double.parse(b2);
   double C2 = double.parse(c2);
   List signs = ['',''];
-  signs[0] = B1 + B2 > 0 ? '+' : '';
-  signs[1] = C1 + C2 > 0 ? '+' : '';
+  signs[0] = B1 + B2 >= 0 ? '+' : '';
+  signs[1] = C1 + C2 >= 0 ? '+' : '';
   return (A1+A2).toStringAsFixedNoZero(precision) + 'i ' + signs[0] + (B1+B2).toStringAsFixedNoZero(precision) + 'j ' + signs[1] + (C1+C2).toStringAsFixedNoZero(precision) + 'k';
 }
 
@@ -29,8 +29,8 @@ String sub(String a1, String b1, String c1, String a2, String b2, String c2){
   double B2 = double.parse(b2);
   double C2 = double.parse(c2);
   List signs = ['',''];
-  signs[0] = B1 - B2 > 0 ? '+' : '';
-  signs[1] = C1 - C2 > 0 ? '+' : '';
+  signs[0] = B1 - B2 >= 0 ? '+' : '';
+  signs[1] = C1 - C2 >= 0 ? '+' : '';
   return (A1-A2).toStringAsFixedNoZero(precision) + 'i ' + signs[0] + (B1-B2).toStringAsFixedNoZero(precision) + 'j ' + signs[1] + (C1-C2).toStringAsFixedNoZero(precision) + 'k';
 }
 
@@ -64,5 +64,5 @@ String angle(String a1, String b1, String c1, String a2, String b2, String c2){
   final v1 = Vector(<num>[double.parse(a1),double.parse(b1),double.parse(c1)]);
   final v2 = Vector(<num>[double.parse(a2),double.parse(b2),double.parse(c2)]);
   double angle = double.parse(v1.angleBetween(v2, degrees: true).toStringAsFixedNoZero(precision));
-  return angle.toStringAsFixedNoZero(precision);
+  return angle.toStringAsFixedNoZero(precision) + '°';
 }

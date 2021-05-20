@@ -26,9 +26,10 @@ class _quadraticCalcState extends State<quadraticCalc> {
         appBar: AppBar(
           backgroundColor: colors[colorTheme][9],
           title: Text(
-            'QUADRATIC SOLVER',
+            'QUADRATIC EQUATION',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

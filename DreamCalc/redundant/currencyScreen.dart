@@ -1,5 +1,5 @@
-import 'package:dream_calc/calcs/currencyCalc.dart';
-import 'package:dream_calc/services/currencyConversion.dart';
+import 'file:///Users/shyamsundarbharathi/DreamCalculator/DreamCalc/redundant/currencyCalc.dart';
+import 'file:///Users/shyamsundarbharathi/DreamCalculator/DreamCalc/redundant/currencyConversion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -57,10 +57,10 @@ class _currencyState extends State<currency> {
         appBar: AppBar(
           backgroundColor: colors[colorTheme][9],
           title: Text(
-            'Currency Conversion',
+            'CURRENCY',
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

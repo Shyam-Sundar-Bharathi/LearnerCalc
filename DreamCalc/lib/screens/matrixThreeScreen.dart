@@ -37,6 +37,7 @@ class _matrixThreeState extends State<matrixThree> {
                 'MATRIX',
                 style: TextStyle(
                   fontSize: 20,
+                  fontWeight: FontWeight.w900,
                   color: colors[colorTheme][1],
                 ),
               ),

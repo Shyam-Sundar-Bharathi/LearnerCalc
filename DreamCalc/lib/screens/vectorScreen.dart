@@ -34,6 +34,7 @@ class _vectorState extends State<vector> {
             'VECTOR',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

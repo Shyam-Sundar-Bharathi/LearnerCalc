@@ -18,6 +18,7 @@ class _matrixChoiceState extends State<matrixChoice> {
           'MATRIX',
           style: TextStyle(
             fontSize: 20,
+            fontWeight: FontWeight.w900,
             color: colors[colorTheme][1],
           ),
         ),

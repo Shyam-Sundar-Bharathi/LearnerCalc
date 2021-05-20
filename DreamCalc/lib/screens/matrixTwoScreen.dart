@@ -32,6 +32,7 @@ class _matrixTwoState extends State<matrixTwo> {
             'MATRIX',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

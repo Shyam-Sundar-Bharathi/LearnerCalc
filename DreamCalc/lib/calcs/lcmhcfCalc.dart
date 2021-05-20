@@ -1,38 +1,66 @@
-String lcm (String userInput) {
+import 'dart:math';
+
+import 'package:dream_calc/services/formatNumber.dart';
+import 'package:extended_math/extended_math.dart';
+
+double gcd(double a, double b) {
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
+}
+
+String primeFactors(String userInput){
   if(userInput == "")
-    return '0';
+    return '';
+  String factor = '';
+  double number = double.parse(userInput);
+  while (number % 2 == 0)
+  {
+    factor += '2, ';
+    number/=2;
+  }
+  for (int i = 3; i <= sqrt(number); i += 2)
+  {
+    while (number % i == 0)
+    {
+      factor += '$i, ';
+      number/=i;;
+    }
+  }
+
+  if (number > 2)
+    factor += '${number.toInt()}';
+
+  if(factor.endsWith(', '))
+    factor = factor.substring(0,factor.length-2);
+
+  return factor;
+
+}
+
+String lcm(String userInput){
+  if(userInput == "")
+    return '';
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];
-  var lcm;
-  var lcm_found = false;
+  double lcm;
   int iter= 0;
   for(iter=0; iter<sArray.length; iter++)
-        iArray.add(int.parse(sArray[iter]));
+    iArray.add(double.parse(sArray[iter]));
   iArray.sort();
-  lcm = iArray[length-1];
-  iter = 0;
-  while(!lcm_found)
-      {
-        iter++;
-        for(int i=0; i<length-1; i++)
-          {
-            if(lcm % iArray[i] != 0)
-              {
-                lcm+=iArray[length-1];
-                break;
-              }
-
-          }
-        if(lcm == iArray[length-1]*iter)
-          lcm_found = true;
-      }
-      return lcm.toString();
+  lcm = iArray[0];
+  for(iter = 1; iter<iArray.length; iter++){
+    lcm = (((iArray[iter] * lcm)) /
+        (gcd(iArray[iter], lcm)));
+  }
+  return formatNumber(lcm);
 }
+
 
 String hcf (String userInput) {
   if(userInput == "")
-    return '0';
+    return '';
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];
@@ -68,4 +96,11 @@ String hcf (String userInput) {
         hcf_found = true;
     }
     return hcf.toString();
+}
+
+String isPrime(String userInput){
+  if(userInput == "")
+    return '';
+  final c = Integer(int.parse(userInput));
+  return c.isPrime() ? '$userInput is a prime number' : '$userInput is not a prime number';
 }

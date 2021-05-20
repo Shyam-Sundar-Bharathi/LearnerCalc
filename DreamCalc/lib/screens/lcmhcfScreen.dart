@@ -1,4 +1,3 @@
-import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/lcmhcfCalc.dart';
@@ -14,6 +13,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
   var choice = " ";
   var result = " ";
   TextEditingController userInput = new TextEditingController();
+  TextEditingController userInputpf = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +25,10 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "LCM HCF Caculator",
+            "LCM HCF",
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),
@@ -64,6 +64,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                       ),
                       onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "LCM";
                           result = lcm(userInput.text);
@@ -83,6 +84,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                       ),
                       onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
                           choice = "HCF";
                           result = hcf(userInput.text);
@@ -97,6 +99,66 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                     ),
                   ],
                 ),
+                SizedBox(height: 40),
+                TextField(
+                  controller: userInputpf,
+                  keyboardType: TextInputType.number,
+                  enableInteractiveSelection: true,
+                  inputFormatters: [
+                    FilteringTextInputFormatter(RegExp('[0-9]'), allow: true),
+                  ],
+                  decoration: InputDecoration(
+                    labelText: "Enter number",
+                    labelStyle: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   ElevatedButton(
+                     style: ButtonStyle(
+                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                     ),
+                     onPressed: () {
+                       FocusScope.of(context).requestFocus(FocusNode());
+                       setState(() {
+                         choice = "PRIME FACTORS";
+                         result = primeFactors(userInputpf.text);
+                       });
+                     },
+                     child: Text(
+                       "PRIME FACTORS",
+                       style: TextStyle(
+                         color: Colors.black,
+                       ),
+                     ),
+                   ),
+                   SizedBox(width: 20),
+                   ElevatedButton(
+                     style: ButtonStyle(
+                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                     ),
+                     onPressed: () {
+                       FocusScope.of(context).requestFocus(FocusNode());
+                       setState(() {
+                         choice = " ";
+                         result = isPrime(userInputpf.text);
+                       });
+                     },
+                     child: Text(
+                       "IS PRIME ?",
+                       style: TextStyle(
+                         color: Colors.black,
+                       ),
+                     ),
+                   ),
+                 ],
+               ),
                 SizedBox(height: 40),
                 Text(
                   "$choice",
@@ -114,7 +176,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        result == ' '? ' ' : formatNumber(double.parse(result)),
+                        result,
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

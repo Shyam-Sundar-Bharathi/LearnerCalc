@@ -24,10 +24,10 @@ class _centTendCalcState extends State<centTendCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "Central Tendency",
+            "CENTRAL TENDENCY",
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

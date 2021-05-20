@@ -30,6 +30,7 @@ class _cubicCalcState extends State<cubicCalc> {
             'CUBIC EQUATION',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

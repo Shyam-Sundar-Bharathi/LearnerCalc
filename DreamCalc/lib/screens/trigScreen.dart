@@ -26,7 +26,7 @@ class _trigonometryState extends State<trigonometry> {
   TextEditingController Cosec = new TextEditingController();
   TextEditingController Cot = new TextEditingController();
 
-  List<String> answers;
+  List<double> answers;
 
   void clear(){
     setState(() {
@@ -41,29 +41,40 @@ class _trigonometryState extends State<trigonometry> {
     });
   }
 
+  String checkAnswer(double answer){
+    if(answer == 1248){
+      return "Infinity";
+    }
+    else if(answer == -1248){
+      return "- Infinity";
+    }
+    else
+      return answer.toStringAsFixedNoZero(precision);
+  }
+
   void setAnswersDegree(double degrees){
     setState(() {
       answers = trigoCalc(degrees);
-      radian.text = answers[0];
-      Sin.text = answers[1];
-      Cos.text = answers[2];
-      Tan.text = answers[3];
-      Cot.text = answers[4];
-      Sec.text = answers[5];
-      Cosec.text = answers[6];
+      radian.text = checkAnswer(answers[0]);
+      Sin.text = checkAnswer(answers[1]);
+      Cos.text = checkAnswer(answers[2]);
+      Tan.text = checkAnswer(answers[3]);
+      Cot.text = checkAnswer(answers[4]);
+      Sec.text = checkAnswer(answers[5]);
+      Cosec.text = checkAnswer(answers[6]);
     });
   }
 
   void setAnswersRadian(double radians){
     setState(() {
       answers = trigoCalc(radians);
-      degree.text = answers[0];
-      Sin.text = answers[1];
-      Cos.text = answers[2];
-      Tan.text = answers[3];
-      Cot.text = answers[4];
-      Sec.text = answers[5];
-      Cosec.text = answers[6];
+      degree.text = checkAnswer(answers[0]);
+      Sin.text = checkAnswer(answers[1]);
+      Cos.text = checkAnswer(answers[2]);
+      Tan.text = checkAnswer(answers[3]);
+      Cot.text = checkAnswer(answers[4]);
+      Sec.text = checkAnswer(answers[5]);
+      Cosec.text = checkAnswer(answers[6]);
     });
   }
 
@@ -97,6 +108,7 @@ class _trigonometryState extends State<trigonometry> {
               'TRIGONOMETRY',
               style: TextStyle(
                 fontSize: 20,
+                fontWeight: FontWeight.w900,
                 color: colors[colorTheme][1],
               ),
             ),
@@ -191,7 +203,7 @@ class _trigonometryState extends State<trigonometry> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 15,),
                 Row(
                   children: [
                     Expanded(
@@ -689,7 +701,21 @@ class _trigonometryState extends State<trigonometry> {
                       ),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: 15,),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                    minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                  ),
+                  onPressed: clear,
+                  child: Text(
+                    "Clear",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

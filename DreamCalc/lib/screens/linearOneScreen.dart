@@ -30,6 +30,7 @@ class _linearOneState extends State<linearOne> {
             'LINEAR EQUATION',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

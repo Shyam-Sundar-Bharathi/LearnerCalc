@@ -11,8 +11,8 @@ class areaCalc extends StatefulWidget {
 
 class _areaCalcState extends State<areaCalc> {
 
-  var choice = "";
-  var result = "0";
+  var choice = " ";
+  var result = " ";
   TextEditingController userInput = new TextEditingController();
   String dropDownValue = "SQUARE";
   Map disp = {
@@ -34,10 +34,10 @@ class _areaCalcState extends State<areaCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "Area",
+            "AREA",
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),
@@ -125,16 +125,15 @@ class _areaCalcState extends State<areaCalc> {
                   ),
                   child: Center(
                     child: FittedBox(
-                      child: Text(
-                        formatNumber(double.parse(result)),
-                        style: TextStyle(
-                          fontSize: 25,
+                        child: Text(
+                          result,
+                          style: TextStyle(
+                            fontSize: 25,
+                          ),
                         ),
                       ),
-                    ),
                   ),
-                )
-                ,
+                  ),
               ],
             ),
           ),

@@ -1,5 +1,5 @@
 import 'package:dream_calc/screens/complexScreen.dart';
-import 'package:dream_calc/screens/currencyScreen.dart';
+import 'file:///Users/shyamsundarbharathi/DreamCalculator/DreamCalc/redundant/currencyScreen.dart';
 import 'package:dream_calc/screens/linearChoiceScreen.dart';
 import 'package:dream_calc/screens/linearThreeScreen.dart';
 import 'package:dream_calc/screens/linearTwoScreen.dart';
@@ -39,7 +39,6 @@ void main() {
         '/settings' : (context) => settings(),
         '/unitConversion' : (context) => unitconversion(),
         '/percentage' : (context) => percentCalc(),
-        '/currency' : (context) => currency(),
         '/quadratic' : (context) => quadraticCalc(),
         '/cubic' : (context) => cubicCalc(),
         '/vector' : (context) => vector(),

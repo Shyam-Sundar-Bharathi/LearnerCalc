@@ -29,10 +29,10 @@ class _percentCalcState extends State<percentCalc> {
         appBar: AppBar(
           backgroundColor: colors[colorTheme][9],
           title: Text(
-            'PERCENTAGE CALCULATOR',
+            'PERCENTAGE',
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

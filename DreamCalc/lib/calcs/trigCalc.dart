@@ -31,30 +31,30 @@ double toRadian(double degree){
   return checkRadian(degree*pi/180);
 }
 
-List<String> checkForInfinity(List<String> answers) {
+List<double> checkForInfinity(List<double> answers) {
   List<int> checkers = [3,5,6];
   for(int i=3; i<=6; i++){
-    if(double.parse(answers[i])>100000){
-      answers[i] = 'Infinity';
+    if(answers[i]>100000){
+      answers[i] = 1248;
     }
-    else if(double.parse(answers[i])<-100000){
-      answers[i] = '- Infinity';
+    else if(answers[i]<-100000){
+      answers[i] = -1248;
     }
   }
   return answers;
 }
 
-List<String> trigoCalc(double ui){
-  List<String> answers = [' ',' ',' ',' ',' ',' ',' '];
+List<double> trigoCalc(double ui){
+  List<double> answers = [0,0,0,0,0,0,0];
   if(inFocusDegree && ui!=''){
     double radians = toRadian(ui);
-    answers[0] = radians.toStringAsFixedNoZero(precision);
-    answers[1] = sin(radians).toStringAsFixedNoZero(precision);
-    answers[2] = cos(radians).toStringAsFixedNoZero(precision);
-    answers[3] = tan(radians).toStringAsFixedNoZero(precision);
-    answers[4] = (1/(tan(radians))).toStringAsFixedNoZero(precision);
-    answers[5] = (1/(cos(radians))).toStringAsFixedNoZero(precision);
-    answers[6] = (1/sin(radians)).toStringAsFixedNoZero(precision);
+    answers[0] = radians;
+    answers[1] = sin(radians);
+    answers[2] = cos(radians);
+    answers[3] = tan(radians);
+    answers[4] = 1/(tan(radians));
+    answers[5] = 1/(cos(radians));
+    answers[6] = 1/sin(radians);
     answers = checkForInfinity(answers);
   }
   if(!inFocusDegree && ui!=''){
@@ -63,13 +63,13 @@ List<String> trigoCalc(double ui){
     radians = checkRadian(radians);
     print(radians);
     print(toDegree(radians));
-    answers[0] = toDegree(radians).toStringAsFixedNoZero(precision);
-    answers[1] = sin(radians).toStringAsFixedNoZero(precision);
-    answers[2] = cos(radians).toStringAsFixedNoZero(precision);
-    answers[3] = tan(radians).toStringAsFixedNoZero(precision);
-    answers[4] = (1/(tan(radians))).toStringAsFixedNoZero(precision);
-    answers[5] = (1/(cos(radians))).toStringAsFixedNoZero(precision);
-    answers[6] = (1/sin(radians)).toStringAsFixedNoZero(precision);
+    answers[0] = toDegree(radians);
+    answers[1] = sin(radians);
+    answers[2] = cos(radians);
+    answers[3] = tan(radians);
+    answers[4] = 1/(tan(radians));
+    answers[5] = 1/(cos(radians));
+    answers[6] = 1/sin(radians);
     answers = checkForInfinity(answers);
   }
   return answers;

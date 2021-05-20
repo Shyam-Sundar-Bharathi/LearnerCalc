@@ -31,6 +31,7 @@ class _complexState extends State<complex> {
             'COMPLEX',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

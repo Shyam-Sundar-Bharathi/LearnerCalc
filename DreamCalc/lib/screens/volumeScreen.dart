@@ -33,10 +33,10 @@ class _volumeCalcState extends State<volumeCalc> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            "Volume",
+            "VOLUME",
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),
@@ -70,6 +70,7 @@ class _volumeCalcState extends State<volumeCalc> {
                     minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                   ),
                   onPressed: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
                       result = volume(userInput.text, dropDownValue);
                     });
@@ -125,7 +126,7 @@ class _volumeCalcState extends State<volumeCalc> {
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        result == " "? result : formatNumber(double.parse(result)),
+                        result,
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

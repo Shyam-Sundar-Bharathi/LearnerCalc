@@ -33,6 +33,7 @@ class _linearTwoState extends State<linearTwo> {
             'LINEAR EQUATION',
             style: TextStyle(
               fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),

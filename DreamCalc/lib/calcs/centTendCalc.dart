@@ -5,16 +5,17 @@ import 'package:dream_calc/screens/genScreen.dart';
 
 String centTend(String userInput, int choice){
   if(userInput == '')
-    return '0';
+    return ' ';
   if(userInput.endsWith(','))
     userInput = userInput.substring(0,userInput.length-1);
-  dynamic result;
+  double result;
+  String Mode;
     switch(choice){
       case 0: result = mean(userInput);
       break;
       case 1: result = median(userInput);
       break;
-      case 2: result = mode(userInput);
+      case 2: Mode = mode(userInput);
       break;
       case 3: result = stddev(userInput);
       break;
@@ -30,24 +31,18 @@ String centTend(String userInput, int choice){
       break;
 
     }
-  return choice == 2? result : formatNumber(double.parse(result.toStringAsFixedNoZero(precision)));
+  return choice == 2? Mode : formatNumber(double.parse(result.toStringAsFixedNoZero(precision)));
 }
 
 
 double mean (String userInput) {
-  if(userInput.endsWith(','))
-    userInput = userInput.substring(0,userInput.length-1);
   var sArray = userInput.split(",");
-  if(sArray.length == 1)
-    return double.parse(sArray[0]);
-  var iArray = [];
   var length = sArray.length;
-  var iter = 0;
-  for(iter=0; iter<length; iter++)
+  List<num> iArray = [];
+  for(int iter=0; iter<length; iter++)
     iArray.add(double.parse(sArray[iter]));
-  var sum = iArray.fold(0, (a, b) => a + b);
-  print((sum/length).runtimeType);
-  return (sum/length);
+  final c = CentralTendency(Vector(iArray));
+  return c.arithmetic().toDouble();
 }
 
 double median (String userInput) {
@@ -73,11 +68,18 @@ String mode (String userInput) {
   var iArray = <num>[];
   var length = sArray.length;
   var iter = 0;
-  var mode = 0.0;
   for(iter=0; iter<length; iter++)
     iArray.add(double.parse(sArray[iter]));
   final c = CentralTendency(Vector(iArray));
-  return c.mode().toString();
+  String answer = c.mode().toString();
+  answer = answer.substring(1, answer.length - 1);
+  sArray = answer.split(',');
+  answer = '';
+  for(iter=0; iter<sArray.length; iter++){
+    answer += double.parse(sArray[iter]).toStringAsFixedNoZero(10) + ', ';
+  }
+  answer = answer.substring(0, answer.length - 2);
+  return answer;
 }
 
 double range (String userInput) {
@@ -118,20 +120,19 @@ double gm(String userInput){
   var sArray = userInput.split(",");
   double result=1;
   var length = sArray.length;
-  var iter = 0;
-  for(iter=0; iter<length; iter++)
-    result *= double.parse(sArray[iter]);
-  result = pow(result, 1/length);
-  return result;
+  List<num> iArray = [];
+  for(int iter=0; iter<length; iter++)
+    iArray.add(double.parse(sArray[iter]));
+  final c = CentralTendency(Vector(iArray));
+  return c.geometric().toDouble();
 }
 
 double hm(String userInput){
   var sArray = userInput.split(",");
-  double result=0;
   var length = sArray.length;
-  var iter = 0;
-  for(iter=0; iter<length; iter++)
-    result += 1/double.parse(sArray[iter]);
-  result = length/result;
-  return result;
+  List<num> iArray = [];
+  for(int iter=0; iter<length; iter++)
+    iArray.add(double.parse(sArray[iter]));
+  final c = CentralTendency(Vector(iArray));
+  return c.harmonic().toDouble();
 }

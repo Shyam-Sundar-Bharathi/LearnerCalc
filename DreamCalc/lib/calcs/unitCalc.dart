@@ -1,35 +1,68 @@
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/genScreen.dart';
 
-String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
+String displayConvert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
   if(userInput == "")
-    return "0";
+    return "";
+  userInput = userInput.replaceAll(',', '');
   double input = 0;
   input = double.parse(userInput);
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);
 
   if(unitElement.toLowerCase() == 'length'){
-    return (frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, precision)).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse((frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, precision)).toStringAsFixedNoZero(10)));
   }
 
   if(unitElement.toLowerCase() == 'mass')
-    return fromgram(togram(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(fromgram(togram(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
 
   if(unitElement.toLowerCase() == 'plane angle')
-    return fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
 
   if(unitElement.toLowerCase() == 'speed')
-    return frommps(tomps(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(frommps(tomps(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
 
   if(unitElement.toLowerCase() == 'energy')
-    return fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
 
   if(unitElement.toLowerCase() == 'area')
-    return fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
 
   if(unitElement.toLowerCase() == 'volume')
-    return fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision);
+    return formatNumber(double.parse(fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(10)));
+}
+
+String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
+  if(userInput == "")
+    return "";
+  userInput = userInput.replaceAll(',', '');
+  double input = 0;
+  input = double.parse(userInput);
+  if(unitElement.toLowerCase() == "temperature")
+    return temperature(unitChoiceOne, unitChoiceTwo, userInput);
+
+  if(unitElement.toLowerCase() == 'length'){
+    return formatNumber(double.parse((frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, precision)).toStringAsFixedNoZero(precision)));
+  }
+
+  if(unitElement.toLowerCase() == 'mass')
+    return formatNumber(double.parse(fromgram(togram(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+
+  if(unitElement.toLowerCase() == 'plane angle')
+    return formatNumber(double.parse(fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+
+  if(unitElement.toLowerCase() == 'speed')
+    return formatNumber(double.parse(frommps(tomps(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+
+  if(unitElement.toLowerCase() == 'energy')
+    return formatNumber(double.parse(fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+
+  if(unitElement.toLowerCase() == 'area')
+    return formatNumber(double.parse(fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+
+  if(unitElement.toLowerCase() == 'volume')
+    return formatNumber(double.parse(fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
 }
 
 double tocumeter(String unitChoiceOne, double userInput){

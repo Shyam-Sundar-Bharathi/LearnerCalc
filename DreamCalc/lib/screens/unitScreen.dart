@@ -10,6 +10,7 @@ class unitconversion extends StatefulWidget {
 }
 
 class _unitconversionState extends State<unitconversion> {
+
   bool inFocusOne = false;
   String answer = "answer";
   TextEditingController userInputOne = new TextEditingController();
@@ -42,10 +43,10 @@ class _unitconversionState extends State<unitconversion> {
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
           title: Text(
-            'Unit Conversion',
+            'UNIT CONVERSION',
             style: TextStyle(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
           ),
@@ -216,6 +217,20 @@ class _unitconversionState extends State<unitconversion> {
                         );
                       }).toList(),
                     )],
+                ),
+                SizedBox(height: 50,),
+                Center(
+                  child: FittedBox(
+                    child: Text(
+                      inFocusOne?
+                      "1 $unitChoiceOne = ${displayConvert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1')} $unitChoiceTwo" :
+                      "1 $unitChoiceTwo = ${displayConvert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1')} $unitChoiceOne",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
