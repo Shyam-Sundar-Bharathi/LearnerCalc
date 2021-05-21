@@ -35,21 +35,21 @@ class _homeState extends State<home> {
   }
 
   Map routes = {
-    0 : ['LCM HCF','/lcmhcf'],
-    1 : ['CENTRAL\nTENDENCY', '/centTend'],
-    2 : ['AREA', '/area'],
-    3 : ['VOLUME', '/volume'],
-    4 : ['UNIT\nCONVERSION', '/unitConversion'],
-    5 : ['PERCENTAGE', '/percentage'],
-    6 : ['QUADRATIC\nEQUATION', '/quadratic'],
-    7 : ['CUBIC\nEQUATION', '/cubic'],
-    8 : ['TRIGONOMETRY', '/trigonometry'],
-    9 : ['VECTOR', '/vector'],
-    10 : ['MATRIX','/matrixChoice'],
-    11 : ['COMPLEX\nNUMBERS', '/complex'],
-    12 : ['LINEAR\nEQUATIONS', '/linearChoice'],
-    13 : ['FORMULAE\nSHEET', '/formulaChoice'],
-    14 : ['HOW TO\nUSE', '/howToUse']
+    0 : ['GENERAL\nCALCULATOR', '/genCalc'],
+    1 : ['LCM HCF','/lcmhcf'],
+    2 : ['CENTRAL\nTENDENCY', '/centTend'],
+    3 : ['AREA', '/area'],
+    4 : ['VOLUME', '/volume'],
+    5 : ['UNIT\nCONVERSION', '/unitConversion'],
+    6 : ['PERCENTAGE', '/percentage'],
+    7 : ['QUADRATIC\nEQUATION', '/quadratic'],
+    8 : ['CUBIC\nEQUATION', '/cubic'],
+    9 : ['TRIGONOMETRY', '/trigonometry'],
+    10 : ['VECTOR', '/vector'],
+    11 : ['MATRIX','/matrixChoice'],
+    12 : ['COMPLEX\nNUMBERS', '/complex'],
+    13 : ['LINEAR\nEQUATIONS', '/linearChoice'],
+    14 : ['FORMULAE\nSHEET', '/formulaChoice'],
   };
 
   @override

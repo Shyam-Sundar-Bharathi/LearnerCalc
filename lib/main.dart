@@ -1,6 +1,7 @@
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/differentialScreen.dart';
 import 'package:dream_calc/screens/formulaeChoiceScreen.dart';
+import 'package:dream_calc/screens/genCalcScreen.dart';
 import 'package:dream_calc/screens/integralScreen.dart';
 import 'package:dream_calc/screens/linearChoiceScreen.dart';
 import 'package:dream_calc/screens/linearThreeScreen.dart';
@@ -34,6 +35,7 @@ void main() {
       routes: {
         '/' : (context) => loading(),
         '/genScreen' : (context) => home(),
+        '/genCalc' : (context) => genCalc(),
         '/lcmhcf' : (context) => lcmhcfCalc(),
         '/centTend' : (context) => centTendCalc(),
         '/area' : (context) => areaCalc(),
