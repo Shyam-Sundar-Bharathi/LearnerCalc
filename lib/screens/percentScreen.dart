@@ -1,9 +1,8 @@
 import 'dart:core';
 import 'package:dream_calc/calcs/percentCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dream_calc/calcs/percentCalc.dart';
 class percentCalc extends StatefulWidget {
   @override
   _percentCalcState createState() => _percentCalcState();
@@ -63,6 +62,8 @@ class _percentCalcState extends State<percentCalc> {
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -97,6 +98,8 @@ class _percentCalcState extends State<percentCalc> {
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -126,6 +129,7 @@ class _percentCalcState extends State<percentCalc> {
                   width: 300,
                   height: 50,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: Border.all(),
                   ),
                   child: Center(
@@ -162,6 +166,8 @@ class _percentCalcState extends State<percentCalc> {
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -194,6 +200,8 @@ class _percentCalcState extends State<percentCalc> {
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -221,6 +229,7 @@ class _percentCalcState extends State<percentCalc> {
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(

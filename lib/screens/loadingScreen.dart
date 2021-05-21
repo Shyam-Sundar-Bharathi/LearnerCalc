@@ -1,4 +1,4 @@
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';

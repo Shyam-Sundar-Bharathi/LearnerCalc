@@ -1,4 +1,4 @@
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 class settings extends StatefulWidget {
   @override
@@ -14,19 +14,13 @@ class _settingsState extends State<settings> {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
       appBar: AppBar(
-        title: TextButton.icon(
-          onPressed: (){},
-          icon: Icon(
-              Icons.settings,
-            color: Colors.white,
-          ),
-          label: Text(
-            "Settings",
+        title: Text(
+            "SETTINGS",
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 20,
+              fontWeight: FontWeight.w900,
               color: colors[colorTheme][1],
             ),
-          ),
         ),
         backgroundColor: colors[colorTheme][9],
       ),
@@ -36,6 +30,7 @@ class _settingsState extends State<settings> {
           child: Column(
             children: [
               Card(
+                elevation: 40,
                 color: Colors.grey[200],
                 child: Container(
                   padding: EdgeInsets.all(15),
@@ -72,8 +67,8 @@ class _settingsState extends State<settings> {
                         max: 10.0,
                         divisions: 10,
                         label: "Precision",
-                        activeColor: Colors.blue[900],
-                        inactiveColor: Colors.blue[200],
+                        activeColor: colors[colorTheme][9],
+                        inactiveColor: colors[colorTheme][7],
                       ),
                       Text(
                         sliderValue.toString() + alertMessage,
@@ -96,6 +91,7 @@ class _settingsState extends State<settings> {
               ),
               SizedBox(height: 20,),
               Card(
+                elevation: 40,
                 color: Colors.grey[200],
                 child: Container(
                   padding: EdgeInsets.all(15),
@@ -129,13 +125,68 @@ class _settingsState extends State<settings> {
                         items: <String>['GRAYSCALE','BLUE','GREEN','PINK','YELLOW', 'PURPLE','RED'].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value),
+                            child: Text(
+                                value,
+                              style: TextStyle(
+                                color: colors[colorTheme][9]
+                              ),
+                            ),
                           );
                         }).toList(),
                       ),
                     ],
                   ),
                 )
+              ),
+              SizedBox(height: 20,),
+              Card(
+                elevation: 40,
+                color: Colors.grey[200],
+                child: Container(
+                  width: MediaQuery. of(context). size. width - 30,
+                  padding: EdgeInsets.all(15),
+                    child: ElevatedButton.icon(
+                      icon: Icon(
+                          Icons.info_outline,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                          "ABOUT",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black
+                        ),
+                      ),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                      ),
+                    ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              Card(
+                elevation: 40,
+                color: Colors.grey[200],
+                child: Container(
+                  width: MediaQuery. of(context). size. width - 30,
+                  padding: EdgeInsets.all(15),
+                  child: ElevatedButton.icon(
+                    icon: Icon(
+                      Icons.contact_support_outlined,
+                      color: Colors.black,
+                    ),
+                    label: Text(
+                      "CONTACT US",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                    ),
+                  ),
+                ),
               )
             ],
           ),

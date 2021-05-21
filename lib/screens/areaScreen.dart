@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/areaCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 
 class areaCalc extends StatefulWidget {
@@ -22,7 +23,21 @@ class _areaCalcState extends State<areaCalc> {
     'TRIANGLE' : "Enter base, height or sides a,b,c (comma separated)",
     'PARALLELOGRAM' : "Enter base, height (comma separated)",
     'RHOMBUS' : "Enter diagonal 1, diagonal 2 (comma separated)",
+    'TRAPEZIUM' : "Enter height, base 1, base 2 (comma separated)",
+    'ELLIPSE' : "Enter a,b (comma separated)",
+    'CUBE' : "Enter side length",
+    'CUBOID' : "Enter length, breadth, height (comma separated)",
+    'SPHERE' : "Enter radius",
+    'CONE' : "Enter base radius, slant height (comma separated)",
+    'CYLINDER' : "Enter base radius, height (comma separated)",
+    'HEMISPHERE' : "Enter radius"
   };
+
+  bool is3d(String s){
+    if(s == "CUBE" || s == "CUBOID" ||s == "SPHERE" ||s == "CONE" ||s == "CYLINDER" || s=="HEMISPHERE")
+      return true;
+    return false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +114,11 @@ class _areaCalcState extends State<areaCalc> {
                   onChanged: (String newValue) {
                     setState(() {
                       dropDownValue = newValue;
+                      userInput.text = "";
+                      result = "";
                     });
                   },
-                  items: <String>['SQUARE','CIRCLE','RECTANGLE','TRIANGLE','PARALLELOGRAM','RHOMBUS'].map<DropdownMenuItem<String>>((String value) {
+                  items: <String>['SQUARE','CIRCLE','RECTANGLE','TRIANGLE','PARALLELOGRAM','RHOMBUS','TRAPEZIUM','ELLIPSE','CUBE','SPHERE','CUBOID','CYLINDER','CONE', 'HEMISPHERE'].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -111,7 +128,7 @@ class _areaCalcState extends State<areaCalc> {
                 SizedBox(height: 40),
 
                 Text(
-                  "AREA OF $dropDownValue",
+                  is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -122,6 +139,7 @@ class _areaCalcState extends State<areaCalc> {
                   height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(

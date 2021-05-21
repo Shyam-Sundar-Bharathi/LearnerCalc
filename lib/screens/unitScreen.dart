@@ -1,5 +1,5 @@
 
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/unitCalc.dart';
@@ -11,7 +11,8 @@ class unitconversion extends StatefulWidget {
 
 class _unitconversionState extends State<unitconversion> {
 
-  bool inFocusOne = false;
+  bool inFocusOne = true;
+  bool inFocusTwo = true;
   String answer = "answer";
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
@@ -95,6 +96,7 @@ class _unitconversionState extends State<unitconversion> {
                         onTap: (){
                           setState(() {
                             inFocusOne = true;
+                            inFocusTwo = false;
                             answer =  "";
                             userInputTwo.text=answer;
                           });
@@ -110,11 +112,13 @@ class _unitconversionState extends State<unitconversion> {
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                          decoration: InputDecoration(
+                           fillColor: Colors.white,
+                           filled: true,
                            border:OutlineInputBorder(
                              borderSide: const BorderSide(color: Colors.black, width: 2.0),
                              borderRadius: BorderRadius.zero,
                            ),
-                           labelText: inFocusOne? 'Enter' : 'answer',
+                           labelText: inFocusOne? 'Enter' : 'Answer',
                            labelStyle: TextStyle(
                              fontSize: 20.0,
                            ),
@@ -161,6 +165,7 @@ class _unitconversionState extends State<unitconversion> {
                         onTap: (){
                           setState(() {
                             inFocusOne = false;
+                            inFocusTwo = false;
                             answer = "";
                             userInputOne.text = answer;
                           });
@@ -176,11 +181,13 @@ class _unitconversionState extends State<unitconversion> {
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
                           ),
-                          labelText: inFocusOne? 'answer' : 'Enter',
+                          labelText: inFocusOne? (inFocusTwo ?'Enter' : 'Answer') : 'Enter',
                           labelStyle: TextStyle(
                             fontSize: 20.0,
                           ),

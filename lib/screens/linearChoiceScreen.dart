@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class linearChoice extends StatefulWidget {
   const linearChoice({Key key}) : super(key: key);
 
@@ -10,9 +10,9 @@ class linearChoice extends StatefulWidget {
 class _linearChoiceState extends State<linearChoice> {
 
   Map choices = {
-    0 : ['1 VARIABLE', 'linearOne'],
-    1 : ['2 VARIABLES', 'linearTwo'],
-    2 : ['3 VARIABLES', 'linearThree']
+    0 : ['1 VARIABLE', '/linearOne'],
+    1 : ['2 VARIABLES', '/linearTwo'],
+    2 : ['3 VARIABLES', '/linearThree']
   };
 
 

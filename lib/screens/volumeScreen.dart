@@ -1,8 +1,7 @@
-import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/volumeCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 class volumeCalc extends StatefulWidget {
   @override
@@ -21,6 +20,7 @@ class _volumeCalcState extends State<volumeCalc> {
     'CUBOID' : "Enter length, breadth, height (comma separated)",
     'CONE' : "Enter base radius, height (comma separated)",
     'CYLINDER' : "Enter base radius, height (comma separated)",
+    'HEMISPHERE' : "Enter radius",
   };
 
   @override
@@ -99,9 +99,11 @@ class _volumeCalcState extends State<volumeCalc> {
                   onChanged: (String newValue) {
                     setState(() {
                       dropDownValue = newValue;
+                      result = "";
+                      userInput.text = "";
                     });
                   },
-                  items: <String>['CUBE','SPHERE','CUBOID','CYLINDER','CONE'].map<DropdownMenuItem<String>>((String value) {
+                  items: <String>['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE'].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -122,6 +124,7 @@ class _volumeCalcState extends State<volumeCalc> {
                   height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(

@@ -1,7 +1,7 @@
 import 'package:dream_calc/calcs/matrixFourCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 class matrixFour extends StatefulWidget {
   const matrixFour({Key key}) : super(key: key);
@@ -68,6 +68,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -91,6 +93,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -114,6 +118,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -137,6 +143,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -164,6 +172,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -187,6 +197,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -210,6 +222,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -233,6 +247,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -260,6 +276,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -283,6 +301,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -306,6 +326,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -329,6 +351,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -356,6 +380,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -379,6 +405,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -402,6 +430,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,
@@ -425,6 +455,8 @@ class _matrixFourState extends State<matrixFour> {
                                 FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                               ],
                               decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 border:OutlineInputBorder(
                                   borderSide: const BorderSide(color: Colors.black, width: 2.0),
                                   borderRadius: BorderRadius.zero,

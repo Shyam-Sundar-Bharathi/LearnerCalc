@@ -1,4 +1,4 @@
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/calcs/complexCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +11,7 @@ class complex extends StatefulWidget {
 
 class _complexState extends State<complex> {
 
-  String choice = "" , result = "";
+  String choice = " " , result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
   TextEditingController a2 = new TextEditingController();
@@ -64,6 +64,8 @@ class _complexState extends State<complex> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -96,6 +98,8 @@ class _complexState extends State<complex> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -141,6 +145,8 @@ class _complexState extends State<complex> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -173,6 +179,8 @@ class _complexState extends State<complex> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -395,7 +403,7 @@ class _complexState extends State<complex> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "";
+                          choice = " ";
                           result = roots(a1.text,b1.text,2);
                         });
                       },
@@ -414,7 +422,7 @@ class _complexState extends State<complex> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "";
+                          choice = " ";
                           result = roots(a1.text,b1.text,3);
                         });
                       },
@@ -450,14 +458,15 @@ class _complexState extends State<complex> {
                 Container(
                   width: 300,
                   height: 150,
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        (result =="") ? " " :
-                        choice == "" ? "$result" : "$choice = $result",
+                        choice== " " ? result : "$choice = $result",
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

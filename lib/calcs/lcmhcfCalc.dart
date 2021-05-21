@@ -11,7 +11,7 @@ double gcd(double a, double b) {
 
 String primeFactors(String userInput){
   if(userInput == "")
-    return '';
+    return ' ';
   String factor = '';
   double number = double.parse(userInput);
   while (number % 2 == 0)
@@ -24,7 +24,7 @@ String primeFactors(String userInput){
     while (number % i == 0)
     {
       factor += '$i, ';
-      number/=i;;
+      number/=i;
     }
   }
 
@@ -38,11 +38,24 @@ String primeFactors(String userInput){
 
 }
 
+String factors(String userInput){
+  if(userInput == "")
+    return ' ';
+  String factor = "1, ";
+  double number = double.parse(userInput);
+  for(int i=2; i<=number/2; i++){
+    if(number%i == 0){
+      factor += '$i, ';
+    }
+  }
+  factor += '${number.toInt()}';
+  return factor;
+}
+
 String lcm(String userInput){
   if(userInput == "")
-    return '';
+    return " ";
   var sArray = userInput.split(",");
-  var length = sArray.length;
   var iArray = [];
   double lcm;
   int iter= 0;
@@ -60,7 +73,7 @@ String lcm(String userInput){
 
 String hcf (String userInput) {
   if(userInput == "")
-    return '';
+    return " ";
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];

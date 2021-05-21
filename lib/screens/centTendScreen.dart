@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/centTendCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class centTendCalc extends StatefulWidget {
   @override
   _centTendCalcState createState() => _centTendCalcState();
@@ -266,6 +266,7 @@ class _centTendCalcState extends State<centTendCalc> {
                   height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(

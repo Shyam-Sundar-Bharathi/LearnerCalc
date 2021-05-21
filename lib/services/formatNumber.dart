@@ -1,8 +1,14 @@
-import 'package:flutter/services.dart';
 
 extension Ex on double {
   String toStringAsFixedNoZero(int precision) {
     String result = double.parse(this.toStringAsFixed(precision)).toString();
+    if(this.toDouble() != 0 && double.parse(result) == 0){
+      while(this.toDouble()!= 0 && double.parse(result) == 0 && precision < 6){
+        precision++;
+        print(precision);
+        result = double.parse(this.toStringAsFixed(precision)).toString();
+      }
+    }
     int length = result.length;
     if(result.substring(length-2,length) == '.0'){
       return result.substring(0,length-2);
@@ -24,6 +30,9 @@ String reverseString(String number){
 }
 
 String formatNumber(double number, {bool isCurrency = false}){
+  if(number.toString().contains('e')){
+    return number.toString();
+  }
   if(number == 0)
     return "0";
   bool isNegative = number<0? true : false ;
@@ -44,7 +53,7 @@ String formatNumber(double number, {bool isCurrency = false}){
       decimal = '00';
   }
   else
-    decimal = number.toString().contains('.')? number.toString().split('.')[1] : '';
+    decimal = number.toString().contains('.')? number.toString().split('.')[1] : '0';
 
 
   int numberI = number.truncate();
@@ -53,7 +62,7 @@ String formatNumber(double number, {bool isCurrency = false}){
   while(numberI>0){
     n++;
     formattedNumber += (numberI%10).toString();
-    numberI = (numberI/10).toInt();
+    numberI = (numberI~/10);
     if(n==3 && numberI != 0){
       formattedNumber += ",";
       n=0;

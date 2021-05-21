@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
 
 class differential extends StatefulWidget {
@@ -63,6 +63,53 @@ class _differentialState extends State<differential> {
           child: ListView.builder(
             itemCount: diffs.length,
             itemBuilder: (context, index) {
+              if(index == 0){
+                return Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 80,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: Center(
+                          child: FittedBox(
+                              child: DefaultTextStyle(
+                                child: CaTeX(diffs[index][0]),
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: Colors.black
+                                ),
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 80,
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(),
+                        ),
+                        child: Center(
+                          child: FittedBox(
+                              child: DefaultTextStyle(
+                                child: CaTeX(diffs[index][1]),
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: Colors.black
+                                ),
+                              )
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }
+              else
                 return Row(
                   children: [
                     Expanded(

@@ -1,6 +1,6 @@
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 String calcx(String A, String B){
   double a = double.parse(A);

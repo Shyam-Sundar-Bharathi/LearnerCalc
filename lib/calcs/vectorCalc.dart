@@ -1,6 +1,6 @@
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 String mod(String a, String b, String c){
   List vectors = <num>[double.parse(a),double.parse(b),double.parse(c)];

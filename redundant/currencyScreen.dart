@@ -3,7 +3,7 @@ import 'file:///Users/shyamsundarbharathi/DreamCalculator/redundant/currencyConv
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class currency extends StatefulWidget {
   const currency({Key key}) : super(key: key);
   @override

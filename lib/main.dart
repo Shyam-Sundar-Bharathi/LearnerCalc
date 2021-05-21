@@ -16,7 +16,7 @@ import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/screens/lcmhcfScreen.dart';
 import 'package:dream_calc/screens/centTendScreen.dart';
 import 'package:dream_calc/screens/areaScreen.dart';

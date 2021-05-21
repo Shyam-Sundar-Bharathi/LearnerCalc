@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class formulaChoice extends StatefulWidget {
   const formulaChoice({Key key}) : super(key: key);
 

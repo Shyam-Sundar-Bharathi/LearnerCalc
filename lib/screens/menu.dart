@@ -67,6 +67,12 @@ class _homeState extends State<home> {
           ),
         ),
         centerTitle: true,
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.settings,
+        //     color: colors[colorTheme][1],
+        // ),
+        // ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
@@ -83,7 +89,6 @@ class _homeState extends State<home> {
           });
         },
       ),
-      //drawer: myDrawer(),
       body: Column(
         children: [
           Expanded(
@@ -97,7 +102,6 @@ class _homeState extends State<home> {
                   ),
                   itemBuilder: (BuildContext context, int index){
                   return Container(
-                    width: MediaQuery.of(context).size.width,
                     height: 5,
                     child: Card(
                       color: Colors.grey,

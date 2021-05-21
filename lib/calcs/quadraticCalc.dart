@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 List<String> quadCalc(String A, String B, String C){
   double a = double.parse(A);

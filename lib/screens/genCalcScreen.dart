@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'dart:io' show Platform;
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/services/buttons.dart';
@@ -215,7 +215,7 @@ class _genCalcState extends State<genCalc> {
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: colors[colorTheme][3],
           ),
         ),
         backgroundColor: Colors.black,
@@ -316,9 +316,8 @@ class _genCalcState extends State<genCalc> {
                             setState(() {
                               answer = "Incorrect Expression";
                             });
-                          else if (answer == 'Incorrect Expression')
-                            null;
-                          else
+
+                          else if(answer!= 'Incorrect Expression')
                             setState(() {
                               userInput.text = double.parse(answer).toStringAsFixedNoZero(10);
                               answer="";
@@ -343,7 +342,7 @@ class _genCalcState extends State<genCalc> {
                         },
                         buttonText: buttons[index],
                         color: isOperator(buttons[index])
-                            ? tappedIndex == index? colors[colorTheme][5] : colors[colorTheme][11]
+                            ? tappedIndex == index?  colors[colorTheme][5] : colors[colorTheme][11]
                             : tappedIndex == index? Colors.grey[400] : Colors.grey[200],
                         textColor: isOperator(buttons[index])
                             ? Colors.white

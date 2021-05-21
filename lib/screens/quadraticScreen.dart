@@ -1,5 +1,5 @@
 import 'package:dream_calc/calcs/quadraticCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 class quadraticCalc extends StatefulWidget {
@@ -79,6 +79,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
                           decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
                             border:OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.black, width: 2.0),
                               borderRadius: BorderRadius.zero,
@@ -114,6 +116,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
                           decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
                             border:OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.black, width: 2.0),
                               borderRadius: BorderRadius.zero,
@@ -155,6 +159,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
                           decoration: InputDecoration(
+                            fillColor: Colors.white,
+                            filled: true,
                             border:OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.black, width: 2.0),
                               borderRadius: BorderRadius.zero,
@@ -213,6 +219,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             height: 70,
                             decoration: BoxDecoration(
                               border: Border.all(),
+                              color: Colors.white,
                             ),
                             child: Center(
                               child: Text(
@@ -243,6 +250,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             height: 70,
                             decoration: BoxDecoration(
                               border: Border.all(),
+                              color: Colors.white,
                             ),
                             child: Center(
                               child: Text(
@@ -273,6 +281,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             height: 70,
                             decoration: BoxDecoration(
                               border: Border.all(),
+                              color: Colors.white,
                             ),
                             child: Center(
                               child: Text(

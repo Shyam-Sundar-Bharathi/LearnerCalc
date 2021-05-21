@@ -1,6 +1,6 @@
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 String formatComplex(String ans){
   int length = ans.length;
   List signs = ['',''];
@@ -25,7 +25,7 @@ String add(String a1, String b1, String a2, String b2){
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 + B2 > 0 ? '+' : '';
-  return (A1+A2).toStringAsFixedNoZero(precision) + 'i ' + sign + (B1+B2).toStringAsFixedNoZero(precision) + 'i';
+  return (A1+A2).toStringAsFixedNoZero(precision) + ' ' + sign + ' ' + (B1+B2).toStringAsFixedNoZero(precision) + 'i';
 }
 
 String sub(String a1, String b1, String a2, String b2){
@@ -34,12 +34,11 @@ String sub(String a1, String b1, String a2, String b2){
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 - B2 > 0 ? '+' : '';
-  return (A1-A2).toStringAsFixedNoZero(precision) + 'i ' + sign + (B1-B2).toStringAsFixedNoZero(precision) + 'i';
+  return (A1-A2).toStringAsFixedNoZero(precision) + ' ' + sign + ' ' + (B1-B2).toStringAsFixedNoZero(precision) + 'i';
 }
 
 String power(String a, String b, int power){
   final c = Complex(re: double.parse(a), im: double.parse(b));
-  print(c.pow(power).toString());
   return formatComplex(c.pow(power).toString());
 }
 

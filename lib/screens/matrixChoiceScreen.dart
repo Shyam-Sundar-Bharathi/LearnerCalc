@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class matrixChoice extends StatefulWidget {
   const matrixChoice({Key key}) : super(key: key);
 

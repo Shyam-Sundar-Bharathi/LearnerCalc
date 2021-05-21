@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
 
 class integral extends StatefulWidget {

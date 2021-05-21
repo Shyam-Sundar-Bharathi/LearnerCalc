@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
-import 'package:flutter/material.dart';
+
 
 const double pi = 3.141592653589793238462643383279502884197169399375105820974944;
 
@@ -32,7 +32,6 @@ double toRadian(double degree){
 }
 
 List<double> checkForInfinity(List<double> answers) {
-  List<int> checkers = [3,5,6];
   for(int i=3; i<=6; i++){
     if(answers[i]>100000){
       answers[i] = 1248;
@@ -46,7 +45,7 @@ List<double> checkForInfinity(List<double> answers) {
 
 List<double> trigoCalc(double ui){
   List<double> answers = [0,0,0,0,0,0,0];
-  if(inFocusDegree && ui!=''){
+  if(inFocusDegree){
     double radians = toRadian(ui);
     answers[0] = radians;
     answers[1] = sin(radians);
@@ -57,7 +56,7 @@ List<double> trigoCalc(double ui){
     answers[6] = 1/sin(radians);
     answers = checkForInfinity(answers);
   }
-  if(!inFocusDegree && ui!=''){
+  if(!inFocusDegree){
 
     double radians = ui;
     radians = checkRadian(radians);

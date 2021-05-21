@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 String centTend(String userInput, int choice){
   if(userInput == '')
@@ -118,7 +118,6 @@ double cv (String userInput){
 
 double gm(String userInput){
   var sArray = userInput.split(",");
-  double result=1;
   var length = sArray.length;
   List<num> iArray = [];
   for(int iter=0; iter<length; iter++)

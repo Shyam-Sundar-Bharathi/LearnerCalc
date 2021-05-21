@@ -1,7 +1,7 @@
 import 'package:dream_calc/calcs/linearCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 class linearThree extends StatefulWidget {
   const linearThree({Key key}) : super(key: key);
 
@@ -63,6 +63,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -97,6 +99,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -131,6 +135,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -165,6 +171,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -194,6 +202,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -228,6 +238,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -262,6 +274,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -296,6 +310,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -325,6 +341,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -359,6 +377,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -393,6 +413,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -427,6 +449,8 @@ class _linearThreeState extends State<linearThree> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -465,6 +489,7 @@ class _linearThreeState extends State<linearThree> {
                   height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(

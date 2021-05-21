@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/lcmhcfCalc.dart';
-import 'package:dream_calc/screens/genScreen.dart';
+import 'package:dream_calc/screens/menu.dart';
 
 class lcmhcfCalc extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
   var choice = " ";
   var result = " ";
   TextEditingController userInput = new TextEditingController();
-  TextEditingController userInputpf = new TextEditingController();
+  TextEditingController userInputf = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                 ),
                 SizedBox(height: 40),
                 TextField(
-                  controller: userInputpf,
+                  controller: userInputf,
                   keyboardType: TextInputType.number,
                   enableInteractiveSelection: true,
                   inputFormatters: [
@@ -118,72 +118,112 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   ElevatedButton(
-                     style: ButtonStyle(
-                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                   Expanded(
+                     child: ElevatedButton(
+                       style: ButtonStyle(
+                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                       ),
+                       onPressed: () {
+                         FocusScope.of(context).requestFocus(FocusNode());
+                         setState(() {
+                           choice = "FACTORS";
+                           result = factors(userInputf.text);
+                         });
+                       },
+                       child: FittedBox(
+                         child: Text(
+                           "FACTORS",
+                           style: TextStyle(
+                             color: Colors.black,
+                           ),
+                         ),
+                       )
                      ),
-                     onPressed: () {
-                       FocusScope.of(context).requestFocus(FocusNode());
-                       setState(() {
-                         choice = "PRIME FACTORS";
-                         result = primeFactors(userInputpf.text);
-                       });
-                     },
-                     child: Text(
-                       "PRIME FACTORS",
-                       style: TextStyle(
-                         color: Colors.black,
+                   ),
+                   SizedBox(width: 20),
+                   Expanded(
+                     child: ElevatedButton(
+                       style: ButtonStyle(
+                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                       ),
+                       onPressed: () {
+                         FocusScope.of(context).requestFocus(FocusNode());
+                         setState(() {
+                           choice = "PRIME FACTORS";
+                           result = primeFactors(userInputf.text);
+                         });
+                       },
+                       child: FittedBox(
+                         child: Text(
+                           "PRIME FACTORS",
+                           style: TextStyle(
+                             color: Colors.black,
+                           ),
+                         ),
                        ),
                      ),
                    ),
                    SizedBox(width: 20),
-                   ElevatedButton(
-                     style: ButtonStyle(
-                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                     ),
-                     onPressed: () {
-                       FocusScope.of(context).requestFocus(FocusNode());
-                       setState(() {
-                         choice = " ";
-                         result = isPrime(userInputpf.text);
-                       });
-                     },
-                     child: Text(
-                       "IS PRIME ?",
-                       style: TextStyle(
-                         color: Colors.black,
+                   Expanded(
+                     child: ElevatedButton(
+                       style: ButtonStyle(
+                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                       ),
+                       onPressed: () {
+                         FocusScope.of(context).requestFocus(FocusNode());
+                         setState(() {
+                           choice = " ";
+                           result = isPrime(userInputf.text);
+                         });
+                       },
+                       child: FittedBox(
+                         child: Text(
+                           "IS PRIME ?",
+                           style: TextStyle(
+                             color: Colors.black,
+                           ),
+                         ),
                        ),
                      ),
                    ),
                  ],
                ),
                 SizedBox(height: 40),
-                Text(
-                  "$choice",
-                  style: TextStyle(
-                    fontSize: 30,
-                  ),
-                ),
-                SizedBox(height: 10),
                 Container(
                   width: 300,
-                  height: 100,
+                  height: 150,
+                  padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    color: Colors.white,
                   ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FittedBox(
+                        child: Text(
+                          choice,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                      SizedBox(height: 10,),
+                      FittedBox(
+                        child: Text(
+                          result,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ),
               ],
             ),

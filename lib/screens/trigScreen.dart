@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 
-import 'genScreen.dart';
+import 'menu.dart';
 class trigonometry extends StatefulWidget {
   const trigonometry({Key key}) : super(key: key);
 
@@ -674,7 +674,7 @@ class _trigonometryState extends State<trigonometry> {
                         onChanged: (text){
                           if(Cosec.text != ""){
                             setState(() {
-                              radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(precision);;
+                              radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(precision);
                               inFocusDegree = false;
                               setAnswersRadian(Acosec(Cosec.text));
                             });
