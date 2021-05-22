@@ -48,12 +48,14 @@ class _areaCalcState extends State<areaCalc> {
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          title: Text(
-            "AREA",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
+          title: FittedBox(
+            child: Text(
+              "AREA",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w900,
+                color: colors[colorTheme][1],
+              ),
             ),
           ),
           backgroundColor: colors[colorTheme][9],

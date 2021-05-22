@@ -24,12 +24,14 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
         appBar: AppBar(
-          title: Text(
-            "LCM HCF",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
+          title: FittedBox(
+            child: Text(
+              "LCM HCF",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w900,
+                color: colors[colorTheme][1],
+              ),
             ),
           ),
           backgroundColor: colors[colorTheme][9],
@@ -70,10 +72,12 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                           result = lcm(userInput.text);
                         });
                       },
-                      child: Text(
-                        "LCM",
-                        style: TextStyle(
-                          color: Colors.black,
+                      child: FittedBox(
+                        child: Text(
+                          "LCM",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
@@ -90,10 +94,12 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                           result = hcf(userInput.text);
                         });
                       },
-                      child: Text(
-                          "HCF",
-                        style: TextStyle(
-                          color: Colors.black,
+                      child: FittedBox(
+                        child: Text(
+                            "HCF",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
@@ -118,73 +124,67 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   Expanded(
-                     child: ElevatedButton(
-                       style: ButtonStyle(
-                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                       ),
-                       onPressed: () {
-                         FocusScope.of(context).requestFocus(FocusNode());
-                         setState(() {
-                           choice = "FACTORS";
-                           result = factors(userInputf.text);
-                         });
-                       },
-                       child: FittedBox(
-                         child: Text(
-                           "FACTORS",
-                           style: TextStyle(
-                             color: Colors.black,
-                           ),
-                         ),
-                       )
+                   ElevatedButton(
+                     style: ButtonStyle(
+                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                      ),
+                     onPressed: () {
+                       FocusScope.of(context).requestFocus(FocusNode());
+                       setState(() {
+                         choice = "FACTORS";
+                         result = factors(userInputf.text);
+                       });
+                     },
+                     child: FittedBox(
+                       child: Text(
+                         "FACTORS",
+                         style: TextStyle(
+                           color: Colors.black,
+                         ),
+                       ),
+                     )
                    ),
                    SizedBox(width: 20),
-                   Expanded(
-                     child: ElevatedButton(
-                       style: ButtonStyle(
-                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                       ),
-                       onPressed: () {
-                         FocusScope.of(context).requestFocus(FocusNode());
-                         setState(() {
-                           choice = "PRIME FACTORS";
-                           result = primeFactors(userInputf.text);
-                         });
-                       },
-                       child: FittedBox(
-                         child: Text(
-                           "PRIME FACTORS",
-                           style: TextStyle(
-                             color: Colors.black,
-                           ),
+                   ElevatedButton(
+                     style: ButtonStyle(
+                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                     ),
+                     onPressed: () {
+                       FocusScope.of(context).requestFocus(FocusNode());
+                       setState(() {
+                         choice = "PRIME FACTORS";
+                         result = primeFactors(userInputf.text);
+                       });
+                     },
+                     child: FittedBox(
+                       child: Text(
+                         "PRIME FACTORS",
+                         style: TextStyle(
+                           color: Colors.black,
                          ),
                        ),
                      ),
                    ),
                    SizedBox(width: 20),
-                   Expanded(
-                     child: ElevatedButton(
-                       style: ButtonStyle(
-                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                         minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                       ),
-                       onPressed: () {
-                         FocusScope.of(context).requestFocus(FocusNode());
-                         setState(() {
-                           choice = " ";
-                           result = isPrime(userInputf.text);
-                         });
-                       },
-                       child: FittedBox(
-                         child: Text(
-                           "IS PRIME ?",
-                           style: TextStyle(
-                             color: Colors.black,
-                           ),
+                   ElevatedButton(
+                     style: ButtonStyle(
+                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                     ),
+                     onPressed: () {
+                       FocusScope.of(context).requestFocus(FocusNode());
+                       setState(() {
+                         choice = " ";
+                         result = isPrime(userInputf.text);
+                       });
+                     },
+                     child: FittedBox(
+                       child: Text(
+                         "IS PRIME ?",
+                         style: TextStyle(
+                           color: Colors.black,
                          ),
                        ),
                      ),

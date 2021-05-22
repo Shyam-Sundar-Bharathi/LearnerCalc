@@ -25,7 +25,7 @@ String area (String userInput, String dropDownValue) {
     if (arr.length == 2){
       var b = double.parse(arr[0]);
       var h = double.parse(arr[1]);
-      area = 0.5 * double.parse(arr[0]) * double.parse(arr[1]);
+      area = 0.5 * b * h;
     }
     else if(arr.length == 3){
       var a = double.parse(arr[0]);
