@@ -38,7 +38,9 @@ String area (String userInput, String dropDownValue) {
 
   else if(dropDownValue == "PARALLELOGRAM"){
     var arr = userInput.split(",");
-    area = double.parse(arr[0]) * double.parse(arr[1]);
+    var b = double.parse(arr[0]);
+    var h = double.parse(arr[1]);
+    area = b * h;
   }
 
   else if(dropDownValue == "RHOMBUS"){
