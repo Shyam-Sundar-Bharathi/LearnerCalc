@@ -42,7 +42,7 @@ class _genCalcState extends State<genCalc> {
   int tappedIndex = -1;
   void tapped(int index) async {
     setState(() => tappedIndex = index);
-    await Future.delayed(Duration(milliseconds: 200));
+    await Future.delayed(Duration(milliseconds: 100));
     setState(() => tappedIndex = -1);
   }
 

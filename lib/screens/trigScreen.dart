@@ -149,6 +149,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -190,6 +192,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -229,6 +233,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -274,6 +280,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -312,6 +320,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -357,6 +367,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -395,6 +407,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -440,6 +454,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -478,6 +494,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -523,6 +541,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -561,6 +581,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -606,6 +628,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -644,6 +668,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,
@@ -689,6 +715,8 @@ class _trigonometryState extends State<trigonometry> {
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
                           border:OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
                             borderRadius: BorderRadius.zero,

@@ -37,18 +37,20 @@ class _loadingState extends State<loading> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 10.0,),
-            SpinKitSquareCircle(
-              color: Colors.red,
-              size: 60.0,
-            )
-          ],
-        ),
-      ),
+      body: Container(),
     );
   }
 }
+
+// Center(
+// child: Column(
+// mainAxisAlignment: MainAxisAlignment.center,
+// children: [
+// SizedBox(height: 10.0,),
+// SpinKitSquareCircle(
+// color: Colors.red,
+// size: 60.0,
+// )
+// ],
+// ),
+// ),

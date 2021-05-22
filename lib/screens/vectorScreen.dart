@@ -408,6 +408,25 @@ class _vectorState extends State<vector> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
+                          choice = "B x A";
+                          result = cross(a2.text,b2.text,c2.text,a1.text,b1.text,c1.text);
+                        });
+                      },
+                      child: Text(
+                        "B x A",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
                           choice = "A * B";
                           result = star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
                         });

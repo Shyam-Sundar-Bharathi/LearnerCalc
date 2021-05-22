@@ -101,29 +101,28 @@ class _homeState extends State<home> {
                     crossAxisCount: 3,
                   ),
                   itemBuilder: (BuildContext context, int index){
-                  return Container(
-                    height: 5,
-                    child: Card(
-                      color: Colors.grey,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0.0),
-                      ),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                            elevation: MaterialStateProperty.all(15)
-                          ),
-                          child: FittedBox(
-                            child: Text(
-                                routes[index][0],
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black
+                  return Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      child: Card(
+                        color: Colors.grey,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
+                              elevation: MaterialStateProperty.all(15)
+                            ),
+                            child: FittedBox(
+                              child: Text(
+                                  routes[index][0],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black
+                                ),
                               ),
                             ),
+                            onPressed: (){Navigator.pushNamed(context, routes[index][1]);},
                           ),
-                          onPressed: (){Navigator.pushNamed(context, routes[index][1]);},
-                        ),
+                      ),
                     ),
                   );
                   }

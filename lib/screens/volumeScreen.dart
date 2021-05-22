@@ -110,33 +110,38 @@ class _volumeCalcState extends State<volumeCalc> {
                     );
                   }).toList(),
                 ),
-                SizedBox(height: 40),
-
-                Text(
-                  "VOLUME OF $dropDownValue",
-                  style: TextStyle(
-                    fontSize: 25,
-                  ),
-                ),
-                SizedBox(height: 10,),
+                SizedBox(height: 50),
                 Container(
-                  width: 300,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    width: 300,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      color: Colors.white,
                     ),
-                  ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FittedBox(
+                          child: Text(
+                            "VOLUME OF $dropDownValue",
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        FittedBox(
+                          child: Text(
+                            result,
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                 ),
               ],
             ),

@@ -176,7 +176,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
-                         choice = " ";
+                         choice = "IS PRIME ?";
                          result = isPrime(userInputf.text);
                        });
                      },
