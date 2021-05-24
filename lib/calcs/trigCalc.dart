@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/menu.dart';
+// import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
 
 

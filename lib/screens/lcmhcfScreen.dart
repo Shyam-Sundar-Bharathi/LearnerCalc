@@ -44,7 +44,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
               children: [
                 TextField(
                   controller: userInput,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,]'), allow: true),

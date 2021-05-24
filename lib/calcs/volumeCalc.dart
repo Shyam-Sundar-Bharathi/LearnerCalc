@@ -29,6 +29,6 @@ String volume (String userInput, String dropDownValue) {
   else if(dropDownValue == "HEMISPHERE"){
     volume = 2*pi*pow(double.parse(userInput),3)/3;
   }
-  return formatNumber(double.parse(volume.toStringAsFixedNoZero(precision)));
+  return formatNumber(volume.toStringAsFixedNoZero(precision));
 
 }

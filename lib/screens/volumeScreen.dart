@@ -51,7 +51,7 @@ class _volumeCalcState extends State<volumeCalc> {
               children: [
                 TextField(
                   controller: userInput,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),

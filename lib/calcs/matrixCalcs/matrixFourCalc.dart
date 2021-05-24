@@ -717,7 +717,7 @@ Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2,
   double d4 = double.parse(D4);
   final matrix = SquareMatrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   return Text(
-    matrix.determinant().toDouble().toStringAsFixedNoZero(precision),
+      formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold
@@ -745,7 +745,7 @@ Widget traceFour(String A1, String B1, String C1, String D1, String A2, String B
   double d4 = double.parse(D4);
   final matrix = SquareMatrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   return Text(
-    matrix.trace().toDouble().toStringAsFixedNoZero(precision),
+      formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold

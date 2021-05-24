@@ -41,13 +41,13 @@ class _centTendCalcState extends State<centTendCalc> {
               children: [
                 TextField(
                   controller: userInput,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),
                   ],
                   decoration: InputDecoration(
-                    labelText: "Enter comma separated numbers",
+                    labelText: "Enter comma separated positive numbers",
                     labelStyle: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -116,9 +116,74 @@ class _centTendCalcState extends State<centTendCalc> {
                         ),
                       ),
                     ),
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "RANGE";
+                          result = centTend(userInput.text, 6);
+                        });
+                      },
+                      child: Text(
+                        "RANGE",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "POPULATION VARIANCE";
+                          result = centTend(userInput.text,9);
+                        });
+                      },
+                      child: Text(
+                        "POPULATION VARIANCE",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "SAMPLE VARIANCE";
+                          result = centTend(userInput.text,4);
+                        });
+                      },
+                      child: Text(
+                        "SAMPLE VARIANCE",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -150,62 +215,17 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "VARIANCE";
-                          result = centTend(userInput.text,4);
-                        });
-                      },
-                      child: Text(
-                        "VARIANCE",
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
                           choice = "CV";
                           result = centTend(userInput.text,5);
                         });
                       },
                       child: Text(
-                        "CO-EFFICIENT OF VARIATION",
+                        "CV",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "RANGE";
-                          result = centTend(userInput.text, 6);
-                        });
-                      },
-                      child: Text(
-                        "RANGE",
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    )
                   ],
                 ),
                 SizedBox(height: 20,),

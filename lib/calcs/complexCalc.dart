@@ -9,8 +9,8 @@ String formatComplex(String ans){
   ans = ans.contains('-') && ans.contains('+')? ans.replaceAll('+', '') : ans;
   signs[1] = ans.contains('-')? ' - ' : ' + ';
   List sNumbers = ans.contains('-') ? ans.split('-') : ans.split('+');
-  sNumbers[0] = double.parse(sNumbers[0]).toStringAsFixedNoZero(precision);
-  sNumbers[1] = double.parse(sNumbers[1]).toStringAsFixedNoZero(precision);
+  sNumbers[0] = sNumbers[0].toStringAsFixedNoZero(precision);
+  sNumbers[1] = sNumbers[1].toStringAsFixedNoZero(precision);
   return signs[0] + sNumbers[0] + signs[1] + sNumbers[1] + ' i';
 }
 

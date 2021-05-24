@@ -36,23 +36,23 @@ List<String> cubeCalc(String A, String B, String C, String D){
     sign[2] = '';
   }
 
-  rootOne[0] = double.parse(rootOne[0]).toStringAsFixedNoZero(precision);
-  rootTwo[0] = double.parse(rootTwo[0]).toStringAsFixedNoZero(precision);
-  rootThree[0] = double.parse(rootThree[0]).toStringAsFixedNoZero(precision);
+  rootOne[0] = rootOne[0].toStringAsFixedNoZero(precision);
+  rootTwo[0] = rootTwo[0].toStringAsFixedNoZero(precision);
+  rootThree[0] = rootThree[0].toStringAsFixedNoZero(precision);
 
   if(rootOne[1]!=''){
-    rootOne[1] = formatNumber(double.parse(double.parse(rootOne[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision))) + ' i';
+    rootOne[1] = rootOne[1].toString().replaceAll('i', '').toStringAsFixedNoZero(precision) + ' i';
   }
   if(rootTwo[1]!=''){
-    rootTwo[1] = double.parse(rootTwo[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision) + ' i';
+    rootTwo[1] = rootTwo[1].toString().replaceAll('i', '').toStringAsFixedNoZero(precision) + ' i';
   }
   if(rootThree[1]!=''){
-    rootThree[1] = double.parse(rootThree[1].toString().replaceAll('i', '')).toStringAsFixedNoZero(precision) + ' i';
+    rootThree[1] = rootThree[1].toString().replaceAll('i', '').toStringAsFixedNoZero(precision) + ' i';
   }
 
 
   rootsFinal[0] = rootOne[0] + ' ' + sign[0] + ' ' + rootOne[1];
   rootsFinal[1] = rootTwo[0] + ' ' + sign[1] + ' ' + rootTwo[1];
   rootsFinal[2] = rootThree[0] + ' ' + sign[2] + ' ' + rootThree[1];
-  return [rootsFinal[0],rootsFinal[1],rootsFinal[2],formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(precision)))];
+  return [rootsFinal[0],rootsFinal[1],rootsFinal[2],formatNumber(equation.discriminant().toDouble().toStringAsFixedNoZero(precision))];
 }

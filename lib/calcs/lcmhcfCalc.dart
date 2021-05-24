@@ -77,7 +77,7 @@ String hcf (String userInput) {
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];
-  var hcf;
+  int hcf;
   var potDivisers = [1];
   var hcf_found = false;
   int iter= 0;
@@ -108,7 +108,7 @@ String hcf (String userInput) {
       if(hcf == potDivisers[iter+1])
         hcf_found = true;
     }
-    return hcf.toString();
+    return formatNumber(hcf.toDouble());
 }
 
 String isPrime(String userInput){

@@ -19,7 +19,7 @@ String centTend(String userInput, int choice){
       break;
       case 3: result = stddev(userInput);
       break;
-      case 4: result = variance(userInput);
+      case 4: result = samVariance(userInput);
       break;
       case 5: result = cv(userInput);
       break;
@@ -29,9 +29,11 @@ String centTend(String userInput, int choice){
       break;
       case 8: result = hm(userInput);
       break;
+      case 9: result = popVariance(userInput);
+      break;
 
     }
-  return choice == 2? Mode : formatNumber(double.parse(result.toStringAsFixedNoZero(precision)));
+  return choice == 2? Mode : formatNumber(result.toStringAsFixedNoZero(precision));
 }
 
 
@@ -41,8 +43,9 @@ double mean (String userInput) {
   List<num> iArray = [];
   for(int iter=0; iter<length; iter++)
     iArray.add(double.parse(sArray[iter]));
-  final c = CentralTendency(Vector(iArray));
-  return c.arithmetic().toDouble();
+  // final c = CentralTendency(Vector(iArray));
+  double sum = iArray.fold(0, (p, c) => p + c);
+  return sum/length;
 }
 
 double median (String userInput) {
@@ -94,7 +97,7 @@ double range (String userInput) {
 
 }
 
-double variance (String userInput){
+double popVariance (String userInput){
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iter = 0;
@@ -107,8 +110,21 @@ double variance (String userInput){
 
 }
 
+double samVariance (String userInput){
+  var sArray = userInput.split(",");
+  var length = sArray.length;
+  var iter = 0;
+  var result = 0.0;
+  var avg = mean(userInput);
+  for(iter=0; iter<length; iter++)
+    result += pow(avg - double.parse(sArray[iter]), 2);
+  result /= (length-1);
+  return result;
+
+}
+
 double stddev (String userInput){
-  return (pow(variance(userInput),0.5));
+  return (pow(samVariance(userInput),0.5));
 
 }
 

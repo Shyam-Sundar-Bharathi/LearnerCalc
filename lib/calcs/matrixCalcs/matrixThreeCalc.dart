@@ -435,7 +435,7 @@ Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2
   double c3 = double.parse(C3);
   final matrix = SquareMatrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   return Text(
-    matrix.determinant().toDouble().toStringAsFixedNoZero(precision),
+    formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold
@@ -456,7 +456,7 @@ Widget traceThree(String A1, String B1, String C1, String A2, String B2, String 
   double c3 = double.parse(C3);
   final matrix = SquareMatrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   return Text(
-    matrix.trace().toDouble().toStringAsFixedNoZero(precision),
+      formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold

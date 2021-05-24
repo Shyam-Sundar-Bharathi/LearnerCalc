@@ -92,5 +92,5 @@ String area (String userInput, String dropDownValue) {
     var r = double.parse(userInput);
     area = 3*pi*pow(r,2);
   }
-  return formatNumber(double.parse(area.toStringAsFixedNoZero(precision)));
+  return formatNumber(area.toStringAsFixedNoZero(precision));
 }

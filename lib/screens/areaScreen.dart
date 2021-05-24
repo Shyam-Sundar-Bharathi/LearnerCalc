@@ -68,7 +68,7 @@ class _areaCalcState extends State<areaCalc> {
               children: [
                 TextField(
                   controller: userInput,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),

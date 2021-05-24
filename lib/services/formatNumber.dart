@@ -19,6 +19,27 @@ extension Ex on double {
   }
 }
 
+extension Ext on String {
+  String toStringAsFixedNoZero(int precision) {
+    double num = double.parse(this.replaceAll(',', ''));
+    String result = double.parse(num.toStringAsFixed(precision)).toString();
+    if(num.toDouble() != 0 && double.parse(result) == 0){
+      while(num.toDouble()!= 0 && double.parse(result) == 0 && precision < 6){
+        precision++;
+        print(precision);
+        result = double.parse(num.toStringAsFixed(precision)).toString();
+      }
+    }
+    int length = result.length;
+    if(result.substring(length-2,length) == '.0'){
+      return result.substring(0,length-2);
+    }
+    else {
+      return result;
+    }
+  }
+}
+
 String reverseString(String number){
   String reversedNumber = "";
   int numberOfCharacters = number.length - 1;
@@ -29,21 +50,28 @@ String reverseString(String number){
   return reversedNumber;
 }
 
-String formatNumber(double number, {bool isCurrency = false}){
-  if(number.toString().contains('e')){
-    return number.toString();
+String formatNumber(dynamic number, {bool isCurrency = false}){
+  double num = 0;
+  if(number is String){
+    num = double.parse(number);
   }
-  if(number == 0)
+  else{
+    num = number;
+  }
+  if(num.toString().contains('e')){
+    return num.toString();
+  }
+  if(num == 0)
     return "0";
-  bool isNegative = number<0? true : false ;
-  number = isNegative? -number : number;
+  bool isNegative = num<0? true : false ;
+  num = isNegative? -num : num;
   String formattedNumber = "";
   int n=0;
   String decimal;
   if(isCurrency){
 
-    if(number.toString().contains('.')) {
-      decimal = (number.toString().split('.')[1]);
+    if(num.toString().contains('.')) {
+      decimal = (num.toString().split('.')[1]);
       if(decimal.length>=2)
         decimal = decimal.substring(0,2);
       else if(decimal.length>=1)
@@ -53,10 +81,10 @@ String formatNumber(double number, {bool isCurrency = false}){
       decimal = '00';
   }
   else
-    decimal = number.toString().contains('.')? number.toString().split('.')[1] : '0';
+    decimal = num.toString().contains('.')? num.toString().split('.')[1] : '0';
 
 
-  int numberI = number.truncate();
+  int numberI = num.truncate();
   if(numberI == 0)
     return double.parse(decimal) == 0.0? '0' : '0.' + decimal;
   while(numberI>0){

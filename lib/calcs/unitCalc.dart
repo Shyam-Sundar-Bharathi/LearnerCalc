@@ -6,33 +6,34 @@ String displayConvert(String unitElement, String unitChoiceOne, String unitChoic
     return "";
   userInput = userInput.replaceAll(',', '');
   double input = 0;
+  double answer = 0;
   input = double.parse(userInput);
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);
 
   if(unitElement.toLowerCase() == 'length'){
-    return formatNumber(double.parse((frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, 10)).toStringAsFixedNoZero(10)));
+    answer = (frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, 10));
   }
 
   if(unitElement.toLowerCase() == 'mass')
-    return formatNumber(double.parse(fromgram(togram(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo, 10);
 
   if(unitElement.toLowerCase() == 'plane angle')
-    return formatNumber(double.parse(fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, 10);
 
   if(unitElement.toLowerCase() == 'speed')
-    return formatNumber(double.parse(frommps(tomps(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo, 10);
 
   if(unitElement.toLowerCase() == 'energy')
-    return formatNumber(double.parse(fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, 10);
 
   if(unitElement.toLowerCase() == 'area')
-    return formatNumber(double.parse(fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, 10);
 
   if(unitElement.toLowerCase() == 'volume')
-    return formatNumber(double.parse(fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, 10).toStringAsFixedNoZero(10)));
+    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, 10);
 
-  return "";
+  return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(10));
 }
 
 String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
@@ -66,11 +67,9 @@ String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, S
     answer =  fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, precision);
 
   if(unitElement.toLowerCase() == 'volume')
-    return formatNumber(double.parse(fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision).toStringAsFixedNoZero(precision)));
+    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision);
 
-   //result = double.parse(answer.toStringAsFixedNoZero(precision)) == 0 ? formatNumber(double.parse(answer.toStringAsFixedNoZero(7))) : formatNumber(double.parse(answer.toStringAsFixedNoZero(precision)));
-
-   return formatNumber(double.parse(answer.toStringAsFixedNoZero(precision)));
+   return formatNumber(answer.toStringAsFixedNoZero(precision));
 }
 
 double tocumeter(String unitChoiceOne, double userInput){
@@ -299,13 +298,13 @@ double frommeter(double ans1, String unitChoiceTwo, int precision){
 
 String temperature (String unitChoiceOne, String unitChoiceTwo, String userInput){
   if(unitChoiceOne == 'celcius' && unitChoiceTwo == 'kelvin')
-    return (double.parse(userInput) + 273.15).toString();
+    return (double.parse(userInput) + 273.15).toStringAsFixedNoZero(precision);
   if(unitChoiceOne == 'kelvin' && unitChoiceTwo == 'celcius')
-    return (double.parse(userInput) - 273.15).toString();
+    return (double.parse(userInput) - 273.15).toStringAsFixedNoZero(precision);
   if(unitChoiceOne == 'celcius' && unitChoiceTwo == 'farenheit')
-    return (1.8*double.parse(userInput)+32).toString();
+    return (1.8*double.parse(userInput)+32).toStringAsFixedNoZero(precision);
   if(unitChoiceOne == 'farenheit' && unitChoiceTwo == 'celcius')
-    return ((double.parse(userInput)-32)/1.8).toString();
+    return ((double.parse(userInput)-32)/1.8).toStringAsFixedNoZero(precision);
   if (unitChoiceOne == 'farenheit' && unitChoiceTwo == 'kelvin')
     return (temperature('celcius','kelvin',temperature('farenheit', 'celcius', userInput)));
   if (unitChoiceOne == 'kelvin' && unitChoiceTwo == 'farenheit')

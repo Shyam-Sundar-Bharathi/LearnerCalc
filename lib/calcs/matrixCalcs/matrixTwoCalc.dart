@@ -120,7 +120,7 @@ Widget detTwo (String A, String B, String C, String D){
   double d = double.parse(D);
   final matrix = SquareMatrix([[a,b],[c,d]]);
   return Text(
-    matrix.determinant().toDouble().toStringAsFixedNoZero(precision),
+    formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
       fontSize: 30,
       fontWeight: FontWeight.bold,
@@ -135,7 +135,7 @@ Widget traceTwo (String A, String B, String C, String D){
   double d = double.parse(D);
   final matrix = Matrix([[a,b],[c,d]]);
   return Text(
-    matrix.trace().toDouble().toStringAsFixedNoZero(precision),
+    formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,

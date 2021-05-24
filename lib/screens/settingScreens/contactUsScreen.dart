@@ -19,7 +19,7 @@ class _contactUsState extends State<contactUs> {
         appBar: AppBar(
           title: FittedBox(
             child: Text(
-              "ABOUT US",
+              "CONTACT US",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w900,

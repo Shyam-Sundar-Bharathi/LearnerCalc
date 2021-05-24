@@ -12,13 +12,13 @@ List<String> quadCalc(String A, String B, String C){
   double d = (b*b)-(4*a*c);
   String rootOne, rootTwo;
   if(isReal){
-    rootOne = formatNumber(double.parse(((-b + pow(d,0.5))/2*a).toStringAsFixedNoZero(precision)));
-    rootTwo = formatNumber(double.parse(((-b - pow(d,0.5))/2*a).toStringAsFixedNoZero(precision)));
+    rootOne = formatNumber(((-b + pow(d,0.5))/2*a).toStringAsFixedNoZero(precision));
+    rootTwo = formatNumber(((-b - pow(d,0.5))/2*a).toStringAsFixedNoZero(precision));
   }
   else{
-    rootOne = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(precision))) + ' + ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision))) + ' i';
-    rootTwo = formatNumber(double.parse((-b/(2*a)).toStringAsFixedNoZero(precision))) + ' - ' + formatNumber(double.parse((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision))) + ' i';
+    rootOne = formatNumber((-b/(2*a)).toStringAsFixedNoZero(precision)) + ' + ' + formatNumber((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision)) + ' i';
+    rootTwo = formatNumber((-b/(2*a)).toStringAsFixedNoZero(precision)) + ' - ' + formatNumber((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision)) + ' i';
   }
 
-  return [rootOne,rootTwo,formatNumber(double.parse(equation.discriminant().toDouble().toStringAsFixedNoZero(precision))), isReal.toString()];
+  return [rootOne,rootTwo,formatNumber(equation.discriminant().toDouble().toStringAsFixedNoZero(precision)), isReal.toString()];
 }
