@@ -1,6 +1,7 @@
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
+
 String formatComplex(String ans){
   int length = ans.length;
   List signs = ['',''];
@@ -8,7 +9,7 @@ String formatComplex(String ans){
   ans = ans[0]=='-'? ans.substring(1,length-1) : ans.substring(0,length-1);
   ans = ans.contains('-') && ans.contains('+')? ans.replaceAll('+', '') : ans;
   signs[1] = ans.contains('-')? ' - ' : ' + ';
-  List sNumbers = ans.contains('-') ? ans.split('-') : ans.split('+');
+  List<String> sNumbers = ans.contains('-') ? ans.split('-') : ans.split('+');
   sNumbers[0] = sNumbers[0].toStringAsFixedNoZero(precision);
   sNumbers[1] = sNumbers[1].toStringAsFixedNoZero(precision);
   return signs[0] + sNumbers[0] + signs[1] + sNumbers[1] + ' i';
@@ -16,7 +17,7 @@ String formatComplex(String ans){
 
 String mod(String a, String b){
   final c = Complex(re: double.parse(a), im: double.parse(b));
-  return c.module.toDouble().toStringAsFixedNoZero(precision);
+  return formatNumber(c.module.toDouble().toStringAsFixedNoZero(precision));
 }
 
 String add(String a1, String b1, String a2, String b2){
@@ -25,7 +26,7 @@ String add(String a1, String b1, String a2, String b2){
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 + B2 > 0 ? '+' : '';
-  return (A1+A2).toStringAsFixedNoZero(precision) + ' ' + sign + ' ' + (B1+B2).toStringAsFixedNoZero(precision) + 'i';
+  return formatNumber((A1+A2).toStringAsFixedNoZero(precision)) + ' ' + sign + ' ' + formatNumber((B1+B2).toStringAsFixedNoZero(precision)) + 'i';
 }
 
 String sub(String a1, String b1, String a2, String b2){
@@ -34,7 +35,7 @@ String sub(String a1, String b1, String a2, String b2){
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
   String sign = B1 - B2 > 0 ? '+' : '';
-  return (A1-A2).toStringAsFixedNoZero(precision) + ' ' + sign + ' ' + (B1-B2).toStringAsFixedNoZero(precision) + 'i';
+  return formatNumber((A1-A2).toStringAsFixedNoZero(precision)) + ' ' + sign + ' ' + formatNumber((B1-B2).toStringAsFixedNoZero(precision)) + 'i';
 }
 
 String power(String a, String b, int power){

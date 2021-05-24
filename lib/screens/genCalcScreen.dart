@@ -249,7 +249,7 @@ class _genCalcState extends State<genCalc> {
                       padding: EdgeInsets.all(15),
                       alignment: Alignment.centerRight,
                       child: Text(
-                        answer == '' || answer == 'Incorrect Expression'? answer : formatNumber(answer).toStringAsFixedNoZero(10),
+                        answer == '' || answer == 'Incorrect Expression'? answer : formatNumber((answer).toStringAsFixedNoZero(10)),
                         overflow: TextOverflow.clip,
                         softWrap: false,
                         style: TextStyle(

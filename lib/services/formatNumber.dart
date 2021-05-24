@@ -56,7 +56,7 @@ String formatNumber(dynamic number, {bool isCurrency = false}){
     num = double.parse(number);
   }
   else{
-    num = number;
+    num = double.parse(number.toString());
   }
   if(num.toString().contains('e')){
     return num.toString();

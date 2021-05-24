@@ -8,7 +8,7 @@ String calcx(String A, String B){
   if(a == 0){
     return "NO SOLUTION";
   }
-  return "x = " + (-b/a).toStringAsFixedNoZero(precision);
+  return "x = " + formatNumber((-b/a).toStringAsFixedNoZero(precision));
 }
 
 String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
@@ -35,7 +35,7 @@ String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
     y = (dy.determinant())/(d.determinant());
 
   }
-  return "x = " + x.toStringAsFixedNoZero(precision) + "\ny = " + y.toStringAsFixedNoZero(precision);
+  return "x = " + formatNumber(x.toStringAsFixedNoZero(precision)) + "\ny = " + formatNumber(y.toStringAsFixedNoZero(precision));
 }
 
 
@@ -68,7 +68,7 @@ String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2,
   x = dx.determinant()/d.determinant();
   y = dy.determinant()/d.determinant();
   z = dz.determinant()/d.determinant();
-  return "x = " + x.toStringAsFixedNoZero(precision) + "\ny = " + y.toStringAsFixedNoZero(precision)+ "\nz = " + z.toStringAsFixedNoZero(precision);
+  return "x = " + formatNumber(x.toStringAsFixedNoZero(precision)) + "\ny = " + formatNumber(y.toStringAsFixedNoZero(precision))+ "\nz = " + formatNumber(z.toStringAsFixedNoZero(precision));
 
 
 }

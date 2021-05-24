@@ -5,7 +5,7 @@ import 'package:dream_calc/screens/menu.dart';
 String mod(String a, String b, String c){
   List vectors = <num>[double.parse(a),double.parse(b),double.parse(c)];
   final v = Vector(vectors);
-  return v.length.toDouble().toStringAsFixedNoZero(precision);
+  return formatNumber(v.length.toDouble().toStringAsFixedNoZero(precision));
 }
 
 String add(String a1, String b1, String c1, String a2, String b2, String c2){
@@ -18,7 +18,7 @@ String add(String a1, String b1, String c1, String a2, String b2, String c2){
   List signs = ['',''];
   signs[0] = B1 + B2 >= 0 ? '+' : '';
   signs[1] = C1 + C2 >= 0 ? '+' : '';
-  return (A1+A2).toStringAsFixedNoZero(precision) + 'i ' + signs[0] + (B1+B2).toStringAsFixedNoZero(precision) + 'j ' + signs[1] + (C1+C2).toStringAsFixedNoZero(precision) + 'k';
+  return formatNumber((A1+A2).toStringAsFixedNoZero(precision)) + 'i ' + signs[0] + formatNumber((B1+B2).toStringAsFixedNoZero(precision)) + 'j ' + signs[1] + formatNumber((C1+C2).toStringAsFixedNoZero(precision)) + 'k';
 }
 
 String sub(String a1, String b1, String c1, String a2, String b2, String c2){
@@ -31,13 +31,13 @@ String sub(String a1, String b1, String c1, String a2, String b2, String c2){
   List signs = ['',''];
   signs[0] = B1 - B2 >= 0 ? '+' : '';
   signs[1] = C1 - C2 >= 0 ? '+' : '';
-  return (A1-A2).toStringAsFixedNoZero(precision) + 'i ' + signs[0] + (B1-B2).toStringAsFixedNoZero(precision) + 'j ' + signs[1] + (C1-C2).toStringAsFixedNoZero(precision) + 'k';
+  return formatNumber((A1-A2).toStringAsFixedNoZero(precision)) + 'i ' + signs[0] + formatNumber((B1-B2).toStringAsFixedNoZero(precision)) + 'j ' + signs[1] + formatNumber((C1-C2).toStringAsFixedNoZero(precision)) + 'k';
 }
 
 String dot(String a1, String b1, String c1, String a2, String b2, String c2){
   final v1 = Vector(<num>[double.parse(a1),double.parse(b1),double.parse(c1)]);
   final v2 = Vector(<num>[double.parse(a2),double.parse(b2),double.parse(c2)]);
-  return v1.dot(v2).toDouble().toStringAsFixedNoZero(precision);
+  return formatNumber(v1.dot(v2).toDouble().toStringAsFixedNoZero(precision));
 }
 
 String cross(String a1, String b1, String c1, String a2, String b2, String c2){
@@ -47,7 +47,7 @@ String cross(String a1, String b1, String c1, String a2, String b2, String c2){
   List signs = ['',''];
   signs[0] = ls[1].toString()[0] == '-' ? '' : '+';
   signs[1] = ls[2].toString()[0] == '-' ? '' : '+';
-  return ls[0].toDouble().toStringAsFixedNoZero(precision) + 'i ' + signs[0] + ls[1].toDouble().toStringAsFixedNoZero(precision) + 'j ' + signs[1] + ls[2].toDouble().toStringAsFixedNoZero(precision) + 'k';
+  return formatNumber(ls[0].toDouble().toStringAsFixedNoZero(precision)) + 'i ' + signs[0] + formatNumber(ls[1].toDouble().toStringAsFixedNoZero(precision)) + 'j ' + signs[1] + formatNumber(ls[2].toDouble().toStringAsFixedNoZero(precision)) + 'k';
 }
 
 String star(String a1, String b1, String c1, String a2, String b2, String c2){
@@ -57,7 +57,7 @@ String star(String a1, String b1, String c1, String a2, String b2, String c2){
   List signs = ['',''];
   signs[0] = ls[1].toString()[0] == '-' ? '' : '+';
   signs[1] = ls[2].toString()[0] == '-' ? '' : '+';
-  return ls[0].toDouble().toStringAsFixedNoZero(precision) + 'i ' + signs[0] + ls[1].toDouble().toStringAsFixedNoZero(precision) + 'j ' + signs[1] + ls[2].toDouble().toStringAsFixedNoZero(precision) + 'k';
+  return formatNumber(ls[0].toDouble().toStringAsFixedNoZero(precision)) + 'i ' + signs[0] + formatNumber(ls[1].toDouble().toStringAsFixedNoZero(precision)) + 'j ' + signs[1] + formatNumber(ls[2].toDouble().toStringAsFixedNoZero(precision)) + 'k';
 }
 
 String angle(String a1, String b1, String c1, String a2, String b2, String c2){
