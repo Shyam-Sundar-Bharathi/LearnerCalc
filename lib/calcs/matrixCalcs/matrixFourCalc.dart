@@ -16,6 +16,15 @@ List checkMatrix(Matrix m){
 }
 
 Widget transposeFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -352,6 +361,15 @@ Widget transposeFour(String A1, String B1, String C1, String D1, String A2, Stri
 }
 
 Widget inverseFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -699,6 +717,15 @@ Widget inverseFour(String A1, String B1, String C1, String D1, String A2, String
 }
 
 Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -727,6 +754,15 @@ Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2,
 
 
 Widget traceFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);

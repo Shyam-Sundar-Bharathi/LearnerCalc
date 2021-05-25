@@ -229,7 +229,7 @@ class _cubicCalcState extends State<cubicCalc> {
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           setState(() {
-                            answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '' || userInputD.text == '')? null : cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
+                            answers = cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
                           });
                         },
                         child: Text(
@@ -247,10 +247,18 @@ class _cubicCalcState extends State<cubicCalc> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(
-                              'Root 1 : ',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                color: Colors.white,
+                              ),
+                              child: Text(
+                                'Root 1 : ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),
@@ -278,10 +286,18 @@ class _cubicCalcState extends State<cubicCalc> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(
-                              'Root 2 : ',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                color: Colors.white,
+                              ),
+                              child: Text(
+                                'Root 2 : ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),
@@ -309,10 +325,18 @@ class _cubicCalcState extends State<cubicCalc> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(
-                              'Root 3 : ',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                color: Colors.white,
+                              ),
+                              child: Text(
+                                'Root 3 : ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),
@@ -340,10 +364,18 @@ class _cubicCalcState extends State<cubicCalc> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(
-                              'Disc : ',
-                              style: TextStyle(
-                                fontSize: 20,
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                color: Colors.white,
+                              ),
+                              child: Text(
+                                'Disc : ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),

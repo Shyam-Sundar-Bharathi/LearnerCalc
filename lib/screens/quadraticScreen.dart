@@ -206,10 +206,18 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            'Root 1 : ',
-                            style: TextStyle(
-                              fontSize: 20,
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 70,
+                            decoration: BoxDecoration(
+                              border: Border.all(),
+                              color: Colors.white,
+                            ),
+                            child: Text(
+                              'Root 1 : ',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
@@ -237,10 +245,18 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            'Root 2 : ',
-                            style: TextStyle(
-                              fontSize: 20,
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 70,
+                            decoration: BoxDecoration(
+                              border: Border.all(),
+                              color: Colors.white,
+                            ),
+                            child: Text(
+                              'Root 2 : ',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),
@@ -268,10 +284,18 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text(
-                            'Disc : ',
-                            style: TextStyle(
-                              fontSize: 20,
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 70,
+                            decoration: BoxDecoration(
+                              border: Border.all(),
+                              color: Colors.white,
+                            ),
+                            child: Text(
+                              'Disc : ',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),

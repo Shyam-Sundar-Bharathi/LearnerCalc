@@ -4,7 +4,7 @@ import 'package:dream_calc/screens/menu.dart';
 
 String volume (String userInput, String dropDownValue) {
   if(userInput == '')
-    return '0';
+    return 'CHECK INPUT';
   double volume = 0;
   const pi = 3.141592653589793238;
   if(dropDownValue == "CUBE"){

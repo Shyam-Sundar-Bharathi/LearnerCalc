@@ -128,38 +128,45 @@ class _areaCalcState extends State<areaCalc> {
                   }).toList(),
                 ),
                 SizedBox(height: 50),
+                result  == " "? Container() :
                 Container(
-                  width: 300,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
+                    width: MediaQuery. of(context). size. width - 30,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      color: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FittedBox(
-                          child: Text(
-                            is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: 10,),
                         FittedBox(
-                          child: Text(
-                            result,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              result,
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
                       ],
                     )
-                  ),
+                ),
               ],
             ),
           ),

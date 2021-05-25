@@ -136,9 +136,10 @@ class _linearOneState extends State<linearOne> {
                   ),
                 ),
                 SizedBox(height: 20,),
+                result ==  " " ? Container() :
                 Container(
-                  width: 300,
-                  height: 100,
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
                     color: Colors.white,

@@ -35,21 +35,21 @@ class _homeState extends State<home> {
   }
 
   Map routes = {
-    0 : ['GENERAL\nCALCULATOR', '/genCalc'],
+    0 : ['   GENERAL\nCALCULATOR', '/genCalc'],
     1 : ['LCM HCF','/lcmhcf'],
-    2 : ['CENTRAL\nTENDENCY', '/centTend'],
+    2 : [' CENTRAL \nTENDENCY', '/centTend'],
     3 : ['AREA', '/area'],
     4 : ['VOLUME', '/volume'],
-    5 : ['UNIT\nCONVERSION', '/unitConversion'],
+    5 : ['      UNIT\nCONVERSION', '/unitConversion'],
     6 : ['PERCENTAGE', '/percentage'],
-    7 : ['QUADRATIC\nEQUATION', '/quadratic'],
-    8 : ['CUBIC\nEQUATION', '/cubic'],
+    7 : ['QUADRATIC\n EQUATION', '/quadratic'],
+    8 : ['   CUBIC\nEQUATION', '/cubic'],
     9 : ['TRIGONOMETRY', '/trigonometry'],
     10 : ['VECTOR', '/vector'],
     11 : ['MATRIX','/matrixChoice'],
     12 : ['COMPLEX\nNUMBERS', '/complex'],
-    13 : ['LINEAR\nEQUATIONS', '/linearChoice'],
-    14 : ['FORMULAE\nSHEET', '/formulaChoice'],
+    13 : ['   LINEAR\nEQUATIONS', '/linearChoice'],
+    14 : ['FORMULAE\n   SHEET', '/formulaChoice'],
   };
 
   @override
@@ -59,36 +59,45 @@ class _homeState extends State<home> {
       appBar: AppBar(
         backgroundColor: colors[colorTheme][9],
         title: Text(
-          "DREAM CALCULATOR",
+          "Newton",
           style: TextStyle(
+            fontFamily: "Times",
             fontSize: 30,
             fontWeight: FontWeight.w900,
             color: colors[colorTheme][1]
           ),
         ),
         centerTitle: true,
-        // leading: IconButton(
-        //   icon: Icon(
-        //     Icons.settings,
-        //     color: colors[colorTheme][1],
-        // ),
-        // ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
+        leading: IconButton(
+          icon: Icon(
             Icons.settings,
-          color: Colors.black,
+            color: colors[colorTheme][1],
         ),
-        backgroundColor: colors[colorTheme][2],
-        onPressed: () async {
-          result = await Navigator.pushNamed(context, '/settings');
-          setState(() {
-            precision = result['precision'];
-            colorTheme = result['colorTheme'];
-            save();
-          });
-        },
+          onPressed: () async {
+            result = await Navigator.pushNamed(context, '/settings');
+            setState(() {
+              precision = result['precision'];
+              colorTheme = result['colorTheme'];
+              save();
+            });
+          },
+        ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(
+      //       Icons.settings,
+      //     color: Colors.black,
+      //   ),
+      //   backgroundColor: colors[colorTheme][2],
+      //   onPressed: () async {
+      //     result = await Navigator.pushNamed(context, '/settings');
+      //     setState(() {
+      //       precision = result['precision'];
+      //       colorTheme = result['colorTheme'];
+      //       save();
+      //     });
+      //   },
+      // ),
       body: Column(
         children: [
           Expanded(

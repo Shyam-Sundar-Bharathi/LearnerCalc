@@ -12,7 +12,7 @@ class vector extends StatefulWidget {
 
 class _vectorState extends State<vector> {
 
-  String choice = "" , result = "";
+  String choice = " " , result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
   TextEditingController c1 = new TextEditingController();
@@ -459,21 +459,25 @@ class _vectorState extends State<vector> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 30,),
+                result == " " ? Container() :
                 Container(
-                  width: 300,
-                  height: 100,
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
                     color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(
-                      child: Text(
-                        (choice=="" || result =="") ? " " : "$choice = $result",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          result == "CHECK INPUT" ? result : "$choice = $result",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

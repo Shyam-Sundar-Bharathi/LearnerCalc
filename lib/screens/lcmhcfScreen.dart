@@ -132,7 +132,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
-                         choice = "FACTORS";
+                         choice = " ";
                          result = factors(userInputf.text);
                        });
                      },
@@ -154,7 +154,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
-                         choice = "PRIME FACTORS";
+                         choice = " ";
                          result = primeFactors(userInputf.text);
                        });
                      },
@@ -176,7 +176,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
-                         choice = "IS PRIME ?";
+                         choice = " ";
                          result = isPrime(userInputf.text);
                        });
                      },
@@ -192,39 +192,31 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                  ],
                ),
                 SizedBox(height: 40),
+                result == " " ? Container() :
                 Container(
-                  width: 300,
-                  height: 150,
-                  padding: EdgeInsets.all(10),
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
                     color: Colors.white,
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FittedBox(
+                  child: Center(
+                    child: FittedBox(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
                         child: Text(
-                          choice,
+                          result == "CHECK INPUT" ? result :
+                          choice == " " ? result :
+                          "$choice = $result",
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      SizedBox(height: 10,),
-                      FittedBox(
-                        child: Text(
-                          result,
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

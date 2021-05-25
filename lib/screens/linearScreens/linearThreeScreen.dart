@@ -11,7 +11,7 @@ class linearThree extends StatefulWidget {
 
 class _linearThreeState extends State<linearThree> {
 
-  String result = "";
+  String result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
   TextEditingController c1 = new TextEditingController();
@@ -484,8 +484,9 @@ class _linearThreeState extends State<linearThree> {
                   ),
                 ),
                 SizedBox(height: 20,),
+                result == " "? Container() :
                 Container(
-                  width: 300,
+                  width: MediaQuery.of(context).size.width - 30,
                   height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
@@ -494,7 +495,7 @@ class _linearThreeState extends State<linearThree> {
                   child: Center(
                     child: FittedBox(
                       child: Text(
-                        result==""? " ": result,
+                        result,
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,

@@ -10,8 +10,9 @@ double gcd(double a, double b) {
 }
 
 String primeFactors(String userInput){
-  if(userInput == "")
-    return ' ';
+  if(userInput == "") {
+    return 'CHECK INPUT';
+  }
   String factor = '';
   double number = double.parse(userInput);
   while (number % 2 == 0)
@@ -40,7 +41,7 @@ String primeFactors(String userInput){
 
 String factors(String userInput){
   if(userInput == "")
-    return ' ';
+    return 'CHECK INPUT';
   String factor = "1, ";
   double number = double.parse(userInput);
   for(int i=2; i<=number/2; i++){
@@ -54,7 +55,7 @@ String factors(String userInput){
 
 String lcm(String userInput){
   if(userInput == "")
-    return " ";
+    return 'CHECK INPUT';
   var sArray = userInput.split(",");
   var iArray = [];
   double lcm;
@@ -73,7 +74,7 @@ String lcm(String userInput){
 
 String hcf (String userInput) {
   if(userInput == "")
-    return " ";
+    return 'CHECK INPUT';
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];
@@ -113,7 +114,7 @@ String hcf (String userInput) {
 
 String isPrime(String userInput){
   if(userInput == "")
-    return '';
+    return 'CHECK INPUT';
   final c = Integer(int.parse(userInput));
-  return c.isPrime() ? '$userInput is a prime number' : '$userInput is not a prime number';
+  return c.isPrime() ? '$userInput IS A PRIME NUMBER.' : '$userInput IS NOT A PRIME NUMBER.';
 }

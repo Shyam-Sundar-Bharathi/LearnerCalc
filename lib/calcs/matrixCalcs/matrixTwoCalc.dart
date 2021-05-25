@@ -14,6 +14,15 @@ List checkMatrix(Matrix m, int n){
 }
 
 Widget transposeTwo(String A, String B, String C, String D){
+  if(A == "" || B == "" || C == ""  || D == ""){
+    return Text(
+        "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -114,6 +123,15 @@ Widget transposeTwo(String A, String B, String C, String D){
 }
 
 Widget detTwo (String A, String B, String C, String D){
+  if(A == "" || B == "" || C == ""  || D == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -129,6 +147,15 @@ Widget detTwo (String A, String B, String C, String D){
 }
 
 Widget traceTwo (String A, String B, String C, String D){
+  if(A == "" || B == "" || C == ""  || D == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -144,6 +171,15 @@ Widget traceTwo (String A, String B, String C, String D){
 }
 
 Widget inverseTwo(String A, String B, String C, String D){
+  if(A == "" || B == "" || C == ""  || D == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);

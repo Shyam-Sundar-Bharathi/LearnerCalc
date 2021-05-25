@@ -455,21 +455,26 @@ class _complexState extends State<complex> {
                   ],
                 ),
                 SizedBox(height: 20,),
+                result == " " ? Container() :
                 Container(
-                  width: 300,
-                  height: 150,
-                  padding: EdgeInsets.all(10),
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
                   decoration: BoxDecoration(
                     border: Border.all(),
                     color: Colors.white,
                   ),
                   child: Center(
                     child: FittedBox(
-                      child: Text(
-                        choice== " " ? result : "$choice = $result",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          result == "CHECK INPUT" ? result :
+                          choice == " " ? result :
+                          "$choice = $result",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

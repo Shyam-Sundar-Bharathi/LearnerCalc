@@ -4,8 +4,8 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String centTend(String userInput, int choice){
-  if(userInput == '')
-    return ' ';
+  if(userInput == '' || userInput.split(',').length == 1)
+    return "CHECK INPUT";
   if(userInput.endsWith(','))
     userInput = userInput.substring(0,userInput.length-1);
   double result;
@@ -17,7 +17,7 @@ String centTend(String userInput, int choice){
       break;
       case 2: Mode = mode(userInput);
       break;
-      case 3: result = stddev(userInput);
+      case 3: result = samStdDev(userInput);
       break;
       case 4: result = samVariance(userInput);
       break;
@@ -30,6 +30,8 @@ String centTend(String userInput, int choice){
       case 8: result = hm(userInput);
       break;
       case 9: result = popVariance(userInput);
+      break;
+      case 10 : result = popStdDev(userInput);
       break;
 
     }
@@ -123,13 +125,16 @@ double samVariance (String userInput){
 
 }
 
-double stddev (String userInput){
+double samStdDev (String userInput){
   return (pow(samVariance(userInput),0.5));
+}
 
+double popStdDev (String userInput){
+  return (pow(popVariance(userInput),0.5));
 }
 
 double cv (String userInput){
-  return (stddev(userInput)/(mean(userInput)));
+  return (samStdDev(userInput)/(mean(userInput)));
 }
 
 double gm(String userInput){

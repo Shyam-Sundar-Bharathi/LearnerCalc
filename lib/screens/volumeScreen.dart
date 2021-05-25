@@ -111,8 +111,9 @@ class _volumeCalcState extends State<volumeCalc> {
                   }).toList(),
                 ),
                 SizedBox(height: 50),
+                result == " "? Container() :
                 Container(
-                    width: 300,
+                    width: MediaQuery. of(context). size. width - 30,
                     height: 200,
                     decoration: BoxDecoration(
                       border: Border.all(),
@@ -122,21 +123,27 @@ class _volumeCalcState extends State<volumeCalc> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FittedBox(
-                          child: Text(
-                            "VOLUME OF $dropDownValue",
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              "VOLUME OF $dropDownValue",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: 10,),
                         FittedBox(
-                          child: Text(
-                            result,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              result,
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),

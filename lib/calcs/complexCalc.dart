@@ -16,11 +16,17 @@ String formatComplex(String ans){
 }
 
 String mod(String a, String b){
+  if(a == "" || b == ""){
+    return "CHECK INPUT";
+  }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return formatNumber(c.module.toDouble().toStringAsFixedNoZero(precision));
 }
 
 String add(String a1, String b1, String a2, String b2){
+  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
+    return "CHECK INPUT";
+  }
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -30,6 +36,9 @@ String add(String a1, String b1, String a2, String b2){
 }
 
 String sub(String a1, String b1, String a2, String b2){
+  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
+    return "CHECK INPUT";
+  }
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -39,16 +48,25 @@ String sub(String a1, String b1, String a2, String b2){
 }
 
 String power(String a, String b, int power){
+  if(a == "" || b == ""){
+    return "CHECK INPUT";
+  }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return formatComplex(c.pow(power).toString());
 }
 
 String arg(String a, String b){
+  if(a == "" || b == ""){
+    return "CHECK INPUT";
+  }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return c.argument.toDouble().toStringAsFixedNoZero(precision);
 }
 
 String roots(String a, String b, int power){
+  if(a == "" || b == ""){
+    return "CHECK INPUT";
+  }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   List roots = c.rootsOf(power);
   if(power == 2){
@@ -61,6 +79,9 @@ String roots(String a, String b, int power){
 }
 
 String mul(String a1, String b1, String a2, String b2) {
+  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
+    return "CHECK INPUT";
+  }
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -72,6 +93,9 @@ String mul(String a1, String b1, String a2, String b2) {
 
 
 String div(String a1, String b1, String a2, String b2) {
+  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
+    return "CHECK INPUT";
+  }
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);

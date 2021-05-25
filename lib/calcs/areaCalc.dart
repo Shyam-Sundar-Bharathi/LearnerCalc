@@ -4,7 +4,7 @@ import 'package:dream_calc/screens/menu.dart';
 
 String area (String userInput, String dropDownValue) {
   if(userInput == '')
-    return " ";
+    return "CHECK INPUT";
   double area = 0;
   if(dropDownValue == "SQUARE"){
     var a = double.parse(userInput);

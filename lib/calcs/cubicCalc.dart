@@ -3,6 +3,10 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 List<String> cubeCalc(String A, String B, String C, String D){
+  if(A == '' || B == "" || C == "" || D == ""){
+    print("empty");
+    return ["CHECK INPUT", "CHECK INPUT", "CHECK INPUT","CHECK INPUT"];
+  }
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
   List rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];
 

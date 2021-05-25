@@ -150,7 +150,7 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "POPULATION VARIANCE";
+                          choice = "POP. VARIANCE";
                           result = centTend(userInput.text,9);
                         });
                       },
@@ -170,7 +170,7 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "SAMPLE VARIANCE";
+                          choice = "SMP.VARIANCE";
                           result = centTend(userInput.text,4);
                         });
                       },
@@ -195,18 +195,50 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "STANDARD DEVIATION";
-                          result = centTend(userInput.text,3);
+                          choice = "POP. STD. DEVIATION";
+                          result = centTend(userInput.text,10);
                         });
                       },
                       child: Text(
-                        "STANDARD DEVIATION",
+                        "POPULATION STANDARD DEVIATION",
+                        maxLines: 2,
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "SMP. STD. DEVIATION";
+                          result = centTend(userInput.text,3);
+                        });
+                      },
+                      child: Text(
+                        "SAMPLE STANDARD DEVIATION",
+                        maxLines: 2,
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
@@ -220,7 +252,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         });
                       },
                       child: Text(
-                        "CV",
+                        "CO-EFFICIENT OF VARIATION",
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -274,38 +306,31 @@ class _centTendCalcState extends State<centTendCalc> {
                   ],
                 ),
                 SizedBox(height: 50),
+                result == " " ? Container() :
                 Container(
-                    width: 300,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Colors.white,
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: FittedBox(
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          result == "CHECK INPUT" ? result :
+                          choice == " " ? result :
+                          "$choice = $result",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FittedBox(
-                          child: Text(
-                            choice,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        FittedBox(
-                          child: Text(
-                            result,
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                ),
+                  ),
+                )
               ],
             ),
           ),

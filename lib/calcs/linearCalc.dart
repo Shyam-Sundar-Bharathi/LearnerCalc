@@ -3,6 +3,9 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String calcx(String A, String B){
+  if(A == "" || B == ""){
+    return "CHECK INPUT";
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   if(a == 0){
@@ -12,6 +15,9 @@ String calcx(String A, String B){
 }
 
 String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
+  if(a1 == "" || b1 == "" || c1 == "" || a2 == "" || b2 == "" || c2 == ""){
+    return "CHECK INPUT";
+  }
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double C1 = double.parse(c1);
@@ -40,6 +46,9 @@ String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
 
 
 String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2,String A3, String B3, String C3, String D3){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == "" || A2 == "" || B2 == "" || C2 == "" || D2 == "" || A3 == "" || B3 == "" || C3 == "" || D3 == "" ){
+    return "CHECK INPUT";
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);

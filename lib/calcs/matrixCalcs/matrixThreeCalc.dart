@@ -15,6 +15,15 @@ List checkMatrix(Matrix m, int n){
 }
 
 Widget transposeThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3, ){
+  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -214,6 +223,15 @@ Widget transposeThree(String A1, String B1, String C1, String A2, String B2, Str
 }
 
 Widget inverseThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
+  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -424,6 +442,15 @@ Widget inverseThree(String A1, String B1, String C1, String A2, String B2, Strin
 }
 
 Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
+  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
@@ -445,6 +472,15 @@ Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2
 
 
 Widget traceThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
+  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);
