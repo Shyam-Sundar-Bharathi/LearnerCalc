@@ -266,7 +266,7 @@ double tometer(String unitChoiceOne, double userInput){
   if (unitChoiceOne == 'centimeter')
     return userInput/100;
   if (unitChoiceOne == 'kilometer')
-    return userInput*100;
+    return userInput*1000;
   if (unitChoiceOne == 'inch')
     return userInput*0.0254;
   if (unitChoiceOne == 'mile')
