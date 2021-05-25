@@ -69,12 +69,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
                           controller: userInputA,
                           keyboardType: TextInputType.number,
                           enableInteractiveSelection: true,
-                          onSubmitted: (text){
-                            FocusScope.of(context).requestFocus(FocusNode());
-                            setState(() {
-                              answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '')? null : quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                            });
-                          },
                           inputFormatters: [
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
@@ -106,12 +100,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
                           controller: userInputB,
                           keyboardType: TextInputType.number,
                           enableInteractiveSelection: true,
-                          onSubmitted: (text){
-                            FocusScope.of(context).requestFocus(FocusNode());
-                            setState(() {
-                              answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '')? null : quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                            });
-                          },
                           inputFormatters: [
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
@@ -149,12 +137,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
                           controller: userInputC,
                           keyboardType: TextInputType.number,
                           enableInteractiveSelection: true,
-                          onSubmitted: (text){
-                            FocusScope.of(context).requestFocus(FocusNode());
-                            setState(() {
-                              answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '')? null : quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                            });
-                          },
                           inputFormatters: [
                             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                           ],
@@ -180,12 +162,9 @@ class _quadraticCalcState extends State<quadraticCalc> {
                           ),
                           onPressed: () {
                             FocusScope.of(context).requestFocus(FocusNode());
-                            if(!(userInputA.text == '' || userInputB.text == '' || userInputC.text == '')){
                               setState(() {
                                 answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
                               });
-                            }
-
                           },
                           child: Text(
                             "CALCULATE",

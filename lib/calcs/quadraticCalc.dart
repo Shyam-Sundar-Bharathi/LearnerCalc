@@ -4,6 +4,10 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 List<String> quadCalc(String A, String B, String C){
+  if(A == "" || B == "" || C == ""){
+    print("rempty");
+    return ["CHECK INPUT","CHECK INPUT","CHECK INPUT",""];
+  }
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -20,5 +24,5 @@ List<String> quadCalc(String A, String B, String C){
     rootTwo = formatNumber((-b/(2*a)).toStringAsFixedNoZero(precision)) + ' - ' + formatNumber((pow(-d,0.5)/2*a).toStringAsFixedNoZero(precision)) + ' i';
   }
 
-  return [rootOne,rootTwo,formatNumber(equation.discriminant().toDouble().toStringAsFixedNoZero(precision)), isReal.toString()];
+  return [rootOne,rootTwo,formatNumber(equation.discriminant().toDouble().toStringAsFixedNoZero(precision))];
 }

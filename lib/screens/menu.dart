@@ -61,7 +61,7 @@ class _homeState extends State<home> {
         title: Text(
           "Newton",
           style: TextStyle(
-            fontFamily: "Times",
+            fontFamily: "Courier",
             fontSize: 30,
             fontWeight: FontWeight.w900,
             color: colors[colorTheme][1]
