@@ -22,8 +22,8 @@
 18        android:debuggable="true"
 19        android:icon="@mipmap/ic_launcher"
 19-->/Users/shyamsundarbharathi/DreamCalculator/android/app/src/main/AndroidManifest.xml:5:9-43
-20        android:label="dream_calc" >
-20-->/Users/shyamsundarbharathi/DreamCalculator/android/app/src/main/AndroidManifest.xml:4:9-35
+20        android:label="Newton" >
+20-->/Users/shyamsundarbharathi/DreamCalculator/android/app/src/main/AndroidManifest.xml:4:9-31
 21        <activity
 21-->/Users/shyamsundarbharathi/DreamCalculator/android/app/src/main/AndroidManifest.xml:6:9-34:20
 22            android:name="thelearnersdaily.wordpress.dream_calc.MainActivity"

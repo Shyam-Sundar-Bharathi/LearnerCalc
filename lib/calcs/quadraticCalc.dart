@@ -4,8 +4,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 List<String> quadCalc(String A, String B, String C){
-  if(A == "" || B == "" || C == ""){
-    print("rempty");
+  if(A == "" || B == "" || C == "" || double.parse(A) == 0){
     return ["CHECK INPUT","CHECK INPUT","CHECK INPUT",""];
   }
   double a = double.parse(A);

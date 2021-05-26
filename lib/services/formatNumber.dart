@@ -3,9 +3,8 @@ extension Ex on double {
   String toStringAsFixedNoZero(int precision) {
     String result = double.parse(this.toStringAsFixed(precision)).toString();
     if(this.toDouble() != 0 && double.parse(result) == 0){
-      while(this.toDouble()!= 0 && double.parse(result) == 0 && precision < 6){
+      while(this.toDouble()!= 0 && double.parse(result) == 0 && precision < 7){
         precision++;
-        print(precision);
         result = double.parse(this.toStringAsFixed(precision)).toString();
       }
     }
@@ -58,7 +57,7 @@ String formatNumber(dynamic number, {bool isCurrency = false}){
   else{
     num = double.parse(number.toString());
   }
-  if(num.toString().contains('e')){
+  if(num.toString().contains('e') || num.toString().contains('I') || num.toString().contains('i') || num.toString().contains('N') || num.toString().contains('n')){
     return num.toString();
   }
   if(num == 0)
