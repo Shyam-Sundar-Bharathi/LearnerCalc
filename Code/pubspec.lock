@@ -71,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  equations:
+    dependency: "direct main"
+    description:
+      name: equations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   extended_math:
     dependency: "direct main"
     description:
@@ -142,6 +149,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.0"
+  fraction:
+    dependency: transitive
+    description:
+      name: fraction
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.1"
   html:
     dependency: transitive
     description:

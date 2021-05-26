@@ -1,3 +1,4 @@
+import 'package:dream_calc/calcs/cubicExceptionHandler.dart';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
@@ -6,17 +7,17 @@ List<String> cubeCalc(String A, String B, String C, String D){
   if(A == "" || B == "" || C == "" || D == ""){
     return ["CHECK INPUT", "CHECK INPUT", "CHECK INPUT","CHECK INPUT"];
   }
+  bool enteredNullException = false;
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
-  List rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];
+  List<String> rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];
 
-  if(rootsRaw[1].toString() == "null"){
-      rootsRaw[1] = rootsRaw[0];
-    }
-    if(rootsRaw[2].toString() == "null"){
-      rootsRaw[2] = rootsRaw[1];
+  //redirects to Exception Handler package
+  if(rootsRaw[1].toString() == "null" || rootsRaw[1].toString() == "null" || rootsRaw[1].toString() == "null"){
+      print("Entered null exception");
+      enteredNullException = true;
+      rootsRaw = cubeTestCalc(A,B,C,D);
     }
 
-    print(rootsRaw);
     List<String> rootsFinal = ['','',''];
     List<String> rootOne = rootsRaw[0].split('+');
     List<String> rootTwo = rootsRaw[1].split('+');
@@ -52,6 +53,21 @@ List<String> cubeCalc(String A, String B, String C, String D){
     rootTwo[0] = formatNumber(rootTwo[0].toStringAsFixedNoZero(precision));
     rootThree[0] = formatNumber(rootThree[0].toStringAsFixedNoZero(precision));
 
+    if(enteredNullException){
+      if(rootOne[1].contains('e') || double.parse(rootOne[1].replaceAll('i', '')) < 0.001){
+        rootOne[1] = '';
+        sign[0] = '';
+      }
+      if(rootTwo[1].contains('e') || double.parse(rootTwo[1].replaceAll('i', '')) < 0.001){
+        rootTwo[1] = '';
+        sign[1] = '';
+      }
+      if(rootThree[1].contains('e') || double.parse(rootThree[1].replaceAll('i', '')) < 0.001){
+        rootThree[1] = '';
+        sign[2] = '';
+      }
+    }
+
     if(rootOne[1]!=''){
       rootOne[1] = formatNumber(rootOne[1].toString().replaceAll('i', '').toStringAsFixedNoZero(precision)) + ' i';
     }
@@ -61,7 +77,6 @@ List<String> cubeCalc(String A, String B, String C, String D){
     if(rootThree[1]!=''){
       rootThree[1] = formatNumber(rootThree[1].toString().replaceAll('i', '').toStringAsFixedNoZero(precision)) + ' i';
     }
-
 
     rootsFinal[0] = rootOne[0] + ' ' + sign[0] + ' ' + rootOne[1];
     rootsFinal[1] = rootTwo[0] + ' ' + sign[1] + ' ' + rootTwo[1];
