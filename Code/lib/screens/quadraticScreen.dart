@@ -11,10 +11,23 @@ class quadraticCalc extends StatefulWidget {
 
 class _quadraticCalcState extends State<quadraticCalc> {
 
+  GlobalKey keyA = new GlobalKey();
+  double width = 80;
   TextEditingController userInputA = new TextEditingController();
   TextEditingController userInputB = new TextEditingController();
   TextEditingController userInputC = new TextEditingController();
   List<String> answers = ['','',''];
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        width = keyA.currentContext.size.width;
+      });
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -65,6 +78,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                       Expanded(
                         flex: 1,
                         child: TextField(
+                          key: keyA,
                           textAlign: TextAlign.end,
                           controller: userInputA,
                           keyboardType: TextInputType.number,
@@ -130,8 +144,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
                         ),
                       ),
                       SizedBox(width: 20,),
-                      Expanded(
-                        flex: 1,
+                      Container(
+                        width: width,
                         child: TextField(
                           textAlign: TextAlign.end,
                           controller: userInputC,
@@ -155,25 +169,25 @@ class _quadraticCalcState extends State<quadraticCalc> {
                       ),
                       SizedBox(width: 20,),
                       Expanded(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                            minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                          ),
-                          onPressed: () {
-                            FocusScope.of(context).requestFocus(FocusNode());
-                              setState(() {
-                                answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                              });
-                          },
-                          child: Text(
-                            "CALCULATE",
-                            style: TextStyle(
-                              color: Colors.black,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                              minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                            ),
+                            onPressed: () {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                                setState(() {
+                                  answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
+                                });
+                            },
+                            child: Text(
+                              "CALCULATE",
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
-                      )
                     ],
                   ),
                   SizedBox(height: 20,),

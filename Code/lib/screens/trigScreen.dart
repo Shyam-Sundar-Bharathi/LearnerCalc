@@ -269,6 +269,7 @@ class _trigonometryState extends State<trigonometry> {
                              radian.text = Asin(Sin.text).toStringAsFixedNoZero(precision);
                              setAnswersRadian(Asin(Sin.text));
                            });
+                           FocusScope.of(context).requestFocus(FocusNode());
                          }
                          else
                            clear();
@@ -356,6 +357,7 @@ class _trigonometryState extends State<trigonometry> {
                               radian.text = Acos(Cos.text).toStringAsFixedNoZero(precision);
                               setAnswersRadian(Acos(Cos.text));
                             });
+                            FocusScope.of(context).requestFocus(FocusNode());
                           }
                           else
                             clear();
@@ -442,6 +444,7 @@ class _trigonometryState extends State<trigonometry> {
                               inFocusDegree = false;
                               radian.text = Atan(Tan.text).toStringAsFixedNoZero(precision);
                               setAnswersRadian(Atan(Tan.text));
+                              FocusScope.of(context).requestFocus(FocusNode());
                             });
                           }
                           else
@@ -530,6 +533,7 @@ class _trigonometryState extends State<trigonometry> {
                               inFocusDegree = false;
                               setAnswersRadian(Acot(Cot.text));
                             });
+                            FocusScope.of(context).requestFocus(FocusNode());
                           }
                           else
                             clear();
@@ -617,6 +621,7 @@ class _trigonometryState extends State<trigonometry> {
                               inFocusDegree = false;
                               setAnswersRadian(Asec(Sec.text));
                             });
+                            FocusScope.of(context).requestFocus(FocusNode());
                           }
                           else
                             clear();
@@ -704,6 +709,7 @@ class _trigonometryState extends State<trigonometry> {
                               inFocusDegree = false;
                               setAnswersRadian(Acosec(Cosec.text));
                             });
+                            FocusScope.of(context).requestFocus(FocusNode());
                           }
                           else
                             clear();

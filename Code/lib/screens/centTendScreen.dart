@@ -65,18 +65,18 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "MEAN";
+                          choice = "AM";
                           result = centTend(userInput.text,0);
                         });
                       },
                       child: Text(
-                        "MEAN",
+                        "ARITHMETIC\n      MEAN",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: 10),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
@@ -85,18 +85,18 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "MEDIAN";
-                          result = centTend(userInput.text,1);
+                          choice = "GM";
+                          result = centTend(userInput.text,7);
                         });
                       },
                       child: Text(
-                        "MEDIAN",
+                        "GEOMETRIC\n     MEAN",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: 10),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
@@ -105,37 +105,17 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "MODE";
-                          result = centTend(userInput.text,2);
+                          choice = "HM";
+                          result = centTend(userInput.text, 8);
                         });
                       },
                       child: Text(
-                        "MODE",
+                        "HARMONIC\n    MEAN",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "RANGE";
-                          result = centTend(userInput.text, 6);
-                        });
-                      },
-                      child: Text(
-                        "RANGE",
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    )
                   ],
                 ),
                 SizedBox(height: 20),
@@ -155,13 +135,13 @@ class _centTendCalcState extends State<centTendCalc> {
                         });
                       },
                       child: Text(
-                        "POPULATION VARIANCE",
+                        "POPULATION\n  VARIANCE",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: 10),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
@@ -170,12 +150,32 @@ class _centTendCalcState extends State<centTendCalc> {
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
-                          choice = "SMP.VARIANCE";
+                          choice = "SMP. VARIANCE";
                           result = centTend(userInput.text,4);
                         });
                       },
                       child: Text(
-                        "SAMPLE VARIANCE",
+                        "  SAMPLE\nVARIANCE",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "CV";
+                          result = centTend(userInput.text,5);
+                        });
+                      },
+                      child: Text(
+                        "CO-EFFICIENT\nOF VARIATION",
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -200,19 +200,13 @@ class _centTendCalcState extends State<centTendCalc> {
                         });
                       },
                       child: Text(
-                        "POPULATION STANDARD DEVIATION",
-                        maxLines: 2,
+                        "        POPULATION\nSTANDARD DEVIATION",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                    SizedBox(width: 10),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
@@ -226,8 +220,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         });
                       },
                       child: Text(
-                        "SAMPLE STANDARD DEVIATION",
-                        maxLines: 2,
+                        "             SAMPLE\nSTANDARD DEVIATION",
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -237,74 +230,93 @@ class _centTendCalcState extends State<centTendCalc> {
                 ),
                 SizedBox(height: 20,),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "CV";
-                          result = centTend(userInput.text,5);
-                        });
-                      },
-                      child: Text(
-                        "CO-EFFICIENT OF VARIATION",
-                        style: TextStyle(
-                          color: Colors.black,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                        ),
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          setState(() {
+                            choice = "MEDIAN";
+                            result = centTend(userInput.text,1);
+                          });
+                        },
+                        child: Text(
+                          "MEDIAN",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "GM";
-                          result = centTend(userInput.text,7);
-                        });
-                      },
-                      child: Text(
-                        "GEOMETRIC MEAN",
-                        style: TextStyle(
-                          color: Colors.black,
+                      SizedBox(width: 10),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                        ),
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          setState(() {
+                            choice = "MODE";
+                            result = centTend(userInput.text,2);
+                          });
+                        },
+                        child: Text(
+                          "MODE",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 20),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "HM";
-                          result = centTend(userInput.text, 8);
-                        });
-                      },
-                      child: Text(
-                        "HARMONIC MEAN",
-                        style: TextStyle(
-                          color: Colors.black,
+                      SizedBox(width: 10),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                        ),
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          setState(() {
+                            choice = "RANGE";
+                            result = centTend(userInput.text, 6);
+                          });
+                        },
+                        child: FittedBox(
+                          child: Text(
+                            "RANGE",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
                       ),
-                    )
-                  ],
-                ),
+                      SizedBox(width: 10,),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
+                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                        ),
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          setState(() {
+                            choice = "COUNT OF ELEMENTS";
+                            result = centTend(userInput.text, 11);
+                          });
+                        },
+                        child: FittedBox(
+                          child: Text(
+                            "COUNT",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 SizedBox(height: 50),
                 result == " " ? Container() :
                 Container(

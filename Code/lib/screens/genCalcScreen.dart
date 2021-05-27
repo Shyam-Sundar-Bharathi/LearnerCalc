@@ -55,10 +55,17 @@ class _genCalcState extends State<genCalc> {
 
   void insertText(String myText) {
     cursorPos = userInput.selection.base.offset;
-    if(cursorPos < 0)
-      myText == '.' && userInput.text == '' ? userInput.text += '0.' : userInput.text += myText;
-    else
-    {
+    if(cursorPos < 0){
+      if(myText == '.'){
+        userInput.text == '' ? userInput.text += '0.' :
+        isOperator(userInput.text[userInput.text.length - 1]) ? userInput.text += '0.' :
+        userInput.text += myText;
+      }
+      else
+        userInput.text += myText;
+    }
+
+    else {
       final text = userInput.text;
       final textSelection = userInput.selection;
       final newText = text.replaceRange(
@@ -83,7 +90,6 @@ class _genCalcState extends State<genCalc> {
       else
         return;
 
-    //
     else if(isOperator(userInput.text[userInput.text.length-1]))
       if(operator=='-')
         userInput.text+= '(-' ;
@@ -160,7 +166,6 @@ class _genCalcState extends State<genCalc> {
   void evaluate(String input) {
     String finaluserinput = input.replaceAll('x', '*');
     finaluserinput = finaluserinput.replaceAll('÷', '/');
-    //finaluserinput = finaluserinput.replaceAll(',','');
     Parser p = Parser();
     try{
       Expression exp = p.parse(finaluserinput);
@@ -172,33 +177,40 @@ class _genCalcState extends State<genCalc> {
       //print("END TRY");
     }
     on FormatException {
-      int open = '('.allMatches(userInput.text).length;
-      int close = ')'.allMatches(userInput.text).length;
-      if(open>close){
-        for(int i=0; i< open - close; i++){
-          finaluserinput += ')';
+        try{
+          int open = '('.allMatches(userInput.text).length;
+          int close = ')'.allMatches(userInput.text).length;
+          if(open>close){
+            for(int i=0; i< open - close; i++){
+              finaluserinput += ')';
+            }
+          }
+          else if(close>open){
+            String temp = finaluserinput;
+            finaluserinput='';
+            for(int i=0; i < close-open; i++){
+              finaluserinput+='(';
+            }
+            finaluserinput+=temp;
+          }
+          if(finaluserinput.length == 0){
+            setState(() {
+              answer='';
+            });
+            return;
+          }
+          Expression exp = p.parse(finaluserinput);
+          ContextModel cm = ContextModel();
+          double eval = exp.evaluate(EvaluationType.REAL, cm);
+          setState(() {
+            answer = eval.toString();
+          });
         }
-      }
-      else if(close>open){
-        String temp = finaluserinput;
-        finaluserinput='';
-        for(int i=0; i < close-open; i++){
-          finaluserinput+='(';
+        on Exception{
+          setState(() {
+            answer = "Incorrect Expression";
+          });
         }
-        finaluserinput+=temp;
-      }
-      if(finaluserinput.length == 0){
-        setState(() {
-          answer='';
-        });
-        return;
-      }
-      Expression exp = p.parse(finaluserinput);
-      ContextModel cm = ContextModel();
-      double eval = exp.evaluate(EvaluationType.REAL, cm);
-      setState(() {
-        answer = eval.toString();
-      });
     }
   }
 

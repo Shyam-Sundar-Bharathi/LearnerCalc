@@ -33,6 +33,7 @@ String centTend(String userInput, int choice){
       break;
       case 10 : result = popStdDev(userInput);
       break;
+      case 11 : result = countElements(userInput);
 
     }
   return choice == 2? Mode : formatNumber(result.toStringAsFixedNoZero(precision));
@@ -155,4 +156,9 @@ double hm(String userInput){
     iArray.add(double.parse(sArray[iter]));
   final c = CentralTendency(Vector(iArray));
   return c.harmonic().toDouble();
+}
+
+double countElements(String userInput){
+  var sArray = userInput.split(",");
+  return sArray.length.toDouble();
 }

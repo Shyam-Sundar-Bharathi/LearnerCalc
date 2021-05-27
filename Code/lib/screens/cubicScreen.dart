@@ -202,7 +202,7 @@ class _cubicCalcState extends State<cubicCalc> {
                                 });
                               },
                               inputFormatters: [
-                                FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+                                FilteringTextInputFormatter(RegExp('[0-9-]'), allow: true),
                               ],
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
