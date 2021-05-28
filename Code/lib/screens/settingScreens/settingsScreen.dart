@@ -201,7 +201,7 @@ class _settingsState extends State<settings> {
       floatingActionButton: Align(
         alignment: Alignment.bottomCenter,
         child: FloatingActionButton.extended(
-          backgroundColor: colors[colorTheme][8],
+          backgroundColor: colors[colorTheme][9],
           shape: StadiumBorder(),
           label : Padding(
             padding: const EdgeInsets.all(8.0),

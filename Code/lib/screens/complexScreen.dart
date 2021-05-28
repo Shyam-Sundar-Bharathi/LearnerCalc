@@ -55,7 +55,7 @@ class _complexState extends State<complex> {
                     Expanded(
                       flex: 1,
                       child: TextField(
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.center,
                         controller: a1,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
@@ -63,18 +63,7 @@ class _complexState extends State<complex> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        decoration: myInputDecoration,
                       ),
                     ),
                     Expanded(
@@ -89,7 +78,7 @@ class _complexState extends State<complex> {
                     Expanded(
                       flex: 1,
                       child: TextField(
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.center,
                         controller: b1,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
@@ -97,17 +86,7 @@ class _complexState extends State<complex> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
+                        decoration: myInputDecoration
                       ),
                     ),
                     Expanded(
@@ -136,7 +115,7 @@ class _complexState extends State<complex> {
                     Expanded(
                       flex: 1,
                       child: TextField(
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.center,
                         controller: a2,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
@@ -144,18 +123,7 @@ class _complexState extends State<complex> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        decoration: myInputDecoration
                       ),
                     ),
                     Expanded(
@@ -170,7 +138,7 @@ class _complexState extends State<complex> {
                     Expanded(
                       flex: 1,
                       child: TextField(
-                        textAlign: TextAlign.end,
+                        textAlign: TextAlign.center,
                         controller: b2,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
@@ -178,17 +146,7 @@ class _complexState extends State<complex> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
                         ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
+                        decoration: myInputDecoration
                       ),
                     ),
                     Expanded(
@@ -207,10 +165,7 @@ class _complexState extends State<complex> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -221,15 +176,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "| A |",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -240,15 +192,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "| B |",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -259,7 +208,7 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A + B",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -270,10 +219,7 @@ class _complexState extends State<complex> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -284,15 +230,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A * B",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -303,15 +246,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A / B",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -322,7 +262,7 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A - B",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -333,10 +273,7 @@ class _complexState extends State<complex> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -347,15 +284,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A^2",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -366,15 +300,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "A^3",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -385,7 +316,7 @@ class _complexState extends State<complex> {
                       child: Text(
                         "arg(A)",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -396,10 +327,7 @@ class _complexState extends State<complex> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -410,15 +338,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "√A",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -429,15 +354,12 @@ class _complexState extends State<complex> {
                       child: Text(
                         "∛A",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -448,7 +370,7 @@ class _complexState extends State<complex> {
                       child: Text(
                         "arg(B)",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),

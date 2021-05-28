@@ -82,10 +82,7 @@ class _areaCalcState extends State<areaCalc> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                    minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                  ),
+                  style: myButtonStyle,
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
@@ -95,7 +92,7 @@ class _areaCalcState extends State<areaCalc> {
                   child: Text(
                     "AREA",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),

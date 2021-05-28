@@ -476,10 +476,7 @@ class _matrixFourState extends State<matrixFour> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                                minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                              ),
+                              style: myButtonStyle,
                               onPressed: () {
                                 FocusScope.of(context).requestFocus(FocusNode());
                                 setState(() {
@@ -490,7 +487,7 @@ class _matrixFourState extends State<matrixFour> {
                               child: Text(
                                 "TRANSPOSE",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -498,10 +495,7 @@ class _matrixFourState extends State<matrixFour> {
                           SizedBox(width: 20,),
                           Expanded(
                             child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                                minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                              ),
+                              style: myButtonStyle,
                               onPressed: () {
                                 FocusScope.of(context).requestFocus(FocusNode());
                                 setState(() {
@@ -512,7 +506,7 @@ class _matrixFourState extends State<matrixFour> {
                               child: Text(
                                 "DETERMINANT",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -524,10 +518,7 @@ class _matrixFourState extends State<matrixFour> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                                minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                              ),
+                              style: myButtonStyle,
                               onPressed: () {
                                 FocusScope.of(context).requestFocus(FocusNode());
                                 setState(() {
@@ -538,7 +529,7 @@ class _matrixFourState extends State<matrixFour> {
                               child: Text(
                                 "TRACE",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
@@ -546,10 +537,7 @@ class _matrixFourState extends State<matrixFour> {
                           SizedBox(width: 20,),
                           Expanded(
                             child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                                minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                              ),
+                              style: myButtonStyle,
                               onPressed: () {
                                 FocusScope.of(context).requestFocus(FocusNode());
                                 setState(() {
@@ -560,7 +548,7 @@ class _matrixFourState extends State<matrixFour> {
                               child: Text(
                                 "INVERSE",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),

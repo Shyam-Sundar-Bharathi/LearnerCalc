@@ -57,6 +57,7 @@ class _percentCalcState extends State<percentCalc> {
                         },
                         controller: userInputOne,
                         keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
                         enableInteractiveSelection: true,
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
@@ -97,6 +98,7 @@ class _percentCalcState extends State<percentCalc> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
+                        textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           filled: true,
@@ -159,6 +161,7 @@ class _percentCalcState extends State<percentCalc> {
                             answer2 = percentTwo(userInputThree.text,userInputFour.text);
                           });
                         },
+                        textAlign: TextAlign.center,
                         controller: userInputThree,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
@@ -193,6 +196,7 @@ class _percentCalcState extends State<percentCalc> {
                             answer2 = percentTwo(userInputThree.text,userInputFour.text);
                           });
                         },
+                        textAlign: TextAlign.center,
                         controller: userInputFour,
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,

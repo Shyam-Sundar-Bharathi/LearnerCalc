@@ -738,15 +738,12 @@ class _trigonometryState extends State<trigonometry> {
                 ),
                 SizedBox(height: 15,),
                 ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                    minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                  ),
+                  style: myButtonStyle,
                   onPressed: clear,
                   child: Text(
                     "Clear",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),

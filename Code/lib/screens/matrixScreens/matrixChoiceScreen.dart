@@ -49,15 +49,16 @@ class _matrixChoiceState extends State<matrixChoice> {
                             child: Text(
                               choices[index][0],
                               style: TextStyle(
-                                  color: Colors.grey[800],
+                                  color: Colors.white,
                                   fontSize:30
                               ),
                             ),
                           ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                            elevation: MaterialStateProperty.all(10),
-                          ),
+                          style: myButtonStyle,
+                          // ButtonStyle(
+                          //   backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
+                          //   elevation: MaterialStateProperty.all(10),
+                          // ),
                           onPressed: (){
                             Navigator.pushNamed(context, choices[index][1]);
                           },
@@ -65,7 +66,7 @@ class _matrixChoiceState extends State<matrixChoice> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 20,),
                 ],
               );
             }

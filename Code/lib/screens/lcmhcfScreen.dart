@@ -61,10 +61,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -76,17 +73,14 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         child: Text(
                           "LCM",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
                     ),
                     SizedBox(width: 20),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -98,7 +92,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         child: Text(
                             "HCF",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -125,10 +119,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
                    ElevatedButton(
-                     style: ButtonStyle(
-                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                     ),
+                     style: myButtonStyle,
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
@@ -140,17 +131,14 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                        child: Text(
                          "FACTORS",
                          style: TextStyle(
-                           color: Colors.black,
+                           color: Colors.white,
                          ),
                        ),
                      )
                    ),
                    SizedBox(width: 20),
                    ElevatedButton(
-                     style: ButtonStyle(
-                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                     ),
+                     style: myButtonStyle,
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
@@ -162,17 +150,14 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                        child: Text(
                          "PRIME FACTORS",
                          style: TextStyle(
-                           color: Colors.black,
+                           color: Colors.white,
                          ),
                        ),
                      ),
                    ),
                    SizedBox(width: 20),
                    ElevatedButton(
-                     style: ButtonStyle(
-                       backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                     ),
+                     style: myButtonStyle,
                      onPressed: () {
                        FocusScope.of(context).requestFocus(FocusNode());
                        setState(() {
@@ -184,7 +169,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                        child: Text(
                          "IS PRIME ?",
                          style: TextStyle(
-                           color: Colors.black,
+                           color: Colors.white,
                          ),
                        ),
                      ),

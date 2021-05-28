@@ -21,6 +21,30 @@ Map colors = {
   'RED' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
 };
 
+ButtonStyle myButtonStyle = ButtonStyle(
+    elevation: MaterialStateProperty.all(10),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      )
+  ),
+  backgroundColor: MaterialStateProperty.resolveWith((states) => colors[colorTheme][9]),
+  minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+);
+
+InputDecoration myInputDecoration = InputDecoration(
+  fillColor: Colors.white,
+  filled: true,
+  border:OutlineInputBorder(
+    borderSide: const BorderSide(color: Colors.black, width: 2.0),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  labelStyle: TextStyle(
+    fontSize: 30.0,
+    fontWeight: FontWeight.bold,
+  ),
+);
+
 class _homeState extends State<home> {
 
 
@@ -36,7 +60,7 @@ class _homeState extends State<home> {
 
   Map routes = {
     0 : ['   GENERAL\nCALCULATOR', '/genCalc'],
-    1 : ['      UNIT\nCONVERSION', '/unitConversion'],
+    1 : ['       UNIT\nCONVERSION', '/unitConversion'],
     2 : ['FORMULAE\n   SHEET', '/formulaChoice'],
     3 : ['   LINEAR\nEQUATIONS', '/linearChoice'],
     4 : ['QUADRATIC\n EQUATION', '/quadratic'],
@@ -55,7 +79,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colors[colorTheme][5],
+      backgroundColor: colors[colorTheme][1],
       appBar: AppBar(
         backgroundColor: colors[colorTheme][9],
         title: Text(
@@ -64,7 +88,8 @@ class _homeState extends State<home> {
             fontFamily: "Courier",
             fontSize: 30,
             fontWeight: FontWeight.w900,
-            color: colors[colorTheme][1]
+            color: Colors.white
+            //colors[colorTheme][1]
           ),
         ),
         centerTitle: true,
@@ -83,21 +108,6 @@ class _homeState extends State<home> {
           },
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(
-      //       Icons.settings,
-      //     color: Colors.black,
-      //   ),
-      //   backgroundColor: colors[colorTheme][2],
-      //   onPressed: () async {
-      //     result = await Navigator.pushNamed(context, '/settings');
-      //     setState(() {
-      //       precision = result['precision'];
-      //       colorTheme = result['colorTheme'];
-      //       save();
-      //     });
-      //   },
-      // ),
       body: Column(
         children: [
           Expanded(
@@ -111,26 +121,28 @@ class _homeState extends State<home> {
                   ),
                   itemBuilder: (BuildContext context, int index){
                   return Padding(
-                    padding: const EdgeInsets.all(2.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Container(
-                      child: Card(
-                        color: Colors.grey,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                              elevation: MaterialStateProperty.all(15)
-                            ),
-                            child: FittedBox(
-                              child: Text(
-                                  routes[index][0],
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10))
                                 ),
-                              ),
                             ),
-                            onPressed: (){Navigator.pushNamed(context, routes[index][1]);},
+                          backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
+                          elevation: MaterialStateProperty.all(15)
+                        ),
+                        child: FittedBox(
+                          child: Text(
+                              routes[index][0],
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white
+                            ),
                           ),
+                        ),
+                        onPressed: (){Navigator.pushNamed(context, routes[index][1]);},
                       ),
                     ),
                   );

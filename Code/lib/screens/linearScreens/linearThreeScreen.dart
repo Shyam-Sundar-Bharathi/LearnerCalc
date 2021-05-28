@@ -466,10 +466,7 @@ class _linearThreeState extends State<linearThree> {
                 ),
                 SizedBox(height: 20,),
                 ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                    minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                  ),
+                  style: myButtonStyle,
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     setState(() {
@@ -479,7 +476,7 @@ class _linearThreeState extends State<linearThree> {
                   child: Text(
                     "CALCULATE",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),

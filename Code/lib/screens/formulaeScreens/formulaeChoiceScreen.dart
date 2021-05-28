@@ -49,15 +49,16 @@ class _formulaChoiceState extends State<formulaChoice> {
                               child: Text(
                                 choices[index][0],
                                 style: TextStyle(
-                                    color: Colors.grey[800],
+                                    color: Colors.white,
                                     fontSize:30
                                 ),
                               ),
                             ),
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                              elevation: MaterialStateProperty.all(10),
-                            ),
+                            style: myButtonStyle,
+                            // ButtonStyle(
+                            //   backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
+                            //   elevation: MaterialStateProperty.all(10),
+                            // ),
                             onPressed: (){
                               Navigator.pushNamed(context, choices[index][1]);
                             },

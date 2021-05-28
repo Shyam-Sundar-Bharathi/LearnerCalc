@@ -58,10 +58,7 @@ class _centTendCalcState extends State<centTendCalc> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -72,16 +69,13 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "ARITHMETIC\n      MEAN",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -92,16 +86,13 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "GEOMETRIC\n     MEAN",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -112,7 +103,7 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "HARMONIC\n    MEAN",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -123,10 +114,7 @@ class _centTendCalcState extends State<centTendCalc> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -137,16 +125,13 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "POPULATION\n  VARIANCE",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -157,16 +142,13 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "  SAMPLE\nVARIANCE",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(width: 10,),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -177,7 +159,7 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "CO-EFFICIENT\nOF VARIATION",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -188,10 +170,7 @@ class _centTendCalcState extends State<centTendCalc> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -202,16 +181,13 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "        POPULATION\nSTANDARD DEVIATION",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                      ),
+                      style: myButtonStyle,
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         setState(() {
@@ -222,7 +198,7 @@ class _centTendCalcState extends State<centTendCalc> {
                       child: Text(
                         "             SAMPLE\nSTANDARD DEVIATION",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -233,10 +209,7 @@ class _centTendCalcState extends State<centTendCalc> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                        ),
+                        style: myButtonStyle,
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           setState(() {
@@ -247,16 +220,13 @@ class _centTendCalcState extends State<centTendCalc> {
                         child: Text(
                           "MEDIAN",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       SizedBox(width: 10),
                       ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                        ),
+                        style: myButtonStyle,
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           setState(() {
@@ -267,16 +237,13 @@ class _centTendCalcState extends State<centTendCalc> {
                         child: Text(
                           "MODE",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       SizedBox(width: 10),
                       ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                        ),
+                        style: myButtonStyle,
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           setState(() {
@@ -288,17 +255,14 @@ class _centTendCalcState extends State<centTendCalc> {
                           child: Text(
                             "RANGE",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ),
                         ),
                       ),
                       SizedBox(width: 10,),
                       ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.grey[300]),
-                          minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-                        ),
+                        style: myButtonStyle,
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           setState(() {
@@ -310,7 +274,7 @@ class _centTendCalcState extends State<centTendCalc> {
                           child: Text(
                             "COUNT",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ),
                         ),
