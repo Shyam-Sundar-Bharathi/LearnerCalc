@@ -12,7 +12,7 @@ class complex extends StatefulWidget {
 class _complexState extends State<complex> {
 
 
-  Widget myComplexButton(String ch, String res, String text){
+  Widget myComplexButton(String ch, String text, int fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
@@ -20,7 +20,7 @@ class _complexState extends State<complex> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = res;
+            result = complexChoice(a1.text, b1.text, a2.text, b2.text, fn);
           });
         },
         child: FittedBox(
@@ -190,44 +190,44 @@ class _complexState extends State<complex> {
                   //mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myComplexButton("| A |", mod(a1.text,b1.text), "| A |"),
+                    myComplexButton("| A |", "| A |", 0),
                     SizedBox(width: 20,),
-                    myComplexButton("| B |", mod(a2.text,b2.text), "| B |"),
+                    myComplexButton("| B |", "| B |",1),
                     SizedBox(width: 20,),
-                    myComplexButton("A + B", add(a1.text,b1.text,a2.text,b2.text), "A + B"),
+                    myComplexButton("A + B", "A + B", 2),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myComplexButton("A * B", mul(a1.text,b1.text,a2.text,b2.text), "A * B"),
+                    myComplexButton("A * B", "A * B", 10),
                     SizedBox(width: 20,),
-                    myComplexButton( "A / B", div(a1.text,b1.text,a2.text,b2.text), "A / B"),
+                    myComplexButton( "A / B", "A / B", 11),
                     SizedBox(width: 20,),
-                    myComplexButton("A - B", sub(a1.text,b1.text,a2.text,b2.text), "A - B"),
+                    myComplexButton("A - B", "A - B", 3),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myComplexButton("A^2", power(a1.text,b1.text,2), "A^2"),
+                    myComplexButton("A^2", "A^2", 4),
                     SizedBox(width: 20,),
-                    myComplexButton("A^3", power(a1.text,b1.text,3), "A^3"),
+                    myComplexButton("A^3", "A^3", 5),
                     SizedBox(width: 20,),
-                    myComplexButton("arg(A)", arg(a1.text,b1.text), "arg(A)"),
+                    myComplexButton("arg(A)", "arg(A)", 6),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myComplexButton( " ", roots(a1.text,b1.text,2), "√A"),
+                    myComplexButton( " ",  "√A", 8),
                     SizedBox(width: 20,),
-                    myComplexButton(" ", roots(a1.text,b1.text,3), "∛A"),
+                    myComplexButton(" ", "∛A", 9),
                     SizedBox(width: 20,),
-                    myComplexButton("arg(B)", arg(a2.text,b2.text), "arg(B)"),
+                    myComplexButton("arg(B)", "arg(B)", 7),
                   ],
                 ),
                 SizedBox(height: 20,),

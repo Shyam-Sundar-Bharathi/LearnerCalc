@@ -26,7 +26,7 @@ class _matrixThreeState extends State<matrixThree> {
   TextEditingController b3 = new TextEditingController();
   TextEditingController c3 = new TextEditingController();
 
-  Widget myMatrixButton(String ch, Widget res, String text){
+  Widget myMatrixButton(String ch, String text, int fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
@@ -34,7 +34,7 @@ class _matrixThreeState extends State<matrixThree> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = res;
+            result = matrixThreeChoice(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text, a3.text, b3.text, c3.text, fn);
           });
         },
         child: FittedBox(
@@ -97,17 +97,17 @@ class _matrixThreeState extends State<matrixThree> {
                       SizedBox(height: 20,),
                       Row(
                         children: [
-                          myMatrixButton("TRANSPOSE", transposeThree(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,a3.text, b3.text, c3.text), "TRANSPOSE"),
+                          myMatrixButton("TRANSPOSE", "TRANSPOSE", 0),
                           SizedBox(width: 20,),
-                          myMatrixButton("DETERMINANT", detThree(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,a3.text, b3.text, c3.text), "DETERMINANT"),
+                          myMatrixButton("DETERMINANT", "DETERMINANT", 1),
                         ],
                       ),
                       SizedBox(height: 10,),
                       Row(
                         children: [
-                          myMatrixButton("TRACE", traceThree(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,a3.text, b3.text, c3.text), "TRACE"),
+                          myMatrixButton("TRACE","TRACE", 2),
                           SizedBox(width: 20,),
-                          myMatrixButton("INVERSE", inverseThree(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text,a3.text, b3.text, c3.text), "INVERSE"),
+                          myMatrixButton("INVERSE", "INVERSE", 3),
                         ],
                       ),
                       SizedBox(height: 40,),

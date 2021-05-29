@@ -5,6 +5,22 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
+
+Widget matrixTwoChoice(String A, String B, String C, String D, int fn){
+  Widget result;
+  switch(fn){
+    case 0: result = transposeTwo(A, B, C, D);
+    break;
+    case 1: result = detTwo(A, B, C, D);
+    break;
+    case 2: result = traceTwo(A, B, C, D);
+    break;
+    case 3: result = inverseTwo(A, B, C, D);
+    break;
+  }
+  return result;
+}
+
 List checkMatrix(Matrix m, int n){
   List answers = [];
   for(int i=1; i<=n; i++){

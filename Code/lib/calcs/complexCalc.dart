@@ -2,6 +2,37 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
+String complexChoice(String a1, String b1, String a2, String b2, int fn){
+  String result;
+  switch(fn){
+    case 0: result = mod(a1, b1);
+    break;
+    case 1: result = mod(a2, b2);
+    break;
+    case 2: result = add(a1, b1, a2, b2);
+    break;
+    case 3: result = sub(a1, b1, a2, b2);
+    break;
+    case 4: result = power(a1, b1, 2);
+    break;
+    case 5: result = power(a1, b1, 3);
+    break;
+    case 6: result = arg(a1, b1);
+    break;
+    case 7: result = arg(a2, b2);
+    break;
+    case 8: result = roots(a1, b1, 2);
+    break;
+    case 9: result = roots(a1, b1, 3);
+    break;
+    case 10: result = mul(a1, b1, a2, b2);
+    break;
+    case 11: result = div(a1, b1, a2, b2);
+    break;
+  }
+  return result;
+}
+
 String formatComplex(String ans){
   int length = ans.length;
   List signs = ['',''];
@@ -31,8 +62,9 @@ String add(String a1, String b1, String a2, String b2){
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
-  String sign = B1 + B2 > 0 ? '+' : '';
-  return formatNumber((A1+A2).toStringAsFixedNoZero(precision)) + ' ' + sign + ' ' + formatNumber((B1+B2).toStringAsFixedNoZero(precision)) + 'i';
+  String sign = B1 + B2 >= 0 ? '+' : '-';
+  double secondElement = B1 + B2 >= 0 ? B1 + B2 : -(B1+B2);
+  return formatNumber((A1+A2).toStringAsFixedNoZero(precision)) + ' ' + sign + ' ' + formatNumber(secondElement.toStringAsFixedNoZero(precision)) + 'i';
 }
 
 String sub(String a1, String b1, String a2, String b2){
@@ -43,8 +75,9 @@ String sub(String a1, String b1, String a2, String b2){
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
   double B2 = double.parse(b2);
-  String sign = B1 - B2 > 0 ? '+' : '';
-  return formatNumber((A1-A2).toStringAsFixedNoZero(precision)) + ' ' + sign + ' ' + formatNumber((B1-B2).toStringAsFixedNoZero(precision)) + 'i';
+  String sign = B1 - B2 >= 0 ? '+' : '-';
+  double secondElement = B1 - B2 >= 0 ? B1 - B2 : B2-B1;
+  return formatNumber((A1-A2).toStringAsFixedNoZero(precision)) + " " + sign + " " + formatNumber(secondElement.toStringAsFixedNoZero(precision)) + 'i';
 }
 
 String power(String a, String b, int power){

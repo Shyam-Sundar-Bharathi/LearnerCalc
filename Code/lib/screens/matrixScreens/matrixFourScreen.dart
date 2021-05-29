@@ -42,7 +42,7 @@ class matrixFour extends StatefulWidget {
 class _matrixFourState extends State<matrixFour> {
 
 
-  Widget myMatrixButton(String ch, Widget res, String text){
+  Widget myMatrixButton(String ch, String text, fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
@@ -50,7 +50,7 @@ class _matrixFourState extends State<matrixFour> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = res;
+            result = matrixFourChoice(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text, a4.text, b4.text, c4.text, d4.text, fn);
           });
         },
         child: FittedBox(
@@ -143,17 +143,17 @@ class _matrixFourState extends State<matrixFour> {
                       SizedBox(height: 20,),
                       Row(
                         children: [
-                          myMatrixButton("TRANSPOSE", transposeFour(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text, a4.text, b4.text, c4.text, d4.text), "TRANSPOSE"),
+                          myMatrixButton("TRANSPOSE", "TRANSPOSE", 0),
                           SizedBox(width: 20,),
-                          myMatrixButton("DETERMINANT", detFour(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text, a4.text, b4.text, c4.text, d4.text), "DETERMINANT"),
+                          myMatrixButton("DETERMINANT", "DETERMINANT", 1),
                         ],
                       ),
                       SizedBox(height: 10,),
                       Row(
                         children: [
-                          myMatrixButton("TRACE", traceFour(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text, a4.text, b4.text, c4.text, d4.text), "TRACE"),
+                          myMatrixButton("TRACE", "TRACE", 2),
                           SizedBox(width: 20,),
-                          myMatrixButton("INVERSE", inverseFour(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text, a4.text, b4.text, c4.text, d4.text), "INVERSE"),
+                          myMatrixButton("INVERSE", "INVERSE", 3),
                         ],
                       ),
                       SizedBox(height: 40,),

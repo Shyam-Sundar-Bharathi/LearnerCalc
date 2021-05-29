@@ -5,6 +5,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/calcs/matrixCalcs/matrixFourCalc.dart';
 
+
+Widget matrixThreeChoice(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3, int fn){
+  Widget result;
+  switch(fn){
+    case 0: result = transposeThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
+    break;
+    case 1: result = detThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
+    break;
+    case 2: result = traceThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
+    break;
+    case 3: result = inverseThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
+    break;
+  }
+  return result;
+}
+
 List checkMatrix(Matrix m, int n){
   List answers = [];
   for(int i=1; i<=n; i++){

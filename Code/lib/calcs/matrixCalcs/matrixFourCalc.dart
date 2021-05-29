@@ -4,6 +4,21 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+Widget matrixFourChoice(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4, int fn){
+  Widget result;
+  switch(fn){
+    case 0: result = transposeFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    break;
+    case 1: result = detFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    break;
+    case 2: result = traceFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    break;
+    case 3: result = inverseFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    break;
+  }
+  return result;
+}
+
 Widget myMatrixElement(String text){
   return Container(
     width: 70,

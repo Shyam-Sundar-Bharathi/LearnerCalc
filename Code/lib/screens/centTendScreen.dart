@@ -9,35 +9,35 @@ class centTendCalc extends StatefulWidget {
 }
 class _centTendCalcState extends State<centTendCalc> {
 
+  Widget myCentTendButton(String ch, String text, int fn){
+    return Expanded(
+      child: ElevatedButton(
+        style: myButtonStyle,
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+          setState(() {
+            choice = ch;
+            result = centTendChoice(userInput.text,fn);
+          });
+        },
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   var choice = " ";
   var result = " ";
   TextEditingController userInput = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
-    Widget myCentTendButton(String ch, String text, int fn){
-      return Expanded(
-        child: ElevatedButton(
-          style: myButtonStyle,
-          onPressed: () {
-            FocusScope.of(context).requestFocus(FocusNode());
-            setState(() {
-              choice = ch;
-              result = centTend(userInput.text,fn);
-            });
-          },
-          child: FittedBox(
-            child: Text(
-              text,
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
 
     return GestureDetector(
       onTap: () {

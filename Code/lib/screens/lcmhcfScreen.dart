@@ -11,7 +11,7 @@ class lcmhcfCalc extends StatefulWidget {
 class _lcmhcfCalcState extends State<lcmhcfCalc> {
 
 
-  Widget mylcmhcfButton(String ch, String res, String text){
+  Widget mylcmhcfButton(String ch, String text, int fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
@@ -19,7 +19,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = res;
+            result = lcmhcfChoice(userInput.text, userInputf.text, fn);
           });
         },
         child: FittedBox(
@@ -84,9 +84,9 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    mylcmhcfButton("LCM", lcm(userInput.text), "LCM"),
+                    mylcmhcfButton("LCM", "LCM", 0),
                     SizedBox(width: 20),
-                    mylcmhcfButton("HCF", hcf(userInput.text), "HCF"),
+                    mylcmhcfButton("HCF", "HCF", 1),
                   ],
                 ),
                 SizedBox(height: 40),
@@ -108,11 +108,11 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   mylcmhcfButton(" ", factors(userInputf.text), "FACTORS"),
+                   mylcmhcfButton(" ", "FACTORS", 2),
                    SizedBox(width: 20),
-                   mylcmhcfButton(" ", primeFactors(userInputf.text), "   PRIME\nFACTORS"),
+                   mylcmhcfButton(" ", "   PRIME\nFACTORS", 3),
                    SizedBox(width: 20),
-                   mylcmhcfButton(" ", isPrime(userInputf.text), "IS PRIME ?"),
+                   mylcmhcfButton(" ", "IS PRIME ?", 4),
                  ],
                ),
                 SizedBox(height: 40),

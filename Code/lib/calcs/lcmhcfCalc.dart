@@ -3,6 +3,23 @@ import 'dart:math';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
 
+String lcmhcfChoice(String userInput, String userInputpf, int fn){
+  String result;
+  switch(fn){
+    case 0: result = lcm(userInput);
+    break;
+    case 1: result = hcf(userInput);
+    break;
+    case 2: result = factors(userInputpf);
+    break;
+    case 3: result = primeFactors(userInputpf);
+    break;
+    case 4: result = isPrime(userInputpf);
+    break;
+  }
+  return result;
+}
+
 double gcd(double a, double b) {
   if (b == 0)
     return a;

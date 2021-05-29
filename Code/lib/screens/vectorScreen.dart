@@ -13,7 +13,7 @@ class vector extends StatefulWidget {
 class _vectorState extends State<vector> {
 
 
-  Widget myVectorButton(String ch, String res, String text){
+  Widget myVectorButton(String ch, String text, int fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
@@ -21,7 +21,7 @@ class _vectorState extends State<vector> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = res;
+            result = vectorChoice(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text, fn);
           });
         },
         child: FittedBox(
@@ -238,33 +238,33 @@ class _vectorState extends State<vector> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myVectorButton("| A |", mod(a1.text, b1.text, c1.text),"| A |"),
+                    myVectorButton("| A |", "| A |", 0),
                     SizedBox(width: 20),
-                    myVectorButton("| B |", mod(a2.text, b2.text, c2.text), "| B |"),
+                    myVectorButton("| B |", "| B |", 1),
                     SizedBox(width: 20),
-                    myVectorButton("A + B", add(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A + B"),
+                    myVectorButton("A + B", "A + B", 2),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myVectorButton("A - B", sub(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A - B"),
+                    myVectorButton("A - B", "A - B", 3),
                     SizedBox(width: 20),
-                    myVectorButton("A.B", dot(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A . B"),
+                    myVectorButton("A.B", "A . B", 4),
                     SizedBox(width: 20),
-                    myVectorButton("A x B", cross(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A x B"),
+                    myVectorButton("A x B", "A x B", 5),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myVectorButton("B x A", cross(a2.text,b2.text,c2.text,a1.text,b1.text,c1.text), "B x A"),
+                    myVectorButton("B x A", "B x A", 6),
                     SizedBox(width: 20),
-                    myVectorButton("A * B", star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A * B"),
+                    myVectorButton("A * B", "A * B", 7),
                     SizedBox(width: 20),
-                    myVectorButton("Angle", angle(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "∠"),
+                    myVectorButton("Angle", "∠", 8),
                   ],
                 ),
                 SizedBox(height: 30,),

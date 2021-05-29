@@ -22,11 +22,17 @@ class _matrixTwoState extends State<matrixTwo> {
   TextEditingController b2 = new TextEditingController();
 
 
-  Widget myMatrixButton(String text, pressed()){
+  Widget myMatrixButton(String text, String ch, int fn){
     return Expanded(
       child: ElevatedButton(
         style: myButtonStyle,
-        onPressed: pressed,
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+          setState(() {
+            choice = ch;
+            result = matrixTwoChoice(a1.text, b1.text, a2.text, b2.text, fn);
+          });
+        },
         child: FittedBox(
           child: Text(
             text,
@@ -79,44 +85,17 @@ class _matrixTwoState extends State<matrixTwo> {
                 SizedBox(height: 20,),
                 Row(
                   children: [
-                    myMatrixButton("TRANSPOSE",
-                          () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "TRANSPOSE";
-                          result = transposeTwo(a1.text, b1.text, a2.text, b2.text);
-                        });
-                      },
-                    ),
+                    myMatrixButton("TRANSPOSE","TRANSPOSE", 0),
                     SizedBox(width: 20,),
-                    myMatrixButton("DETERMINANT",() {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      setState(() {
-                        choice = "DETERMINANT";
-                        result = detTwo(a1.text, b1.text, a2.text, b2.text);
-                      });
-                    },
-                    ),
+                    myMatrixButton("DETERMINANT","DETERMINANT", 1),
                   ],
                 ),
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    myMatrixButton("TRACE",() {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      setState(() {
-                        choice = "TRACE";
-                        result = traceTwo(a1.text, b1.text, a2.text, b2.text);
-                      });
-                    },),
+                    myMatrixButton("TRACE","TRACE", 2),
                     SizedBox(width: 20,),
-                    myMatrixButton("INVERSE",() {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                    choice = "INVERSE";
-                    result = inverseTwo(a1.text, b1.text, a2.text, b2.text);
-                    });
-                    },),
+                    myMatrixButton("INVERSE","INVERSE", 3),
                   ],
                 ),
                 SizedBox(height: 40,),

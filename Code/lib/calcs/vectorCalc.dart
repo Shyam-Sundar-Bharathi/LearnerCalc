@@ -2,6 +2,31 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
+String vectorChoice(String a1, String b1, String c1, String a2, String b2, String c2, int fn){
+  String result;
+  switch(fn){
+    case 0: result = mod(a1, b1, c1);
+    break;
+    case 1: result = mod(a2, b2, c2);
+    break;
+    case 2: result = add(a1, b1, c1, a2, b2, c2);
+    break;
+    case 3: result = sub(a1, b1, c1, a2, b2, c2);
+    break;
+    case 4: result = dot(a1, b1, c1, a2, b2, c2);
+    break;
+    case 5: result = cross(a1, b1, c1, a2, b2, c2);
+    break;
+    case 6: result = cross(a2, b2, c2, a1, b1, c1);
+    break;
+    case 7:result = star(a1, b1, c1, a2, b2, c2);
+    break;
+    case 8: result = angle(a1, b1, c1, a2, b2, c2);
+    break;
+  }
+  return result;
+}
+
 String mod(String a, String b, String c){
   if( a == "" ||  b == "" ||  c == ""){
     return "CHECK INPUT";
