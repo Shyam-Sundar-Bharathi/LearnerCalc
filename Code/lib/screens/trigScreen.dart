@@ -654,7 +654,7 @@ class _trigonometryState extends State<trigonometry> {
                       flex: 2,
                       child: FittedBox(
                         child: Text(
-                          'cosec',
+                          'csc',
                           style: TextStyle(
                             fontSize: 10,
                           ),

@@ -11,10 +11,12 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
     0 : ['COMING SOON', '/comingSoon'],
-    1 : ['QUADRATIC EQUATION','/quadraticFormulae'],
-    2 : ['TRIGONOMETRY', '/trigonometryFormulae'],
-    3 : ['DIFFERENTIAL', '/differentialFormulae'],
-    4 :['INTEGRAL', '/integralFormulae'],
+    1 : ['TRIANGLES', '/trianglesFormulae'],
+    2 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    3 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    4 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
+    5 : ['DIFFERENTIAL', '/differentialFormulae'],
+    6 : ['INTEGRAL', '/integralFormulae'],
   };
 
   @override

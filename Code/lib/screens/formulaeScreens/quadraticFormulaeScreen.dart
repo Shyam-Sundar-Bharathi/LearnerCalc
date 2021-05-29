@@ -11,6 +11,27 @@ class quadraticFormula extends StatefulWidget {
 
 class _quadraticFormulaState extends State<quadraticFormula> {
 
+  Widget myQuadraticHeading(String text){
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: 20,
+          decoration: TextDecoration.underline,
+          fontWeight: FontWeight.bold
+      ),
+    );
+  }
+
+  Widget myQuadraticFormula(String text){
+    return DefaultTextStyle(
+      child: CaTeX(text),
+      style: TextStyle(
+          fontSize: 30,
+          color: Colors.black
+      ),
+    );
+  }
+
   Map quads = {
     0 : r'ax^2 + bx + c = 0',
     1 : r'-b/a',
@@ -44,87 +65,20 @@ class _quadraticFormulaState extends State<quadraticFormula> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "EQUATION",
-                  style: TextStyle(
-                    fontSize: 20,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
-                DefaultTextStyle(
-                  child: CaTeX(quads[0]),
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black
-                  ),
-                ),
+                myQuadraticHeading("EQUATION"),
+                myQuadraticFormula(quads[0]),
                 SizedBox(height: 50,),
-                Text(
-                  "SUM OF ROOTS",
-                  style: TextStyle(
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                DefaultTextStyle(
-                  child: CaTeX(quads[1]),
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black
-                  ),
-                ),
+                myQuadraticHeading("SUM OF ROOTs"),
+                myQuadraticFormula(quads[1]),
                 SizedBox(height: 50,),
-                Text(
-                  "PRODUCT OF ROOTS",
-                  style: TextStyle(
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                DefaultTextStyle(
-                  child: CaTeX(quads[2]),
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black
-                  ),
-                ),
+                myQuadraticHeading("PRODUCT OF ROOTS"),
+                myQuadraticFormula(quads[2]),
                 SizedBox(height: 50,),
-                Text(
-                  "DISCRIMINANT",
-                  style: TextStyle(
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(height: 10,),
-                DefaultTextStyle(
-                  child: CaTeX(quads[3]),
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black
-                  ),
-                ),
+                myQuadraticHeading("DISCRIMINANT"),
+                myQuadraticFormula(quads[3]),
                 SizedBox(height: 50,),
-                Text(
-                  "ROOTS",
-                  style: TextStyle(
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(height: 10,),
-                DefaultTextStyle(
-                  child: CaTeX(quads[4]),
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black
-                  ),
-                ),
+                myQuadraticHeading("ROOTS"),
+                myQuadraticFormula(quads[4]),
                 SizedBox(height: 50,),
                 Text(
                   "CONDITIONS",
