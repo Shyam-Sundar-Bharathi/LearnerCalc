@@ -1,8 +1,10 @@
+import 'package:dream_calc/calcs/matrixCalcs/matrixFourCalc.dart';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
 List checkMatrix(Matrix m, int n){
   List answers = [];
   for(int i=1; i<=n; i++){
@@ -38,82 +40,14 @@ Widget transposeTwo(String A, String B, String C, String D){
             children: [
               Row(
                 children: [
-                  Container(
-                    width: 80,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(),
-                    ),
-                    child: Center(
-                      child: FittedBox(
-                        child: Text(
-                          answers[0],
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 80,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(),
-                    ),
-                    child: Center(
-                      child: FittedBox(
-                        child: Text(
-                            answers[1],
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  myMatrixElement(answers[0]),
+                  myMatrixElement(answers[1]),
+                  ]
               ),
               Row(
                 children: [
-                  Container(
-                    width: 80,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(),
-                    ),
-                    child: Center(
-                      child: FittedBox(
-                        child: Text(
-                            answers[2],
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 80,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(),
-                    ),
-                    child: Center(
-                      child: FittedBox(
-                        child: Text(
-                            answers[3],
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  myMatrixElement(answers[2]),
+                  myMatrixElement(answers[3]),
                 ],
               ),
             ],
@@ -205,83 +139,15 @@ Widget inverseTwo(String A, String B, String C, String D){
       Column(
         children: [
           Row(
-            children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                        answers[0],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                        answers[1],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+              children: [
+                myMatrixElement(answers[0]),
+                myMatrixElement(answers[1]),
+              ]
           ),
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                        answers[2],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                        answers[3],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[2]),
+              myMatrixElement(answers[3]),
             ],
           ),
         ],

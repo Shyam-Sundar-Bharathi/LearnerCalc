@@ -3,6 +3,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:dream_calc/calcs/matrixCalcs/matrixFourCalc.dart';
 
 List checkMatrix(Matrix m, int n){
   List answers = [];
@@ -43,177 +44,24 @@ Widget transposeThree(String A1, String B1, String C1, String A2, String B2, Str
         children: [
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[0],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[1],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[2],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[0]),
+              myMatrixElement(answers[1]),
+              myMatrixElement(answers[2]),
             ],
           ),
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[3],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[4],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[5],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[3]),
+              myMatrixElement(answers[4]),
+              myMatrixElement(answers[5]),
             ],
           ),
 
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[6],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[7],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[8],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[6]),
+              myMatrixElement(answers[7]),
+              myMatrixElement(answers[8]),
             ],
           ),
         ],
@@ -262,177 +110,24 @@ Widget inverseThree(String A1, String B1, String C1, String A2, String B2, Strin
         children: [
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[0],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[1],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[2],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[0]),
+              myMatrixElement(answers[1]),
+              myMatrixElement(answers[2]),
             ],
           ),
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[3],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[4],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[5],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[3]),
+              myMatrixElement(answers[4]),
+              myMatrixElement(answers[5]),
             ],
           ),
 
           Row(
             children: [
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[6],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[7],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 80,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(),
-                ),
-                child: Center(
-                  child: FittedBox(
-                    child: Text(
-                      answers[8],
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              myMatrixElement(answers[6]),
+              myMatrixElement(answers[7]),
+              myMatrixElement(answers[8]),
             ],
           ),
         ],

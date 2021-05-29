@@ -12,6 +12,30 @@ class vector extends StatefulWidget {
 
 class _vectorState extends State<vector> {
 
+
+  Widget myVectorButton(String ch, String res, String text){
+    return Expanded(
+      child: ElevatedButton(
+        style: myButtonStyle,
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+          setState(() {
+            choice = ch;
+            result = res;
+          });
+        },
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   String choice = " " , result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -22,6 +46,7 @@ class _vectorState extends State<vector> {
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -213,162 +238,33 @@ class _vectorState extends State<vector> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "| A |";
-                          result = mod(a1.text, b1.text, c1.text);
-                        });
-                      },
-                      child: Text(
-                        "| A |",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "| B |";
-                          result = mod(a2.text, b2.text, c2.text);
-                        });
-                      },
-                      child: Text(
-                        "| B |",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A + B";
-                          result = add(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "A + B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myVectorButton("| A |", mod(a1.text, b1.text, c1.text),"| A |"),
+                    SizedBox(width: 20),
+                    myVectorButton("| B |", mod(a2.text, b2.text, c2.text), "| B |"),
+                    SizedBox(width: 20),
+                    myVectorButton("A + B", add(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A + B"),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A - B";
-                          result = sub(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "A - B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A.B";
-                          result = dot(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "A . B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A x B";
-                          result = cross(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "A x B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myVectorButton("A - B", sub(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A - B"),
+                    SizedBox(width: 20),
+                    myVectorButton("A.B", dot(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A . B"),
+                    SizedBox(width: 20),
+                    myVectorButton("A x B", cross(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A x B"),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "B x A";
-                          result = cross(a2.text,b2.text,c2.text,a1.text,b1.text,c1.text);
-                        });
-                      },
-                      child: Text(
-                        "B x A",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A * B";
-                          result = star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "A * B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "Angle";
-                          result = angle(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text);
-                        });
-                      },
-                      child: Text(
-                        "∠",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myVectorButton("B x A", cross(a2.text,b2.text,c2.text,a1.text,b1.text,c1.text), "B x A"),
+                    SizedBox(width: 20),
+                    myVectorButton("A * B", star(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "A * B"),
+                    SizedBox(width: 20),
+                    myVectorButton("Angle", angle(a1.text,b1.text,c1.text,a2.text,b2.text,c2.text), "∠"),
                   ],
                 ),
                 SizedBox(height: 30,),

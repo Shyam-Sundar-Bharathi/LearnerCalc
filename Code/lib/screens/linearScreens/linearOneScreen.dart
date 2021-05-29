@@ -2,6 +2,7 @@ import 'package:dream_calc/calcs/linearCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/services.dart';
+import 'package:dream_calc/screens/linearScreens/linearThreeScreen.dart';
 
 class linearOne extends StatefulWidget {
   const linearOne({Key key}) : super(key: key);
@@ -42,31 +43,7 @@ class _linearOneState extends State<linearOne> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: a,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearExpandedTextField(a),
                     Expanded(
                       child: FittedBox(
                         child: Text(
@@ -78,31 +55,7 @@ class _linearOneState extends State<linearOne> {
                         ),
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: b,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearExpandedTextField(b),
                     Expanded(
                       child: FittedBox(
                         child: Text(

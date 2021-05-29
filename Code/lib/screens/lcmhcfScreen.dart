@@ -10,6 +10,29 @@ class lcmhcfCalc extends StatefulWidget {
 
 class _lcmhcfCalcState extends State<lcmhcfCalc> {
 
+
+  Widget mylcmhcfButton(String ch, String res, String text){
+    return Expanded(
+      child: ElevatedButton(
+        style: myButtonStyle,
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+          setState(() {
+            choice = ch;
+            result = res;
+          });
+        },
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
   var choice = " ";
   var result = " ";
   TextEditingController userInput = new TextEditingController();
@@ -17,6 +40,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -26,7 +50,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
         appBar: AppBar(
           title: FittedBox(
             child: Text(
-              "LCM HCF",
+              "NUMBER THEORY",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w900,
@@ -60,43 +84,9 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "LCM";
-                          result = lcm(userInput.text);
-                        });
-                      },
-                      child: FittedBox(
-                        child: Text(
-                          "LCM",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
+                    mylcmhcfButton("LCM", lcm(userInput.text), "LCM"),
                     SizedBox(width: 20),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "HCF";
-                          result = hcf(userInput.text);
-                        });
-                      },
-                      child: FittedBox(
-                        child: Text(
-                            "HCF",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
+                    mylcmhcfButton("HCF", hcf(userInput.text), "HCF"),
                   ],
                 ),
                 SizedBox(height: 40),
@@ -118,62 +108,11 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   ElevatedButton(
-                     style: myButtonStyle,
-                     onPressed: () {
-                       FocusScope.of(context).requestFocus(FocusNode());
-                       setState(() {
-                         choice = " ";
-                         result = factors(userInputf.text);
-                       });
-                     },
-                     child: FittedBox(
-                       child: Text(
-                         "FACTORS",
-                         style: TextStyle(
-                           color: Colors.white,
-                         ),
-                       ),
-                     )
-                   ),
+                   mylcmhcfButton(" ", factors(userInputf.text), "FACTORS"),
                    SizedBox(width: 20),
-                   ElevatedButton(
-                     style: myButtonStyle,
-                     onPressed: () {
-                       FocusScope.of(context).requestFocus(FocusNode());
-                       setState(() {
-                         choice = " ";
-                         result = primeFactors(userInputf.text);
-                       });
-                     },
-                     child: FittedBox(
-                       child: Text(
-                         "PRIME FACTORS",
-                         style: TextStyle(
-                           color: Colors.white,
-                         ),
-                       ),
-                     ),
-                   ),
+                   mylcmhcfButton(" ", primeFactors(userInputf.text), "   PRIME\nFACTORS"),
                    SizedBox(width: 20),
-                   ElevatedButton(
-                     style: myButtonStyle,
-                     onPressed: () {
-                       FocusScope.of(context).requestFocus(FocusNode());
-                       setState(() {
-                         choice = " ";
-                         result = isPrime(userInputf.text);
-                       });
-                     },
-                     child: FittedBox(
-                       child: Text(
-                         "IS PRIME ?",
-                         style: TextStyle(
-                           color: Colors.white,
-                         ),
-                       ),
-                     ),
-                   ),
+                   mylcmhcfButton(" ", isPrime(userInputf.text), "IS PRIME ?"),
                  ],
                ),
                 SizedBox(height: 40),

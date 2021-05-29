@@ -11,6 +11,48 @@ class quadraticCalc extends StatefulWidget {
 
 class _quadraticCalcState extends State<quadraticCalc> {
 
+  Widget myQuadraticAnswerRow(String item, String answer){
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            height: 70,
+            decoration: BoxDecoration(
+              border: Border.all(),
+              color: Colors.white,
+            ),
+            child: Text(
+              item,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child: Container(
+            height: 70,
+            decoration: BoxDecoration(
+              border: Border.all(),
+              color: Colors.white,
+            ),
+            child: Center(
+              child: Text(
+                answer,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   GlobalKey keyA = new GlobalKey();
   double width = 80;
   TextEditingController userInputA = new TextEditingController();
@@ -163,123 +205,9 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 SizedBox(height: 20,),
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Text(
-                              'Root 1 : ',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Center(
-                              child: Text(
-                                answers[0],
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Text(
-                              'Root 2 : ',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Center(
-                              child: Text(
-                                answers[1],
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Text(
-                              'Disc : ',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              color: Colors.white,
-                            ),
-                            child: Center(
-                              child: Text(
-                                answers[2],
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    myQuadraticAnswerRow('Root 1 : ', answers[0]),
+                    myQuadraticAnswerRow('Root 2 : ', answers[1]),
+                    myQuadraticAnswerRow('Disc : ', answers[2]),
                   ],
                 )
               ],

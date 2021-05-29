@@ -7,7 +7,6 @@ class centTendCalc extends StatefulWidget {
   @override
   _centTendCalcState createState() => _centTendCalcState();
 }
-
 class _centTendCalcState extends State<centTendCalc> {
 
   var choice = " ";
@@ -16,6 +15,30 @@ class _centTendCalcState extends State<centTendCalc> {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget myCentTendButton(String ch, String text, int fn){
+      return Expanded(
+        child: ElevatedButton(
+          style: myButtonStyle,
+          onPressed: () {
+            FocusScope.of(context).requestFocus(FocusNode());
+            setState(() {
+              choice = ch;
+              result = centTend(userInput.text,fn);
+            });
+          },
+          child: FittedBox(
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -57,228 +80,44 @@ class _centTendCalcState extends State<centTendCalc> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "AM";
-                          result = centTend(userInput.text,0);
-                        });
-                      },
-                      child: Text(
-                        "ARITHMETIC\n      MEAN",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("AM", "ARITHMETIC\n      MEAN", 0),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "GM";
-                          result = centTend(userInput.text,7);
-                        });
-                      },
-                      child: Text(
-                        "GEOMETRIC\n     MEAN",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("GM","GEOMETRIC\n     MEAN",7),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "HM";
-                          result = centTend(userInput.text, 8);
-                        });
-                      },
-                      child: Text(
-                        "HARMONIC\n    MEAN",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("HM","HARMONIC\n    MEAN",8),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "POP. VARIANCE";
-                          result = centTend(userInput.text,9);
-                        });
-                      },
-                      child: Text(
-                        "POPULATION\n  VARIANCE",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("POP. VARIANCE","POPULATION\n  VARIANCE",9),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "SMP. VARIANCE";
-                          result = centTend(userInput.text,4);
-                        });
-                      },
-                      child: Text(
-                        "  SAMPLE\nVARIANCE",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("SMP. VARIANCE", "  SAMPLE\nVARIANCE", 4),
                     SizedBox(width: 10,),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "CV";
-                          result = centTend(userInput.text,5);
-                        });
-                      },
-                      child: Text(
-                        "CO-EFFICIENT\nOF VARIATION",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("CV", "CO-EFFICIENT\nOF VARIATION", 5),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "POP. STD. DEVIATION";
-                          result = centTend(userInput.text,10);
-                        });
-                      },
-                      child: Text(
-                        "        POPULATION\nSTANDARD DEVIATION",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("POP. STD. DEVIATION", "        POPULATION\nSTANDARD DEVIATION", 10),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "SMP. STD. DEVIATION";
-                          result = centTend(userInput.text,3);
-                        });
-                      },
-                      child: Text(
-                        "             SAMPLE\nSTANDARD DEVIATION",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myCentTendButton("SMP. STD. DEVIATION", "             SAMPLE\nSTANDARD DEVIATION", 3),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "MEDIAN";
-                            result = centTend(userInput.text,1);
-                          });
-                        },
-                        child: Text(
-                          "MEDIAN",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      myCentTendButton("MEDIAN", "MEDIAN", 1),
                       SizedBox(width: 10),
-                      ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "MODE";
-                            result = centTend(userInput.text,2);
-                          });
-                        },
-                        child: Text(
-                          "MODE",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                      myCentTendButton("MODE", "MODE", 2),
                       SizedBox(width: 10),
-                      ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "RANGE";
-                            result = centTend(userInput.text, 6);
-                          });
-                        },
-                        child: FittedBox(
-                          child: Text(
-                            "RANGE",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
+                      myCentTendButton("RANGE", "RANGE", 6),
                       SizedBox(width: 10,),
-                      ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "COUNT OF ELEMENTS";
-                            result = centTend(userInput.text, 11);
-                          });
-                        },
-                        child: FittedBox(
-                          child: Text(
-                            "COUNT",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
+                      myCentTendButton("COUNT OF ELEMENTS", "COUNT", 11),
                     ],
                   ),
                 SizedBox(height: 50),

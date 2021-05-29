@@ -2,6 +2,7 @@ import 'package:dream_calc/calcs/matrixCalcs/matrixTwoCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
 
 class matrixTwo extends StatefulWidget {
   const matrixTwo({Key key}) : super(key: key);
@@ -9,6 +10,7 @@ class matrixTwo extends StatefulWidget {
   @override
   _matrixTwoState createState() => _matrixTwoState();
 }
+
 
 class _matrixTwoState extends State<matrixTwo> {
 
@@ -19,8 +21,27 @@ class _matrixTwoState extends State<matrixTwo> {
   TextEditingController a2 = new TextEditingController();
   TextEditingController b2 = new TextEditingController();
 
+
+  Widget myMatrixButton(String text, pressed()){
+    return Expanded(
+      child: ElevatedButton(
+        style: myButtonStyle,
+        onPressed: pressed,
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -45,194 +66,57 @@ class _matrixTwoState extends State<matrixTwo> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myExpandedTextField(a1),
+                    myExpandedTextField(b1),
                   ],
                 ),
                 Row(
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myExpandedTextField(a2),
+                    myExpandedTextField(b2),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "TRANSPOSE";
-                            result = transposeTwo(a1.text, b1.text, a2.text, b2.text);
-                          });
-                        },
-                        child: Text(
-                          "TRANSPOSE",
-                          style: TextStyle(
-                            color: Colors.white
-                          ),
-                        ),
-                      ),
+                    myMatrixButton("TRANSPOSE",
+                          () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          choice = "TRANSPOSE";
+                          result = transposeTwo(a1.text, b1.text, a2.text, b2.text);
+                        });
+                      },
                     ),
                     SizedBox(width: 20,),
-                    Expanded(
-                      child: ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "DETERMINANT";
-                            result = detTwo(a1.text, b1.text, a2.text, b2.text);
-                          });
-                        },
-                        child: Text(
-                          "DETERMINANT",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                    myMatrixButton("DETERMINANT",() {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      setState(() {
+                        choice = "DETERMINANT";
+                        result = detTwo(a1.text, b1.text, a2.text, b2.text);
+                      });
+                    },
                     ),
                   ],
                 ),
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "TRACE";
-                            result = traceTwo(a1.text, b1.text, a2.text, b2.text);
-                          });
-                        },
-                        child: Text(
-                          "TRACE",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myMatrixButton("TRACE",() {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      setState(() {
+                        choice = "TRACE";
+                        result = traceTwo(a1.text, b1.text, a2.text, b2.text);
+                      });
+                    },),
                     SizedBox(width: 20,),
-                    Expanded(
-                      child: ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            choice = "INVERSE";
-                            result = inverseTwo(a1.text, b1.text, a2.text, b2.text);
-                          });
-                        },
-                        child: Text(
-                          "INVERSE",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    )
+                    myMatrixButton("INVERSE",() {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    setState(() {
+                    choice = "INVERSE";
+                    result = inverseTwo(a1.text, b1.text, a2.text, b2.text);
+                    });
+                    },),
                   ],
                 ),
                 SizedBox(height: 40,),

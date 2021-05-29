@@ -11,6 +11,29 @@ class complex extends StatefulWidget {
 
 class _complexState extends State<complex> {
 
+
+  Widget myComplexButton(String ch, String res, String text){
+    return Expanded(
+      child: ElevatedButton(
+        style: myButtonStyle,
+        onPressed: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+          setState(() {
+            choice = ch;
+            result = res;
+          });
+        },
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
   String choice = " " , result = " ";
   TextEditingController a1 = new TextEditingController();
   TextEditingController b1 = new TextEditingController();
@@ -19,6 +42,7 @@ class _complexState extends State<complex> {
 
   @override
   Widget build(BuildContext context) {
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -67,6 +91,7 @@ class _complexState extends State<complex> {
                       ),
                     ),
                     Expanded(
+                      flex: 1,
                       child: Text(
                         ' +',
                         style: TextStyle(
@@ -162,218 +187,47 @@ class _complexState extends State<complex> {
                 ),
                 SizedBox(height: 20,),
                 Row(
+                  //mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "| A |";
-                          result = mod(a1.text,b1.text);
-                        });
-                      },
-                      child: Text(
-                        "| A |",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "| B |";
-                          result = mod(a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "| B |",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A + B";
-                          result = add(a1.text,b1.text,a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "A + B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myComplexButton("| A |", mod(a1.text,b1.text), "| A |"),
+                    SizedBox(width: 20,),
+                    myComplexButton("| B |", mod(a2.text,b2.text), "| B |"),
+                    SizedBox(width: 20,),
+                    myComplexButton("A + B", add(a1.text,b1.text,a2.text,b2.text), "A + B"),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A * B";
-                          result = mul(a1.text,b1.text,a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "A * B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A / B";
-                          result = div(a1.text,b1.text,a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "A / B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A - B";
-                          result = sub(a1.text,b1.text,a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "A - B",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myComplexButton("A * B", mul(a1.text,b1.text,a2.text,b2.text), "A * B"),
+                    SizedBox(width: 20,),
+                    myComplexButton( "A / B", div(a1.text,b1.text,a2.text,b2.text), "A / B"),
+                    SizedBox(width: 20,),
+                    myComplexButton("A - B", sub(a1.text,b1.text,a2.text,b2.text), "A - B"),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A^2";
-                          result = power(a1.text,b1.text,2);
-                        });
-                      },
-                      child: Text(
-                        "A^2",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "A^3";
-                          result = power(a1.text,b1.text,3);
-                        });
-                      },
-                      child: Text(
-                        "A^3",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "arg(A)";
-                          result = arg(a1.text,b1.text);
-                        });
-                      },
-                      child: Text(
-                        "arg(A)",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myComplexButton("A^2", power(a1.text,b1.text,2), "A^2"),
+                    SizedBox(width: 20,),
+                    myComplexButton("A^3", power(a1.text,b1.text,3), "A^3"),
+                    SizedBox(width: 20,),
+                    myComplexButton("arg(A)", arg(a1.text,b1.text), "arg(A)"),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = " ";
-                          result = roots(a1.text,b1.text,2);
-                        });
-                      },
-                      child: Text(
-                        "√A",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = " ";
-                          result = roots(a1.text,b1.text,3);
-                        });
-                      },
-                      child: Text(
-                        "∛A",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        setState(() {
-                          choice = "arg(B)";
-                          result = arg(a2.text,b2.text);
-                        });
-                      },
-                      child: Text(
-                        "arg(B)",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    myComplexButton( " ", roots(a1.text,b1.text,2), "√A"),
+                    SizedBox(width: 20,),
+                    myComplexButton(" ", roots(a1.text,b1.text,3), "∛A"),
+                    SizedBox(width: 20,),
+                    myComplexButton("arg(B)", arg(a2.text,b2.text), "arg(B)"),
                   ],
                 ),
                 SizedBox(height: 20,),
