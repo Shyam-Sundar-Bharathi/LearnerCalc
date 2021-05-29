@@ -11,8 +11,10 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
     0 : ['COMING SOON', '/comingSoon'],
-    1 : ['DIFFERENTIAL', '/differential'],
-    2 : ['INTEGRAL', '/integral']
+    1 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    2 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    3 : ['DIFFERENTIAL', '/differentialFormulae'],
+    4 :['INTEGRAL', '/integralFormulae'],
   };
 
   @override
@@ -42,23 +44,22 @@ class _formulaChoiceState extends State<formulaChoice> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: MediaQuery. of(context). size. width - 100,
+                          width: MediaQuery. of(context). size. width - 50,
                           child: ElevatedButton(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                choices[index][0],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:30
+                              child: FittedBox(
+                                child: Text(
+                                  choices[index][0],
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:30
+                                  ),
                                 ),
                               ),
                             ),
                             style: myButtonStyle,
-                            // ButtonStyle(
-                            //   backgroundColor: MaterialStateProperty.all(Colors.grey[100]),
-                            //   elevation: MaterialStateProperty.all(10),
-                            // ),
                             onPressed: (){
                               Navigator.pushNamed(context, choices[index][1]);
                             },

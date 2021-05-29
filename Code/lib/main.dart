@@ -1,6 +1,8 @@
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/trigFormulaeScreen.dart';
 import 'package:dream_calc/screens/genCalcScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/integralScreen.dart';
 import 'package:dream_calc/screens/linearScreens/linearChoiceScreen.dart';
@@ -59,8 +61,10 @@ void main() {
         '/matrixThree' : (context) => matrixThree(),
         '/matrixFour' : (context) => matrixFour(),
         '/formulaChoice' : (context) => formulaChoice(),
-        '/differential' : (context) => differential(),
-        '/integral' : (context) => integral(),
+        '/quadraticFormulae' : (context) => quadraticFormula(),
+        '/trigonometryFormulae' : (context) => trigonometryFormula(),
+        '/differentialFormulae' : (context) => differentialFormula(),
+        '/integralFormulae' : (context) => integralFormula(),
         '/aboutUs' : (context) => aboutUs(),
         '/contactUs' : (context) => contactUs(),
       },

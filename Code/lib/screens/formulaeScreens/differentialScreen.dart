@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
 
-class differential extends StatefulWidget {
-  const differential({Key key}) : super(key: key);
+class differentialFormula extends StatefulWidget {
+  const differentialFormula({Key key}) : super(key: key);
 
   @override
-  _differentialState createState() => _differentialState();
+  _differentialFormulaState createState() => _differentialFormulaState();
 }
 
-class _differentialState extends State<differential> {
+class _differentialFormulaState extends State<differentialFormula> {
 
   Map diffs = {
     0 : [r'f(x)', r'\frac{d}{dx}\ f(x)'],
@@ -79,7 +79,7 @@ class _differentialState extends State<differential> {
                                 child: CaTeX(diffs[index][0]),
                                 style: TextStyle(
                                     fontSize: 30,
-                                    color: Colors.black
+                                    color: Colors.black,
                                 ),
                               )
                           ),

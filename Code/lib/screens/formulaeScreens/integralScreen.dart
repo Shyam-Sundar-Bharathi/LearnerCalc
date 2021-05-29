@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
 
-class integral extends StatefulWidget {
-  const integral({Key key}) : super(key: key);
+class integralFormula extends StatefulWidget {
+  const integralFormula({Key key}) : super(key: key);
 
   @override
-  _integralState createState() => _integralState();
+  _integralFormulaState createState() => _integralFormulaState();
 }
 
-class _integralState extends State<integral> {
+class _integralFormulaState extends State<integralFormula> {
 
   Map integrals = {
     0 : [r'f(x)', r'∫f(x)dx'],
