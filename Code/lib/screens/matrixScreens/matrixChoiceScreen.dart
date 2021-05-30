@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 class matrixChoice extends StatefulWidget {
   const matrixChoice({Key key}) : super(key: key);
 
@@ -19,17 +20,7 @@ class _matrixChoiceState extends State<matrixChoice> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
-      appBar: AppBar(
-        backgroundColor: colors[colorTheme][9],
-        title: Text(
-          'MATRIX',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-            color: colors[colorTheme][1],
-          ),
-        ),
-      ),
+      appBar: myAppBar("MATRIX"),
       body: Center(
         child: ListView.builder(
             shrinkWrap: true,
@@ -55,10 +46,6 @@ class _matrixChoiceState extends State<matrixChoice> {
                             ),
                           ),
                           style: myButtonStyle,
-                          // ButtonStyle(
-                          //   backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
-                          //   elevation: MaterialStateProperty.all(10),
-                          // ),
                           onPressed: (){
                             Navigator.pushNamed(context, choices[index][1]);
                           },

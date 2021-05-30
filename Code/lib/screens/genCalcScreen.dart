@@ -7,7 +7,7 @@ import 'package:dream_calc/services/buttons.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:math_expressions/math_expressions.dart';
-
+import 'package:dream_calc/services/globalWidgets.dart';
 class genCalc extends StatefulWidget {
   @override
   _genCalcState createState() => _genCalcState();
@@ -221,17 +221,7 @@ class _genCalcState extends State<genCalc> {
     return Scaffold(
       //resizeToAvoidBottomInset: true,
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: Text(
-          "GENERAL CALCULATOR",
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: colors[colorTheme][3],
-          ),
-        ),
-        backgroundColor: Colors.black,
-      ),
+      appBar: myAppBar("GENERAL CALCULATOR"),
       body: Column(
           children: [
             Expanded(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 class trigonometryFormula extends StatefulWidget {
   const trigonometryFormula({Key key}) : super(key: key);
@@ -12,13 +13,18 @@ class trigonometryFormula extends StatefulWidget {
 class _trigonometryFormulaState extends State<trigonometryFormula> {
 
   Widget myTrigHeading(String heading){
-    return Text(
-      heading,
-      style: TextStyle(
-          fontSize: 20,
-          decoration: TextDecoration.underline,
-          fontWeight: FontWeight.bold
-      ),
+    return Column(
+      children: [
+        Text(
+          heading,
+          style: TextStyle(
+              fontSize: 20,
+              decoration: TextDecoration.underline,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+        SizedBox(height: 10,)
+      ],
     );
   }
 
@@ -27,20 +33,26 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
       child: FittedBox(child: CaTeX(text)),
       style: TextStyle(
           fontSize: 25,
-          color: Colors.black
+          color: Colors.black,
+          fontWeight: FontWeight.bold
       ),
     );
   }
 
   Widget myViceVersa(){
-    return FittedBox(
-      child: Text(
-        "and vice-versa.",
-        style: TextStyle(
-            fontSize: 20,
-            color: Colors.black
+    return Column(
+      children: [
+        SizedBox(height: 10,),
+        FittedBox(
+          child: Text(
+            "and vice-versa.",
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.black
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -115,6 +127,28 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
     2 : r'tan(A \pm B) = \frac{tanA \pm tanB}{1 \mp tanAtanB}'
   };
 
+  Map sumToProduct = {
+    0 : r'sinA + sinB = 2sin(\frac{A+B}{2})cos(\frac{A-B}{2})',
+    1 : r'sinA - sinB = 2sin(\frac{A-B}{2})cos(\frac{A+B}{2})',
+    2 : r'cosA + cosB = 2cos(\frac{A+B}{2})cos(\frac{A-B}{2})',
+    3 : r'cosA - cosB = 2sin(\frac{A+B}{2})sin(\frac{A-B}{2})',
+  };
+
+  Map productToSum = {
+    0 : r'sinAsinB = \frac{1}{2}[cos(A-B) - cos(A+B)]',
+    1 : r'cosAcosB = \frac{1}{2}[cos(A-B) + cos(A+B)]',
+    2 : r'sinAcosB = \frac{1}{2}[sin(A+B) + sin(A-B)]',
+    3 : r'cosAsinB = \frac{1}{2}[sin(A+B) - sin(A+B)]',
+  };
+
+  String lawOfSines = r'\frac{a}{sina} = \frac{b}{sinb} = \frac{c}{sinc}';
+
+  Map lawOfCosines = {
+    0 : r'c = a^2 + b^2 - 2abcosC',
+    1 : r'b = a^2 + c^2 - 2accosB',
+    2 : r'a = b^2 + c^2 - 2bccosA',
+  };
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -123,17 +157,7 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
       },
       child: Scaffold(
           backgroundColor: colors[colorTheme][2],
-          appBar: AppBar(
-            title: Text(
-              "TRIGONOMETRY FORMULAE",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w900,
-                color: colors[colorTheme][1],
-              ),
-            ),
-            backgroundColor: colors[colorTheme][9],
-          ),
+          appBar: myAppBar("TRIGONOMETRY"),
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(20),
@@ -142,38 +166,30 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   myTrigHeading("COMPLEMENTARY"),
-                  SizedBox(height: 10,),
                   myTrigFormula(comp[0]),
                   myTrigFormula(comp[1]),
                   myTrigFormula(comp[2]),
-                  SizedBox(height: 10,),
                   myViceVersa(),
                   SizedBox(height: 50,),
                   myTrigHeading("RECIPROCAL"),
-                  SizedBox(height: 10,),
                   myTrigFormula(recip[0]),
                   myTrigFormula(recip[1]),
                   myTrigFormula(recip[2]),
-                  SizedBox(height: 10,),
                   myViceVersa(),
                   SizedBox(height: 50,),
                   myTrigHeading("PROPERTY OF SQUARES"),
-                  SizedBox(height: 10,),
                   myTrigFormula(squares[0]),
                   myTrigFormula(squares[1]),
                   myTrigFormula(squares[2]),
-                  SizedBox(height: 10,),
                   myViceVersa(),
                   SizedBox(height: 50,),
                   myTrigHeading("QUADRANT INFORMATION"),
-                  SizedBox(height: 10,),
                   myTrigFormula(quadrantInfo[0]),
                   myTrigFormula(quadrantInfo[1]),
                   myTrigFormula(quadrantInfo[2]),
                   myTrigFormula(quadrantInfo[3]),
                   SizedBox(height: 50,),
                   myTrigHeading("SIN ANGLES"),
-                  SizedBox(height: 10,),
                   myTrigFormula(quadrants[0][0]),
                   myTrigFormula(quadrants[0][1]),
                   myTrigFormula(quadrants[0][2]),
@@ -182,7 +198,6 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                   myTrigFormula(quadrants[0][5]),
                   SizedBox(height: 50,),
                   myTrigHeading("COS ANGLES"),
-                  SizedBox(height: 10,),
                   myTrigFormula(quadrants[1][0]),
                   myTrigFormula(quadrants[1][1]),
                   myTrigFormula(quadrants[1][2]),
@@ -191,7 +206,6 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                   myTrigFormula(quadrants[1][5]),
                   SizedBox(height: 50,),
                   myTrigHeading("TAN ANGLES"),
-                  SizedBox(height: 10,),
                   myTrigFormula(quadrants[2][0]),
                   myTrigFormula(quadrants[2][1]),
                   myTrigFormula(quadrants[2][2]),
@@ -200,27 +214,43 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                   myTrigFormula(quadrants[2][5]),
                   SizedBox(height: 50,),
                   myTrigHeading("HALF-ANGLE"),
-                  SizedBox(height: 10,),
                   myTrigFormula(halfAngle[0]),
                   myTrigFormula(halfAngle[1]),
                   SizedBox(height: 50,),
                   myTrigHeading("DOUBLE-ANGLE"),
-                  SizedBox(height: 10,),
                   myTrigFormula(doubleAngle[0]),
                   myTrigFormula(doubleAngle[1]),
                   myTrigFormula(doubleAngle[2]),
                   myTrigFormula(doubleAngle[3]),
                   SizedBox(height: 50,),
                   myTrigHeading("TRIPLE-ANGLE"),
-                  SizedBox(height: 10,),
                   myTrigFormula(tripleAngle[0]),
                   myTrigFormula(tripleAngle[1]),
                   SizedBox(height: 50,),
                   myTrigHeading("ADDITION"),
-                  SizedBox(height: 10,),
                   myTrigFormula(addition[0]),
                   myTrigFormula(addition[1]),
                   myTrigFormula(addition[2]),
+                  SizedBox(height: 50,),
+                  myTrigHeading("SUM TO PRODUCT"),
+                  myTrigFormula(sumToProduct[0]),
+                  myTrigFormula(sumToProduct[1]),
+                  myTrigFormula(sumToProduct[2]),
+                  myTrigFormula(sumToProduct[3]),
+                  SizedBox(height: 50,),
+                  myTrigHeading("PRODUCT TO SUM"),
+                  myTrigFormula(productToSum[0]),
+                  myTrigFormula(productToSum[1]),
+                  myTrigFormula(productToSum[2]),
+                  myTrigFormula(productToSum[3]),
+                  SizedBox(height: 50,),
+                  myTrigHeading("LAW OF SINES"),
+                  myTrigFormula(lawOfSines),
+                  SizedBox(height: 50,),
+                  myTrigHeading("LAW OF COSINES"),
+                  myTrigFormula(lawOfCosines[0]),
+                  myTrigFormula(lawOfCosines[1]),
+                  myTrigFormula(lawOfCosines[2]),
                 ],
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 class formulaChoice extends StatefulWidget {
   const formulaChoice({Key key}) : super(key: key);
 
@@ -11,29 +12,18 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
     0 : ['COMING SOON', '/comingSoon'],
-    1 : ['TRIANGLES', '/trianglesFormulae'],
-    2 : ['QUADRATIC EQUATION','/quadraticFormulae'],
-    3 : ['TRIGONOMETRY', '/trigonometryFormulae'],
-    4 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
-    5 : ['DIFFERENTIAL', '/differentialFormulae'],
-    6 : ['INTEGRAL', '/integralFormulae'],
+    1 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    2 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    3 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
+    4 : ['DIFFERENTIATION', '/differentialFormulae'],
+    5 : ['INTEGRATION', '/integralFormulae'],
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
-      appBar: AppBar(
-        backgroundColor: colors[colorTheme][9],
-        title: Text(
-          'FORMULAE SHEET',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-            color: colors[colorTheme][1],
-          ),
-        ),
-      ),
+      appBar: myAppBar("FORMULAE SHEET"),
       body: Center(
         child: ListView.builder(
           shrinkWrap: true,
@@ -53,10 +43,10 @@ class _formulaChoiceState extends State<formulaChoice> {
                               child: FittedBox(
                                 child: Text(
                                   choices[index][0],
-                                  maxLines: 1,
+                                  maxLines: 2,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize:30
+                                      fontSize: 25
                                   ),
                                 ),
                               ),
@@ -69,7 +59,7 @@ class _formulaChoiceState extends State<formulaChoice> {
                         ),
                       ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 20,),
                 ],
               );
           }

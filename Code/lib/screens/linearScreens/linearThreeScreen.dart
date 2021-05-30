@@ -2,6 +2,7 @@ import 'package:dream_calc/calcs/linearCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 Widget myLinearExpandedTextField(TextEditingController a){
   return Expanded(
@@ -50,17 +51,7 @@ class _linearThreeState extends State<linearThree> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          backgroundColor: colors[colorTheme][9],
-          title: Text(
-            'LINEAR EQUATION',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-        ),
+        appBar: myAppBar("LINEAR EQUATION"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),

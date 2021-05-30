@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/volumeCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 class volumeCalc extends StatefulWidget {
   @override
@@ -31,19 +32,7 @@ class _volumeCalcState extends State<volumeCalc> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: Text(
-            "VOLUME",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-          centerTitle: false,
-          backgroundColor: colors[colorTheme][9],
-        ),
-        //drawer: myDrawer(),
+        appBar: myAppBar("VOLUME"),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(10.0),

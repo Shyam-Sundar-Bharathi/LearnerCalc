@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 class integralFormula extends StatefulWidget {
   const integralFormula({Key key}) : super(key: key);
@@ -47,17 +48,7 @@ class _integralFormulaState extends State<integralFormula> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: Text(
-            "INTEGRAL FORMULAE",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
+        appBar: myAppBar("INTEGRAL"),
         body: Container(
           padding: EdgeInsets.all(5),
           child: ListView.builder(

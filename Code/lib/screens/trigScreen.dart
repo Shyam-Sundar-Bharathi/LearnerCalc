@@ -2,7 +2,7 @@ import 'package:dream_calc/calcs/trigCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/services/formatNumber.dart';
-
+import 'package:dream_calc/services/globalWidgets.dart';
 import 'menu.dart';
 class trigonometry extends StatefulWidget {
   const trigonometry({Key key}) : super(key: key);
@@ -12,10 +12,56 @@ class trigonometry extends StatefulWidget {
 }
 
 
-bool inFocusDegree = false;
+bool inFocusDegree = true;
 
 
 class _trigonometryState extends State<trigonometry> {
+
+  Widget myTrigText(String text, {flex = 4}){
+    return Expanded(
+          flex: flex,
+          child: FittedBox(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 10,
+              ),
+            ),
+          ),
+        );
+  }
+
+  Widget myEqualTo(){
+    return Expanded(
+      flex: 2,
+      child: FittedBox(
+        child: Text(
+          '=',
+          style: TextStyle(
+            fontSize: 10,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget myTextField(TextEditingController cont,{func(), flex = 9}){
+    return Expanded(
+      flex: flex,
+      child: TextField(
+        onTap: func,
+        textAlign: TextAlign.center,
+        controller: cont,
+        keyboardType: TextInputType.number,
+        enableInteractiveSelection: true,
+        onSubmitted: (text){},
+        inputFormatters: [
+          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+        ],
+        decoration: myInputDecoration,
+      ),
+    );
+  }
 
   TextEditingController degree = new TextEditingController();
   TextEditingController radian = new TextEditingController();
@@ -92,6 +138,83 @@ class _trigonometryState extends State<trigonometry> {
      radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
    }
     });
+    //
+    // Sin.addListener(() {
+    //   if(Sin.text != ''){
+    //     setState(() {
+    //       inFocusDegree = false;
+    //       radian.text = Asin(Sin.text).toStringAsFixedNoZero(precision);
+    //     });
+    //   }
+    //   else
+    //     clear();
+    // });
+    //
+    // Cos.addListener(() {
+    //   if(Cos.text != ''){
+    //     setState(() {
+    //       inFocusDegree = false;
+    //       radian.text = Acos(Cos.text).toStringAsFixedNoZero(precision);
+    //       setAnswersRadian(Acos(Cos.text));
+    //     });
+    //     FocusScope.of(context).requestFocus(FocusNode());
+    //   }
+    //   else
+    //     clear();
+    // });
+    //
+    // Tan.addListener(() {
+    //   if(Tan.text != ""){
+    //     setState(() {
+    //       inFocusDegree = false;
+    //       radian.text = Atan(Tan.text).toStringAsFixedNoZero(precision);
+    //       setAnswersRadian(Atan(Tan.text));
+    //       FocusScope.of(context).requestFocus(FocusNode());
+    //     });
+    //   }
+    //   else
+    //     clear();
+    // });
+    //
+    // Cot.addListener(() {
+    //
+    //   if(Cot.text != ""){
+    //     setState(() {
+    //       radian.text = Acot(Cot.text).toStringAsFixedNoZero(precision);
+    //       inFocusDegree = false;
+    //       setAnswersRadian(Acot(Cot.text));
+    //     });
+    //     FocusScope.of(context).requestFocus(FocusNode());
+    //   }
+    //   else
+    //     clear();
+    // });
+    //
+    // Sec.addListener(() {
+    //   if(Sec.text!=""){
+    //     setState(() {
+    //       radian.text = Asec(Sec.text).toStringAsFixedNoZero(precision);
+    //       inFocusDegree = false;
+    //       setAnswersRadian(Asec(Sec.text));
+    //     });
+    //     FocusScope.of(context).requestFocus(FocusNode());
+    //   }
+    //   else
+    //     clear();
+    // });
+    //
+    // Cosec.addListener(() {
+    //   if(Cosec.text != ""){
+    //     setState(() {
+    //       radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(precision);
+    //       inFocusDegree = false;
+    //       setAnswersRadian(Acosec(Cosec.text));
+    //     });
+    //     FocusScope.of(context).requestFocus(FocusNode());
+    //   }
+    //   else
+    //     clear();
+    // });
   }
 
   @override
@@ -102,651 +225,123 @@ class _trigonometryState extends State<trigonometry> {
       },
       child: Scaffold(
           backgroundColor: colors[colorTheme][2],
-          appBar: AppBar(
-            backgroundColor: colors[colorTheme][9],
-            title: Text(
-              'TRIGONOMETRY',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-                color: colors[colorTheme][1],
-              ),
-            ),
-          ),
+          appBar: myAppBar("TRIGONOMETRY"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          'degree : ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        onTap: (){
-                          setState(() {
-                            inFocusDegree = true;
-                          });
-                        },
-                        // onChanged: (text){},
-                        textAlign: TextAlign.end,
-                        controller: degree,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    SizedBox(width: 50,),
+                    myTrigText("Degree : ",flex: 1),
+                    myTextField(degree,flex: 1,func: (){
+                      setState(() {
+                        inFocusDegree = true;
+                      });
+                    }),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("Radian : ",flex: 1),
+                    myTextField(radian,flex: 1,func: (){
+                      setState(() {
+                        inFocusDegree = false;
+                      });
+                    }),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 15,),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("sin"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Sin),
+                    SizedBox(width: 50,)
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("cos"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Cos),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("tan"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Tan),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("cot"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Cot),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("sec"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Sec),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    SizedBox(width: 50,),
+                    myTrigText("csc"),
+                    myTextField(degree),
+                    myEqualTo(),
+                    myTextField(Cosec),
+                    SizedBox(width: 50,),
+                  ],
+                ),
+                SizedBox(height: 15,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     SizedBox(width: 20,),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          'radian : ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        onTap: (){
-                          setState(() {
-                            inFocusDegree = false;
-                          });
-                        },
-                        // onChanged: (text){},
-                        textAlign: TextAlign.end,
-                        controller: radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: clear,
+                      child: Text(
+                        "Clear",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
                     ),
                   ],
-                ),
-                SizedBox(height: 15,),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          '   sin',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Sin,
-                        onChanged: (text){
-                         if(Sin.text != ''){
-                           setState(() {
-                             inFocusDegree = false;
-                             radian.text = Asin(Sin.text).toStringAsFixedNoZero(precision);
-                             setAnswersRadian(Asin(Sin.text));
-                           });
-                           FocusScope.of(context).requestFocus(FocusNode());
-                         }
-                         else
-                           clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          '   cos',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Cos,
-                        onChanged: (text){
-                          if(Cos.text != ''){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Acos(Cos.text).toStringAsFixedNoZero(precision);
-                              setAnswersRadian(Acos(Cos.text));
-                            });
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          }
-                          else
-                            clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          '   tan',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Tan,
-                        onChanged: (text){
-                          if(Tan.text != ""){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Atan(Tan.text).toStringAsFixedNoZero(precision);
-                              setAnswersRadian(Atan(Tan.text));
-                              FocusScope.of(context).requestFocus(FocusNode());
-                            });
-                          }
-                          else
-                            clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          '   cot',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Cot,
-                        onChanged: (text){
-                          if(Cot.text != ""){
-                            setState(() {
-                              radian.text = Acot(Cot.text).toStringAsFixedNoZero(precision);
-                              inFocusDegree = false;
-                              setAnswersRadian(Acot(Cot.text));
-                            });
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          }
-                          else
-                            clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          '   sec',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Sec,
-                        onChanged: (text){
-                          if(Sec.text!=""){
-                            setState(() {
-                              radian.text = Asec(Sec.text).toStringAsFixedNoZero(precision);
-                              inFocusDegree = false;
-                              setAnswersRadian(Asec(Sec.text));
-                            });
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          }
-                          else
-                            clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: FittedBox(
-                        child: Text(
-                          'csc',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: inFocusDegree? degree : radian,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: FittedBox(
-                        child: Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: TextField(
-                        textAlign: TextAlign.end,
-                        controller: Cosec,
-                        onChanged: (text){
-                          if(Cosec.text != ""){
-                            setState(() {
-                              radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(precision);
-                              inFocusDegree = false;
-                              setAnswersRadian(Acosec(Cosec.text));
-                            });
-                            FocusScope.of(context).requestFocus(FocusNode());
-                          }
-                          else
-                            clear();
-                        },
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 15,),
-                ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: clear,
-                  child: Text(
-                    "Clear",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
           ),

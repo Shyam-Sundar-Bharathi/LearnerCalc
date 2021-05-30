@@ -21,30 +21,6 @@ Map colors = {
   'RED' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
 };
 
-ButtonStyle myButtonStyle = ButtonStyle(
-    elevation: MaterialStateProperty.all(10),
-  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      )
-  ),
-  backgroundColor: MaterialStateProperty.resolveWith((states) => colors[colorTheme][9]),
-  minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
-);
-
-InputDecoration myInputDecoration = InputDecoration(
-  fillColor: Colors.white,
-  filled: true,
-  border:OutlineInputBorder(
-    borderSide: const BorderSide(color: Colors.black, width: 2.0),
-    borderRadius: BorderRadius.circular(15),
-  ),
-  labelStyle: TextStyle(
-    fontSize: 30.0,
-    fontWeight: FontWeight.bold,
-  ),
-);
-
 class _homeState extends State<home> {
 
 

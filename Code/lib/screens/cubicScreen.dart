@@ -2,6 +2,7 @@ import 'package:dream_calc/calcs/cubicCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 class cubicCalc extends StatefulWidget {
   const cubicCalc({Key key}) : super(key: key);
 
@@ -67,18 +68,7 @@ class _cubicCalcState extends State<cubicCalc> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          backgroundColor: colors[colorTheme][9],
-          title: Text(
-            'CUBIC EQUATION',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-        ),
-        //drawer: myDrawer(),
+        appBar: myAppBar("CUBIC EQUATION"),
         body: SingleChildScrollView(
             child : Container(
               padding: EdgeInsets.fromLTRB(20, 30, 20, 20),

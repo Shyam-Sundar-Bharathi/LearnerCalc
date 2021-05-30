@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:catex/catex.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 class quadraticFormula extends StatefulWidget {
   const quadraticFormula({Key key}) : super(key: key);
@@ -48,17 +49,7 @@ class _quadraticFormulaState extends State<quadraticFormula> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: Text(
-            "QUADRATIC FORMULAE",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
+        appBar: myAppBar("QUADRATIC EQUATION"),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(20),

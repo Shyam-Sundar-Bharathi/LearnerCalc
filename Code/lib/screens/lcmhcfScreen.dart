@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/lcmhcfCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
-
+import 'package:dream_calc/services/globalWidgets.dart';
 class lcmhcfCalc extends StatefulWidget {
   @override
   _lcmhcfCalcState createState() => _lcmhcfCalcState();
@@ -47,20 +47,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: FittedBox(
-            child: Text(
-              "NUMBER THEORY",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w900,
-                color: colors[colorTheme][1],
-              ),
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
-        //drawer: myDrawer(),
+        appBar: myAppBar("NUMBER THEORY"),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(10.0),

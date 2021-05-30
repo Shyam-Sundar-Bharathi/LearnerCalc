@@ -60,8 +60,6 @@ List<double> trigoCalc(double ui){
 
     double radians = ui;
     radians = checkRadian(radians);
-    print(radians);
-    print(toDegree(radians));
     answers[0] = toDegree(radians);
     answers[1] = sin(radians);
     answers[2] = cos(radians);

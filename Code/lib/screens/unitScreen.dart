@@ -3,6 +3,7 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/unitCalc.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 
 class unitconversion extends StatefulWidget {
   @override
@@ -42,17 +43,7 @@ class _unitconversionState extends State<unitconversion> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: Text(
-            'UNIT CONVERSION',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
+        appBar: myAppBar("UNIT CONVERSION"),
         //drawer: myDrawer(),
         body: SingleChildScrollView(
           child: Padding(

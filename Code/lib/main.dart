@@ -1,6 +1,7 @@
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/trigFormulaeScreen.dart';
 import 'package:dream_calc/screens/genCalcScreen.dart';
@@ -63,6 +64,7 @@ void main() {
         '/formulaChoice' : (context) => formulaChoice(),
         '/quadraticFormulae' : (context) => quadraticFormula(),
         '/trigonometryFormulae' : (context) => trigonometryFormula(),
+        '/inverseTrigonometryFormulae' : (context) => inverseTrigonometryFormula() ,
         '/differentialFormulae' : (context) => differentialFormula(),
         '/integralFormulae' : (context) => integralFormula(),
         '/aboutUs' : (context) => aboutUs(),

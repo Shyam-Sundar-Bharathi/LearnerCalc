@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/centTendCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
+
 class centTendCalc extends StatefulWidget {
   @override
   _centTendCalcState createState() => _centTendCalcState();
@@ -45,18 +47,7 @@ class _centTendCalcState extends State<centTendCalc> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: Text(
-            "CENTRAL TENDENCY",
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
-        //drawer: myDrawer(),
+        appBar: myAppBar("CENTRAL TENDENCY"),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(10.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 class linearChoice extends StatefulWidget {
   const linearChoice({Key key}) : super(key: key);
 
@@ -20,17 +21,7 @@ class _linearChoiceState extends State<linearChoice> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
-      appBar: AppBar(
-        backgroundColor: colors[colorTheme][9],
-        title: Text(
-          'LINEAR EQUATION',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-            color: colors[colorTheme][1],
-          ),
-        ),
-      ),
+      appBar: myAppBar("LINEAR EQUATION"),
       body: Center(
         child: ListView.builder(
             shrinkWrap: true,
