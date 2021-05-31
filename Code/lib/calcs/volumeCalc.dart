@@ -29,6 +29,9 @@ String volume (String userInput, String dropDownValue) {
   else if(dropDownValue == "HEMISPHERE"){
     volume = 2*pi*pow(double.parse(userInput),3)/3;
   }
+  else if(dropDownValue == "TETRAHEDRON"){
+    volume = pow(double.parse(userInput),3)/(6*1.41421356);
+  }
   return formatNumber(volume.toStringAsFixedNoZero(precision));
 
 }

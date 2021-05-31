@@ -22,6 +22,7 @@ class _volumeCalcState extends State<volumeCalc> {
     'CONE' : "Enter base radius, height (comma separated)",
     'CYLINDER' : "Enter base radius, height (comma separated)",
     'HEMISPHERE' : "Enter radius",
+    'TETRAHEDRON' : "Enter side length"
   };
 
   @override
@@ -88,7 +89,7 @@ class _volumeCalcState extends State<volumeCalc> {
                       userInput.text = "";
                     });
                   },
-                  items: <String>['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE'].map<DropdownMenuItem<String>>((String value) {
+                  items: <String>['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE','TETRAHEDRON'].map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),

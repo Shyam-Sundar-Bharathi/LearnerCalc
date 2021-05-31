@@ -157,6 +157,8 @@ double tojoule(String unitChoiceOne, double userInput){
     return userInput*3600;
   if(unitChoiceOne == 'kilowatt hour')
     return userInput*3600000;
+  if(unitChoiceOne == 'foot-pound')
+    return userInput*1.35582;
   return 0;
 }
 
@@ -173,6 +175,8 @@ double fromjoule(double ans1, String unitChoiceTwo, int precision){
     return ans1/3600;
   if(unitChoiceTwo == 'kilowatt hour')
     return ans1/3600000;
+  if(unitChoiceTwo == 'foot-pound')
+    return ans1/1.35582;
   return 0;
 }
 
@@ -241,6 +245,8 @@ double togram (String unitChoiceOne, double userInput){
     return userInput*453.592;
   if (unitChoiceOne == 'ounce')
     return userInput*28.3495;
+  if(unitChoiceOne == 'us ton')
+    return userInput*907185;
   return 0;
 }
 
@@ -257,6 +263,8 @@ double fromgram (double ans1, String unitChoiceTwo, int precision){
     return ans1/453.592;
   if (unitChoiceTwo == 'ounce')
     return ans1/28.3495;
+  if(unitChoiceTwo == 'us ton')
+    return ans1/907185;
   return 0;
 }
 
@@ -275,6 +283,8 @@ double tometer(String unitChoiceOne, double userInput){
     return userInput/1000;
   if (unitChoiceOne == 'feet')
     return userInput*0.3048;
+  if (unitChoiceOne == 'yard')
+    return userInput/1.09361;
   return 0;
 }
 
@@ -293,6 +303,8 @@ double frommeter(double ans1, String unitChoiceTwo, int precision){
     return ans1*1000;
   if (unitChoiceTwo == 'feet')
     return ans1/0.3048;
+  if (unitChoiceTwo == 'yard')
+    return ans1*1.09361;
   return 0;
 }
 

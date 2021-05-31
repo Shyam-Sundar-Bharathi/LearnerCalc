@@ -20,12 +20,12 @@ class _unitconversionState extends State<unitconversion> {
   String unitElementsValue = "LENGTH";
   List<String> unitElements = ["LENGTH","MASS","TEMPERATURE","PLANE ANGLE","SPEED","ENERGY","AREA","VOLUME"];
   Map unitChoices = {
-    'LENGTH' : ['meter','centimeter','kilometer','inch','feet','mile','millimeter'],
-    'MASS' : ['kilogram','gram','milligram','tonne','pound', 'ounce'],
+    'LENGTH' : ['meter','centimeter','kilometer','inch','feet','mile','millimeter','yard'],
+    'MASS' : ['kilogram','gram','milligram','tonne','pound', 'ounce','us ton'],
     'TEMPERATURE' : ['celcius','kelvin','farenheit'],
     'PLANE ANGLE' : ['degree','radian','gradian','minute','second'],
     'SPEED' : ['meter per second', 'kilometer per hour', 'mile per hour', 'foot per second'],
-    'ENERGY' : ['joule','calorie','kilojoule','kilocalorie','watt hour','kilowatt hour'],
+    'ENERGY' : ['joule','calorie','kilojoule','kilocalorie','watt hour','kilowatt hour', 'foot-pound'],
     'AREA' : ['sq. meter', 'sq. foot', 'sq. kilometer', 'sq. centimeter', 'sq. mile', 'sq. inch', 'acre', 'hectare'],
     'VOLUME' : ['cubic meter','liter','cubic centimeter','milliliter','cubic foot','cubic inch']
   };
