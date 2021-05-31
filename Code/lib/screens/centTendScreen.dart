@@ -78,6 +78,19 @@ class _centTendCalcState extends State<centTendCalc> {
                     myCentTendButton("HM","HARMONIC\n    MEAN",8),
                   ],
                 ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    myCentTendButton("MEDIAN", "MEDIAN", 1),
+                    SizedBox(width: 10),
+                    myCentTendButton("MODE", "MODE", 2),
+                    SizedBox(width: 10),
+                    myCentTendButton("RANGE", "RANGE", 6),
+                    SizedBox(width: 10,),
+                    myCentTendButton("COUNT OF ELEMENTS", "COUNT", 11),
+                  ],
+                ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -98,19 +111,6 @@ class _centTendCalcState extends State<centTendCalc> {
                     myCentTendButton("SMP. STD. DEVIATION", "             SAMPLE\nSTANDARD DEVIATION", 3),
                   ],
                 ),
-                SizedBox(height: 20,),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCentTendButton("MEDIAN", "MEDIAN", 1),
-                      SizedBox(width: 10),
-                      myCentTendButton("MODE", "MODE", 2),
-                      SizedBox(width: 10),
-                      myCentTendButton("RANGE", "RANGE", 6),
-                      SizedBox(width: 10,),
-                      myCentTendButton("COUNT OF ELEMENTS", "COUNT", 11),
-                    ],
-                  ),
                 SizedBox(height: 50),
                 result == " " ? Container() :
                 Container(

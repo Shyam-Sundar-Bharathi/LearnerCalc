@@ -1,3 +1,4 @@
+import 'package:catex/catex.dart';
 import 'package:dream_calc/calcs/vectorCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +14,34 @@ class vector extends StatefulWidget {
 
 class _vectorState extends State<vector> {
 
+  Widget myVectorTextField(TextEditingController cont){
+    return Expanded(
+      flex: 1,
+      child: TextField(
+          textAlign: TextAlign.center,
+          controller: cont,
+          keyboardType: TextInputType.number,
+          enableInteractiveSelection: true,
+          onSubmitted: (text){},
+          inputFormatters: [
+            FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+          ],
+          decoration: myInputDecoration
+      ),
+    );
+  }
+
+  Widget myVectorText(String text,{double fontSize = 25}){
+    return Expanded(
+      child: Text(
+        text,
+        style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold
+        ),
+      ),
+    );
+  }
 
   Widget myVectorButton(String ch, String text, int fn){
     return Expanded(
@@ -62,167 +91,25 @@ class _vectorState extends State<vector> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        'A : ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                          ' i +',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' j +',
-                        style: TextStyle(
-                          fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: c1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' k',
-                        style: TextStyle(
-                          fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    myVectorText('A : ',fontSize: 30),
+                    myVectorTextField(a1),
+                    myVectorText(' i +'),
+                    myVectorTextField(b1),
+                    myVectorText(' j +'),
+                    myVectorTextField(c1),
+                    myVectorText(' k'),
                   ],
                 ),
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        'B : ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' i +',
-                        style: TextStyle(
-                          fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' j +',
-                        style: TextStyle(
-                          fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: c2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' k',
-                        style: TextStyle(
-                          fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    myVectorText('B : ',fontSize: 30),
+                    myVectorTextField(a2),
+                    myVectorText(' i +'),
+                    myVectorTextField(b2),
+                    myVectorText(' j +'),
+                    myVectorTextField(c2),
+                    myVectorText(' k'),
                   ],
                 ),
                 SizedBox(height: 20,),
