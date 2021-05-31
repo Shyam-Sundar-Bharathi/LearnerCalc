@@ -1,3 +1,4 @@
+import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 class contactUs extends StatefulWidget {
@@ -16,19 +17,7 @@ class _contactUsState extends State<contactUs> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: AppBar(
-          title: FittedBox(
-            child: Text(
-              "CONTACT US",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w900,
-                color: colors[colorTheme][1],
-              ),
-            ),
-          ),
-          backgroundColor: colors[colorTheme][9],
-        ),
+        appBar: myAppBar("CONTACT US"),
       ),
     );
   }

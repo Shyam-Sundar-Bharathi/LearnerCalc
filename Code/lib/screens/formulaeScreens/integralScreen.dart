@@ -105,13 +105,3 @@ class _integralFormulaState extends State<integralFormula> {
     );
   }
 }
-
-// FittedBox(
-// child: Text(
-// diffs[index][0],
-// style: TextStyle(
-// fontSize: 30,
-// fontWeight: FontWeight.w900,
-// ),
-// ),
-// ),

@@ -13,22 +13,26 @@ class quadraticFormula extends StatefulWidget {
 class _quadraticFormulaState extends State<quadraticFormula> {
 
   Widget myQuadraticHeading(String text){
-    return Text(
-      text,
-      style: TextStyle(
-          fontSize: 20,
-          decoration: TextDecoration.underline,
-          fontWeight: FontWeight.bold
+    return FittedBox(
+      child: Text(
+        text,
+        style: TextStyle(
+            fontSize: 20,
+            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.bold
+        ),
       ),
     );
   }
 
   Widget myQuadraticFormula(String text){
-    return DefaultTextStyle(
-      child: CaTeX(text),
-      style: TextStyle(
-          fontSize: 30,
-          color: Colors.black
+    return FittedBox(
+      child: DefaultTextStyle(
+        child: CaTeX(text),
+        style: TextStyle(
+            fontSize: 30,
+            color: Colors.black
+        ),
       ),
     );
   }
@@ -54,43 +58,55 @@ class _quadraticFormulaState extends State<quadraticFormula> {
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                myQuadraticHeading("EQUATION"),
-                myQuadraticFormula(quads[0]),
-                SizedBox(height: 50,),
-                myQuadraticHeading("SUM OF ROOTs"),
-                myQuadraticFormula(quads[1]),
-                SizedBox(height: 50,),
-                myQuadraticHeading("PRODUCT OF ROOTS"),
-                myQuadraticFormula(quads[2]),
-                SizedBox(height: 50,),
-                myQuadraticHeading("DISCRIMINANT"),
-                myQuadraticFormula(quads[3]),
-                SizedBox(height: 50,),
-                myQuadraticHeading("ROOTS"),
-                myQuadraticFormula(quads[4]),
-                SizedBox(height: 50,),
-                Text(
-                  "CONDITIONS",
-                  style: TextStyle(
-                      fontSize: 20,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                SizedBox(height: 10,),
-                FittedBox(
-                  child: Text(
-                    "D > 0 : Roots are real and unequal.\n"
-                        "D = 0 : Roots are real and equal.\n"
-                        "D < 0 : Roots are imaginary.",
-                    style: TextStyle(
-                        fontSize: 30,
+                ElevatedButton(
+                  style: myButtonStyle,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/quadratic');
+                  },
+                  child: FittedBox(
+                    child: Text(
+                      "GO TO QUADRATIC EQUATION CALCULATOR",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 50,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 30,),
+                    myQuadraticHeading("EQUATION"),
+                    myQuadraticFormula(quads[0]),
+                    SizedBox(height: 50,),
+                    myQuadraticHeading("SUM OF ROOTs"),
+                    myQuadraticFormula(quads[1]),
+                    SizedBox(height: 50,),
+                    myQuadraticHeading("PRODUCT OF ROOTS"),
+                    myQuadraticFormula(quads[2]),
+                    SizedBox(height: 50,),
+                    myQuadraticHeading("DISCRIMINANT"),
+                    myQuadraticFormula(quads[3]),
+                    SizedBox(height: 50,),
+                    myQuadraticHeading("ROOTS"),
+                    myQuadraticFormula(quads[4]),
+                    SizedBox(height: 50,),
+                    myQuadraticHeading("CONDITIONS"),
+                    SizedBox(height: 10,),
+                    FittedBox(
+                      child: Text(
+                        "D > 0 : Roots are real and unequal.\n"
+                            "D = 0 : Roots are real and equal.\n"
+                            "D < 0 : Roots are imaginary.",
+                        style: TextStyle(
+                            fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 50,),
+                  ],
+                ),
               ],
             ),
           ),
@@ -99,13 +115,3 @@ class _quadraticFormulaState extends State<quadraticFormula> {
     );
   }
 }
-
-// FittedBox(
-// child: Text(
-// diffs[index][0],
-// style: TextStyle(
-// fontSize: 30,
-// fontWeight: FontWeight.w900,
-// ),
-// ),
-// ),

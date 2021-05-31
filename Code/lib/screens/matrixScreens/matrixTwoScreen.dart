@@ -93,27 +93,7 @@ class _matrixTwoState extends State<matrixTwo> {
                 Container() : Container(
                   width: MediaQuery.of(context).size.width - 30,
                   color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        FittedBox(
-                          child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              choice,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        result,
-                      ],
-                    ),
-                  ),
+                  child: myMatrixResult(choice, result),
                 ),
             ]
         ),

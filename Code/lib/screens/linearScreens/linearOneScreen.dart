@@ -34,29 +34,9 @@ class _linearOneState extends State<linearOne> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          '   x   + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText('   x   + '),
                     myLinearExpandedTextField(b),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' =   0 ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' =   0 '),
                   ],
                 ),
                 SizedBox(height: 20,),
@@ -68,10 +48,12 @@ class _linearOneState extends State<linearOne> {
                       result = calcx(a.text, b.text);
                     });
                   },
-                  child: Text(
-                    "CALCULATE",
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: FittedBox(
+                    child: Text(
+                      "CALCULATE",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -84,17 +66,7 @@ class _linearOneState extends State<linearOne> {
                     border: Border.all(),
                     color: Colors.white,
                   ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: myLinearResult(result),
                 )
               ],
             ),

@@ -37,29 +37,9 @@ class _linearTwoState extends State<linearTwo> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a1),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' x   + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' x   + '),
                     myLinearExpandedTextField(b1),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' y = ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' y = '),
                     myLinearExpandedTextField(c1),
                   ],
                 ),
@@ -67,29 +47,9 @@ class _linearTwoState extends State<linearTwo> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a2),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' x   + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' x   + '),
                     myLinearExpandedTextField(b2),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' y = ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' y = '),
                     myLinearExpandedTextField(c2),
                   ],
                 ),
@@ -102,10 +62,12 @@ class _linearTwoState extends State<linearTwo> {
                       result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text);
                     });
                   },
-                  child: Text(
-                    "CALCULATE",
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: FittedBox(
+                    child: Text(
+                      "CALCULATE",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -118,17 +80,7 @@ class _linearTwoState extends State<linearTwo> {
                     border: Border.all(),
                     color: Colors.white,
                   ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: myLinearResult(result),
                 )
               ],
             ),

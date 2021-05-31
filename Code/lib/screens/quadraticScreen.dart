@@ -12,10 +12,39 @@ class quadraticCalc extends StatefulWidget {
 
 class _quadraticCalcState extends State<quadraticCalc> {
 
+  Widget myQuadraticText(String text, {double fontSize = 20}){
+    return FittedBox(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: fontSize,
+        ),
+      ),
+    );
+  }
+
+  Widget myQuadraticTextField(TextEditingController cont,{Key key}){
+    return Expanded(
+        flex: 1,
+        child: TextField(
+          key: key,
+          textAlign: TextAlign.center,
+          controller: cont,
+          keyboardType: TextInputType.number,
+          enableInteractiveSelection: true,
+          inputFormatters: [
+            FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+          ],
+          decoration: myInputDecoration(),
+        ),
+      );
+  }
+
   Widget myQuadraticAnswerRow(String item, String answer){
     return Row(
       children: [
         Expanded(
+          flex: 1,
           child: Container(
             alignment: Alignment.center,
             height: 70,
@@ -23,10 +52,12 @@ class _quadraticCalcState extends State<quadraticCalc> {
               border: Border.all(),
               color: Colors.white,
             ),
-            child: Text(
-              item,
-              style: TextStyle(
-                fontSize: 20,
+            child: FittedBox(
+              child: Text(
+                item,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
             ),
           ),
@@ -40,13 +71,15 @@ class _quadraticCalcState extends State<quadraticCalc> {
               color: Colors.white,
             ),
             child: Center(
-              child: Text(
-                answer,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              child: FittedBox(
+                child: Text(
+                  answer,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+              )
             ),
           ),
         ),
@@ -87,12 +120,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
             child: Column(
               children : [
               Center(
-                child: Text(
-                  'ax² + bx + c = 0',
-                  style: TextStyle(
-                    fontSize: 25,
-                  ),
-                ),
+                child: myQuadraticText('ax² + bx + c = 0',fontSize: 30),
               ),
               SizedBox(height: 30,),
               Column(
@@ -101,48 +129,13 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'a : ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
+                      myQuadraticText('a : '),
                       SizedBox(width: 20,),
-                      Expanded(
-                        flex: 1,
-                        child: TextField(
-                          key: keyA,
-                          textAlign: TextAlign.center,
-                          controller: userInputA,
-                          keyboardType: TextInputType.number,
-                          enableInteractiveSelection: true,
-                          inputFormatters: [
-                            FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                          ],
-                          decoration: myInputDecoration,
-                        ),
-                      ),
+                      myQuadraticTextField(userInputA, key: keyA),
                       SizedBox(width: 20,),
-                      Text(
-                        'b : ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
+                      myQuadraticText('b : '),
                       SizedBox(width: 20,),
-                      Expanded(
-                        flex: 1,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          controller: userInputB,
-                          keyboardType: TextInputType.number,
-                          enableInteractiveSelection: true,
-                          inputFormatters: [
-                            FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                          ],
-                          decoration: myInputDecoration,
-                        ),
-                      ),
+                      myQuadraticTextField(userInputB),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -150,36 +143,23 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'c : ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
+                      myQuadraticText('c : '),
                       SizedBox(width: 20,),
                       Container(
                         width: width,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          controller: userInputC,
-                          keyboardType: TextInputType.number,
-                          enableInteractiveSelection: true,
-                          inputFormatters: [
-                            FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                          ],
-                          decoration: myInputDecoration,
-                        ),
+                        child: myQuadraticTextField(userInputC),
                       ),
                       SizedBox(width: 20,),
                       Expanded(
-                          child: ElevatedButton(
-                            style: myButtonStyle,
-                            onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                                });
-                            },
+                        child: ElevatedButton(
+                          style: myButtonStyle,
+                          onPressed: () {
+                            FocusScope.of(context).requestFocus(FocusNode());
+                              setState(() {
+                                answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
+                              });
+                          },
+                          child: FittedBox(
                             child: Text(
                               "CALCULATE",
                               style: TextStyle(
@@ -188,6 +168,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             ),
                           ),
                         ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20,),

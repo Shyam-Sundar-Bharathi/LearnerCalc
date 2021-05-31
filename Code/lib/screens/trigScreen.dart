@@ -58,7 +58,7 @@ class _trigonometryState extends State<trigonometry> {
         inputFormatters: [
           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
-        decoration: myInputDecoration,
+        decoration: myInputDecoration(),
       ),
     );
   }

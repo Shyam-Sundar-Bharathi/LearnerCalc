@@ -26,7 +26,7 @@ class _vectorState extends State<vector> {
           inputFormatters: [
             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
           ],
-          decoration: myInputDecoration
+          decoration: myInputDecoration()
       ),
     );
   }

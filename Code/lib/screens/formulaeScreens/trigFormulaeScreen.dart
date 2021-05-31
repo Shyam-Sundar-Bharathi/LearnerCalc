@@ -15,12 +15,14 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
   Widget myTrigHeading(String heading){
     return Column(
       children: [
-        Text(
-          heading,
-          style: TextStyle(
-              fontSize: 20,
-              decoration: TextDecoration.underline,
-              fontWeight: FontWeight.bold
+        FittedBox(
+          child: Text(
+            heading,
+            style: TextStyle(
+                fontSize: 20,
+                decoration: TextDecoration.underline,
+                fontWeight: FontWeight.bold
+            ),
           ),
         ),
         SizedBox(height: 10,)

@@ -16,10 +16,39 @@ Widget myLinearExpandedTextField(TextEditingController a){
       inputFormatters: [
         FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
       ],
-      decoration: myInputDecoration,
+      decoration: myInputDecoration(),
     ),
   );
 }
+
+Widget myLinearText(String text){
+  return Expanded(
+    child: FittedBox(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget myLinearResult(String result){
+  return Center(
+    child: FittedBox(
+      child: Text(
+        result,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
 class linearThree extends StatefulWidget {
   const linearThree({Key key}) : super(key: key);
 
@@ -60,41 +89,11 @@ class _linearThreeState extends State<linearThree> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a1),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' x + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' x + '),
                     myLinearExpandedTextField(b1),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' y + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' y + '),
                     myLinearExpandedTextField(c1),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' z =  ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' z =  '),
                     myLinearExpandedTextField(d1),
                   ],
                 ),
@@ -103,41 +102,11 @@ class _linearThreeState extends State<linearThree> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a2),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' x + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' x + '),
                     myLinearExpandedTextField(b2),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' y + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' y + '),
                     myLinearExpandedTextField(c2),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' z =  ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' z =  '),
                     myLinearExpandedTextField(d2),
                   ],
                 ),
@@ -146,41 +115,11 @@ class _linearThreeState extends State<linearThree> {
                 Row(
                   children: [
                     myLinearExpandedTextField(a3),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' x + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' x + '),
                     myLinearExpandedTextField(b3),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' y + ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' y + '),
                     myLinearExpandedTextField(c3),
-                    Expanded(
-                      child: FittedBox(
-                        child: Text(
-                          ' z =  ',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                    myLinearText(' z =  '),
                     myLinearExpandedTextField(d3),
                   ],
                 ),
@@ -193,10 +132,12 @@ class _linearThreeState extends State<linearThree> {
                       result = calcxyz(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text);
                     });
                   },
-                  child: Text(
-                    "CALCULATE",
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: FittedBox(
+                    child: Text(
+                      "CALCULATE",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -209,17 +150,7 @@ class _linearThreeState extends State<linearThree> {
                     border: Border.all(),
                     color: Colors.white,
                   ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        result,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: myLinearResult(result)
                 )
               ],
             ),

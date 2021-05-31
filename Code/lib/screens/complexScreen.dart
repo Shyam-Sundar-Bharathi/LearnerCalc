@@ -12,6 +12,34 @@ class complex extends StatefulWidget {
 
 class _complexState extends State<complex> {
 
+  Widget myComplexText(String text, {double fontSize = 25}){
+    return Expanded(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+    );
+  }
+
+  Widget myComplexTextField(TextEditingController cont){
+    return Expanded(
+      flex: 1,
+      child: TextField(
+        textAlign: TextAlign.center,
+        controller: cont,
+        keyboardType: TextInputType.number,
+        enableInteractiveSelection: true,
+        onSubmitted: (text){},
+        inputFormatters: [
+          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+        ],
+        decoration: myInputDecoration(),
+      ),
+    );
+  }
 
   Widget myComplexButton(String ch, String text, int fn){
     return Expanded(
@@ -58,122 +86,21 @@ class _complexState extends State<complex> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        'A : ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        ' +',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b1,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' i',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    myComplexText('A : ',fontSize: 30),
+                    myComplexTextField(a1),
+                    myComplexText(' +'),
+                    myComplexTextField(b1),
+                    myComplexText(' i'),
                   ],
                 ),
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        'B : ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: a2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' +',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        controller: b2,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        onSubmitted: (text){},
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                        ],
-                        decoration: myInputDecoration
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        ' i',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    myComplexText('B : ', fontSize: 30),
+                    myComplexTextField(a2),
+                    myComplexText(' +'),
+                    myComplexTextField(b2),
+                    myComplexText(' i'),
                   ],
                 ),
                 SizedBox(height: 20,),

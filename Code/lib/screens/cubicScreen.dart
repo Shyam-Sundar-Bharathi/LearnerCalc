@@ -11,6 +11,33 @@ class cubicCalc extends StatefulWidget {
 }
 
 class _cubicCalcState extends State<cubicCalc> {
+  
+  Widget myCubicText(String text, {double fontSize = 20}){
+    return FittedBox(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: fontSize,
+        ),
+      ),
+    );
+  }
+
+  Widget myCubicTextField(TextEditingController cont){
+    return Expanded(
+      flex: 1,
+      child: TextField(
+        textAlign: TextAlign.center,
+        controller: cont,
+        keyboardType: TextInputType.number,
+        enableInteractiveSelection: true,
+        inputFormatters: [
+          FilteringTextInputFormatter(RegExp('[0-9-]'), allow: true),
+        ],
+        decoration: myInputDecoration(),
+      ),
+    );
+  }
 
   Widget myCubicAnswerRow(String item, String answer){
     return Row(
@@ -75,20 +102,15 @@ class _cubicCalcState extends State<cubicCalc> {
               child: Column(
                 children : [
                   Center(
-                    child: Text(
-                      'ax³ + bx² + cx + d = 0',
-                      style: TextStyle(
-                        fontSize: 25,
-                      ),
-                    ),
+                    child: myCubicText('ax³ + bx² + cx + d = 0', fontSize: 30)
                   ),
                   SizedBox(height: 2,),
-                  Text(
-                    'Please note that d is an integer',
-                    style: TextStyle(
-                      fontSize: 15
-                    ),
-                  ),
+                  // Text(
+                  //   'Please note that d is an integer',
+                  //   style: TextStyle(
+                  //     fontSize: 15
+                  //   ),
+                  // ),
                   SizedBox(height: 30,),
                   Column(
                     children: [
@@ -96,59 +118,13 @@ class _cubicCalcState extends State<cubicCalc> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'a : ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
+                          myCubicText('a : '),
                           SizedBox(width: 5,),
-                          Expanded(
-                            flex: 1,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                              controller: userInputA,
-                              keyboardType: TextInputType.number,
-                              enableInteractiveSelection: true,
-                              onSubmitted: (text){
-                                FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '' || userInputD.text == '')? null : cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                                });
-                              },
-                              inputFormatters: [
-                                FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                              ],
-                              decoration: myInputDecoration,
-                            ),
-                          ),
+                          myCubicTextField(userInputA),
                           SizedBox(width: 20,),
-                          Text(
-                            'b : ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
+                          myCubicText('b : '),
                           SizedBox(width: 5,),
-                          Expanded(
-                            flex: 1,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                              controller: userInputB,
-                              keyboardType: TextInputType.number,
-                              enableInteractiveSelection: true,
-                              onSubmitted: (text){
-                                FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '' || userInputD.text == '')? null : cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                                });
-                              },
-                              inputFormatters: [
-                                FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                              ],
-                              decoration: myInputDecoration,
-                            ),
-                          ),
+                          myCubicTextField(userInputB),
                           SizedBox(width: 5,)
                         ],
                       ),
@@ -157,59 +133,13 @@ class _cubicCalcState extends State<cubicCalc> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'c : ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
+                          myCubicText('c : '),
                           SizedBox(width: 5,),
-                          Expanded(
-                            flex: 1,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                              controller: userInputC,
-                              keyboardType: TextInputType.number,
-                              enableInteractiveSelection: true,
-                              onSubmitted: (text){
-                                FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '' || userInputD.text == '')? null : cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                                });
-                              },
-                              inputFormatters: [
-                                FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
-                              ],
-                              decoration: myInputDecoration,
-                            ),
-                          ),
+                          myCubicTextField(userInputC),
                           SizedBox(width: 20,),
-                          Text(
-                            'd : ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
+                          myCubicText('d : '),
                           SizedBox(width: 5,),
-                          Expanded(
-                            flex: 1,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                              controller: userInputD,
-                              keyboardType: TextInputType.number,
-                              enableInteractiveSelection: true,
-                              onSubmitted: (text){
-                                FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers = (userInputA.text == '' || userInputB.text == '' || userInputC.text == '' || userInputD.text == '')? null : cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                                });
-                              },
-                              inputFormatters: [
-                                FilteringTextInputFormatter(RegExp('[0-9-]'), allow: true),
-                              ],
-                              decoration: myInputDecoration,
-                            ),
-                          ),
+                          myCubicTextField(userInputD),
                           SizedBox(width: 5,)
                         ],
                       ),

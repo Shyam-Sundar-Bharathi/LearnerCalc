@@ -1,4 +1,5 @@
 import 'package:dream_calc/screens/complexScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
@@ -64,6 +65,7 @@ void main() {
         '/matrixFour' : (context) => matrixFour(),
         '/formulaChoice' : (context) => formulaChoice(),
         '/powersOfTenFormulae' : (context) => powersOfTen(),
+        '/centTendFormulae' : (context) => centTendFormula(),
         '/quadraticFormulae' : (context) => quadraticFormula(),
         '/trigonometryFormulae' : (context) => trigonometryFormula(),
         '/inverseTrigonometryFormulae' : (context) => inverseTrigonometryFormula() ,

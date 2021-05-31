@@ -12,18 +12,20 @@ ButtonStyle myButtonStyle = ButtonStyle(
   minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
 );
 
-InputDecoration myInputDecoration = InputDecoration(
-  fillColor: Colors.white,
-  filled: true,
-  border:OutlineInputBorder(
-    borderSide: const BorderSide(color: Colors.black, width: 2.0),
-    borderRadius: BorderRadius.circular(15),
-  ),
-  labelStyle: TextStyle(
-    fontSize: 30.0,
-    fontWeight: FontWeight.bold,
-  ),
-);
+InputDecoration myInputDecoration({String labelText}){
+  return InputDecoration(
+    fillColor: Colors.white,
+    filled: true,
+    border:OutlineInputBorder(
+      borderSide: const BorderSide(color: Colors.black, width: 2.0),
+      borderRadius: BorderRadius.circular(15),
+    ),
+    labelText: labelText,
+    labelStyle: TextStyle(
+      fontSize: 20.0,
+    ),
+  );
+}
 
 Widget myAppBar(String heading){
   return AppBar(

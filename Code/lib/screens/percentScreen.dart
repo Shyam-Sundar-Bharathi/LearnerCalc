@@ -11,6 +11,34 @@ class percentCalc extends StatefulWidget {
 
 class _percentCalcState extends State<percentCalc> {
 
+  Widget myPercentTextField(TextEditingController cont, func(String text)){
+    return Expanded(
+        child: TextField(
+          onChanged: func,
+          controller: cont,
+          keyboardType: TextInputType.number,
+          textAlign: TextAlign.center,
+          enableInteractiveSelection: true,
+          inputFormatters: [
+            FilteringTextInputFormatter(RegExp('[0-9. ]'), allow: true),
+          ],
+          decoration: myInputDecoration(labelText: "Enter"),
+        ),
+      );
+  }
+
+  Widget myPercentText(String text, {double fontSize = 25}){
+    return FittedBox(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+  }
+
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   TextEditingController userInputThree = new TextEditingController();
@@ -38,84 +66,21 @@ class _percentCalcState extends State<percentCalc> {
                 SizedBox(height: 50,),
                 Row(
                   children: [
-                    Expanded(
-                      child: TextField(
-                        onChanged: (text){
-                          setState(() {
-                            answer1 = percentOne(userInputOne.text,userInputTwo.text);
-                          });
-                        },
-                        controller: userInputOne,
-                        keyboardType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        enableInteractiveSelection: true,
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelText: "Enter",
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    FittedBox(
-                      child: Text(
-                        "  % of  ",
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        onChanged: (text){
-                          setState(() {
-                            answer1 = percentOne(userInputOne.text,userInputTwo.text);
-                          });
-                        },
-                        controller: userInputTwo,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
-                        ],
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelText: "Enter",
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                    )
+                    myPercentTextField(userInputOne, (text){
+                      setState(() {
+                        answer1 = percentOne(userInputOne.text,userInputTwo.text);
+                      });
+                    }),
+                    myPercentText("  % of  "),
+                    myPercentTextField(userInputTwo, (text){
+                      setState(() {
+                        answer1 = percentOne(userInputOne.text,userInputTwo.text);
+                      });
+                    }),
                   ],
                 ),
                 SizedBox(height: 20,),
-                FittedBox(
-                  child:
-                  Text(
-                    'is',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                ),
+                myPercentText('is'),
                 SizedBox(height: 20,),
                 Container(
                   width: 300,
@@ -144,79 +109,21 @@ class _percentCalcState extends State<percentCalc> {
               children: [
                 Row(
                   children: [
-                    Expanded(
-                      child: TextField(
-                        onChanged: (text){
-                          setState(() {
-                            answer2 = percentTwo(userInputThree.text,userInputFour.text);
-                          });
-                        },
-                        textAlign: TextAlign.center,
-                        controller: userInputThree,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelText: "Enter",
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "  of  ",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        onChanged: (text){
-                          setState(() {
-                            answer2 = percentTwo(userInputThree.text,userInputFour.text);
-                          });
-                        },
-                        textAlign: TextAlign.center,
-                        controller: userInputFour,
-                        keyboardType: TextInputType.number,
-                        enableInteractiveSelection: true,
-                        inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
-                        ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelText: "Enter",
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                    )
+                    myPercentTextField(userInputThree, (text){
+                      setState(() {
+                        answer2 = percentTwo(userInputThree.text,userInputFour.text);
+                      });
+                    }),
+                    myPercentText("  of  "),
+                    myPercentTextField(userInputFour, (text){
+                      setState(() {
+                        answer2 = percentTwo(userInputThree.text,userInputFour.text);
+                      });
+                    }),
                   ],
                 ),
                 SizedBox(height: 20,),
-                Text(
-                  "  is  ",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                myPercentText('is'),
                 SizedBox(height: 20,),
                 Container(
                   width: 300,

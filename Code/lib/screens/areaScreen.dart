@@ -76,10 +76,12 @@ class _areaCalcState extends State<areaCalc> {
                       result = area(userInput.text, dropDownValue);
                     });
                   },
-                  child: Text(
-                    "AREA",
-                    style: TextStyle(
-                      color: Colors.white,
+                  child: FittedBox(
+                    child: Text(
+                      "AREA",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

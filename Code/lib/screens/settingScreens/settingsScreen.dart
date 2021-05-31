@@ -1,4 +1,5 @@
 import 'package:dream_calc/screens/menu.dart';
+import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/material.dart';
 class settings extends StatefulWidget {
   @override
@@ -13,17 +14,7 @@ class _settingsState extends State<settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
-      appBar: AppBar(
-        title: Text(
-            "SETTINGS",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w900,
-              color: colors[colorTheme][1],
-            ),
-        ),
-        backgroundColor: colors[colorTheme][9],
-      ),
+      appBar: myAppBar("SETTINGS"),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
