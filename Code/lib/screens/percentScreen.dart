@@ -88,6 +88,7 @@ class _percentCalcState extends State<percentCalc> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(),
+                    borderRadius:  BorderRadius.all(Radius.circular(10.0)),
                   ),
                   child: Center(
                     child: FittedBox(
@@ -130,6 +131,7 @@ class _percentCalcState extends State<percentCalc> {
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(),
+                    borderRadius:  BorderRadius.all(Radius.circular(10.0)),
                     color: Colors.white,
                   ),
                   child: Center(

@@ -26,7 +26,7 @@ class _complexState extends State<complex> {
 
   Widget myComplexTextField(TextEditingController cont){
     return Expanded(
-      flex: 1,
+      flex: 2,
       child: TextField(
         textAlign: TextAlign.center,
         controller: cont,

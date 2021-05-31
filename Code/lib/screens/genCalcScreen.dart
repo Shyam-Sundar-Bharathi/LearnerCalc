@@ -236,6 +236,9 @@ class _genCalcState extends State<genCalc> {
                       child: TextField(
                         readOnly: true,
                         showCursor: true,
+                        autofocus: true,
+                        cursorColor: colors[colorTheme][11],
+                        cursorHeight: 50,
                         textAlign: TextAlign.right,
                         decoration: InputDecoration(
                           border: InputBorder.none,

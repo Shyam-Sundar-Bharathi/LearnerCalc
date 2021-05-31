@@ -16,7 +16,7 @@ class _vectorState extends State<vector> {
 
   Widget myVectorTextField(TextEditingController cont){
     return Expanded(
-      flex: 1,
+      flex: 2,
       child: TextField(
           textAlign: TextAlign.center,
           controller: cont,

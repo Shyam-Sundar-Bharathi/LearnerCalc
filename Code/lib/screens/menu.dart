@@ -37,7 +37,7 @@ class _homeState extends State<home> {
   Map routes = {
     0 : ['   GENERAL\nCALCULATOR', '/genCalc'],
     1 : ['       UNIT\nCONVERSION', '/unitConversion'],
-    2 : ['FORMULAE\n   SHEET', '/formulaChoice'],
+    2 : ['FORMULAE\n    SHEET', '/formulaChoice'],
     3 : ['   LINEAR\nEQUATIONS', '/linearChoice'],
     4 : ['QUADRATIC\n EQUATION', '/quadratic'],
     5 : ['   CUBIC\nEQUATION', '/cubic'],

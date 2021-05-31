@@ -18,6 +18,7 @@ class _cubicCalcState extends State<cubicCalc> {
         text,
         style: TextStyle(
           fontSize: fontSize,
+          fontWeight: FontWeight.bold
         ),
       ),
     );
@@ -39,7 +40,7 @@ class _cubicCalcState extends State<cubicCalc> {
     );
   }
 
-  Widget myCubicAnswerRow(String item, String answer){
+  Widget myCubicAnswerRow(String item, String answer,{topBlock=0, bottomBlock=0}){
     return Row(
       children: [
         Expanded(
@@ -49,6 +50,8 @@ class _cubicCalcState extends State<cubicCalc> {
             decoration: BoxDecoration(
               border: Border.all(),
               color: Colors.white,
+              borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
+                             bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
             ),
             child: Text(
               item,
@@ -65,6 +68,8 @@ class _cubicCalcState extends State<cubicCalc> {
             decoration: BoxDecoration(
               border: Border.all(),
               color: Colors.white,
+              borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
+                             bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
             ),
             child: Center(
               child: Text(
@@ -164,10 +169,10 @@ class _cubicCalcState extends State<cubicCalc> {
                   SizedBox(height: 20,),
                   Column(
                     children: [
-                      myCubicAnswerRow('Root 1 : ', answers[0]),
+                      myCubicAnswerRow('Root 1 : ', answers[0], topBlock: 1),
                       myCubicAnswerRow('Root 2 : ', answers[1]),
                       myCubicAnswerRow('Root 3 : ', answers[2]),
-                      myCubicAnswerRow('Disc : ', answers[3]),
+                      myCubicAnswerRow('Disc : ', answers[3], bottomBlock: 1),
                     ],
                   )
                 ],

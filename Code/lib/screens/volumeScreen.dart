@@ -69,18 +69,17 @@ class _volumeCalcState extends State<volumeCalc> {
                   ),
                 ),
                 SizedBox(height: 40),
-                DropdownButton<String>(
+                myDropDownBox(context,
+                child: DropdownButton<String>(
                   value: dropDownValue,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 72,
-                  elevation: 16,
+                  icon: Icon(Icons.keyboard_arrow_down),
                   style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
                   ),
                   underline: Container(
-                    height: 2,
-                    color: Colors.black,
+                    color: colors[colorTheme][1],
                   ),
                   onChanged: (String newValue) {
                     setState(() {
@@ -95,6 +94,7 @@ class _volumeCalcState extends State<volumeCalc> {
                       child: Text(value),
                     );
                   }).toList(),
+                ),
                 ),
                 SizedBox(height: 50),
                 result == " "? Container() :

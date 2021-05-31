@@ -18,6 +18,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
         text,
         style: TextStyle(
           fontSize: fontSize,
+          fontWeight: FontWeight.bold
         ),
       ),
     );
@@ -40,7 +41,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
       );
   }
 
-  Widget myQuadraticAnswerRow(String item, String answer){
+  Widget myQuadraticAnswerRow(String item, String answer,{topBlock = 0, bottomBlock = 0}){
     return Row(
       children: [
         Expanded(
@@ -51,6 +52,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
             decoration: BoxDecoration(
               border: Border.all(),
               color: Colors.white,
+              borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
+                             bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
             ),
             child: FittedBox(
               child: Text(
@@ -69,6 +72,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
             decoration: BoxDecoration(
               border: Border.all(),
               color: Colors.white,
+              borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
+                             bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
             ),
             child: Center(
               child: FittedBox(
@@ -177,9 +182,9 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 SizedBox(height: 20,),
                 Column(
                   children: [
-                    myQuadraticAnswerRow('Root 1 : ', answers[0]),
+                    myQuadraticAnswerRow('Root 1 : ', answers[0],topBlock: 1),
                     myQuadraticAnswerRow('Root 2 : ', answers[1]),
-                    myQuadraticAnswerRow('Disc : ', answers[2]),
+                    myQuadraticAnswerRow('Disc : ', answers[2],bottomBlock: 1),
                   ],
                 )
               ],

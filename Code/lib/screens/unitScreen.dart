@@ -50,18 +50,17 @@ class _unitconversionState extends State<unitconversion> {
             padding: EdgeInsets.all(10.0),
             child: Column(
               children: [
-                DropdownButton<String>(
+                myDropDownBox(context,
+                child: DropdownButton<String>(
                   value: unitElementsValue,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 72,
-                  elevation: 16,
+                  icon: Icon(Icons.keyboard_arrow_down),
                   style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
                   ),
                   underline: Container(
-                    height: 2,
-                    color: Colors.black,
+                      height: 0
                   ),
                   onChanged: (String newValue) {
                     setState(() {
@@ -78,6 +77,7 @@ class _unitconversionState extends State<unitconversion> {
                       child: Text(value),
                     );
                   }).toList(),
+                ),
                 ),
                 SizedBox(height: 30.0,),
                 Row(
@@ -102,50 +102,42 @@ class _unitconversionState extends State<unitconversion> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
-                         decoration: InputDecoration(
-                           fillColor: Colors.white,
-                           filled: true,
-                           border:OutlineInputBorder(
-                             borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                             borderRadius: BorderRadius.zero,
-                           ),
-                           labelText: inFocusOne? 'Enter' : 'Answer',
-                           labelStyle: TextStyle(
-                             fontSize: 20.0,
-                           ),
-                         ),
+                         decoration: myInputDecoration(labelText: inFocusOne? 'Enter' : 'Answer'),
                       ),
                     ),
                     SizedBox(width: 10,),
-                    DropdownButton<String>(
-                      value: unitChoiceOne,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 50,
-                      elevation: 16,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
+                    myDropDownBox(context,
+                      child: DropdownButton<String>(
+                        value: unitChoiceOne,
+                        icon: Icon(Icons.keyboard_arrow_down),
+                        // iconSize: 50,
+                        // elevation: 16,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                        ),
+                        underline: Container(
+                          height: 0,
+                        ),
+                        onChanged: (String newValue) {
+                          setState(() {
+                            if(newValue == unitChoiceTwo){
+                              unitChoiceTwo = unitChoiceOne;
+                            }
+                            unitChoiceOne = newValue;
+                            userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
+                          });
+                        },
+                        items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
-                      underline: Container(
-                        height: 2,
-                        color: Colors.black,
-                      ),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          if(newValue == unitChoiceTwo){
-                            unitChoiceTwo = unitChoiceOne;
-                          }
-                          unitChoiceOne = newValue;
-                          userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
-                        });
-                      },
-                      items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    )
+                    ),
+
                   ],
                 ),
                 SizedBox(height: 30.0,),
@@ -171,33 +163,23 @@ class _unitconversionState extends State<unitconversion> {
                         inputFormatters: [
                           FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
                         ],
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border:OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          labelText: inFocusOne? (inFocusTwo ?'Enter' : 'Answer') : 'Enter',
-                          labelStyle: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
+                        decoration: myInputDecoration(labelText: inFocusOne? (inFocusTwo ?'Enter' : 'Answer') : 'Enter'),
                       ),
                     ),
                     SizedBox(width: 10,),
-                    DropdownButton<String>(
+                    myDropDownBox(context,
+                    child: DropdownButton<String>(
                       value: unitChoiceTwo,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 50,
+                      icon: Icon(Icons.keyboard_arrow_down),
+                      // iconSize: 50,
                       elevation: 16,
                       style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
                       ),
                       underline: Container(
-                        height: 2,
-                        color: Colors.black,
+                        height: 0,
                       ),
                       onChanged: (String newValue) {
                         setState(() {
@@ -214,7 +196,9 @@ class _unitconversionState extends State<unitconversion> {
                           child: Text(value),
                         );
                       }).toList(),
-                    )],
+                    ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 50,),
                 Center(
