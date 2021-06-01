@@ -12,31 +12,6 @@ class centTendFormula extends StatefulWidget {
 
 class _centTendFormulaState extends State<centTendFormula> {
 
-  Widget myCentTendHeading(String text){
-    return FittedBox(
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: 20,
-            decoration: TextDecoration.underline,
-            fontWeight: FontWeight.bold
-        ),
-      ),
-    );
-  }
-
-  Widget myCentTendFormula(String text){
-    return FittedBox(
-      child: DefaultTextStyle(
-        child: CaTeX(text),
-        style: TextStyle(
-            fontSize: 25,
-            color: Colors.black
-        ),
-      ),
-    );
-  }
-
   Map centTend = {
     0 : r'If\ x_1,x_2,x_3 \cdot\cdot\cdot x_n\ are\ n\ readings',
     1 : [r'AM = \frac{x_1+x_2+x_3+\ \cdot\cdot\cdot \ +x_n}{n}',r'(or)\ \mu=\frac{\sum{x_i}}{n}'],
@@ -47,7 +22,8 @@ class _centTendFormulaState extends State<centTendFormula> {
     5 : r'\sigma^2 = \frac{\sum (x_i - \mu)^2}{n}',
     6 : r'\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{n}}',
     7 : r'CV= \frac{\sigma}{\mu}',
-    8 : r'Range = Largest\ reading - smallest\ reading'
+    8 : r'Range = Largest\ reading - smallest\ reading',
+    9 : r'3Median = 2Mean + Mode'
   };
 
   @override
@@ -82,38 +58,41 @@ class _centTendFormulaState extends State<centTendFormula> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 30,),
-                      myCentTendFormula(centTend[0]),
+                      myFormula(centTend[0]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("ARITHMETIC MEAN"),
-                      myCentTendFormula(centTend[1][0]),
-                      myCentTendFormula(centTend[1][1]),
+                      myFormulaHeading("ARITHMETIC MEAN"),
+                      myFormula(centTend[1][0]),
+                      myFormula(centTend[1][1]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("GEOMETRIC MEAN"),
-                      myCentTendFormula(centTend[2]),
+                      myFormulaHeading("GEOMETRIC MEAN"),
+                      myFormula(centTend[2]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("HARMONIC MEAN"),
-                      myCentTendFormula(centTend[3]),
+                      myFormulaHeading("HARMONIC MEAN"),
+                      myFormula(centTend[3]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("MEDIAN"),
-                      myCentTendFormula(centTend[4][0]),
+                      myFormulaHeading("MEDIAN"),
+                      myFormula(centTend[4][0]),
                       SizedBox(height: 20,),
-                      myCentTendFormula(centTend[4][1]),
-                      myCentTendFormula(centTend[4][2]),
+                      myFormula(centTend[4][1]),
+                      myFormula(centTend[4][2]),
                       SizedBox(height: 10,),
-                      myCentTendFormula(centTend[4][3]),
-                      myCentTendFormula(centTend[4][4]),
+                      myFormula(centTend[4][3]),
+                      myFormula(centTend[4][4]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("VARIANCE"),
-                      myCentTendFormula(centTend[5]),
+                      myFormulaHeading("VARIANCE"),
+                      myFormula(centTend[5]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("STANDARD DEVIATION"),
-                      myCentTendFormula(centTend[6]),
+                      myFormulaHeading("STANDARD DEVIATION"),
+                      myFormula(centTend[6]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("CO-EFFICIENT OF VARIATION"),
-                      myCentTendFormula(centTend[7]),
+                      myFormulaHeading("CO-EFFICIENT OF VARIATION"),
+                      myFormula(centTend[7]),
                       SizedBox(height: 50,),
-                      myCentTendHeading("RANGE"),
-                      myCentTendFormula(centTend[8]),
+                      myFormulaHeading("RANGE"),
+                      myFormula(centTend[8]),
+                      SizedBox(height: 50,),
+                      myFormulaHeading("RELATIONSHIP BETWEEN TENDENCIES"),
+                      myFormula(centTend[9]),
                     ],
                   ),
                 ],

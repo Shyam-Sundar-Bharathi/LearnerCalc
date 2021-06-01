@@ -1,3 +1,4 @@
+import 'package:catex/catex.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 
@@ -56,6 +57,38 @@ Widget myDropDownBox(context,{Widget child}){
         canvasColor: colors[colorTheme][1],
       ),
       child: child
+    ),
+  );
+}
+
+
+Widget myFormulaHeading(String text, {int mainHeading = 0}){
+  return Column(
+    children: [
+      FittedBox(
+        child: Text(
+          text,
+          style: TextStyle(
+              fontSize: mainHeading == 1 ? 30 : 20,
+              decoration: TextDecoration.underline,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+      ),
+      SizedBox(height: 10,)
+    ],
+  );
+}
+
+
+Widget myFormula(String text){
+  return FittedBox(
+    child: DefaultTextStyle(
+      child: CaTeX(text),
+      style: TextStyle(
+          fontSize: 25,
+          color: Colors.black
+      ),
     ),
   );
 }

@@ -13,12 +13,14 @@ class _formulaChoiceState extends State<formulaChoice> {
   Map choices = {
     0 : ['COMING SOON', '/comingSoon'],
     1 : ['POWERS OF TEN','/powersOfTenFormulae'],
-    2 : ['CENTRAL TENDENCY', '/centTendFormulae'],
-    3 : ['QUADRATIC EQUATION','/quadraticFormulae'],
-    4 : ['TRIGONOMETRY', '/trigonometryFormulae'],
-    5 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
-    6 : ['DIFFERENTIATION', '/differentialFormulae'],
-    7 : ['INTEGRATION', '/integralFormulae'],
+    2 : ['ALGEBRA', '/algebraFormulae'],
+    3 : ['PROGRESSION', '/progressionFormulae'],
+    4 : ['CENTRAL TENDENCY', '/centTendFormulae'],
+    5 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    6 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    7 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
+    8 : ['DIFFERENTIATION', '/differentialFormulae'],
+    9 : ['INTEGRATION', '/integralFormulae'],
   };
 
   @override
@@ -26,45 +28,48 @@ class _formulaChoiceState extends State<formulaChoice> {
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
       appBar: myAppBar("FORMULAE SHEET"),
-      body: Center(
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: choices.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: MediaQuery. of(context). size. width - 50,
-                          child: ElevatedButton(
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: FittedBox(
-                                child: Text(
-                                  choices[index][0],
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25
+      body: Container(
+        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+        child: Center(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: choices.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: MediaQuery. of(context). size. width - 50,
+                            child: ElevatedButton(
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: FittedBox(
+                                  child: Text(
+                                    choices[index][0],
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25
+                                    ),
                                   ),
                                 ),
                               ),
+                              style: myButtonStyle,
+                              onPressed: (){
+                                Navigator.pushNamed(context, choices[index][1]);
+                              },
                             ),
-                            style: myButtonStyle,
-                            onPressed: (){
-                              Navigator.pushNamed(context, choices[index][1]);
-                            },
                           ),
-                        ),
-                      ],
-                  ),
-                  SizedBox(height: 20,),
-                ],
-              );
-          }
+                        ],
+                    ),
+                    SizedBox(height: 20,),
+                  ],
+                );
+            }
+          ),
         ),
       )
     );

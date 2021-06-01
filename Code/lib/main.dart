@@ -1,13 +1,15 @@
 import 'package:dream_calc/screens/complexScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
-import 'package:dream_calc/screens/formulaeScreens/differentialScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/differentialFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/powersOfTenScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/progressionFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/trigFormulaeScreen.dart';
 import 'package:dream_calc/screens/genCalcScreen.dart';
-import 'package:dream_calc/screens/formulaeScreens/integralScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/integralFormulaeScreen.dart';
 import 'package:dream_calc/screens/linearScreens/linearChoiceScreen.dart';
 import 'package:dream_calc/screens/linearScreens/linearThreeScreen.dart';
 import 'package:dream_calc/screens/linearScreens/linearTwoScreen.dart';
@@ -65,6 +67,8 @@ void main() {
         '/matrixFour' : (context) => matrixFour(),
         '/formulaChoice' : (context) => formulaChoice(),
         '/powersOfTenFormulae' : (context) => powersOfTen(),
+        '/algebraFormulae' : (context) => algebraicFormula(),
+        '/progressionFormulae' : (context) => progressionFormula(),
         '/centTendFormulae' : (context) => centTendFormula(),
         '/quadraticFormulae' : (context) => quadraticFormula(),
         '/trigonometryFormulae' : (context) => trigonometryFormula(),
