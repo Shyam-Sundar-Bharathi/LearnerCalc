@@ -81,7 +81,7 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  myFormulaHeading("DOMAIN AND RANGE"),
+                  myFormulaHeading("DOMAIN AND RANGE", bigGap: 0),
                   Container(
                       height: 560,
                       child: ListView.builder(
@@ -90,72 +90,14 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                         itemBuilder: (context, index){
                           return Row(
                             children: [
-                              Expanded(
-                                child: Container(
-                                  height: 80,
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                  ),
-                                  child: Center(
-                                    child: FittedBox(
-                                        child: DefaultTextStyle(
-                                          child: CaTeX(domainRange[index][0]),
-                                          style: TextStyle(
-                                              fontSize: 30,
-                                              color: Colors.black
-                                          ),
-                                        )
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  height: 80,
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                  ),
-                                  child: Center(
-                                    child: FittedBox(
-                                        child: DefaultTextStyle(
-                                          child: CaTeX(domainRange[index][1]),
-                                          style: TextStyle(
-                                              fontSize: 30,
-                                              color: Colors.black
-                                          ),
-                                        )
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  height: 80,
-                                  padding: EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                  ),
-                                  child: Center(
-                                    child: FittedBox(
-                                        child: DefaultTextStyle(
-                                          child: CaTeX(domainRange[index][2]),
-                                          style: TextStyle(
-                                              fontSize: 30,
-                                              color: Colors.black
-                                          ),
-                                        )
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              myFormulaTableBlock(domainRange[index][0]),
+                              myFormulaTableBlock(domainRange[index][1]),
+                              myFormulaTableBlock(domainRange[index][2]),
                             ],
                           );
                         },
                       ),
                     ),
-                  SizedBox(height: 50,),
                   myFormulaHeading("COMPLIMENTARY"),
                   myFormula(complimentary[0][0]),
                   myFormula(complimentary[0][1]),
@@ -165,7 +107,6 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   SizedBox(height: 20,),
                   myFormula(complimentary[2][0]),
                   myFormula(complimentary[2][1]),
-                  SizedBox(height: 50,),
                   myFormulaHeading("INVERSE"),
                   myFormula(inverse[0][0]),
                   myFormula(inverse[0][1]),
@@ -175,7 +116,6 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   SizedBox(height: 20,),
                   myFormula(inverse[2][0]),
                   myFormula(inverse[2][1]),
-                  SizedBox(height: 50,),
                   myFormulaHeading("MINUS"),
                   myFormula(minus[0][0]),
                   myFormula(minus[0][1]),
@@ -194,7 +134,6 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   SizedBox(height: 20,),
                   myFormula(minus[5][0]),
                   myFormula(minus[5][1]),
-                  SizedBox(height: 50,),
                   myFormulaHeading("ADDITION AND SUBTRACTION"),
                   myFormula(addition[0][0]),
                   myFormula(addition[0][1]),
@@ -231,7 +170,6 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   myFormula(addition[8][0]),
                   myFormula(addition[8][1]),
                   myFormula(addition[8][2]),
-                  SizedBox(height: 50,),
                   myFormulaHeading("INVERSE"),
                   myFormula(inverse[0][0]),
                   myFormula(inverse[0][1]),
@@ -241,7 +179,6 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   SizedBox(height: 20,),
                   myFormula(inverse[2][0]),
                   myFormula(inverse[2][1]),
-                  SizedBox(height: 50,),
                   myFormulaHeading("MULTIPLE"),
                   myFormula(multiple[0][0]),
                   myFormula(multiple[0][1]),

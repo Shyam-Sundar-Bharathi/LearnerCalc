@@ -56,46 +56,8 @@ class _differentialFormulaState extends State<differentialFormula> {
             itemBuilder: (context, index) {
                 return Row(
                   children: [
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                        ),
-                        child: Center(
-                          child: FittedBox(
-                              child: DefaultTextStyle(
-                                child: CaTeX(diffs[index][0]),
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.black
-                                ),
-                              )
-                          ),
-                          ),
-                        ),
-                      ),
-                    Expanded(
-                      child: Container(
-                        height: 80,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(),
-                        ),
-                        child: Center(
-                          child: FittedBox(
-                              child: DefaultTextStyle(
-                                child: CaTeX(diffs[index][1]),
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.black
-                                ),
-                              )
-                          ),
-                        ),
-                      ),
-                    ),
+                    myFormulaTableBlock(diffs[index][0]),
+                    myFormulaTableBlock(diffs[index][1]),
                   ],
                 );
             },

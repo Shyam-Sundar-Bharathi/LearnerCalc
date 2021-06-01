@@ -11,12 +11,12 @@ class formulaChoice extends StatefulWidget {
 class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
-    0 : ['COMING SOON', '/comingSoon'],
-    1 : ['POWERS OF TEN','/powersOfTenFormulae'],
-    2 : ['ALGEBRA', '/algebraFormulae'],
-    3 : ['PROGRESSION', '/progressionFormulae'],
-    4 : ['CENTRAL TENDENCY', '/centTendFormulae'],
-    5 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    0 : ['POWERS OF TEN','/powersOfTenFormulae'],
+    1 : ['ALGEBRA', '/algebraFormulae'],
+    2 : ['PROGRESSION', '/progressionFormulae'],
+    3 : ['CENTRAL TENDENCY', '/centTendFormulae'],
+    4 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    5 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
     6 : ['TRIGONOMETRY', '/trigonometryFormulae'],
     7 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
     8 : ['DIFFERENTIATION', '/differentialFormulae'],

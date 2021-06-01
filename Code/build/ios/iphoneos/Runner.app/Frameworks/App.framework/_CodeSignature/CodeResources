@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		mZL/vH0lTo0R2CNkJn19/VE0pSg=
+		S9fPNeu21MBM2adnadQvW6/TxqE=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,11 @@
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
-		JeSlz/2q0ezxKRV0jtD21LkYnBs=
+		2UyhfXHFugV6/hWjqE6qubSFGNk=
+		</data>
+		<key>flutter_assets/assets/contactUs.jpg</key>
+		<data>
+		OYR3g557QxjeBNDM+k3gc68OFBs=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -30,7 +34,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		fQitWwV1pJCMw2FMvJZ3U6ZzcRw=
+		CBjNqzcbJ3sFYP07Sr2Xk8f2cO8=
 		</data>
 		<key>flutter_assets/packages/catex/fonts/KaTeX_AMS-Regular.ttf</key>
 		<data>
@@ -127,11 +131,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mZL/vH0lTo0R2CNkJn19/VE0pSg=
+			S9fPNeu21MBM2adnadQvW6/TxqE=
 			</data>
 			<key>hash2</key>
 			<data>
-			EWM5p2IniZOJeAk4cdMUlAru+Lm7vYRbz9i2Psq4RC0=
+			iNYnZOII0fTsCfu76Oh1quNHwrDOZdwPYOfiwGJi+LU=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -149,11 +153,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JeSlz/2q0ezxKRV0jtD21LkYnBs=
+			2UyhfXHFugV6/hWjqE6qubSFGNk=
 			</data>
 			<key>hash2</key>
 			<data>
-			XTaWm01bbmU6n1VLnC0vhzdUsaoi7MxZWsHos8pQGyA=
+			VLi9YV16Dar8GJqYxDFf3X/tk47bcdIzJ/wfl624UZI=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/contactUs.jpg</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OYR3g557QxjeBNDM+k3gc68OFBs=
+			</data>
+			<key>hash2</key>
+			<data>
+			VR7vvDDKV1niV2AZq2WmQCM8/+/kvMlOudYOim3dZrg=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -182,11 +197,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fQitWwV1pJCMw2FMvJZ3U6ZzcRw=
+			CBjNqzcbJ3sFYP07Sr2Xk8f2cO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ArXeN8VvF5bLItw1yInWQgOfKc/XSB5Rurqg53FlCZg=
+			NX3cVIzUzevFhoVFMfvz3ZBaPn3kPsSNQJbQ+hE/f0A=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/catex/fonts/KaTeX_AMS-Regular.ttf</key>

@@ -51,22 +51,16 @@ class _quadraticFormulaState extends State<quadraticFormula> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 30,),
                     myFormulaHeading("EQUATION"),
                     myFormula(quads[0]),
-                    SizedBox(height: 50,),
                     myFormulaHeading("SUM OF ROOTS"),
                     myFormula(quads[1]),
-                    SizedBox(height: 50,),
                     myFormulaHeading("PRODUCT OF ROOTS"),
                     myFormula(quads[2]),
-                    SizedBox(height: 50,),
                     myFormulaHeading("DISCRIMINANT"),
                     myFormula(quads[3]),
-                    SizedBox(height: 50,),
                     myFormulaHeading("ROOTS"),
                     myFormula(quads[4]),
-                    SizedBox(height: 50,),
                     myFormulaHeading("CONDITIONS"),
                     SizedBox(height: 10,),
                     FittedBox(

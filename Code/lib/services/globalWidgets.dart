@@ -1,6 +1,7 @@
 import 'package:catex/catex.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 ButtonStyle myButtonStyle = ButtonStyle(
   elevation: MaterialStateProperty.all(10),
@@ -28,7 +29,7 @@ InputDecoration myInputDecoration({String labelText}){
   );
 }
 
-Widget myAppBar(String heading){
+Widget myAppBar(String heading, {contactUs = 0}){
   return AppBar(
     title: FittedBox(
       child: Text(
@@ -36,11 +37,11 @@ Widget myAppBar(String heading){
         style: TextStyle(
           fontSize: 20.0,
           fontWeight: FontWeight.w900,
-          color: colors[colorTheme][1],
+          color: contactUs == 1? Colors.white : colors[colorTheme][1],
         ),
       ),
     ),
-    backgroundColor: colors[colorTheme][9],
+    backgroundColor: contactUs == 1? Color(0xFF545a62) : colors[colorTheme][9],
   );
 }
 
@@ -62,9 +63,10 @@ Widget myDropDownBox(context,{Widget child}){
 }
 
 
-Widget myFormulaHeading(String text, {int mainHeading = 0}){
+Widget myFormulaHeading(String text, {int mainHeading = 0, int bigGap = 1}){
   return Column(
     children: [
+      bigGap == 1? SizedBox(height: 40,) : SizedBox(height: 20,),
       FittedBox(
         child: Text(
           text,
@@ -75,20 +77,75 @@ Widget myFormulaHeading(String text, {int mainHeading = 0}){
           ),
         ),
       ),
-      SizedBox(height: 10,)
+      SizedBox(height: 15,)
     ],
   );
 }
 
 
 Widget myFormula(String text){
-  return FittedBox(
-    child: DefaultTextStyle(
-      child: CaTeX(text),
-      style: TextStyle(
-          fontSize: 25,
-          color: Colors.black
+  return Column(
+    children: [
+      FittedBox(
+        child: DefaultTextStyle(
+          child: CaTeX(text),
+          style: TextStyle(
+              fontSize: 25,
+              color: Colors.black
+          ),
+        ),
+      ),
+      SizedBox(height: 10,),
+    ],
+  );
+}
+
+Widget myFormulaTableBlock(String formula){
+  return Expanded(
+    child: Container(
+      height: 80,
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        border: Border.all(),
+      ),
+      child: Center(
+        child: FittedBox(
+            child: DefaultTextStyle(
+              child: CaTeX(formula),
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black
+              ),
+            )
+        ),
       ),
     ),
+  );
+}
+
+Widget myContactUsButton({String text, IconData icon, String launcher }){
+  return ElevatedButton(
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon),
+        SizedBox(width: 10,),
+        Text(text),
+      ],
+    ),
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(10),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          )
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith((states) => Color(0xFF545a62)),
+      minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+    ),
+    onPressed: (){
+      launch(launcher,
+      forceWebView: false);
+    },
   );
 }

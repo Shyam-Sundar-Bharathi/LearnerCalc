@@ -1,6 +1,5 @@
 import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/menu.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class contactUs extends StatefulWidget {
@@ -10,15 +9,37 @@ class contactUs extends StatefulWidget {
   _contactUsState createState() => _contactUsState();
 }
 
+Widget myContactUsText({String text, double fontSize = 20, String fontFamily = "Times"}){
+  return FittedBox(
+    child: Text(
+      text,
+      style: TextStyle(
+          fontFamily: fontFamily,
+          fontSize: fontSize,
+          fontWeight: FontWeight.bold,
+          color: Colors.white
+      ),
+    ),
+  );
+}
+
 final Uri _emailLaunchUri = Uri(
     scheme: 'mailto',
-    path: 'shyamsundarbharathi@gmail.com',
+    path: 'thelearnersdaily@gmail.com',
     queryParameters: {
-      'subject': 'Example Subject & Symbols are allowed!'
+      'subject': 'Feedback on LearnerCalc'
     }
 );
 
-const url = 'https://thelearnersdaily.wordpress.com';
+const blogURL = 'https://thelearnersdaily.wordpress.com';
+const linkedInURL = "https://www.linkedin.com/in/shyam-sundar-bharathi/";
+const twitterURL = "https://twitter.com/bharathi_shyam1";
+
+ElevatedButton myEmailButton = myContactUsButton(text: "thelearnersdaily@gmail.com", icon: Icons.mail, launcher: _emailLaunchUri.toString());
+ElevatedButton myBlogButton = myContactUsButton(text: "The Learner's Daily Blog", icon: Icons.library_books, launcher: blogURL);
+ElevatedButton myLinkedInButton = myContactUsButton(text: "Connect with me on LinkedIn", icon: Icons.laptop_mac_sharp, launcher: linkedInURL);
+ElevatedButton myTwitterButton = myContactUsButton(text: "Follow me on Twitter", icon: Icons.phone_iphone_sharp, launcher: twitterURL);
+ElevatedButton myQuoraButton = myContactUsButton(text: "Ask me a question on Quora", icon: Icons.question_answer_outlined, launcher: "https://www.quora.com/profile/Shyam-Sundar-Bharathi");
 
 class _contactUsState extends State<contactUs> {
   @override
@@ -28,36 +49,61 @@ class _contactUsState extends State<contactUs> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("CONTACT US"),
-        body: Column(
-          children: [
-            ElevatedButton(
-              child: Icon(Icons.mail),
-              onPressed: () async {
-                const url = "https://google.com";
-                print("pressed");
-                if(await canLaunch(url)){
-                  print('can launch');
-                  launch(_emailLaunchUri.toString());
-              } else {
-                  throw "can't launch";
-                }
-    },
+        backgroundColor: Color(0xFF858b97),
+        appBar: myAppBar("CONTACT US", contactUs: 1),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  color: Color(0xFF545a62),
+                  child: Column(
+                    children: [
+                      myContactUsText(text: "LET'S TALK!", fontSize: 50),
+                      SizedBox(height: 10,),
+                      myContactUsText(text: "YOU GO FIRST", fontSize: 30),
+                      SizedBox(height: 20,),
+                      myContactUsText(text: "Tell me what you love about Learner."),
+                      myContactUsText(text: "Tell me what you don't love about it."),
+                      myContactUsText(text: "Tell me what you more you want to see."),
+                      myContactUsText(text: "Tell me what you can't even stand."),
+                      myContactUsText(text: "Tell me EVERYTHING."),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/contactUs.jpg"),
+                      fit: BoxFit.fill,
+                    ),
+                    color: Color(0xFF858b97)
+                  ),
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                  color: Color(0xFF858b97),
+                  child: Column(
+                    children: [
+                      myEmailButton,
+                      SizedBox(height: 10,),
+                      myLinkedInButton,
+                      SizedBox(height: 10,),
+                      myTwitterButton,
+                      SizedBox(height: 10,),
+                      myQuoraButton,
+                      SizedBox(height: 10,),
+                      myBlogButton,
+                    ],
+                  ),
+                )
+              ],
             ),
-            ElevatedButton(
-              child: Text("blog"),
-              onPressed: () async {
-                print("pressed");
-                if(await canLaunch(url)){
-                  print('can launch');
-                  launch(url);
-                } else {
-                  throw "can't launch";
-                }
-              },
-            )
-          ],
+          ),
         ),
       ),
     );

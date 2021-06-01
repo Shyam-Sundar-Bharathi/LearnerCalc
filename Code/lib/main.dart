@@ -1,6 +1,7 @@
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/coordinateFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
@@ -71,6 +72,7 @@ void main() {
         '/progressionFormulae' : (context) => progressionFormula(),
         '/centTendFormulae' : (context) => centTendFormula(),
         '/quadraticFormulae' : (context) => quadraticFormula(),
+        '/coordinateGeoFormulae' : (context) => coordinateFormula(),
         '/trigonometryFormulae' : (context) => trigonometryFormula(),
         '/inverseTrigonometryFormulae' : (context) => inverseTrigonometryFormula() ,
         '/differentialFormulae' : (context) => differentialFormula(),
