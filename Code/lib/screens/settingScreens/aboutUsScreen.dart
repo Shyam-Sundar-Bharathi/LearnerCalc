@@ -18,7 +18,7 @@ class _aboutUsState extends State<aboutUs> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("ABOUT US"),
+        appBar: myAppBar("ABOUT"),
       ),
     );
   }
