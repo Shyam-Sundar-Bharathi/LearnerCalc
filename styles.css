@@ -1,0 +1,21 @@
+body{
+    padding: 30px 100px;
+    margin: 5;
+}
+
+h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 30px;
+}
+
+h3,h2,p,li{
+    color: #545c96;
+}
+
+p{
+    font-size: 20px;
+}
