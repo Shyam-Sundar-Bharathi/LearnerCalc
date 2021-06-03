@@ -167,6 +167,7 @@ class _cubicCalcState extends State<cubicCalc> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  answers[0] == ''? Container() :
                   Column(
                     children: [
                       myCubicAnswerRow('Root 1 : ', answers[0], topBlock: 1),

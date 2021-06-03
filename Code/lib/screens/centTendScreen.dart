@@ -115,11 +115,8 @@ class _centTendCalcState extends State<centTendCalc> {
                 result == " " ? Container() :
                 Container(
                   width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
+                  height: 100,
+                  decoration: myResultContainerDecoration,
                   child: Center(
                     child: FittedBox(
                       child: Padding(

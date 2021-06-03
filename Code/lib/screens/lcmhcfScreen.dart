@@ -106,11 +106,8 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                 result == " " ? Container() :
                 Container(
                   width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
+                  height: 100,
+                  decoration: myResultContainerDecoration,
                   child: Center(
                     child: FittedBox(
                       child: Padding(

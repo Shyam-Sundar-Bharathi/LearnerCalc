@@ -76,10 +76,7 @@ class _linearTwoState extends State<linearTwo> {
                 Container(
                   width: MediaQuery.of(context).size.width - 30,
                   height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
+                  decoration: myResultContainerDecoration,
                   child: myLinearResult(result),
                 )
               ],

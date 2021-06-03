@@ -15,6 +15,7 @@ class _volumeCalcState extends State<volumeCalc> {
   var result = " ";
   TextEditingController userInput = new TextEditingController();
   String dropDownValue = "CUBE";
+  List<String> shapesAvailable = ['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE','TETRAHEDRON'];
   Map disp = {
     'CUBE' : "Enter side length",
     'SPHERE' : "Enter radius",
@@ -24,8 +25,6 @@ class _volumeCalcState extends State<volumeCalc> {
     'HEMISPHERE' : "Enter radius",
     'TETRAHEDRON' : "Enter side length"
   };
-
-  List<String> dispItems = ['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE','TETRAHEDRON'];
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +90,7 @@ class _volumeCalcState extends State<volumeCalc> {
                       userInput.text = "";
                     });
                   },
-                  items: dispItems.map<DropdownMenuItem<String>>((String value) {
+                  items: shapesAvailable.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -104,10 +103,7 @@ class _volumeCalcState extends State<volumeCalc> {
                 Container(
                     width: MediaQuery. of(context). size. width - 30,
                     height: 200,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Colors.white,
-                    ),
+                    decoration: myResultContainerDecoration,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -117,7 +113,7 @@ class _volumeCalcState extends State<volumeCalc> {
                             child: Text(
                               "VOLUME OF $dropDownValue",
                               style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold
                               ),
                             ),

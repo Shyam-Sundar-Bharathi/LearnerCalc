@@ -16,6 +16,7 @@ class _areaCalcState extends State<areaCalc> {
   var result = " ";
   TextEditingController userInput = new TextEditingController();
   String dropDownValue = "SQUARE";
+  List<String> shapesAvailable = ['SQUARE','CIRCLE','RECTANGLE','TRIANGLE','PARALLELOGRAM','RHOMBUS','TRAPEZIUM','ELLIPSE','CUBE','SPHERE','CUBOID','CYLINDER','CONE', 'HEMISPHERE'];
   Map disp = {
     'SQUARE' : "Enter side length",
     'CIRCLE' : "Enter radius",
@@ -107,7 +108,7 @@ class _areaCalcState extends State<areaCalc> {
                       result = "";
                     });
                   },
-                  items: <String>['SQUARE','CIRCLE','RECTANGLE','TRIANGLE','PARALLELOGRAM','RHOMBUS','TRAPEZIUM','ELLIPSE','CUBE','SPHERE','CUBOID','CYLINDER','CONE', 'HEMISPHERE'].map<DropdownMenuItem<String>>((String value) {
+                  items: shapesAvailable.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -120,10 +121,7 @@ class _areaCalcState extends State<areaCalc> {
                 Container(
                     width: MediaQuery. of(context). size. width - 30,
                     height: 200,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      color: Colors.white,
-                    ),
+                    decoration: myResultContainerDecoration,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -133,7 +131,7 @@ class _areaCalcState extends State<areaCalc> {
                             child: Text(
                               is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
                               style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold
                               ),
                             ),

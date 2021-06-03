@@ -183,6 +183,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 ],
               ),
                 SizedBox(height: 20,),
+                answers[0] == ''? Container() :
                 Column(
                   children: [
                     myQuadraticAnswerRow('Root 1 : ', answers[0],topBlock: 1),

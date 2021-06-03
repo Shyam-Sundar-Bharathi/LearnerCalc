@@ -149,3 +149,9 @@ Widget myContactUsButton({String text, IconData icon, String launcher }){
     },
   );
 }
+
+BoxDecoration myResultContainerDecoration = BoxDecoration(
+    border: Border.all(),
+    color: Colors.white,
+    borderRadius: BorderRadius.all(Radius.circular(100)),
+);

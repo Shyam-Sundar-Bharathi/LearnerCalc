@@ -153,10 +153,7 @@ class _complexState extends State<complex> {
                 Container(
                   width: MediaQuery.of(context).size.width - 30,
                   height: 200,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    color: Colors.white,
-                  ),
+                  decoration: myResultContainerDecoration,
                   child: Center(
                     child: FittedBox(
                       child: Padding(

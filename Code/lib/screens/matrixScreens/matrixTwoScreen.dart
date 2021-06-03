@@ -91,8 +91,8 @@ class _matrixTwoState extends State<matrixTwo> {
                 SizedBox(height: 40,),
                 choice == " "?
                 Container() : Container(
+                  decoration: myResultContainerDecoration,
                   width: MediaQuery.of(context).size.width - 30,
-                  color: Colors.white,
                   child: myMatrixResult(choice, result),
                 ),
             ]

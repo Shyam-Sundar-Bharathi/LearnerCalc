@@ -43,7 +43,7 @@ Widget myMatrixResult(String choice, Widget result){
             child: Text(
               choice,
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -174,7 +174,7 @@ class _matrixFourState extends State<matrixFour> {
                       choice == " "?
                       Container() : Container(
                         width: MediaQuery.of(context).size.width - 30,
-                        color: Colors.white,
+                        decoration: myResultContainerDecoration,
                         child: myMatrixResult(choice, result),
                       ),
                     ]

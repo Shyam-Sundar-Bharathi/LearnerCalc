@@ -103,7 +103,7 @@ class _matrixThreeState extends State<matrixThree> {
                       choice == " "?
                       Container() : Container(
                         width: MediaQuery.of(context).size.width - 30,
-                        color: Colors.white,
+                        decoration: myResultContainerDecoration,
                         child: myMatrixResult(choice, result),
                       ),
                     ]

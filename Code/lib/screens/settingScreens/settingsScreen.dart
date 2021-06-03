@@ -11,6 +11,8 @@ const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
 String alertMessage = "";
+List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','YELLOW', 'PURPLE','RED'];
+
 class _settingsState extends State<settings> {
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class _settingsState extends State<settings> {
       onWillPop: (){
         setState(() {
           dropDownColor = colorTheme;
+          sliderValue = precision;
         });
         Navigator.pop(context);
         return;
@@ -72,7 +75,15 @@ class _settingsState extends State<settings> {
                           inactiveColor: colors[colorTheme][7],
                         ),
                         Text(
-                          sliderValue.toString() + alertMessage,
+                          sliderValue.toString(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          alertMessage,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 25,
@@ -124,7 +135,7 @@ class _settingsState extends State<settings> {
                               dropDownColor = newColor;
                             });
                           },
-                          items: <String>['GRAYSCALE','BLUE','GREEN','PINK','YELLOW', 'PURPLE','RED'].map<DropdownMenuItem<String>>((String value) {
+                          items: colorsAvailable.map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(
