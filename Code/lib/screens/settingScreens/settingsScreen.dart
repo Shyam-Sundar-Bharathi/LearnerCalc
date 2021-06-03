@@ -11,7 +11,7 @@ const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
 String alertMessage = "";
-List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','YELLOW', 'PURPLE','RED'];
+List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED'];
 
 class _settingsState extends State<settings> {
   @override

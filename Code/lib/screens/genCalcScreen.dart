@@ -21,7 +21,7 @@ class _genCalcState extends State<genCalc> {
     '^',
     '(',
     ')',
-    'DEL/CLR',
+    'DEL',
     '7',
     '8',
     '9',
@@ -285,6 +285,8 @@ class _genCalcState extends State<genCalc> {
                   crossAxisCount: 4,
                 ),
                 itemBuilder: (BuildContext context, int index) {
+
+                  //parenthesis buttons
                   if (index == 1 || index == 2) {
                     return MyButton(
                       buttontapped: () {
@@ -301,6 +303,7 @@ class _genCalcState extends State<genCalc> {
                     );
                   }
 
+                  //delete button
                   if (index == 3) {
                     return MyButton(
                       buttontapped: () {
@@ -316,8 +319,8 @@ class _genCalcState extends State<genCalc> {
                       },
                       buttonText: buttons[index],
                       color: tappedIndex == index ? Colors.red[500] : Colors
-                          .red[300],
-                      textColor: Colors.black,
+                          .redAccent,
+                      textColor: Colors.white,
                       fontSize: 20.0,
                     );
                   }
@@ -341,7 +344,7 @@ class _genCalcState extends State<genCalc> {
                       buttonText: buttons[index],
                       color: tappedIndex == index ? Colors.green : Colors
                           .greenAccent[400],
-                      textColor: Colors.white,
+                      textColor: Colors.black,
                     );
                   }
                   //other buttons

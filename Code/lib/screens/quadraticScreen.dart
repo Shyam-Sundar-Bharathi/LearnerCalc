@@ -151,27 +151,33 @@ class _quadraticCalcState extends State<quadraticCalc> {
                       myQuadraticText('c : '),
                       SizedBox(width: 20,),
                       Container(
-                        width: width,
-                        child: myQuadraticTextField(userInputC),
-                      ),
+                          width: width,
+                          child: TextField(
+                            textAlign: TextAlign.center,
+                            controller: userInputC,
+                            keyboardType: TextInputType.number,
+                            enableInteractiveSelection: true,
+                            inputFormatters: [
+                              FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+                            ],
+                            decoration: myInputDecoration(),
+                          ),
+                        ),
                       SizedBox(width: 20,),
                       Expanded(
-                        child: Container(
-                          width: width,
-                          child: ElevatedButton(
-                            style: myButtonStyle,
-                            onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                                setState(() {
-                                  answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                                });
-                            },
-                            child: FittedBox(
-                              child: Text(
-                                "CALCULATE",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
+                        child: ElevatedButton(
+                          style: myButtonStyle,
+                          onPressed: () {
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            setState(() {
+                              answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
+                            });
+                          },
+                          child: FittedBox(
+                            child: Text(
+                              "CALCULATE",
+                              style: TextStyle(
+                                color: Colors.white,
                               ),
                             ),
                           ),
