@@ -13,6 +13,7 @@ class trigonometry extends StatefulWidget {
 
 
 bool inFocusDegree = true;
+int trigPrecision = 4;
 
 
 class _trigonometryState extends State<trigonometry> {
@@ -45,11 +46,13 @@ class _trigonometryState extends State<trigonometry> {
     );
   }
 
-  Widget myTextField(TextEditingController cont,{func(), flex = 9}){
+  Widget myTextField(TextEditingController cont,{func(), onChanged(String text), flex = 9, readOnly = false}){
     return Expanded(
       flex: flex,
       child: TextField(
         onTap: func,
+        onChanged: onChanged,
+        readOnly: readOnly,
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
@@ -95,7 +98,7 @@ class _trigonometryState extends State<trigonometry> {
       return "- Infinity";
     }
     else
-      return answer.toStringAsFixedNoZero(precision);
+      return answer.toStringAsFixedNoZero(trigPrecision);
   }
 
   void setAnswersDegree(double degrees){
@@ -138,83 +141,6 @@ class _trigonometryState extends State<trigonometry> {
      radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
    }
     });
-    //
-    // Sin.addListener(() {
-    //   if(Sin.text != ''){
-    //     setState(() {
-    //       inFocusDegree = false;
-    //       radian.text = Asin(Sin.text).toStringAsFixedNoZero(precision);
-    //     });
-    //   }
-    //   else
-    //     clear();
-    // });
-    //
-    // Cos.addListener(() {
-    //   if(Cos.text != ''){
-    //     setState(() {
-    //       inFocusDegree = false;
-    //       radian.text = Acos(Cos.text).toStringAsFixedNoZero(precision);
-    //       setAnswersRadian(Acos(Cos.text));
-    //     });
-    //     FocusScope.of(context).requestFocus(FocusNode());
-    //   }
-    //   else
-    //     clear();
-    // });
-    //
-    // Tan.addListener(() {
-    //   if(Tan.text != ""){
-    //     setState(() {
-    //       inFocusDegree = false;
-    //       radian.text = Atan(Tan.text).toStringAsFixedNoZero(precision);
-    //       setAnswersRadian(Atan(Tan.text));
-    //       FocusScope.of(context).requestFocus(FocusNode());
-    //     });
-    //   }
-    //   else
-    //     clear();
-    // });
-    //
-    // Cot.addListener(() {
-    //
-    //   if(Cot.text != ""){
-    //     setState(() {
-    //       radian.text = Acot(Cot.text).toStringAsFixedNoZero(precision);
-    //       inFocusDegree = false;
-    //       setAnswersRadian(Acot(Cot.text));
-    //     });
-    //     FocusScope.of(context).requestFocus(FocusNode());
-    //   }
-    //   else
-    //     clear();
-    // });
-    //
-    // Sec.addListener(() {
-    //   if(Sec.text!=""){
-    //     setState(() {
-    //       radian.text = Asec(Sec.text).toStringAsFixedNoZero(precision);
-    //       inFocusDegree = false;
-    //       setAnswersRadian(Asec(Sec.text));
-    //     });
-    //     FocusScope.of(context).requestFocus(FocusNode());
-    //   }
-    //   else
-    //     clear();
-    // });
-    //
-    // Cosec.addListener(() {
-    //   if(Cosec.text != ""){
-    //     setState(() {
-    //       radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(precision);
-    //       inFocusDegree = false;
-    //       setAnswersRadian(Acosec(Cosec.text));
-    //     });
-    //     FocusScope.of(context).requestFocus(FocusNode());
-    //   }
-    //   else
-    //     clear();
-    // });
   }
 
   @override
@@ -235,7 +161,7 @@ class _trigonometryState extends State<trigonometry> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(width: 50,),
-                    myTrigText("Degree : ",flex: 1),
+                    myTrigText("DEGREE : ",flex: 1),
                     myTextField(degree,flex: 1,func: (){
                       setState(() {
                         inFocusDegree = true;
@@ -249,7 +175,7 @@ class _trigonometryState extends State<trigonometry> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(width: 50,),
-                    myTrigText("Radian : ",flex: 1),
+                    myTrigText("RADIAN : ",flex: 1),
                     myTextField(radian,flex: 1,func: (){
                       setState(() {
                         inFocusDegree = false;
@@ -264,9 +190,18 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("sin"),
-                    myTextField(degree),
+                    myTextField(degree ,readOnly: true),
                     myEqualTo(),
-                    myTextField(Sin),
+                    myTextField(Sin, onChanged: (text) {
+                      if(Sin.text != ''){
+                        setState(() {
+                          inFocusDegree = false;
+                          radian.text = Asin(Sin.text).toStringAsFixedNoZero(trigPrecision);
+                        });
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,)
                   ],
                 ),
@@ -275,9 +210,18 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("cos"),
-                    myTextField(degree),
+                    myTextField(degree, readOnly: true),
                     myEqualTo(),
-                    myTextField(Cos),
+                    myTextField(Cos, onChanged: (text) {
+                      if(Cos.text != ''){
+                        setState(() {
+                          inFocusDegree = false;
+                          radian.text = Acos(Cos.text).toStringAsFixedNoZero(trigPrecision);
+                        });
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -286,9 +230,20 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("tan"),
-                    myTextField(degree),
+                    myTextField(degree ,readOnly: true),
                     myEqualTo(),
-                    myTextField(Tan),
+                    myTextField(Tan, onChanged: (text) {
+                      if(Tan.text != ""){
+                        setState(() {
+                          inFocusDegree = false;
+                          radian.text = Atan(Tan.text).toStringAsFixedNoZero(trigPrecision);
+                          //setAnswersRadian(Atan(Tan.text));
+                          //FocusScope.of(context).requestFocus(FocusNode());
+                        });
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -297,9 +252,21 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("cot"),
-                    myTextField(degree),
+                    myTextField(degree ,readOnly: true),
                     myEqualTo(),
-                    myTextField(Cot),
+                    myTextField(Cot, onChanged: (text) {
+
+                      if(Cot.text != ""){
+                        setState(() {
+                          radian.text = Acot(Cot.text).toStringAsFixedNoZero(trigPrecision);
+                          inFocusDegree = false;
+                          //setAnswersRadian(Acot(Cot.text));
+                        });
+                        //FocusScope.of(context).requestFocus(FocusNode());
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -308,9 +275,20 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("sec"),
-                    myTextField(degree),
+                    myTextField(degree ,readOnly: true),
                     myEqualTo(),
-                    myTextField(Sec),
+                    myTextField(Sec, onChanged: (text) {
+                      if(Sec.text!=""){
+                        setState(() {
+                          radian.text = Asec(Sec.text).toStringAsFixedNoZero(trigPrecision);
+                          inFocusDegree = false;
+                          //setAnswersRadian(Asec(Sec.text));
+                        });
+                        //FocusScope.of(context).requestFocus(FocusNode());
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -319,9 +297,20 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("csc"),
-                    myTextField(degree),
+                    myTextField(degree ,readOnly: true),
                     myEqualTo(),
-                    myTextField(Cosec),
+                    myTextField(Cosec, onChanged: (text) {
+                      if(Cosec.text != ""){
+                        setState(() {
+                          radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(trigPrecision);
+                          inFocusDegree = false;
+                          //setAnswersRadian(Acosec(Cosec.text));
+                        });
+                        //FocusScope.of(context).requestFocus(FocusNode());
+                      }
+                      else
+                        clear();
+                    }),
                     SizedBox(width: 50,),
                   ],
                 ),

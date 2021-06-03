@@ -39,13 +39,41 @@ class _percentCalcState extends State<percentCalc> {
       );
   }
 
+  Widget myPercentAnswer(String answer){
+    return Container(
+      width: MediaQuery.of(context).size.width - 100,
+      height: 50,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(),
+        borderRadius:  BorderRadius.all(Radius.circular(10.0)),
+      ),
+      child: Center(
+        child: FittedBox(
+          child: Text(
+            answer,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   TextEditingController userInputThree = new TextEditingController();
   TextEditingController userInputFour = new TextEditingController();
+  TextEditingController userInputFive = new TextEditingController();
+  TextEditingController userInputSix = new TextEditingController();
+  TextEditingController userInputSeven = new TextEditingController();
+
   String answer1 = ' ';
   String answer2 = ' ';
-
+  String answer3 = ' ';
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -66,6 +94,7 @@ class _percentCalcState extends State<percentCalc> {
                 SizedBox(height: 50,),
                 Row(
                   children: [
+                    myPercentText("1. "),
                     myPercentTextField(userInputOne, (text){
                       setState(() {
                         answer1 = percentOne(userInputOne.text,userInputTwo.text);
@@ -82,34 +111,15 @@ class _percentCalcState extends State<percentCalc> {
                 SizedBox(height: 20,),
                 myPercentText('is'),
                 SizedBox(height: 20,),
-                Container(
-                  width: 300,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(),
-                    borderRadius:  BorderRadius.all(Radius.circular(10.0)),
-                  ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        answer1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                myPercentAnswer(answer1),
               ],
             ),
-            SizedBox(height: 150,),
+            SizedBox(height: 100,),
             Column(
               children: [
                 Row(
                   children: [
+                    myPercentText("2. "),
                     myPercentTextField(userInputThree, (text){
                       setState(() {
                         answer2 = percentTwo(userInputThree.text,userInputFour.text);
@@ -126,28 +136,52 @@ class _percentCalcState extends State<percentCalc> {
                 SizedBox(height: 20,),
                 myPercentText('is'),
                 SizedBox(height: 20,),
-                Container(
-                  width: 300,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius:  BorderRadius.all(Radius.circular(10.0)),
-                    color: Colors.white,
-                  ),
-                  child: Center(
-                    child: FittedBox(
-                      child: Text(
-                        answer2 == ' '? answer2 : answer2 + " %",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    myPercentAnswer(answer2),
+                    myPercentText('  %  '),
+                  ],
                 )
               ],
-            )
+            ),
+            SizedBox(height: 50,),
+            Column(
+              children: [
+                SizedBox(height: 50,),
+                Row(
+                  children: [
+                    myPercentText("3. "),
+                    myPercentTextField(userInputFive, (text){
+                      setState(() {
+                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                      });
+                    }),
+                    myPercentText("  % of  "),
+                    myPercentTextField(userInputSix, (text){
+                      setState(() {
+                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                      });
+                    }),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  children: [
+                    myPercentText("  % of  "),
+                    myPercentTextField(userInputSeven, (text){
+                      setState(() {
+                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                      });
+                    }),
+                    myPercentText('  is  '),
+                  ],
+                ),
+                SizedBox(height: 20,),
+                myPercentAnswer(answer3),
+              ],
+            ),
+            SizedBox(height: 400,)
           ],
         ),
       ),

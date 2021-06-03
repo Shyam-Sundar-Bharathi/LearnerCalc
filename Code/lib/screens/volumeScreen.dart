@@ -25,6 +25,8 @@ class _volumeCalcState extends State<volumeCalc> {
     'TETRAHEDRON' : "Enter side length"
   };
 
+  List<String> dispItems = ['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE','TETRAHEDRON'];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -89,7 +91,7 @@ class _volumeCalcState extends State<volumeCalc> {
                       userInput.text = "";
                     });
                   },
-                  items: <String>['CUBE','SPHERE','CUBOID','CYLINDER','CONE','HEMISPHERE','TETRAHEDRON'].map<DropdownMenuItem<String>>((String value) {
+                  items: dispItems.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),

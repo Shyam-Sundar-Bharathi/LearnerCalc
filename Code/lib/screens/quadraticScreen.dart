@@ -156,19 +156,22 @@ class _quadraticCalcState extends State<quadraticCalc> {
                       ),
                       SizedBox(width: 20,),
                       Expanded(
-                        child: ElevatedButton(
-                          style: myButtonStyle,
-                          onPressed: () {
-                            FocusScope.of(context).requestFocus(FocusNode());
-                              setState(() {
-                                answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
-                              });
-                          },
-                          child: FittedBox(
-                            child: Text(
-                              "CALCULATE",
-                              style: TextStyle(
-                                color: Colors.white,
+                        child: Container(
+                          width: width,
+                          child: ElevatedButton(
+                            style: myButtonStyle,
+                            onPressed: () {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                                setState(() {
+                                  answers =  quadCalc(userInputA.text, userInputB.text, userInputC.text);
+                                });
+                            },
+                            child: FittedBox(
+                              child: Text(
+                                "CALCULATE",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

@@ -20,7 +20,6 @@ import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/matrixThreeScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/matrixTwoScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
-import 'package:dream_calc/screens/settingScreens/aboutUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
@@ -41,6 +40,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(MaterialApp(
+      //theme: ThemeData(fontFamily: 'Times'),
       initialRoute: '/',
       routes: {
         '/' : (context) => loading(),
@@ -77,7 +77,6 @@ void main() {
         '/inverseTrigonometryFormulae' : (context) => inverseTrigonometryFormula() ,
         '/differentialFormulae' : (context) => differentialFormula(),
         '/integralFormulae' : (context) => integralFormula(),
-        '/aboutUs' : (context) => aboutUs(),
         '/contactUs' : (context) => contactUs(),
       },
     ));
