@@ -1,4 +1,3 @@
-
 import 'package:dream_calc/calcs/trigCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,16 +20,16 @@ class _trigonometryState extends State<trigonometry> {
 
   Widget myTrigText(String text, {flex = 4}){
     return Expanded(
-          flex: flex,
-          child: FittedBox(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 10,
-              ),
-            ),
+      flex: flex,
+      child: FittedBox(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 10,
           ),
-        );
+        ),
+      ),
+    );
   }
 
   Widget myEqualTo(){
@@ -135,8 +134,8 @@ class _trigonometryState extends State<trigonometry> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-          backgroundColor: colors[colorTheme][2],
-          appBar: myAppBar("TRIGONOMETRY"),
+        backgroundColor: colors[colorTheme][2],
+        appBar: myAppBar("TRIGONOMETRY"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),
@@ -170,9 +169,9 @@ class _trigonometryState extends State<trigonometry> {
                         inFocusDegree = false;
                       });
                     },
-                      onChanged: (text){
-                        radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
-                      }
+                        onChanged: (text){
+                          radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
+                        }
                     ),
                     SizedBox(width: 50,),
                   ],
@@ -188,16 +187,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Sin,
                         onTap: clear,
                         onChanged: (text) {
-                      if(Sin.text != ''){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Asin(Sin.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    }),
+                          if(Sin.text != ''){
+                            setState(() {
+                              inFocusDegree = false;
+                              radian.text = Asin(Sin.text).toStringAsFixedNoZero(trigPrecision);
+                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                            });
+                          }
+                          else
+                            clear();
+                        }),
                     SizedBox(width: 50,)
                   ],
                 ),
@@ -211,16 +210,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Cos,
                       onTap: clear,
                       onChanged: (text) {
-                      if(Cos.text != ''){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Acos(Cos.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    },
+                        if(Cos.text != ''){
+                          setState(() {
+                            inFocusDegree = false;
+                            radian.text = Acos(Cos.text).toStringAsFixedNoZero(trigPrecision);
+                            degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                          });
+                        }
+                        else
+                          clear();
+                      },
 
                     ),
                     SizedBox(width: 50,),
@@ -236,16 +235,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Tan,
                         onTap: clear,
                         onChanged: (text) {
-                      if(Tan.text != ""){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Atan(Tan.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    }),
+                          if(Tan.text != ""){
+                            setState(() {
+                              inFocusDegree = false;
+                              radian.text = Atan(Tan.text).toStringAsFixedNoZero(trigPrecision);
+                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                            });
+                          }
+                          else
+                            clear();
+                        }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -259,16 +258,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Cot,
                         onTap: clear,
                         onChanged: (text) {
-                      if(Cot.text != ""){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Acot(Cot.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    }),
+                          if(Cot.text != ""){
+                            setState(() {
+                              inFocusDegree = false;
+                              radian.text = Acot(Cot.text).toStringAsFixedNoZero(trigPrecision);
+                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                            });
+                          }
+                          else
+                            clear();
+                        }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -282,16 +281,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Sec,
                         onTap: clear,
                         onChanged: (text) {
-                      if(Sec.text!=""){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Asec(Sec.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    }),
+                          if(Sec.text!=""){
+                            setState(() {
+                              inFocusDegree = false;
+                              radian.text = Asec(Sec.text).toStringAsFixedNoZero(trigPrecision);
+                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                            });
+                          }
+                          else
+                            clear();
+                        }),
                     SizedBox(width: 50,),
                   ],
                 ),
@@ -305,16 +304,16 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(Cosec,
                         onTap: clear,
                         onChanged: (text) {
-                      if(Cosec.text != ""){
-                        setState(() {
-                          inFocusDegree = false;
-                          radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(trigPrecision);
-                          degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                        });
-                      }
-                      else
-                        clear();
-                    }),
+                          if(Cosec.text != ""){
+                            setState(() {
+                              inFocusDegree = false;
+                              radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(trigPrecision);
+                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                            });
+                          }
+                          else
+                            clear();
+                        }),
                     SizedBox(width: 50,),
                   ],
                 ),

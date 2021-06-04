@@ -33,7 +33,7 @@ class _cubicCalcState extends State<cubicCalc> {
         keyboardType: TextInputType.number,
         enableInteractiveSelection: true,
         inputFormatters: [
-          FilteringTextInputFormatter(RegExp('[0-9-]'), allow: true),
+          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
         decoration: myInputDecoration(),
       ),

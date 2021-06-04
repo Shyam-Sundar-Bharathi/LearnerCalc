@@ -20,7 +20,7 @@ class _percentCalcState extends State<percentCalc> {
           textAlign: TextAlign.center,
           enableInteractiveSelection: true,
           inputFormatters: [
-            FilteringTextInputFormatter(RegExp('[0-9. ]'), allow: true),
+            FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
           ],
           decoration: myInputDecoration(labelText: "Enter"),
         ),

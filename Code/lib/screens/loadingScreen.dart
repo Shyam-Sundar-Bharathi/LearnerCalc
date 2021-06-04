@@ -1,6 +1,5 @@
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class loading extends StatefulWidget {
@@ -12,7 +11,7 @@ class loading extends StatefulWidget {
 
 class _loadingState extends State<loading> {
 
-  read() async {
+  readFromDevice() async {
     final prefs = await SharedPreferences.getInstance();
     final precisionKey = 'precision';
     final precisionValue = prefs.getInt(precisionKey) ?? 4;
@@ -28,7 +27,7 @@ class _loadingState extends State<loading> {
   @override
   void initState() {
     super.initState();
-    read();
+    readFromDevice();
   }
 
 
@@ -36,21 +35,8 @@ class _loadingState extends State<loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       body: Container(),
     );
   }
 }
-
-// Center(
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.center,
-// children: [
-// SizedBox(height: 10.0,),
-// SpinKitSquareCircle(
-// color: Colors.red,
-// size: 60.0,
-// )
-// ],
-// ),
-// ),

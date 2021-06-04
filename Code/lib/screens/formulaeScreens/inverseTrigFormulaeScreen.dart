@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
-import 'package:catex/catex.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/rendering.dart';
 

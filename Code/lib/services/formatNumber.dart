@@ -1,4 +1,4 @@
-
+//REMOVES TRAILING ZEROES AFTER DECIMAL FOR DOUBLE
 extension Ex on double {
   String toStringAsFixedNoZero(int precision) {
     String result = double.parse(this.toStringAsFixed(precision)).toString();
@@ -18,6 +18,7 @@ extension Ex on double {
   }
 }
 
+//REMOVES TRAILING ZEROES AFTER DECIMAL FOR STRING
 extension Ext on String {
   String toStringAsFixedNoZero(int precision) {
     double num = double.parse(this.replaceAll(',', ''));
@@ -39,6 +40,7 @@ extension Ext on String {
   }
 }
 
+//RETURNS A STRING IN REVERSE
 String reverseString(String number){
   String reversedNumber = "";
   int numberOfCharacters = number.length - 1;
@@ -49,6 +51,7 @@ String reverseString(String number){
   return reversedNumber;
 }
 
+//ADDS COMMA AFTER EVERY 3 DIGITS FROM THE END
 String formatNumber(dynamic number, {bool isCurrency = false}){
   double num = 0;
   if(number is String){

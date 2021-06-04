@@ -1,6 +1,4 @@
 import 'package:equations/equations.dart';
-import 'package:dream_calc/services/formatNumber.dart';
-import 'package:dream_calc/screens/menu.dart';
 
 List<String> cubeTestCalc(String A, String B, String C, String D){
   final equation = Cubic(a: Complex(double.parse(A), 0),b: Complex(double.parse(B), 0),c: Complex(double.parse(C), 0),d: Complex(double.parse(D), 0));

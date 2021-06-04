@@ -42,7 +42,6 @@ String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, S
   userInput = userInput.replaceAll(',', '');
   double input = 0;
   double answer = 0;
-  String result = "";
   input = double.parse(userInput);
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);

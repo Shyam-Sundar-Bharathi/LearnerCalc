@@ -124,5 +124,3 @@ double Acosec(String ui){
   }
   return 0;
 }
-
-

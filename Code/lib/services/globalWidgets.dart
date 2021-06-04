@@ -3,6 +3,7 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+//STYLING FOR EVERY IN-SCREEN BUTTON
 ButtonStyle myButtonStyle = ButtonStyle(
   elevation: MaterialStateProperty.all(10),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -14,6 +15,8 @@ ButtonStyle myButtonStyle = ButtonStyle(
   minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
 );
 
+
+//STYLING FOR TEXT FIELDS
 InputDecoration myInputDecoration({String labelText}){
   return InputDecoration(
     fillColor: Colors.white,
@@ -29,6 +32,7 @@ InputDecoration myInputDecoration({String labelText}){
   );
 }
 
+//APP BAR FOR EVERY SCREEN
 Widget myAppBar(String heading, {contactUs = 0}){
   return AppBar(
     title: FittedBox(
@@ -45,6 +49,7 @@ Widget myAppBar(String heading, {contactUs = 0}){
   );
 }
 
+// DROP-DOWN BOX, DOESN'T APPLY TO SETTINGS DROP-DOWN.
 Widget myDropDownBox(context,{Widget child}){
   return Container(
     padding: EdgeInsets.all(10),
@@ -62,7 +67,7 @@ Widget myDropDownBox(context,{Widget child}){
   );
 }
 
-
+//FORMULA SCREENS - HEADING STYLE
 Widget myFormulaHeading(String text, {int mainHeading = 0, int bigGap = 1}){
   return Column(
     children: [
@@ -82,7 +87,7 @@ Widget myFormulaHeading(String text, {int mainHeading = 0, int bigGap = 1}){
   );
 }
 
-
+//FORMULA SCREENS - FORMULA STYLE
 Widget myFormula(String text){
   return Column(
     children: [
@@ -100,6 +105,14 @@ Widget myFormula(String text){
   );
 }
 
+//IN-SCREEN RESULT CONTAINERS DECORATION
+BoxDecoration myResultContainerDecoration = BoxDecoration(
+  border: Border.all(),
+  color: Colors.white,
+  borderRadius: BorderRadius.all(Radius.circular(10)),
+);
+
+//FORMULA SCREENS - FORMULA TABLE
 Widget myFormulaTableBlock(String formula){
   return Expanded(
     child: Container(
@@ -123,6 +136,7 @@ Widget myFormulaTableBlock(String formula){
   );
 }
 
+//CONTACT US SCREEN - SETTINGS - LINKS TO SOCIALS
 Widget myContactUsButton({String text, IconData icon, String launcher }){
   return ElevatedButton(
     child: Row(
@@ -149,9 +163,3 @@ Widget myContactUsButton({String text, IconData icon, String launcher }){
     },
   );
 }
-
-BoxDecoration myResultContainerDecoration = BoxDecoration(
-    border: Border.all(),
-    color: Colors.white,
-    borderRadius: BorderRadius.all(Radius.circular(10)),
-);

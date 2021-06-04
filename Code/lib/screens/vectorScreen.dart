@@ -1,4 +1,3 @@
-import 'package:catex/catex.dart';
 import 'package:dream_calc/calcs/vectorCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -24,7 +24,7 @@ Map colors = {
 class _homeState extends State<home> {
 
 
-  save() async {
+  saveToDevice() async {
     final prefs = await SharedPreferences.getInstance();
     final precisionKey = 'precision';
     final precisionValue = precision;
@@ -79,7 +79,7 @@ class _homeState extends State<home> {
             setState(() {
               precision = result['precision'];
               colorTheme = result['colorTheme'];
-              save();
+              saveToDevice();
             });
           },
         ),
