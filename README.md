@@ -1,1 +1,1 @@
-LearnerCalc - The true all in one calc.
+LearnerCalc - The Multi-Purpose Calculator.
