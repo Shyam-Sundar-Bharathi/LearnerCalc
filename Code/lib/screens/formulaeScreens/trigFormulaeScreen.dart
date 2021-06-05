@@ -71,7 +71,7 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
     2 : [r'tan(90 + \theta) = -cot(\theta)',
       r'tan(180 - \theta) = -tan(\theta)',
       r'tan(180 + \theta) = tan(\theta)',
-      r'tan(270 - \theta) = -cot(\theta)',
+      r'tan(270 - \theta) = cot(\theta)',
       r'tan(270 + \theta) = -cot(\theta)',
       r'tan(-\theta) = -tan(\theta)'],
   };

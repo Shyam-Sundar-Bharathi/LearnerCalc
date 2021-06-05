@@ -15,20 +15,20 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
   Map domainRange = {
     0 : [r'f(x)',r'DOMAIN', r'RANGE'],
     1 : [r'sin^{-1}x', r'[-1,1]', r'[-\frac{\pi}{2},\frac{\pi}{2}]'],
-    2 : [r'cos^{-1}x', r'[-1,1]', r'[0,\frac{\pi}{2}]'],
+    2 : [r'cos^{-1}x', r'[-1,1]', r'[0,\pi]'],
     3 : [r'tan^{-1}x', r'R', r'(-\frac{\pi}{2},\frac{\pi}{2})'],
-    4 : [r'cosec^{-1}x', r'R - (-1,1)', r'[-\frac{\pi}{2},\frac{\pi}{2}]'],
+    4 : [r'cosec^{-1}x', r'R - (-1,1)', r'[-\frac{\pi}{2},\frac{\pi}{2}]-\{0\}'],
     5 : [r'sec^{-1}x', r'R - (-1,1)', r'[0,\pi]-\{\frac{\pi}{2}\}'],
-    6 : [r'sin^{-1}x', r'R', r'[0,\pi]-\{0\}'],
+    6 : [r'cot^{-1}x', r'R', r'(0,\pi)'],
   };
 
   Map minus = {
     0 : [r'1.\ sin^{-1}(-x) = -sin^{-1}x', r'x\ \epsilon\ [-1,1]'],
     1 : [r'2.\ cos^{-1}(-x) = \pi-cos^{-1}x', r'x\ \epsilon\ [-1,1]'],
-    2 : [r'3.\ tan^{-1}(-x) = -sin^{-1}x', r'x\ \epsilon\ R'],
+    2 : [r'3.\ tan^{-1}(-x) = -tan^{-1}x', r'x\ \epsilon\ R'],
     3 : [r'4.\ cosec^{-1}(-x) = -cosec^{-1}x', r'|x| \ge 1'],
     4 : [r'5.\ sec^{-1}(-x) = \pi-sec^{-1}x', r'|x| \ge 1'],
-    5 : [r'6.\ cot^{-1}(-x) = \pi-sec^{-1}x', r'x\ \epsilon\ R'],
+    5 : [r'6.\ cot^{-1}(-x) = \pi-cot^{-1}x', r'x\ \epsilon\ R'],
   };
 
   Map complimentary = {

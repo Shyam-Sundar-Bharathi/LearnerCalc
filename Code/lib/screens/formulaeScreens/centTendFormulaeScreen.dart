@@ -19,7 +19,7 @@ class _centTendFormulaState extends State<centTendFormula> {
     4 : [r'If\ x_1,x_2 \cdot\cdot\cdot x_n\ is\ in\ ascending\ order', r'1.\ If\ n\ is\ even',r'Median = \frac{x_{(\ \frac{n}{2}\ )} + x_{(\ \frac{n}{2}+1\ )}}{2}',
       r'1.\ If\ n\ is\ odd',r'Median = x_{(\ \frac{n+1}{2}\ )}'],
     5 : r'\sigma^2 = \frac{\sum (x_i - \mu)^2}{n}',
-    6 : r'\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{n}}',
+    6 : r'\sigma = \sqrt{Variance} = [\frac{\sum (x_i - \mu)^2}{n}]^{\frac{1}{2}}',
     7 : r'CV= \frac{\sigma}{\mu}',
     8 : r'Range = Largest\ reading - smallest\ reading',
     9 : r'3Median = 2Mean + Mode'
