@@ -52,43 +52,44 @@ String reverseString(String number){
 }
 
 //ADDS COMMA AFTER EVERY 3 DIGITS FROM THE END
-String formatNumber(dynamic number, {bool isCurrency = false}){
+String formatNumber(dynamic number){
   double num = 0;
+
+  //IF INPUT IS IN FORM OF STRING
   if(number is String){
     num = double.parse(number);
   }
+
+  //IF INPUT IS IN FORM OF DOUBLE
   else{
     num = double.parse(number.toString());
   }
+
+  //IF NUMBER IS TOO SMALL SO HAS e, OR IS NaN, OR IS COMPLEX SO HAS i, RETURN AS IS.
   if(num.toString().contains('e') || num.toString().contains('I') || num.toString().contains('i') || num.toString().contains('N') || num.toString().contains('n')){
     return num.toString();
   }
+
+  //IF NUMBER IS 0
   if(num == 0)
     return "0";
+
+  //SEPARATING MINUS FROM NUMBER, ADDED BACK TO NUMBER WHILE FORMING RESULT
   bool isNegative = num<0? true : false ;
   num = isNegative? -num : num;
   String formattedNumber = "";
-  int n=0;
-  String decimal;
-  if(isCurrency){
+  int n = 0;
+  String decimal = num.toString().contains('.')? num.toString().split('.')[1] : '0';
 
-    if(num.toString().contains('.')) {
-      decimal = (num.toString().split('.')[1]);
-      if(decimal.length>=2)
-        decimal = decimal.substring(0,2);
-      else if(decimal.length>=1)
-        decimal = decimal.substring(0,1);
-    }
-    else
-      decimal = '00';
-  }
-  else
-    decimal = num.toString().contains('.')? num.toString().split('.')[1] : '0';
-
-
+  //SEPARATING DECIMAL PART, ADDED BACK TO NUMBER WHILE FORMING RESULT
   int numberI = num.truncate();
+
+  //IF NUMBER IS LESS THAN ONE
   if(numberI == 0)
-    return double.parse(decimal) == 0.0? '0' : '0.' + decimal;
+    return double.parse(decimal) == 0.0? '0' :
+    isNegative? '-0.' + decimal : '0.' + decimal;
+
+  //IF NUMBER IS GREATER THAN ONE
   while(numberI>0){
     n++;
     formattedNumber += (numberI%10).toString();
@@ -100,5 +101,6 @@ String formatNumber(dynamic number, {bool isCurrency = false}){
   }
 
   String result = isNegative? '-' + reverseString(formattedNumber) : reverseString(formattedNumber);
+  print("result = $result");
   return double.parse(decimal) == 0.0? result  : result + '.' + decimal;
 }

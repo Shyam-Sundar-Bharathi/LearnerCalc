@@ -11,6 +11,9 @@ String calcx(String A, String B){
   if(a == 0){
     return "NO SOLUTION";
   }
+  print(-b/a);
+  print((-b/a).toStringAsFixedNoZero(precision));
+  print(formatNumber((-b/a).toStringAsFixedNoZero(precision)));
   return "x = " + formatNumber((-b/a).toStringAsFixedNoZero(precision));
 }
 
