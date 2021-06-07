@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class home extends StatefulWidget {
@@ -54,6 +55,7 @@ class _homeState extends State<home> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       backgroundColor: colors[colorTheme][1],
       appBar: AppBar(
@@ -61,7 +63,7 @@ class _homeState extends State<home> {
         title: Text(
           "LEARNER",
           style: TextStyle(
-            fontFamily: "Courier",
+            fontFamily: "Times",
             fontSize: 30,
             fontWeight: FontWeight.w900,
             color: Colors.white

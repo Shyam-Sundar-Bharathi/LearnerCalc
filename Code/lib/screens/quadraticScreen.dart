@@ -192,9 +192,9 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 answers[0] == ''? Container() :
                 Column(
                   children: [
-                    myQuadraticAnswerRow('Root 1 : ', answers[0],topBlock: 1),
-                    myQuadraticAnswerRow('Root 2 : ', answers[1]),
-                    myQuadraticAnswerRow('Disc : ', answers[2],bottomBlock: 1),
+                    myQuadraticAnswerRow(' Root 1 : ', answers[0],topBlock: 1),
+                    myQuadraticAnswerRow(' Root 2 : ', answers[1]),
+                    myQuadraticAnswerRow(' Disc : ', answers[2],bottomBlock: 1),
                   ],
                 )
               ],

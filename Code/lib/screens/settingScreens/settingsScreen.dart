@@ -10,10 +10,27 @@ class settings extends StatefulWidget {
 const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
-String alertMessage = "";
+int messageValue = 0;
 List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED'];
+Map alertMessage = {
+  0 : " ",
+  1 : " Don't ask us if you lose marks though 😐 ",
+  2 : " Good enough ",
+  3 : " Good enough ",
+  4 : " Alright. Precise results on the way ",
+  5 : " Alright. Precise results on the way ",
+  6 : " Alright. Precise results on the way. ",
+  7 : " Woah. So you're a scientist ",
+  8 : " Woah. So you're a scientist ",
+  9 : " Mr.Perfectionist ",
+  10 : " Mr.Perfectionist ",
+};
 
 class _settingsState extends State<settings> {
+
+  void initState(){
+    messageValue = 0;
+  }
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -45,7 +62,9 @@ class _settingsState extends State<settings> {
                           child: Text(
                             "Set precision for decimal values",
                             style: TextStyle(
-                              fontSize: 25.0,
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
                             ),
                           ),
                         ),
@@ -54,17 +73,7 @@ class _settingsState extends State<settings> {
                           onChanged: (double newValue){
                             setState(() {
                               sliderValue = newValue.round();
-                              if (sliderValue <= 2){
-                                alertMessage = " (Not recommended)";
-                              }
-                              else if(sliderValue >= 9){
-                                alertMessage = " (Oh! You're a scientist.)";
-                              }
-                              else if(sliderValue >=6)
-                                alertMessage = " (Precise results on the way!)";
-                              else{
-                                alertMessage = " (Good enough)";
-                              }
+                              messageValue = sliderValue;
                             });
                           },
                           min: 1.0,
@@ -83,13 +92,14 @@ class _settingsState extends State<settings> {
                           ),
                         ),
                         Text(
-                          alertMessage,
+                          alertMessage[messageValue],
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        SizedBox(height: 5,),
                         Text(
                           "Higher precision means more numbers after the decimal point and greater accuracy of the answer."
                               "However, Learner automatically adjusts precision, if necessary, to avoid a zero answer.",
@@ -109,12 +119,14 @@ class _settingsState extends State<settings> {
                   child: Container(
                     padding: EdgeInsets.all(15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Color Theme",
                           style: TextStyle(
-                            fontSize: 25,
+                              fontSize: 20,
+                              color: Colors.black,
+                            fontWeight: FontWeight.w500
                           ),
                         ),
                         DropdownButton<String>(
@@ -152,6 +164,26 @@ class _settingsState extends State<settings> {
                   )
                 ),
                 SizedBox(height: 20,),
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.pop(context, {
+                        'precision': sliderValue,
+                        'colorTheme' : dropDownColor,
+                      }
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("APPLY"),
+                    ),
+                  style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(20),
+                    shape: MaterialStateProperty.all<StadiumBorder>(StadiumBorder()),
+                    backgroundColor: MaterialStateProperty.resolveWith((states) => colors[colorTheme][9]),
+                    minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                  ),
+                ),
+                SizedBox(height: 20,),
                 Card(
                   elevation: 40,
                   color: Colors.grey[200],
@@ -167,7 +199,7 @@ class _settingsState extends State<settings> {
                         color: Colors.black,
                       ),
                       label: Text(
-                        "CONTACT US",
+                        "Contact Us",
                         style: TextStyle(
                             fontSize: 20,
                             color: Colors.black
@@ -181,7 +213,7 @@ class _settingsState extends State<settings> {
                 ),
                 SizedBox(height: 20,),
                 Card(
-                  elevation: 40,
+                  elevation: 20,
                   color: Colors.grey[200],
                   child: Container(
                     width: MediaQuery. of(context). size. width - 30,
@@ -195,13 +227,11 @@ class _settingsState extends State<settings> {
                             Icons.policy_outlined,
                           color: Colors.black,
                         ),
-                        label: Expanded(
-                          child: Text(
-                            "LICENSE AGREEMENT\nVersion 1.0.0+1",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black
-                            ),
+                        label: Text(
+                          "License Agreement",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black
                           ),
                         ),
                         style: ButtonStyle(
@@ -210,27 +240,29 @@ class _settingsState extends State<settings> {
                       ),
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 30,),
+                Column(
+                  children: [
+                    Text(
+                        "LearnerCalc",
+                      style: TextStyle(
+                        color: Colors.grey[700]
+                      ),
+                    ),
+                    SizedBox(height: 2,),
+                    FittedBox(
+                        child: Text(
+                            "The Learner's Daily - June 2021 - Version 1.0.0+1",
+                          style: TextStyle(
+                              color: Colors.grey[700]
+                          ),
+                        )
+                    ),
+                    SizedBox(height: 5,),
+                  ],
+                )
               ],
             ),
-          ),
-        ),
-        floatingActionButton: Align(
-          alignment: Alignment.bottomCenter,
-          child: FloatingActionButton.extended(
-            backgroundColor: colors[colorTheme][9],
-            shape: StadiumBorder(),
-            label : Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("APPLY"),
-            ),
-            onPressed: (){
-                Navigator.pop(context, {
-                  'precision': sliderValue,
-                  'colorTheme' : dropDownColor,
-                }
-                );
-            },
           ),
         ),
       ),

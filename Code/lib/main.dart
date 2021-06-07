@@ -40,6 +40,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
       //theme: ThemeData(fontFamily: 'Times'),
       initialRoute: '/',
       routes: {

@@ -34,7 +34,7 @@ class _linearChoiceState extends State<linearChoice> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        width: MediaQuery. of(context). size. width - 100,
+                        width: MediaQuery. of(context). size. width - 50,
                         child: ElevatedButton(
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),

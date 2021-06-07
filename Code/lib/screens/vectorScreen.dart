@@ -33,11 +33,13 @@ class _vectorState extends State<vector> {
   Widget myVectorText(String text,{double fontSize = 25}){
     return Expanded(
       flex: 2,
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold
+      child: FittedBox(
+        child: Text(
+          text,
+          style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold
+          ),
         ),
       ),
     );
@@ -97,7 +99,7 @@ class _vectorState extends State<vector> {
                     myVectorTextField(b1),
                     myVectorText(' j +'),
                     myVectorTextField(c1),
-                    myVectorText(' k'),
+                    myVectorText(' k  '),
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -109,7 +111,7 @@ class _vectorState extends State<vector> {
                     myVectorTextField(b2),
                     myVectorText(' j +'),
                     myVectorTextField(c2),
-                    myVectorText(' k'),
+                    myVectorText(' k  '),
                   ],
                 ),
                 SizedBox(height: 20,),

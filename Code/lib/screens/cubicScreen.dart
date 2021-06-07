@@ -24,7 +24,7 @@ class _cubicCalcState extends State<cubicCalc> {
     );
   }
 
-  Widget myCubicTextField(TextEditingController cont){
+  Widget myCubicTextField(TextEditingController cont, {String regExp = '[0-9.-]'}){
     return Expanded(
       flex: 1,
       child: TextField(
@@ -33,7 +33,7 @@ class _cubicCalcState extends State<cubicCalc> {
         keyboardType: TextInputType.number,
         enableInteractiveSelection: true,
         inputFormatters: [
-          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+          FilteringTextInputFormatter(RegExp(regExp), allow: true),
         ],
         decoration: myInputDecoration(),
       ),
@@ -53,10 +53,12 @@ class _cubicCalcState extends State<cubicCalc> {
               borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
                              bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
             ),
-            child: Text(
-              item,
-              style: TextStyle(
-                fontSize: 20,
+            child: FittedBox(
+              child: Text(
+                item,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
             ),
           ),
@@ -144,7 +146,7 @@ class _cubicCalcState extends State<cubicCalc> {
                           SizedBox(width: 20,),
                           myCubicText('d : '),
                           SizedBox(width: 5,),
-                          myCubicTextField(userInputD),
+                          myCubicTextField(userInputD, regExp: '[0-9-]'),
                           SizedBox(width: 5,)
                         ],
                       ),
@@ -170,10 +172,10 @@ class _cubicCalcState extends State<cubicCalc> {
                   answers[0] == ''? Container() :
                   Column(
                     children: [
-                      myCubicAnswerRow('Root 1 : ', answers[0], topBlock: 1),
-                      myCubicAnswerRow('Root 2 : ', answers[1]),
-                      myCubicAnswerRow('Root 3 : ', answers[2]),
-                      myCubicAnswerRow('Disc : ', answers[3], bottomBlock: 1),
+                      myCubicAnswerRow(' Root 1 : ', answers[0], topBlock: 1),
+                      myCubicAnswerRow(' Root 2 : ', answers[1]),
+                      myCubicAnswerRow(' Root 3 : ', answers[2]),
+                      myCubicAnswerRow(' Disc : ', answers[3], bottomBlock: 1),
                     ],
                   )
                 ],

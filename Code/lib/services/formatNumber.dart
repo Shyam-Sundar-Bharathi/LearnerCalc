@@ -26,7 +26,6 @@ extension Ext on String {
     if(num.toDouble() != 0 && double.parse(result) == 0){
       while(num.toDouble()!= 0 && double.parse(result) == 0 && precision < 6){
         precision++;
-        print(precision);
         result = double.parse(num.toStringAsFixed(precision)).toString();
       }
     }
@@ -101,6 +100,5 @@ String formatNumber(dynamic number){
   }
 
   String result = isNegative? '-' + reverseString(formattedNumber) : reverseString(formattedNumber);
-  print("result = $result");
   return double.parse(decimal) == 0.0? result  : result + '.' + decimal;
 }

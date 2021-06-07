@@ -5,7 +5,6 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/services/buttons.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 class genCalc extends StatefulWidget {
@@ -221,61 +220,59 @@ class _genCalcState extends State<genCalc> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       //resizeToAvoidBottomInset: true,
       backgroundColor: Colors.black,
       appBar: myAppBar("GENERAL CALCULATOR"),
       body: Column(
         children: [
-          Expanded(
-            flex: Platform.isAndroid ? 31 : 48,
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    alignment: Alignment.centerRight,
-                    child: TextField(
-                      readOnly: true,
-                      showCursor: true,
-                      autofocus: true,
-                      cursorColor: colors[colorTheme][11],
-                      cursorHeight: 50,
-                      textAlign: TextAlign.right,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                      controller: userInput,
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                      ),
+          Container(
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(height: 20),
+                Container(
+                  height: MediaQuery.of(context).size.height/12,
+                  padding: EdgeInsets.all(20),
+                  alignment: Alignment.centerRight,
+                  child: TextField(
+                    readOnly: true,
+                    showCursor: true,
+                    autofocus: true,
+                    cursorColor: colors[colorTheme][11],
+                    cursorHeight: 30,
+                    textAlign: TextAlign.right,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                    controller: userInput,
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.all(15),
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      answer == '' || answer == 'Incorrect Expression'
-                          ? answer
-                          : formatNumber((answer).toStringAsFixedNoZero(10)),
-                      overflow: TextOverflow.clip,
-                      softWrap: false,
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height/8,
+                  padding: EdgeInsets.all(15),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    answer == '' || answer == 'Incorrect Expression'
+                        ? answer
+                        : formatNumber((answer).toStringAsFixedNoZero(10)),
+                    overflow: TextOverflow.clip,
+                    softWrap: false,
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
           Expanded(
-            flex: 100,
             child: Container(
               color: Colors.black87,
               child: GridView.builder(

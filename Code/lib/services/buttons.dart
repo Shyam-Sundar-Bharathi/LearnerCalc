@@ -28,30 +28,30 @@ class _MyButtonState extends State<MyButton> {
       child: GestureDetector(
           onTap: widget.buttontapped,
           onLongPress: widget.buttonlongpressed,
-          child: Container(
-            padding: const EdgeInsets.all(5),
-            child: ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-              child: Container(
-                color: widget.color,
-                  child: Center(
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                         widget.buttonText,
-                         maxLines: 1,
-                         style: TextStyle(
-                            color: widget.textColor,
-                            fontSize: widget.fontSize,
-                            fontWeight: FontWeight.bold,
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+                child: Container(
+                  color: widget.color,
+                    child: Center(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                           widget.buttonText,
+                           maxLines: 1,
+                           style: TextStyle(
+                              color: widget.textColor,
+                              fontSize: widget.fontSize,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                  ),
+                    ),
 
-              ),
-           ),
-          ),
+                ),
+             ),
+            ),
       ),
     );
   }

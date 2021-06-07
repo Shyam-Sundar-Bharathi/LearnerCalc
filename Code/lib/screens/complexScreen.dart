@@ -12,15 +12,15 @@ class complex extends StatefulWidget {
 
 class _complexState extends State<complex> {
 
-  Widget myComplexText(String text, {double fontSize = 25}){
+  Widget myComplexText(String text, {double fontSize = 20}){
     return Expanded(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
     );
   }
 
