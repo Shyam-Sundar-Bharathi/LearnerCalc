@@ -46,7 +46,7 @@ class _trigonometryState extends State<trigonometry> {
     );
   }
 
-  Widget myTextField(TextEditingController cont,{onTap(), onChanged(String text), flex = 9, readOnly = false}){
+  Widget myTextField(TextEditingController cont,{onTap(), onChanged(String text), flex = 9, readOnly = false, input = 0}){
     return Expanded(
       flex: flex,
       child: TextField(
@@ -61,7 +61,7 @@ class _trigonometryState extends State<trigonometry> {
         inputFormatters: [
           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
-        decoration: myInputDecoration(),
+        decoration: myInputDecoration(color: input == 1? Colors.white : Colors.grey[100]),
       ),
     );
   }
@@ -146,7 +146,7 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("DEGREE : ",flex: 1),
-                    myTextField(degree,flex: 1,onTap: (){
+                    myTextField(degree,flex: 1, input: 1, onTap: (){
                       setState(() {
                         inFocusDegree = true;
                       });
@@ -164,7 +164,7 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 50,),
                     myTrigText("RADIAN : ",flex: 1),
-                    myTextField(radian,flex: 1,onTap: (){
+                    myTextField(radian,flex: 1, input: 1, onTap: (){
                       setState(() {
                         inFocusDegree = false;
                       });
@@ -185,6 +185,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree ,readOnly: true),
                     myEqualTo(),
                     myTextField(Sin,
+                        input: 1,
                         onTap: clear,
                         onChanged: (text) {
                           if(Sin.text != ''){
@@ -208,6 +209,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree, readOnly: true),
                     myEqualTo(),
                     myTextField(Cos,
+                      input: 1,
                       onTap: clear,
                       onChanged: (text) {
                         if(Cos.text != ''){
@@ -233,6 +235,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree ,readOnly: true),
                     myEqualTo(),
                     myTextField(Tan,
+                        input: 1,
                         onTap: clear,
                         onChanged: (text) {
                           if(Tan.text != ""){
@@ -256,6 +259,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree ,readOnly: true),
                     myEqualTo(),
                     myTextField(Cot,
+                        input: 1,
                         onTap: clear,
                         onChanged: (text) {
                           if(Cot.text != ""){
@@ -279,6 +283,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree ,readOnly: true),
                     myEqualTo(),
                     myTextField(Sec,
+                        input: 1,
                         onTap: clear,
                         onChanged: (text) {
                           if(Sec.text!=""){
@@ -302,6 +307,7 @@ class _trigonometryState extends State<trigonometry> {
                     myTextField(degree ,readOnly: true),
                     myEqualTo(),
                     myTextField(Cosec,
+                        input: 1,
                         onTap: clear,
                         onChanged: (text) {
                           if(Cosec.text != ""){

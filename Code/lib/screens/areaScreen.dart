@@ -105,7 +105,7 @@ class _areaCalcState extends State<areaCalc> {
                     setState(() {
                       dropDownValue = newValue;
                       userInput.text = "";
-                      result = "";
+                      result = " ";
                     });
                   },
                   items: shapesAvailable.map<DropdownMenuItem<String>>((String value) {

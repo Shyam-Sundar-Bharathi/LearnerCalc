@@ -86,7 +86,7 @@ class _volumeCalcState extends State<volumeCalc> {
                   onChanged: (String newValue) {
                     setState(() {
                       dropDownValue = newValue;
-                      result = "";
+                      result = " ";
                       userInput.text = "";
                     });
                   },

@@ -21,6 +21,7 @@ import 'package:dream_calc/screens/matrixScreens/matrixThreeScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/matrixTwoScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
+import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
@@ -79,6 +80,7 @@ void main() {
         '/differentialFormulae' : (context) => differentialFormula(),
         '/integralFormulae' : (context) => integralFormula(),
         '/contactUs' : (context) => contactUs(),
+        '/didYouKnow' : (context) => didYouKnow(),
       },
     ));
   }

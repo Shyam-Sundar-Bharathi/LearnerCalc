@@ -3,6 +3,24 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const pi = 3.1415926536;
+const e = 2.7182818284;
+const phi = 1.6180339887;
+const r =  8.3144598000;
+const roottwo = 1.4142135624;
+const rootthree = 1.7320508076;
+const rootfive = 2.2360679775;
+const rootten = 3.1622776602;
+const logtwo = 0.3010299957;
+const logthree = 0.4771212547;
+const logfive = 0.6989700043;
+const loge = 0.434294481;
+const lntwo = 0.6931471805;
+const lnthree = 1.0986122886;
+const lnfive = 1.6094379124;
+const lnten = 2.3025850929;
+
+
 //STYLING FOR EVERY IN-SCREEN BUTTON
 ButtonStyle myButtonStyle = ButtonStyle(
   elevation: MaterialStateProperty.all(10),
@@ -17,9 +35,9 @@ ButtonStyle myButtonStyle = ButtonStyle(
 
 
 //STYLING FOR TEXT FIELDS
-InputDecoration myInputDecoration({String labelText}){
+InputDecoration myInputDecoration({String labelText, Color color = Colors.white}){
   return InputDecoration(
-    fillColor: Colors.white,
+    fillColor: color,
     filled: true,
     border:OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.black, width: 2.0),

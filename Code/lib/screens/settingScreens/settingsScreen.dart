@@ -1,5 +1,6 @@
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 class settings extends StatefulWidget {
@@ -22,8 +23,8 @@ Map alertMessage = {
   6 : " Alright. Precise results on the way. ",
   7 : " Woah. So you're a scientist ",
   8 : " Woah. So you're a scientist ",
-  9 : " Mr.Perfectionist ",
-  10 : " Mr.Perfectionist ",
+  9 : " Mr. Perfectionist ",
+  10 : " Mr. Perfectionist ",
 };
 
 class _settingsState extends State<settings> {
@@ -218,6 +219,34 @@ class _settingsState extends State<settings> {
                   child: Container(
                     width: MediaQuery. of(context). size. width - 30,
                     padding: EdgeInsets.all(15),
+                    child: TextButton.icon(
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/didYouKnow');
+                      },
+                      icon: Icon(
+                        Icons.info_outline,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "Did you know ?",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Card(
+                  elevation: 20,
+                  color: Colors.grey[200],
+                  child: Container(
+                    width: MediaQuery. of(context). size. width - 30,
+                    padding: EdgeInsets.all(15),
                       child: TextButton.icon(
                         onPressed: (){
                           launch(eulaURL,
@@ -240,6 +269,7 @@ class _settingsState extends State<settings> {
                       ),
                   ),
                 ),
+                SizedBox(height: 20,),
                 SizedBox(height: 30,),
                 Column(
                   children: [

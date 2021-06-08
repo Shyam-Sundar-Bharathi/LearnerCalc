@@ -37,7 +37,51 @@ class _genCalcState extends State<genCalc> {
     '0',
     '=',
     '+',
+    'π',
+    'e',
+    'ϕ',
+    'R',
+    '√2',
+    '√3',
+    '√5',
+    '√10',
+    'log2',
+    'log3',
+    'log5',
+    'loge',
+    'ln2',
+    'ln3',
+    'ln5',
+    'ln10',
+    'μ',
+    'm',
+    'c',
+    'k'
   ];
+
+  final Map<String, String> symbols = {
+    'π' : pi.toStringAsFixedNoZero(precision),
+    'e' : e.toStringAsFixedNoZero(precision),
+    'ϕ' : phi.toStringAsFixedNoZero(precision),
+    'R' : r.toStringAsFixedNoZero(precision),
+    '√2' : roottwo.toStringAsFixedNoZero(precision),
+    '√3' : rootthree.toStringAsFixedNoZero(precision),
+    '√5' : rootfive.toStringAsFixedNoZero(precision),
+    '√10' : rootten.toStringAsFixedNoZero(precision),
+    'log2' : logtwo.toStringAsFixedNoZero(precision),
+    'log3' : logthree.toStringAsFixedNoZero(precision),
+    'log5' : logfive.toStringAsFixedNoZero(precision),
+    'loge' : loge.toStringAsFixedNoZero(precision),
+    'ln2' : lntwo.toStringAsFixedNoZero(precision),
+    'ln3' : lnthree.toStringAsFixedNoZero(precision),
+    'ln5' : lnfive.toStringAsFixedNoZero(precision),
+    'ln10' : lnten.toStringAsFixedNoZero(precision),
+    'μ' : '10^(-6)',
+    'm' : '10^(-3)',
+    'c' : '10^(-2)',
+    'k' : '10^(3)'
+  };
+
   int tappedIndex = -1;
 
   void tapped(int index) async {
@@ -165,6 +209,7 @@ class _genCalcState extends State<genCalc> {
   void evaluate(String input) {
     String finaluserinput = input.replaceAll('x', '*');
     finaluserinput = finaluserinput.replaceAll('÷', '/');
+
     Parser p = Parser();
     try {
       Expression exp = p.parse(finaluserinput);
@@ -342,6 +387,19 @@ class _genCalcState extends State<genCalc> {
                       color: tappedIndex == index ? Colors.green : Colors
                           .greenAccent[400],
                       textColor: Colors.black,
+                    );
+                  }
+                  else if(index >= 20 && index <=39){
+                    return MyButton(
+                      buttontapped: () {
+                        tapped(index);
+                        setState(() {
+                            insertText(symbols[buttons[index]]);
+                          });
+                      },
+                      buttonText: buttons[index],
+                      color: tappedIndex == index ? colors[colorTheme][1] : colors[colorTheme][11],
+                      textColor: Colors.white
                     );
                   }
                   //other buttons

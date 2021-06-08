@@ -39,13 +39,16 @@ const blogURL = 'https://thelearnersdaily.wordpress.com';
 const linkedInURL = "https://www.linkedin.com/in/shyam-sundar-bharathi/";
 const twitterURL = "https://twitter.com/bharathi_shyam1";
 const githubURL = "https://github.com/Shyam-Sundar-Bharathi/LearnerCalc";
+const quoraURL = "https://www.quora.com/profile/Shyam-Sundar-Bharathi";
+const youtubeURL = "https://www.youtube.com/channel/UCPzsDFExFNHQ_weZiSC65tg";
 
 ElevatedButton myEmailButton = myContactUsButton(text: "thelearnersdaily@gmail.com", icon: Icons.mail, launcher: _emailLaunchUri.toString());
-ElevatedButton myBlogButton = myContactUsButton(text: "The Learner's Daily Blog", icon: Icons.library_books, launcher: blogURL);
+ElevatedButton myBlogButton = myContactUsButton(text: "Read The Learner's Daily Blog", icon: Icons.library_books, launcher: blogURL);
 ElevatedButton myLinkedInButton = myContactUsButton(text: "Connect with me on LinkedIn", icon: Icons.laptop_mac_sharp, launcher: linkedInURL);
 ElevatedButton myTwitterButton = myContactUsButton(text: "Follow me on Twitter", icon: Icons.phone_iphone_sharp, launcher: twitterURL);
-ElevatedButton myQuoraButton = myContactUsButton(text: "Ask me a question on Quora", icon: Icons.question_answer_outlined, launcher: "https://www.quora.com/profile/Shyam-Sundar-Bharathi");
+ElevatedButton myQuoraButton = myContactUsButton(text: "Ask me a question on Quora", icon: Icons.question_answer_outlined, launcher: quoraURL);
 ElevatedButton myGitHubButton = myContactUsButton(text: "Check out our code on GitHub", icon: Icons.code, launcher: githubURL);
+ElevatedButton myYouTubeButton = myContactUsButton(text: "Watch me on YouTube", icon: Icons.live_tv_sharp, launcher: youtubeURL);
 
 class _contactUsState extends State<contactUs> {
   @override
@@ -83,7 +86,7 @@ class _contactUsState extends State<contactUs> {
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/contactUs.jpg"),
+                      image: AssetImage("assets/contactUs.jpeg"),
                       fit: BoxFit.fill,
                     ),
                     color: Color(0xFF858b97)
@@ -105,6 +108,8 @@ class _contactUsState extends State<contactUs> {
                       myQuoraButton,
                       SizedBox(height: 15,),
                       myBlogButton,
+                      SizedBox(height: 15,),
+                      myYouTubeButton,
                       SizedBox(height: 50,),
                     ],
                   ),
