@@ -14,6 +14,17 @@ class didYouKnow extends StatefulWidget {
 
 
 class _didYouKnowState extends State<didYouKnow> {
+
+  Widget myDidYouKnowCard({Widget child}){
+    return Card(
+        color: colors[colorTheme][8],
+        elevation: 20,
+        child: Container(
+        padding: EdgeInsets.all(15),
+          child: child,
+      )
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,95 +39,81 @@ class _didYouKnowState extends State<didYouKnow> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: [
-                Card(
-                  elevation: 20,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                        "The number pad in the General Calculator is scrollable. Scroll up on the pad to reveal more functions such as square root, logarithm and various constants.",
-                      style: TextStyle(
+                myDidYouKnowCard(
+                  child: Text(
+                      "The number pad in the General Calculator is scrollable. Scroll up on the pad to reveal more functions such as square root, logarithm and various constants.",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                myDidYouKnowCard(
+                  child: Text(
+                    "All the white boxes in the Trigonometry screen support input, therefore enabling you to find both ratios and their inverses. Enter a value into any of the eight boxes to get relevant output.",
+                    style: TextStyle(
+                        color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500
-                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 20,),
-                Card(
-                  elevation: 20,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      "All the white boxes in the Trigonometry screen support input, therefore finding both ratios and their inverses. Enter a value into any of the eight boxes to get relevant output.",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Card(
-                  elevation: 20,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "I also answer to all student-related queries, specially on mathematics, examinations and high-school. Visit our Quora by ",
-                            style: TextStyle(
-                              color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500
-                            ),
+                myDidYouKnowCard(
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "I answer to all student-related queries, specially on mathematics, examinations, high-school and universities. Visit our Quora by ",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500
                           ),
-                          TextSpan(
-                            text: "clicking here.",
-                          recognizer: new TapGestureRecognizer()
-                          ..onTap = () { launch(quoraURL);},
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500
-                            ),
-                          ),
-                        ]
-                      ),
-                    )
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Card(
-                  elevation: 20,
-                  child: Container(
-                      padding: EdgeInsets.all(10),
-                      child: RichText(
-                        text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "There's also a high-school blog by the name of The Learner's Daily where I write about everything high-school. I mean, everything. Visit our blog by ",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500
-                                ),
-                              ),
-                              TextSpan(
-                                text: "clicking here.",
-                                recognizer: new TapGestureRecognizer()
-                                  ..onTap = () { launch(blogURL);},
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500
-                                ),
-                              ),
-                            ]
                         ),
-                      )
+                        TextSpan(
+                          text: "clicking here.",
+                        recognizer: new TapGestureRecognizer()
+                        ..onTap = () { launch(quoraURL);},
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500
+                          ),
+                        ),
+                      ]
+                    ),
                   ),
                 ),
+                SizedBox(height: 20,),
+                myDidYouKnowCard(
+                        child: RichText(
+                          text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "There's a high-school blog by the name of The Learner's Daily where I write about everything high-school. I mean, everything. Visit our blog by ",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: "clicking here.",
+                                  recognizer: new TapGestureRecognizer()
+                                    ..onTap = () { launch(blogURL);},
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500
+                                  ),
+                                ),
+                              ]
+                          ),
+                        ),
+                      ),
                 SizedBox(height: 10,),
               ],
             ),

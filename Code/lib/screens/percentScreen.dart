@@ -32,6 +32,7 @@ class _percentCalcState extends State<percentCalc> {
         child: Text(
           text,
           style: TextStyle(
+            color: Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
@@ -63,6 +64,17 @@ class _percentCalcState extends State<percentCalc> {
     );
   }
 
+  Widget myPercentCard({Widget child}){
+    return Card(
+      elevation: 10,
+      color: colors[colorTheme][8],
+      child: Container(
+        padding: EdgeInsets.all(20),
+        child: child,
+      ),
+    );
+  }
+
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   TextEditingController userInputThree = new TextEditingController();
@@ -89,98 +101,103 @@ class _percentCalcState extends State<percentCalc> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Column(
-              children: [
-                SizedBox(height: 50,),
-                Row(
-                  children: [
-                    myPercentText("1. "),
-                    myPercentTextField(userInputOne, (text){
-                      setState(() {
-                        answer1 = percentOne(userInputOne.text,userInputTwo.text);
-                      });
-                    }),
-                    myPercentText("  % of  "),
-                    myPercentTextField(userInputTwo, (text){
-                      setState(() {
-                        answer1 = percentOne(userInputOne.text,userInputTwo.text);
-                      });
-                    }),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                myPercentText('is'),
-                SizedBox(height: 20,),
-                myPercentAnswer(answer1),
-              ],
-            ),
-            SizedBox(height: 100,),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    myPercentText("2. "),
-                    myPercentTextField(userInputThree, (text){
-                      setState(() {
-                        answer2 = percentTwo(userInputThree.text,userInputFour.text);
-                      });
-                    }),
-                    myPercentText("  of  "),
-                    myPercentTextField(userInputFour, (text){
-                      setState(() {
-                        answer2 = percentTwo(userInputThree.text,userInputFour.text);
-                      });
-                    }),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                myPercentText('is'),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    myPercentAnswer(answer2),
-                    myPercentText('  %  '),
-                  ],
-                )
-              ],
+            myPercentCard(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      myPercentTextField(userInputOne, (text){
+                        setState(() {
+                          answer1 = percentOne(userInputOne.text,userInputTwo.text);
+                        });
+                      }),
+                      myPercentText("  % of  "),
+                      myPercentTextField(userInputTwo, (text){
+                        setState(() {
+                          answer1 = percentOne(userInputOne.text,userInputTwo.text);
+                        });
+                      }),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  myPercentText('is'),
+                  SizedBox(height: 20,),
+                  myPercentAnswer(answer1),
+                ],
+              ),
             ),
             SizedBox(height: 50,),
-            Column(
-              children: [
-                SizedBox(height: 50,),
-                Row(
-                  children: [
-                    myPercentText("3. "),
-                    myPercentTextField(userInputFive, (text){
-                      setState(() {
-                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
-                      });
-                    }),
-                    myPercentText("  % of  "),
-                    myPercentTextField(userInputSix, (text){
-                      setState(() {
-                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
-                      });
-                    }),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  children: [
-                    myPercentText("  % of  "),
-                    myPercentTextField(userInputSeven, (text){
-                      setState(() {
-                        answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
-                      });
-                    }),
-                    myPercentText('  is  '),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                myPercentAnswer(answer3),
-              ],
+            myPercentCard(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      myPercentTextField(userInputThree, (text){
+                        setState(() {
+                          answer2 = percentTwo(userInputThree.text,userInputFour.text);
+                        });
+                      }),
+                      myPercentText("  of  "),
+                      myPercentTextField(userInputFour, (text){
+                        setState(() {
+                          answer2 = percentTwo(userInputThree.text,userInputFour.text);
+                        });
+                      }),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  myPercentText('is'),
+                  SizedBox(height: 20,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myPercentAnswer(answer2 + " %"),
+                    ],
+                  )
+                ],
+              ),
             ),
+            SizedBox(height: 50,),
+            myPercentCard(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          myPercentTextField(userInputFive, (text){
+                            setState(() {
+                              answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                            });
+                          }),
+                          myPercentText("  % of  "),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          myPercentTextField(userInputSix, (text){
+                            setState(() {
+                              answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                            });
+                          }),
+                          myPercentText("  % of  "),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          myPercentTextField(userInputSeven, (text){
+                            setState(() {
+                              answer3 = percentThree(userInputFive.text,userInputSix.text, userInputSeven.text);
+                            });
+                          }),
+                          myPercentText('    is    '),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      myPercentAnswer(answer3),
+                    ],
+                  ),
+                ),
             SizedBox(height: 400,)
           ],
         ),

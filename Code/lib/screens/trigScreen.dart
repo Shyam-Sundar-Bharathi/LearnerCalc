@@ -17,6 +17,17 @@ int trigPrecision = 4;
 
 
 class _trigonometryState extends State<trigonometry> {
+  
+  Widget myTrigCard({Widget child}){
+    return Card(
+      color: colors[colorTheme][8],
+      elevation: 10,
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: child,
+      ),
+    );
+  }
 
   Widget myTrigText(String text, {flex = 4}){
     return Expanded(
@@ -25,6 +36,7 @@ class _trigonometryState extends State<trigonometry> {
         child: Text(
           text,
           style: TextStyle(
+            color: Colors.white,
             fontSize: 10,
           ),
         ),
@@ -39,6 +51,7 @@ class _trigonometryState extends State<trigonometry> {
         child: Text(
           '=',
           style: TextStyle(
+            color: Colors.white,
             fontSize: 10,
           ),
         ),
@@ -141,187 +154,197 @@ class _trigonometryState extends State<trigonometry> {
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("DEGREE : ",flex: 1),
-                    myTextField(degree,flex: 1, input: 1, onTap: (){
-                      setState(() {
-                        inFocusDegree = true;
-                      });
-                    },
-                        onChanged: (text){
-                          degree.text == '' ? clear() : setAnswersDegree(double.parse(degree.text));
-                        }
-                    ),
-                    SizedBox(width: 50,),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("RADIAN : ",flex: 1),
-                    myTextField(radian,flex: 1, input: 1, onTap: (){
-                      setState(() {
-                        inFocusDegree = false;
-                      });
-                    },
-                        onChanged: (text){
-                          radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
-                        }
-                    ),
-                    SizedBox(width: 50,),
-                  ],
-                ),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("sin"),
-                    myTextField(degree ,readOnly: true),
-                    myEqualTo(),
-                    myTextField(Sin,
-                        input: 1,
-                        onTap: clear,
-                        onChanged: (text) {
-                          if(Sin.text != ''){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Asin(Sin.text).toStringAsFixedNoZero(trigPrecision);
-                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                            });
-                          }
-                          else
-                            clear();
-                        }),
-                    SizedBox(width: 50,)
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("cos"),
-                    myTextField(degree, readOnly: true),
-                    myEqualTo(),
-                    myTextField(Cos,
-                      input: 1,
-                      onTap: clear,
-                      onChanged: (text) {
-                        if(Cos.text != ''){
-                          setState(() {
-                            inFocusDegree = false;
-                            radian.text = Acos(Cos.text).toStringAsFixedNoZero(trigPrecision);
-                            degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                          });
-                        }
-                        else
-                          clear();
+                myTrigCard(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("DEGREE : ",flex: 1),
+                      myTextField(degree,flex: 1, input: 1, onTap: (){
+                        setState(() {
+                          inFocusDegree = true;
+                        });
                       },
-
+                          onChanged: (text){
+                            degree.text == '' ? clear() : setAnswersDegree(double.parse(degree.text));
+                          }
+                      ),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
+                ),
+                myTrigCard(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("RADIAN : ",flex: 1),
+                      myTextField(radian,flex: 1, input: 1, onTap: (){
+                        setState(() {
+                          inFocusDegree = false;
+                        });
+                      },
+                          onChanged: (text){
+                            radian.text == ''? clear() : setAnswersRadian(double.parse(radian.text));
+                          }
+                      ),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40,),
+                myTrigCard(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(width: 50,),
+                          myTrigText("sin"),
+                          myTextField(degree ,readOnly: true),
+                          myEqualTo(),
+                          myTextField(Sin,
+                              input: 1,
+                              onTap: clear,
+                              onChanged: (text) {
+                                if(Sin.text != ''){
+                                  setState(() {
+                                    inFocusDegree = false;
+                                    radian.text = Asin(Sin.text).toStringAsFixedNoZero(trigPrecision);
+                                    degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                                  });
+                                }
+                                else
+                                  clear();
+                              }),
+                          SizedBox(width: 50,)
+                        ],
+                      ),
                     ),
-                    SizedBox(width: 50,),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("tan"),
-                    myTextField(degree ,readOnly: true),
-                    myEqualTo(),
-                    myTextField(Tan,
+                myTrigCard(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("cos"),
+                      myTextField(degree, readOnly: true),
+                      myEqualTo(),
+                      myTextField(Cos,
                         input: 1,
                         onTap: clear,
                         onChanged: (text) {
-                          if(Tan.text != ""){
+                          if(Cos.text != ''){
                             setState(() {
                               inFocusDegree = false;
-                              radian.text = Atan(Tan.text).toStringAsFixedNoZero(trigPrecision);
+                              radian.text = Acos(Cos.text).toStringAsFixedNoZero(trigPrecision);
                               degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
                             });
                           }
                           else
                             clear();
-                        }),
-                    SizedBox(width: 50,),
-                  ],
+                        },
+
+                      ),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("cot"),
-                    myTextField(degree ,readOnly: true),
-                    myEqualTo(),
-                    myTextField(Cot,
-                        input: 1,
-                        onTap: clear,
-                        onChanged: (text) {
-                          if(Cot.text != ""){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Acot(Cot.text).toStringAsFixedNoZero(trigPrecision);
-                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                            });
-                          }
-                          else
-                            clear();
-                        }),
-                    SizedBox(width: 50,),
-                  ],
+                myTrigCard(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("tan"),
+                      myTextField(degree ,readOnly: true),
+                      myEqualTo(),
+                      myTextField(Tan,
+                          input: 1,
+                          onTap: clear,
+                          onChanged: (text) {
+                            if(Tan.text != ""){
+                              setState(() {
+                                inFocusDegree = false;
+                                radian.text = Atan(Tan.text).toStringAsFixedNoZero(trigPrecision);
+                                degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                              });
+                            }
+                            else
+                              clear();
+                          }),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("sec"),
-                    myTextField(degree ,readOnly: true),
-                    myEqualTo(),
-                    myTextField(Sec,
-                        input: 1,
-                        onTap: clear,
-                        onChanged: (text) {
-                          if(Sec.text!=""){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Asec(Sec.text).toStringAsFixedNoZero(trigPrecision);
-                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                            });
-                          }
-                          else
-                            clear();
-                        }),
-                    SizedBox(width: 50,),
-                  ],
+                myTrigCard(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("cot"),
+                      myTextField(degree ,readOnly: true),
+                      myEqualTo(),
+                      myTextField(Cot,
+                          input: 1,
+                          onTap: clear,
+                          onChanged: (text) {
+                            if(Cot.text != ""){
+                              setState(() {
+                                inFocusDegree = false;
+                                radian.text = Acot(Cot.text).toStringAsFixedNoZero(trigPrecision);
+                                degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                              });
+                            }
+                            else
+                              clear();
+                          }),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 10,),
-                Row(
-                  children: [
-                    SizedBox(width: 50,),
-                    myTrigText("csc"),
-                    myTextField(degree ,readOnly: true),
-                    myEqualTo(),
-                    myTextField(Cosec,
-                        input: 1,
-                        onTap: clear,
-                        onChanged: (text) {
-                          if(Cosec.text != ""){
-                            setState(() {
-                              inFocusDegree = false;
-                              radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(trigPrecision);
-                              degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
-                            });
-                          }
-                          else
-                            clear();
-                        }),
-                    SizedBox(width: 50,),
-                  ],
+                myTrigCard(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("sec"),
+                      myTextField(degree ,readOnly: true),
+                      myEqualTo(),
+                      myTextField(Sec,
+                          input: 1,
+                          onTap: clear,
+                          onChanged: (text) {
+                            if(Sec.text!=""){
+                              setState(() {
+                                inFocusDegree = false;
+                                radian.text = Asec(Sec.text).toStringAsFixedNoZero(trigPrecision);
+                                degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                              });
+                            }
+                            else
+                              clear();
+                          }),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
+                ),
+                myTrigCard(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50,),
+                      myTrigText("csc"),
+                      myTextField(degree ,readOnly: true),
+                      myEqualTo(),
+                      myTextField(Cosec,
+                          input: 1,
+                          onTap: clear,
+                          onChanged: (text) {
+                            if(Cosec.text != ""){
+                              setState(() {
+                                inFocusDegree = false;
+                                radian.text = Acosec(Cosec.text).toStringAsFixedNoZero(trigPrecision);
+                                degree.text = toDegree(checkRadian(double.parse(radian.text))).toStringAsFixedNoZero(trigPrecision);
+                              });
+                            }
+                            else
+                              clear();
+                          }),
+                      SizedBox(width: 50,),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 15,),
                 Row(
