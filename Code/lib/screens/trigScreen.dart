@@ -1,3 +1,4 @@
+import 'package:catex/catex.dart';
 import 'package:dream_calc/calcs/trigCalc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -76,6 +77,18 @@ class _trigonometryState extends State<trigonometry> {
           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
         decoration: myInputDecoration(color: input == 1? Colors.white : Colors.grey[400]),
+      ),
+    );
+  }
+  
+  Widget myTrigFootNotes(String text){
+    return FittedBox(
+      child: DefaultTextStyle(
+        child: CaTeX(text),
+        style: TextStyle(
+            fontSize: 30,
+            color: Colors.white
+        ),
       ),
     );
   }
@@ -365,6 +378,29 @@ class _trigonometryState extends State<trigonometry> {
                   ),
                 ),
                 SizedBox(height: 15,),
+                myTrigCard(
+                  child: Container(
+                    //width: MediaQuery.of(context).size.width-30,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 5,),
+                        myTrigFootNotes(r'0.7071 = \frac{1}{\sqrt{2}}'),
+                        SizedBox(height: 10,),
+                        myTrigFootNotes(r'0.8660 = \frac{\sqrt{3}}{2}'),
+                        SizedBox(height: 10,),
+                        myTrigFootNotes(r'0.5774 = \frac{1}{\sqrt{3}}'),
+                        SizedBox(height: 10,),
+                        myTrigFootNotes(r'1.4142 = \sqrt{2}'),
+                        SizedBox(height: 10,),
+                        myTrigFootNotes(r'1.1547 = \frac{2}{\sqrt{3}}'),
+                        SizedBox(height: 10,),
+                        myTrigFootNotes(r'1.7321 = \sqrt{3}'),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40,)
               ],
             ),
           ),
