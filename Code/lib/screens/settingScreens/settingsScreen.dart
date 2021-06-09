@@ -17,15 +17,26 @@ Map alertMessage = {
   0 : " ",
   1 : " Don't ask us if you lose marks though 😐 ",
   2 : " Good enough ",
-  3 : " Good enough ",
+  3 : " Yep. This is ideal. ",
   4 : " Alright. Precise results on the way ",
   5 : " Alright. Precise results on the way ",
   6 : " Alright. Precise results on the way. ",
   7 : " Woah. So you're a scientist ",
   8 : " Woah. So you're a scientist ",
-  9 : " Mr. Perfectionist ",
-  10 : " Mr. Perfectionist ",
+  9 : " NASA wants to know your location. ",
+  10 : " NASA wants to know your location. ",
 };
+
+Widget mySettingsCard({Widget child}){
+  return Card(
+    elevation: 10,
+    color: Colors.grey[200],
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10)
+    ),
+    child: child,
+  );
+}
 
 class _settingsState extends State<settings> {
 
@@ -51,118 +62,114 @@ class _settingsState extends State<settings> {
             padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
             child: Column(
               children: [
-                Card(
-                  elevation: 40,
-                  color: Colors.grey[200],
+                mySettingsCard(
                   child: Container(
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        FittedBox(
-                          child: Text(
-                            "Set precision for decimal values",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500
-                            ),
-                          ),
-                        ),
-                        Slider(
-                          value: sliderValue.toDouble(),
-                          onChanged: (double newValue){
-                            setState(() {
-                              sliderValue = newValue.round();
-                              messageValue = sliderValue;
-                            });
-                          },
-                          min: 1.0,
-                          max: 10.0,
-                          divisions: 10,
-                          label: "Precision",
-                          activeColor: colors[colorTheme][9],
-                          inactiveColor: colors[colorTheme][7],
-                        ),
-                        Text(
-                          sliderValue.toString(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          alertMessage[messageValue],
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 5,),
-                        Text(
-                          "Higher precision means more numbers after the decimal point and greater accuracy of the answer."
-                              "However, Learner automatically adjusts precision, if necessary, to avoid a zero answer.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 10,
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ),
-                SizedBox(height: 20,),
-                Card(
-                  elevation: 40,
-                  color: Colors.grey[200],
-                  child: Container(
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Color Theme",
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      FittedBox(
+                        child: Text(
+                          "Set precision for decimal values",
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
-                            fontWeight: FontWeight.w500
+                              fontWeight: FontWeight.w500
                           ),
                         ),
-                        DropdownButton<String>(
-                          isExpanded: true,
-                          value: dropDownColor,
-                          icon: Icon(Icons.arrow_drop_down),
-                          iconSize: 72,
-                          elevation: 16,
-                          style: const TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20,
-                          ),
-                          underline: Container(
-                            height: 2,
-                          ),
-                          onChanged: (String newColor) {
-                            setState(() {
-                              dropDownColor = newColor;
-                            });
-                          },
-                          items: colorsAvailable.map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(
-                                  value,
-                                style: TextStyle(
-                                  color: colors[colorTheme][9]
-                                ),
-                              ),
-                            );
-                          }).toList(),
+                      ),
+                      Slider(
+                        value: sliderValue.toDouble(),
+                        onChanged: (double newValue){
+                          setState(() {
+                            sliderValue = newValue.round();
+                            messageValue = sliderValue;
+                          });
+                        },
+                        min: 1.0,
+                        max: 10.0,
+                        divisions: 10,
+                        label: "Precision",
+                        activeColor: colors[colorTheme][9],
+                        inactiveColor: colors[colorTheme][7],
+                      ),
+                      Text(
+                        sliderValue.toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
+                      ),
+                      Text(
+                        alertMessage[messageValue],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 5,),
+                      Text(
+                        "Higher precision means more numbers after the decimal point and greater accuracy of the answer."
+                            "However, Learner automatically adjusts precision, if necessary, to avoid a zero answer.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                      )
+                    ],
+                  ),
                     ),
-                  )
+                ),
+                SizedBox(height: 20,),
+                mySettingsCard(
+                  child: Container(
+                      padding: EdgeInsets.all(15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Color Theme",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                              fontWeight: FontWeight.w500
+                            ),
+                          ),
+                          DropdownButton<String>(
+                            isExpanded: true,
+                            value: dropDownColor,
+                            icon: Icon(Icons.arrow_drop_down),
+                            iconSize: 72,
+                            elevation: 16,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              fontSize: 20,
+                            ),
+                            underline: Container(
+                              height: 2,
+                            ),
+                            onChanged: (String newColor) {
+                              setState(() {
+                                dropDownColor = newColor;
+                              });
+                            },
+                            items: colorsAvailable.map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(
+                                    value,
+                                  style: TextStyle(
+                                    color: colors[colorTheme][9]
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      ),
+                    ),
                 ),
                 SizedBox(height: 20,),
                 ElevatedButton(
@@ -185,9 +192,7 @@ class _settingsState extends State<settings> {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Card(
-                  elevation: 40,
-                  color: Colors.grey[200],
+                mySettingsCard(
                   child: Container(
                     width: MediaQuery. of(context). size. width - 30,
                     padding: EdgeInsets.all(15),
@@ -196,7 +201,7 @@ class _settingsState extends State<settings> {
                         Navigator.pushNamed(context, '/contactUs');
                       },
                       icon: Icon(
-                        Icons.contact_support_outlined,
+                        Icons.phone,
                         color: Colors.black,
                       ),
                       label: Text(
@@ -213,64 +218,59 @@ class _settingsState extends State<settings> {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Card(
-                  elevation: 20,
-                  color: Colors.grey[200],
+                mySettingsCard(
                   child: Container(
-                    width: MediaQuery. of(context). size. width - 30,
-                    padding: EdgeInsets.all(15),
-                    child: TextButton.icon(
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/didYouKnow');
-                      },
-                      icon: Icon(
-                        Icons.info_outline,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        "Did you know ?",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Card(
-                  elevation: 20,
-                  color: Colors.grey[200],
-                  child: Container(
-                    width: MediaQuery. of(context). size. width - 30,
-                    padding: EdgeInsets.all(15),
+                      width: MediaQuery. of(context). size. width - 30,
+                      padding: EdgeInsets.all(15),
                       child: TextButton.icon(
                         onPressed: (){
-                          launch(eulaURL,
-                              forceWebView: false);
+                          Navigator.pushNamed(context, '/didYouKnow');
                         },
                         icon: Icon(
-                            Icons.policy_outlined,
+                          Icons.info_outline,
                           color: Colors.black,
                         ),
                         label: Text(
-                          "License Agreement",
+                          "Did you know ?",
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black
                           ),
                         ),
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                          backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
                         ),
                       ),
-                  ),
+                    ),
                 ),
                 SizedBox(height: 20,),
-                SizedBox(height: 30,),
+                mySettingsCard(
+                  child: Container(
+                      width: MediaQuery. of(context). size. width - 30,
+                      padding: EdgeInsets.all(15),
+                        child: TextButton.icon(
+                          onPressed: (){
+                            launch(eulaURL,
+                                forceWebView: false);
+                          },
+                          icon: Icon(
+                              Icons.policy_outlined,
+                            color: Colors.black,
+                          ),
+                          label: Text(
+                            "License Agreement",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black
+                            ),
+                          ),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                          ),
+                        ),
+                    ),
+                ),
+                SizedBox(height: 50,),
                 Column(
                   children: [
                     Text(

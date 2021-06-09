@@ -66,6 +66,9 @@ class _percentCalcState extends State<percentCalc> {
 
   Widget myPercentCard({Widget child}){
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       elevation: 10,
       color: colors[colorTheme][8],
       child: Container(

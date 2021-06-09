@@ -128,6 +128,7 @@ Widget myResultCard({Widget child}){
     elevation: 5,
     color: Colors.white,
     shape: RoundedRectangleBorder(
+      side: BorderSide(width: 2),
       borderRadius: BorderRadius.circular(20),
     ),
     child: child,
