@@ -57,13 +57,14 @@ class _linearOneState extends State<linearOne> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 40,),
                 result ==  " " ? Container() :
-                Container(
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                  decoration: myResultContainerDecoration,
-                  child: myLinearResult(result),
+                myResultCard(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: 100,
+                    child: myLinearResult(result),
+                  ),
                 )
               ],
             ),

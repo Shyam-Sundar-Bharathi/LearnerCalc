@@ -38,6 +38,7 @@ class _trigonometryState extends State<trigonometry> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 10,
+            fontWeight: FontWeight.w800
           ),
         ),
       ),

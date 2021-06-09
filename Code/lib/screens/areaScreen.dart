@@ -118,40 +118,41 @@ class _areaCalcState extends State<areaCalc> {
                 ),
                 SizedBox(height: 50),
                 result  == " "? Container() :
-                Container(
-                    width: MediaQuery. of(context). size. width - 30,
-                    height: 200,
-                    decoration: myResultContainerDecoration,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FittedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold
+                myResultCard(
+                  child: Container(
+                      width: MediaQuery. of(context). size. width - 30,
+                      height: 200,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FittedBox(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                is3d("$dropDownValue")? "SURFACE AREA OF $dropDownValue" : "AREA OF $dropDownValue",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 10,),
-                        FittedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              result,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                          SizedBox(height: 10,),
+                          FittedBox(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                result,
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    )
+                        ],
+                      )
+                  ),
                 ),
               ],
             ),

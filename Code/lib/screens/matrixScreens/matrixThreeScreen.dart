@@ -101,10 +101,12 @@ class _matrixThreeState extends State<matrixThree> {
                       ),
                       SizedBox(height: 40,),
                       choice == " "?
-                      Container() : Container(
-                        width: MediaQuery.of(context).size.width - 30,
-                        decoration: myResultContainerDecoration,
-                        child: myMatrixResult(choice, result),
+                      Container() :
+                      myResultCard(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 30,
+                          child: myMatrixResult(choice, result),
+                        ),
                       ),
                     ]
                 ),

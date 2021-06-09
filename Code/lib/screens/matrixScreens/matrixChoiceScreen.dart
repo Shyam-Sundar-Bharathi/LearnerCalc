@@ -8,6 +8,8 @@ class matrixChoice extends StatefulWidget {
   _matrixChoiceState createState() => _matrixChoiceState();
 }
 
+double screenWidth;
+
 class _matrixChoiceState extends State<matrixChoice> {
 
   Map choices = {
@@ -18,6 +20,9 @@ class _matrixChoiceState extends State<matrixChoice> {
 
   @override
   Widget build(BuildContext context) {
+
+    screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
       appBar: myAppBar("MATRIX"),

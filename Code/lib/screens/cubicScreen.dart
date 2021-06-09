@@ -47,17 +47,18 @@ class _cubicCalcState extends State<cubicCalc> {
           child: Container(
             alignment: Alignment.center,
             height: 70,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: Colors.white,
-              borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
-                             bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(),
+            //   color: Colors.white,
+            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
+            //                  bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
+            // ),
             child: FittedBox(
               child: Text(
                 item,
                 style: TextStyle(
                   fontSize: 20,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
@@ -67,12 +68,12 @@ class _cubicCalcState extends State<cubicCalc> {
           flex: 3,
           child: Container(
             height: 70,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: Colors.white,
-              borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
-                             bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(),
+            //   color: Colors.white,
+            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
+            //                  bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
+            // ),
             child: Center(
               child: Text(
                 answer,
@@ -170,13 +171,15 @@ class _cubicCalcState extends State<cubicCalc> {
                   ),
                   SizedBox(height: 20,),
                   answers[0] == ''? Container() :
-                  Column(
-                    children: [
-                      myCubicAnswerRow(' Root 1 : ', answers[0], topBlock: 1),
-                      myCubicAnswerRow(' Root 2 : ', answers[1]),
-                      myCubicAnswerRow(' Root 3 : ', answers[2]),
-                      myCubicAnswerRow(' Disc : ', answers[3], bottomBlock: 1),
-                    ],
+                  myResultCard(
+                    child: Column(
+                      children: [
+                        myCubicAnswerRow(' Root 1 : ', answers[0], topBlock: 1),
+                        myCubicAnswerRow(' Root 2 : ', answers[1]),
+                        myCubicAnswerRow(' Root 3 : ', answers[2]),
+                        myCubicAnswerRow(' Disc : ', answers[3], bottomBlock: 1),
+                      ],
+                    ),
                   )
                 ],
               ),

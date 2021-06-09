@@ -55,7 +55,6 @@ Widget myMatrixResult(String choice, Widget result){
     ),
   );
 }
-  double screenWidth;
 
 class matrixFour extends StatefulWidget {
   const matrixFour({Key key}) : super(key: key);
@@ -110,9 +109,6 @@ class _matrixFourState extends State<matrixFour> {
 
   @override
   Widget build(BuildContext context) {
-
-    screenWidth = MediaQuery.of(context).size.width;
-
     return GestureDetector(
         onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
@@ -175,10 +171,12 @@ class _matrixFourState extends State<matrixFour> {
                       ),
                       SizedBox(height: 40,),
                       choice == " "?
-                      Container() : Container(
-                        width: MediaQuery.of(context).size.width - 30,
-                        decoration: myResultContainerDecoration,
-                        child: myMatrixResult(choice, result),
+                      Container() :
+                      myResultCard(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 30,
+                          child: myMatrixResult(choice, result),
+                        ),
                       ),
                     ]
                 ),

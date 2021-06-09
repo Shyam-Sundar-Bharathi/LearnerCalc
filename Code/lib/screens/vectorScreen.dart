@@ -149,19 +149,20 @@ class _vectorState extends State<vector> {
                 ),
                 SizedBox(height: 30,),
                 result == " " ? Container() :
-                Container(
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                  decoration: myResultContainerDecoration,
-                  child: Center(
-                    child: FittedBox(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Text(
-                          result == "CHECK INPUT" ? result : "$choice = $result",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
+                myResultCard(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: 200,
+                    child: Center(
+                      child: FittedBox(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            result == "CHECK INPUT" ? result : "$choice = $result",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

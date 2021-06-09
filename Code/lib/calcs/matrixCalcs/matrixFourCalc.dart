@@ -1,9 +1,9 @@
+import 'package:dream_calc/screens/matrixScreens/matrixChoiceScreen.dart';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
 
 Widget matrixFourChoice(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4, int fn){
   Widget result;

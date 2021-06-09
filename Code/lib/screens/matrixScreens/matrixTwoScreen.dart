@@ -90,10 +90,12 @@ class _matrixTwoState extends State<matrixTwo> {
                 ),
                 SizedBox(height: 40,),
                 choice == " "?
-                Container() : Container(
-                  decoration: myResultContainerDecoration,
-                  width: MediaQuery.of(context).size.width - 30,
-                  child: myMatrixResult(choice, result),
+                Container() : 
+                myResultCard(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width - 30,
+                    child: myMatrixResult(choice, result),
+                  ),
                 ),
             ]
         ),

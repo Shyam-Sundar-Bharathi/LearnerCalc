@@ -49,12 +49,12 @@ class _quadraticCalcState extends State<quadraticCalc> {
           child: Container(
             alignment: Alignment.center,
             height: 70,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: Colors.white,
-              borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
-                             bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(),
+            //   color: Colors.white,
+            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
+            //                  bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
+            // ),
             child: FittedBox(
               child: Text(
                 item,
@@ -69,12 +69,12 @@ class _quadraticCalcState extends State<quadraticCalc> {
           flex: 3,
           child: Container(
             height: 70,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              color: Colors.white,
-              borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
-                             bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(),
+            //   color: Colors.white,
+            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
+            //                  bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
+            // ),
             child: Center(
               child: FittedBox(
                 child: Text(
@@ -190,12 +190,14 @@ class _quadraticCalcState extends State<quadraticCalc> {
               ),
                 SizedBox(height: 20,),
                 answers[0] == ''? Container() :
-                Column(
-                  children: [
-                    myQuadraticAnswerRow(' Root 1 : ', answers[0],topBlock: 1),
-                    myQuadraticAnswerRow(' Root 2 : ', answers[1]),
-                    myQuadraticAnswerRow(' Disc : ', answers[2],bottomBlock: 1),
-                  ],
+                myResultCard(
+                  child: Column(
+                    children: [
+                      myQuadraticAnswerRow(' Root 1 : ', answers[0],topBlock: 1),
+                      myQuadraticAnswerRow(' Root 2 : ', answers[1]),
+                      myQuadraticAnswerRow(' Disc : ', answers[2],bottomBlock: 1),
+                    ],
+                  ),
                 )
               ],
             ),

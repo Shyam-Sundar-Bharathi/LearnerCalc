@@ -123,12 +123,16 @@ Widget myFormula(String text){
   );
 }
 
-//IN-SCREEN RESULT CONTAINERS DECORATION
-BoxDecoration myResultContainerDecoration = BoxDecoration(
-  border: Border.all(),
-  color: Colors.white,
-  borderRadius: BorderRadius.all(Radius.circular(10)),
-);
+Widget myResultCard({Widget child}){
+  return Card(
+    elevation: 5,
+    color: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: child,
+  );
+}
 
 //FORMULA SCREENS - FORMULA TABLE
 Widget myFormulaTableBlock(String formula){

@@ -73,11 +73,12 @@ class _linearTwoState extends State<linearTwo> {
                 ),
                 SizedBox(height: 20,),
                 result == " " ? Container() :
-                Container(
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                  decoration: myResultContainerDecoration,
-                  child: myLinearResult(result),
+                myResultCard(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: 200,
+                    child: myLinearResult(result),
+                  ),
                 )
               ],
             ),
