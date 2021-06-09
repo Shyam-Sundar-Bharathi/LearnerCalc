@@ -45,7 +45,7 @@ class _homeState extends State<home> {
     6 : ['VECTOR', '/vector'],
     7 : ['COMPLEX\nNUMBERS', '/complex'],
     8 : ['MATRIX','/matrixChoice'],
-    9 : ['TRIGONO-\n  METRY', '/trigonometry'],
+    9 : ['TRIGONO\n  METRY', '/trigonometry'],
     10 : ['NUMBER\n THEORY','/lcmhcf'],
     11 : [' CENTRAL \nTENDENCY', '/centTend'],
     12 : ['AREA', '/area'],

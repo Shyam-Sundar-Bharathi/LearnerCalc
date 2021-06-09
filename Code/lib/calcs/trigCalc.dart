@@ -7,6 +7,8 @@ import 'package:dream_calc/screens/trigScreen.dart';
 const double pi = 3.141592653589793238462643383279502884197169399375105820974944;
 
 double checkRadian(double radians){
+  bool isNegative = radians < 0 ? true : false;
+  radians = isNegative ? -radians : radians;
   if(radians.toStringAsFixedNoZero(3) == (2*pi).toStringAsFixedNoZero(3)){
     return 2*pi;
   }
@@ -20,7 +22,7 @@ double checkRadian(double radians){
     return pi/2;
   }
   else
-    return radians;
+    return isNegative? -radians : radians;
 }
 
 double toDegree(double radian){

@@ -55,6 +55,7 @@ Widget myMatrixResult(String choice, Widget result){
     ),
   );
 }
+  double screenWidth;
 
 class matrixFour extends StatefulWidget {
   const matrixFour({Key key}) : super(key: key);
@@ -109,6 +110,8 @@ class _matrixFourState extends State<matrixFour> {
 
   @override
   Widget build(BuildContext context) {
+
+    screenWidth = MediaQuery.of(context).size.width;
 
     return GestureDetector(
         onTap: () {

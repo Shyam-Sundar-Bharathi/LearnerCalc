@@ -3,6 +3,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
 
 Widget matrixFourChoice(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4, int fn){
   Widget result;
@@ -21,19 +22,22 @@ Widget matrixFourChoice(String A1, String B1, String C1, String D1, String A2, S
 
 Widget myMatrixElement(String text){
   return Container(
-    width: 70,
+    width: (screenWidth-100)/4,
     height: 50,
     decoration: BoxDecoration(
       color: Colors.white,
       border: Border.all(),
     ),
-    child: Center(
-      child: FittedBox(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+    child: Padding(
+      padding: EdgeInsets.all(5),
+      child: Center(
+        child: FittedBox(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

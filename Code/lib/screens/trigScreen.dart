@@ -74,7 +74,7 @@ class _trigonometryState extends State<trigonometry> {
         inputFormatters: [
           FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
-        decoration: myInputDecoration(color: input == 1? Colors.white : Colors.grey[100]),
+        decoration: myInputDecoration(color: input == 1? Colors.white : Colors.grey[400]),
       ),
     );
   }
@@ -192,7 +192,24 @@ class _trigonometryState extends State<trigonometry> {
                     ],
                   ),
                 ),
-                SizedBox(height: 40,),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: 20,),
+                    ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: clear,
+                      child: Text(
+                        "Clear",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
                 myTrigCard(
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -347,22 +364,6 @@ class _trigonometryState extends State<trigonometry> {
                   ),
                 ),
                 SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(width: 20,),
-                    ElevatedButton(
-                      style: myButtonStyle,
-                      onPressed: clear,
-                      child: Text(
-                        "Clear",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
               ],
             ),
           ),
