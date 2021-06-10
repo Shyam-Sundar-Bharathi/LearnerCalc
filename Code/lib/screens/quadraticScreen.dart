@@ -1,5 +1,6 @@
 import 'package:dream_calc/calcs/quadraticCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
@@ -60,6 +61,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 item,
                 style: TextStyle(
                   fontSize: 20,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
@@ -106,7 +108,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
         width = keyA.currentContext.size.width;
       });
     });
-
   }
 
   @override

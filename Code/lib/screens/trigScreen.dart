@@ -215,7 +215,7 @@ class _trigonometryState extends State<trigonometry> {
                       style: myButtonStyle,
                       onPressed: clear,
                       child: Text(
-                        "Clear",
+                        "CLEAR",
                         style: TextStyle(
                           color: Colors.white,
                         ),

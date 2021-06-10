@@ -5,6 +5,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:flutter/material.dart';
 import 'package:dream_calc/services/buttons.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 class genCalc extends StatefulWidget {
@@ -13,6 +14,8 @@ class genCalc extends StatefulWidget {
 }
 
 class _genCalcState extends State<genCalc> {
+  GlobalKey keyNumberPad = new GlobalKey();
+  GlobalKey keyAppBar = new GlobalKey();
   TextEditingController userInput = new TextEditingController();
   var cursorPos;
   var answer = '';
@@ -218,7 +221,6 @@ class _genCalcState extends State<genCalc> {
       setState(() {
         answer = eval.toString();
       });
-      //print("END TRY");
     }
     on FormatException {
       try {
@@ -263,21 +265,26 @@ class _genCalcState extends State<genCalc> {
   }
 
 
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       //resizeToAvoidBottomInset: true,
       backgroundColor: Colors.black,
-      appBar: myAppBar("GENERAL CALCULATOR"),
+      appBar: myAppBar(
+          "GENERAL CALCULATOR",
+        key: keyAppBar,
+      ),
       body: Column(
         children: [
           Container(
+            //height: MediaQuery.of(context).size.height - heightNumberPad - heightAppBar - 20,
             child: Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(height: 20),
                 Container(
-                  height: MediaQuery.of(context).size.height/12,
+                  //height: MediaQuery.of(context).size.height/12,
                   padding: EdgeInsets.all(20),
                   alignment: Alignment.centerRight,
                   child: TextField(
@@ -298,7 +305,7 @@ class _genCalcState extends State<genCalc> {
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height/8,
+                  //height: MediaQuery.of(context).size.height/8,
                   padding: EdgeInsets.all(15),
                   alignment: Alignment.centerRight,
                   child: Text(
@@ -319,6 +326,7 @@ class _genCalcState extends State<genCalc> {
           ),
           Expanded(
             child: Container(
+              key: keyNumberPad,
               color: Colors.black87,
               child: GridView.builder(
                 itemCount: buttons.length,

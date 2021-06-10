@@ -196,6 +196,7 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
                   SizedBox(height: 20,),
                   myFormula(multiple[5][0]),
                   myFormula(multiple[5][1]),
+                  SizedBox(height: 50,)
                 ],
               ),
             ),

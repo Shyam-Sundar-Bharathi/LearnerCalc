@@ -151,7 +151,7 @@ class _areaCalcState extends State<areaCalc> {
                             ),
                           ),
                         ],
-                      )
+                      ),
                   ),
                 ),
               ],

@@ -86,6 +86,7 @@ class _coordinateFormulaState extends State<coordinateFormula> {
                   myFormula(coGeo[2][1]),
                   myFormula(coGeo[2][2]),
                   myFormula(coGeo[2][3]),
+                  SizedBox(height: 50),
                 ],
               ),
             ),

@@ -7,13 +7,15 @@ List<String> cubeCalc(String A, String B, String C, String D){
   if(A == "" || B == "" || C == "" || D == ""){
     return ["CHECK INPUT", "CHECK INPUT", "CHECK INPUT","CHECK INPUT"];
   }
+  if(double.parse(A) == 0){
+    return ["a CAN'T BE 0.","a CAN'T BE 0.","a CAN'T BE 0.","a CAN'T BE 0."];
+  }
   bool enteredNullException = false;
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
   List<String> rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];
 
   //redirects to Exception Handler package
-  if(rootsRaw[1].toString() == "null" || rootsRaw[1].toString() == "null" || rootsRaw[1].toString() == "null"){
-      print("Entered null exception");
+  if(rootsRaw[0].toString() == "null" || rootsRaw[1].toString() == "null" || rootsRaw[2].toString() == "null"){
       enteredNullException = true;
       rootsRaw = cubeTestCalc(A,B,C,D);
     }

@@ -7,7 +7,7 @@ String centTendChoice(String userInput, int choice){
   if(userInput == '' || userInput.split(',').length == 1)
     return "CHECK INPUT";
   if(userInput.endsWith(','))
-    userInput = userInput.substring(0,userInput.length-1);
+    return "CHECK INPUT";
   double result;
   String Mode;
     switch(choice){
@@ -36,7 +36,9 @@ String centTendChoice(String userInput, int choice){
       case 11 : result = countElements(userInput);
 
     }
-  return choice == 2? Mode : formatNumber(result.toStringAsFixedNoZero(precision));
+  return ((choice == 7 || choice == 8) && result == -1) ? "INPUT CAN'T CONTAIN 0" :
+          choice == 2? Mode :
+          formatNumber(result.toStringAsFixedNoZero(precision));
 }
 
 
@@ -141,6 +143,9 @@ double cv (String userInput){
 double gm(String userInput){
   var sArray = userInput.split(",");
   var length = sArray.length;
+  if (sArray.contains('0')){
+    return -1;
+  }
   List<num> iArray = [];
   for(int iter=0; iter<length; iter++)
     iArray.add(double.parse(sArray[iter]));
@@ -151,6 +156,9 @@ double gm(String userInput){
 double hm(String userInput){
   var sArray = userInput.split(",");
   var length = sArray.length;
+  if (sArray.contains('0')){
+    return -1;
+  }
   List<num> iArray = [];
   for(int iter=0; iter<length; iter++)
     iArray.add(double.parse(sArray[iter]));

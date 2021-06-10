@@ -80,7 +80,8 @@ class _progressionFormulaState extends State<progressionFormula> {
                   myFormulaHeading(progs[2][4],bigGap: 0),
                   myFormula(progs[2][5]),
                   myFormulaHeading("RELATIONSHIP BETWEEN AM,GM,HM", mainHeading: 1),
-                  myFormula(progs[3])
+                  myFormula(progs[3]),
+                  SizedBox(height: 50)
                 ],
               ),
             ),

@@ -128,6 +128,9 @@ class _homeState extends State<home> {
               ),
             ),
           ),
+          Container(
+            color: Colors.black,
+          )
         ],
       ),
     );

@@ -209,6 +209,7 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                   myFormula(lawOfCosines[0]),
                   myFormula(lawOfCosines[1]),
                   myFormula(lawOfCosines[2]),
+                  SizedBox(height: 50,)
                 ],
               ),
             ),

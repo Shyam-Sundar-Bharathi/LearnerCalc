@@ -201,15 +201,23 @@ class _unitconversionState extends State<unitconversion> {
                   ],
                 ),
                 SizedBox(height: 50,),
-                Center(
-                  child: FittedBox(
-                    child: Text(
-                      inFocusOne?
-                      "1 $unitChoiceOne = ${displayConvert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1')} $unitChoiceTwo" :
-                      "1 $unitChoiceTwo = ${displayConvert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1')} $unitChoiceOne",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                Card(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(width: 1.5),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: FittedBox(
+                      child: Text(
+                        inFocusOne?
+                        "1 $unitChoiceOne = ${displayConvert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1')} $unitChoiceTwo" :
+                        "1 $unitChoiceTwo = ${displayConvert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1')} $unitChoiceOne",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

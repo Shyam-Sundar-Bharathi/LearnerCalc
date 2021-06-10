@@ -9,20 +9,21 @@ const double pi = 3.141592653589793238462643383279502884197169399375105820974944
 double checkRadian(double radians){
   bool isNegative = radians < 0 ? true : false;
   radians = isNegative ? -radians : radians;
+  double negativeCorrecter = isNegative ? -1 : 1;
   if(radians.toStringAsFixedNoZero(3) == (2*pi).toStringAsFixedNoZero(3)){
-    return 2*pi;
+    return 2*pi*negativeCorrecter;
   }
   else if(radians.toStringAsFixedNoZero(3) == (3*pi/2).toStringAsFixedNoZero(3)){
-    return 3*pi/2;
+    return 3*pi/2*negativeCorrecter;
   }
   else if(radians.toStringAsFixedNoZero(3) == (pi).toStringAsFixedNoZero(3)){
-    return pi;
+    return pi*negativeCorrecter;
   }
   else if(radians.toStringAsFixedNoZero(3) == (pi/2).toStringAsFixedNoZero(3)){
-    return pi/2;
+    return pi/2*negativeCorrecter;
   }
   else
-    return isNegative? -radians : radians;
+    return radians*negativeCorrecter;
 }
 
 double toDegree(double radian){

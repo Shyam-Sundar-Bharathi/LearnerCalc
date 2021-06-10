@@ -122,7 +122,7 @@ class _centTendCalcState extends State<centTendCalc> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            result == "CHECK INPUT" ? result :
+                            result == "CHECK INPUT" || result == "INPUT CAN'T CONTAIN 0" ? result :
                             choice == " " ? result :
                             "$choice = $result",
                             style: TextStyle(

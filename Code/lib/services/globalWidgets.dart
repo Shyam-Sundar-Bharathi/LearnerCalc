@@ -51,8 +51,9 @@ InputDecoration myInputDecoration({String labelText, Color color = Colors.white}
 }
 
 //APP BAR FOR EVERY SCREEN
-Widget myAppBar(String heading, {contactUs = 0}){
+Widget myAppBar(String heading, {contactUs = 0, Key key}){
   return AppBar(
+    key: key,
     title: FittedBox(
       child: Text(
         heading,

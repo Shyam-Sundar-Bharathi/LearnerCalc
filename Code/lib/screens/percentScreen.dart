@@ -201,7 +201,7 @@ class _percentCalcState extends State<percentCalc> {
                     ],
                   ),
                 ),
-            SizedBox(height: 400,)
+            SizedBox(height: 50,)
           ],
         ),
       ),

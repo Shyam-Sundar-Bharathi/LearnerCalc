@@ -83,6 +83,7 @@ class _centTendFormulaState extends State<centTendFormula> {
                       myFormula(centTend[8]),
                       myFormulaHeading("RELATIONSHIP BETWEEN TENDENCIES"),
                       myFormula(centTend[9]),
+                      SizedBox(height: 50,),
                     ],
                   ),
                 ],
