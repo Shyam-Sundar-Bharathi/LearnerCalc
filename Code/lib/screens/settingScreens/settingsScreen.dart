@@ -2,6 +2,7 @@ import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 class settings extends StatefulWidget {
   @override
@@ -45,6 +46,7 @@ class _settingsState extends State<settings> {
   }
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return WillPopScope(
       onWillPop: (){
         setState(() {

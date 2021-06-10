@@ -28,6 +28,7 @@ class _volumeCalcState extends State<volumeCalc> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());

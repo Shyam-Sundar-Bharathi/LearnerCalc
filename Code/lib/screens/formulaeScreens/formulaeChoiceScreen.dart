@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
+import 'package:flutter/services.dart';
 class formulaChoice extends StatefulWidget {
   const formulaChoice({Key key}) : super(key: key);
 
@@ -25,6 +26,7 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
       appBar: myAppBar("FORMULAE SHEET"),

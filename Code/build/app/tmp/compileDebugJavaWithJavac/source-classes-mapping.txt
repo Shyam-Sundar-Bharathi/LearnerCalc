@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-thelearnersdaily/wordpress/dream_calc/BuildConfig.java
- thelearnersdaily.wordpress.dream_calc.BuildConfig

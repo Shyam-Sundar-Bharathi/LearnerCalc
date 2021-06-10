@@ -71,7 +71,7 @@ class _complexState extends State<complex> {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());

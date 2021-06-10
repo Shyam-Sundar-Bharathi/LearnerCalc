@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
+import 'package:flutter/services.dart';
 class linearChoice extends StatefulWidget {
   const linearChoice({Key key}) : super(key: key);
 
@@ -19,6 +20,7 @@ class _linearChoiceState extends State<linearChoice> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
       appBar: myAppBar("LINEAR EQUATION"),

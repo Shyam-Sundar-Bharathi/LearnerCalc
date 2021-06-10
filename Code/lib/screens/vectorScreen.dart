@@ -78,7 +78,7 @@ class _vectorState extends State<vector> {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());

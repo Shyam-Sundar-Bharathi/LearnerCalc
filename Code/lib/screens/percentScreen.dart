@@ -91,6 +91,7 @@ class _percentCalcState extends State<percentCalc> {
   String answer3 = ' ';
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return GestureDetector(
         onTap: () {
       FocusScope.of(context).requestFocus(FocusNode());

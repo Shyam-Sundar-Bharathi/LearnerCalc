@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
+import 'package:flutter/services.dart';
 class matrixChoice extends StatefulWidget {
   const matrixChoice({Key key}) : super(key: key);
 
@@ -20,7 +21,7 @@ class _matrixChoiceState extends State<matrixChoice> {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setEnabledSystemUIOverlays([]);
     screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
