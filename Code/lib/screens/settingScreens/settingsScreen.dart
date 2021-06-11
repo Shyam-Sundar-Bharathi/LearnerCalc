@@ -17,6 +17,7 @@ const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
 int messageValue = 0;
+bool hiddenFeatureActivated = false;
 
 List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED','BLUEGREY'];
 
@@ -59,6 +60,7 @@ class _settingsState extends State<settings> {
     messageValue = 0;
     myDidYouKnowText = "Did you know ?";
     mySettingsCardColor = Colors.grey[200];
+    hiddenFeatureActivated = false;
   }
 
   //Did you know long press, changes the colors of cards. Just for fun.
@@ -79,7 +81,11 @@ class _settingsState extends State<settings> {
           dropDownColor = colorTheme;
           sliderValue = precision;
         });
-        timer.cancel();
+
+        if(hiddenFeatureActivated){
+          timer.cancel();
+        }
+
         Navigator.pop(context);
         return;
       },
@@ -256,6 +262,7 @@ class _settingsState extends State<settings> {
                           changeCardColor();
                           setState(() {
                             myDidYouKnowText = "How did you know ?";
+                            hiddenFeatureActivated = true;
                           });
                         },
                         onPressed: (){

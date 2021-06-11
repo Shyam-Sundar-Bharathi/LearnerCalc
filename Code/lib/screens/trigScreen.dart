@@ -106,23 +106,31 @@ class _trigonometryState extends State<trigonometry> {
 
   void clear(){
     setState(() {
-      degree.text = ' ';
-      radian.text = ' ';
-      Sin.text = ' ';
-      Cos.text = ' ';
-      Tan.text = ' ';
-      Cot.text = ' ';
-      Sec.text = ' ';
-      Cosec.text = ' ';
+      degree.text = '';
+      radian.text = '';
+      Sin.text = '';
+      Cos.text = '';
+      Tan.text = '';
+      Cot.text = '';
+      Sec.text = '';
+      Cosec.text = '';
     });
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
   }
 
   String checkAnswer(double answer){
+    print(answer);
     if(answer == 1248){
       return "Infinity";
     }
     else if(answer == -1248){
       return "- Infinity";
+    }
+    else if(answer.toStringAsFixedNoZero(trigPrecision) == '-0'){
+      return "0";
     }
     else
       return answer.toStringAsFixedNoZero(trigPrecision);

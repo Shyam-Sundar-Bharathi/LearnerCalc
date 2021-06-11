@@ -29,14 +29,14 @@ List<String> cubeCalc(String A, String B, String C, String D){
 
   bool enteredNullException = false;
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
+  print(equation);
   List<String> rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];
-
   //redirects to Exception Handler package
-  if(rootsRaw[0].toString() == "null" || rootsRaw[1].toString() == "null" || rootsRaw[2].toString() == "null"){
-      enteredNullException = true;
-      rootsRaw = cubeTestCalc(A,B,C,D);
-    }
-
+  if(rootsRaw[0].toString() == "null" || rootsRaw[1].toString() == "null" || rootsRaw[2].toString() == "null") {
+    enteredNullException = true;
+    print("entered null exception");
+    rootsRaw = cubeTestCalc(A, B, C, D);
+  }
     List<String> rootsFinal = ['','',''];
     List<String> rootOne = rootsRaw[0].split('+');
     List<String> rootTwo = rootsRaw[1].split('+');

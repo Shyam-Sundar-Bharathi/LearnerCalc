@@ -133,8 +133,13 @@ String arg(String a, String b){
 
 String roots(String a, String b, int power){
 
+  if(double.parse(b) == 0 && double.parse(a)<=0 && power == 2){
+    double root = pow(-double.parse(a),0.5);
+    return "√A = 0 + ${root}i\n√A = 0 - ${root}i";
+  }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   List roots = c.rootsOf(power);
+  print(roots);
   if(power == 2){
     return "√A = ${formatComplex(roots[0].toString())}\n√A = ${formatComplex(roots[1].toString())}";
   }

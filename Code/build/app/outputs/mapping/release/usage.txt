@@ -133,8 +133,8 @@ io.flutter.embedding.android.FlutterSurfaceView:
 androidx.customview.R$color
 androidx.fragment.app.FragmentTabHost$TabInfo
 androidx.core.app.NotificationCompatSideChannelService
-androidx.core.view.NestedScrollingChild
 androidx.core.view.DragStartHelper$OnDragStartListener
+androidx.core.view.NestedScrollingChild
 kotlin.collections.AbstractCollection$toString$1
 androidx.activity.ComponentActivity$1
 androidx.core.view.ViewCompat$AccessibilityPaneVisibilityManager

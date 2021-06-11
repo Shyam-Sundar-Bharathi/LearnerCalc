@@ -51,7 +51,7 @@ String reverseString(String number){
 }
 
 //ADDS COMMA AFTER EVERY 3 DIGITS FROM THE END
-String formatNumber(dynamic number){
+String formatNumber(dynamic number, {bool eReturnZero = false}){
   double num = 0;
 
   //IF INPUT IS IN FORM OF STRING
