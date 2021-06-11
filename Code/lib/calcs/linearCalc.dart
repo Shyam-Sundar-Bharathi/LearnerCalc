@@ -3,24 +3,50 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String calcx(String A, String B){
-  if(A == "" || B == ""){
+  if(A == "" && B == ""){
     return "CHECK INPUT";
+  }
+  if(B == ""){
+    B = "0";
   }
   double a = double.parse(A);
   double b = double.parse(B);
   if(a == 0){
     return "NO SOLUTION";
   }
-  print(-b/a);
-  print((-b/a).toStringAsFixedNoZero(precision));
-  print(formatNumber((-b/a).toStringAsFixedNoZero(precision)));
+
   return "x = " + formatNumber((-b/a).toStringAsFixedNoZero(precision));
 }
 
 String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
-  if(a1 == "" || b1 == "" || c1 == "" || a2 == "" || b2 == "" || c2 == ""){
+
+  if(a1 == "" && b1 == "" && c1 == ""){
     return "CHECK INPUT";
   }
+
+  if(a2 == "" && b2 == "" && c2 == ""){
+    return "CHECK INPUT";
+  }
+
+  if(a1 == ""){
+    a1 = '0';
+  }
+  if(b1 == ""){
+    b1 = '0';
+  }
+  if(c1 == ""){
+    c1 = '0';
+  }
+  if(a2 == ""){
+    a2 = '0';
+  }
+  if(b2 == ""){
+    b2 = '0';
+  }
+  if(c2 == ""){
+    c2 = '0';
+  }
+
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double C1 = double.parse(c1);
@@ -49,9 +75,55 @@ String calcxy(String a1, String b1, String c1, String a2, String b2, String c2){
 
 
 String calcxyz(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2,String A3, String B3, String C3, String D3){
-  if(A1 == "" || B1 == "" || C1 == "" || D1 == "" || A2 == "" || B2 == "" || C2 == "" || D2 == "" || A3 == "" || B3 == "" || C3 == "" || D3 == "" ){
+
+  if(A1 == "" && B1 == "" && C1 == "" && D1 == ""){
     return "CHECK INPUT";
   }
+  if(A2 == "" && B2 == "" && C2 == "" && D2 == ""){
+    return "CHECK INPUT";
+  }
+  if(A3 == "" && B3 == "" && C3 == "" && D3 == ""){
+    return "CHECK INPUT";
+  }
+
+  //Automating zeroes for empty inputs.
+  if(A1 == ""){
+    A1 = '0';
+  }
+  if(B1 == ""){
+    B1 = '0';
+  }
+  if(C1 == ""){
+    C1 = '0';
+  }
+  if(D1 == ""){
+    D1 = '0';
+  }
+  if(A2 == ""){
+    A2 = '0';
+  }
+  if(B2 == ""){
+    B2 = '0';
+  }
+  if(C2 == ""){
+    C2 = '0';
+  }
+  if(D2 == ""){
+    D2 = '0';
+  }
+  if(A3 == ""){
+    A3 = '0';
+  }
+  if(B3 == ""){
+    B3 = '0';
+  }
+  if(C3 == ""){
+    C3 = '0';
+  }
+  if(D3 == ""){
+    D3 = '0';
+  }
+
   double a1 = double.parse(A1);
   double b1 = double.parse(B1);
   double c1 = double.parse(C1);

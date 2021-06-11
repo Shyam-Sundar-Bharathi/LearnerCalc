@@ -37,12 +37,15 @@ Widget myLinearText(String text){
 
 Widget myLinearResult(String result){
   return Center(
-    child: FittedBox(
-      child: Text(
-        result,
-        style: TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FittedBox(
+        child: Text(
+          result,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     ),

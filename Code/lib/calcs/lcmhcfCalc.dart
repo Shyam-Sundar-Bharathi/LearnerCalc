@@ -132,6 +132,9 @@ String hcf (String userInput) {
 String isPrime(String userInput){
   if(userInput == "")
     return 'CHECK INPUT';
+  if(userInput == "1"){
+    return '1 NEITHER PRIME NOR COMPOSITE.';
+  }
   final c = Integer(int.parse(userInput));
   return c.isPrime() ? '$userInput IS A PRIME NUMBER.' : '$userInput IS NOT A PRIME NUMBER.';
 }

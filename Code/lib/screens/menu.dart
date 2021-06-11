@@ -12,6 +12,7 @@ class home extends StatefulWidget {
 dynamic result;
 int precision = 0;
 String colorTheme = '';
+
 Map colors = {
   'BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
   'PINK' : [Colors.white, Colors.pink[100], Colors.pink[200],Colors.pink[300], Colors.pink[400], Colors.pink[500], Colors.pink[600], Colors.pink[700], Colors.pink[800], Colors.pink[900], Colors.black, Colors.pinkAccent ],
@@ -20,11 +21,12 @@ Map colors = {
   'ORANGE' : [Colors.white, Colors.yellow[100], Colors.yellow[200],Colors.yellow[300], Colors.yellow[400], Colors.yellow[500], Colors.yellow[600], Colors.yellow[700], Colors.yellow[800], Colors.yellow[900], Colors.black, Colors.yellow[900]],
   'PURPLE' : [Colors.white, Colors.purple[100], Colors.purple[200],Colors.purple[300], Colors.purple[400], Colors.purple[500], Colors.purple[600], Colors.purple[700], Colors.purple[800], Colors.purple[900], Colors.black, Colors.purpleAccent],
   'RED' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
+  'BLUEGREY' : [Colors.white, Colors.blueGrey[100], Colors.blueGrey[200],Colors.blueGrey[300], Colors.blueGrey[400], Colors.blueGrey[500], Colors.blueGrey[600], Colors.blueGrey[700], Colors.blueGrey[800], Colors.blueGrey[900], Colors.black, Colors.blueAccent],
 };
 
 class _homeState extends State<home> {
 
-
+  Color myColor = Colors.blueGrey;
   saveToDevice() async {
     final prefs = await SharedPreferences.getInstance();
     final precisionKey = 'precision';

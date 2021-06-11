@@ -17,6 +17,9 @@ class _didYouKnowState extends State<didYouKnow> {
 
   Widget myDidYouKnowCard({Widget child}){
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)
+      ),
         color: colors[colorTheme][8],
         elevation: 20,
         child: Container(
@@ -53,6 +56,17 @@ class _didYouKnowState extends State<didYouKnow> {
                 myDidYouKnowCard(
                   child: Text(
                     "All the white boxes in the Trigonometry screen support input, therefore enabling you to find both ratios and their inverses. Enter a value into any of the eight boxes to get relevant output.",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                myDidYouKnowCard(
+                  child: Text(
+                    "In Linear Equations, Quadratic Equations, Cubic Equations, Vectors, and Complex Numbers, you can leave the input boxes empty if the input is zero. LearnerCalc will assume empty inputs as zeroes and do the math for you.",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,

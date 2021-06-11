@@ -4,12 +4,29 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 List<String> cubeCalc(String A, String B, String C, String D){
-  if(A == "" || B == "" || C == "" || D == ""){
+  if(A == "" && B == "" && C == "" && D == ""){
     return ["CHECK INPUT", "CHECK INPUT", "CHECK INPUT","CHECK INPUT"];
   }
-  if(double.parse(A) == 0){
+  if(A == "" || double.parse(A) == 0){
     return ["a CAN'T BE 0.","a CAN'T BE 0.","a CAN'T BE 0.","a CAN'T BE 0."];
   }
+
+  //automatic zeroes on empty input
+  if(B == ""){
+    B = '0';
+  }
+  if(C == ""){
+    C = '0';
+  }
+  if(D == ""){
+    D = '0';
+  }
+
+  //package fails when b=c=d=0. Fixing that.
+  if(double.parse(B) == 0 && double.parse(C) == 0 && double.parse(D) == 0){
+    return ['0','0','0','0'];
+  }
+
   bool enteredNullException = false;
   final equation = CubicEquation(a: double.parse(A),b: double.parse(B),c: double.parse(C),d: int.parse(D));
   List<String> rootsRaw = [equation.calculate()['x1'].toString(), equation.calculate()['x2'].toString(), equation.calculate()['x3'].toString()];

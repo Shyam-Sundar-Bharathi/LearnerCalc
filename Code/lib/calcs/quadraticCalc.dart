@@ -4,12 +4,19 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 List<String> quadCalc(String A, String B, String C){
-  if(A == "" || B == "" || C == ""){
+  if(A == "" && B == "" && C == ""){
     return ["CHECK INPUT","CHECK INPUT","CHECK INPUT"];
   }
-  if(double.parse(A) == 0){
+  if(A == "" || double.parse(A) == 0){
     return ["a CAN'T BE 0.","a CAN'T BE 0","a CAN'T BE 0"];
   }
+  if(B == ""){
+    B = '0';
+  }
+  if(C == ""){
+    C = '0';
+  }
+
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);

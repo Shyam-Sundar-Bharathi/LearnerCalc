@@ -1,9 +1,13 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class settings extends StatefulWidget {
   @override
   _settingsState createState() => _settingsState();
@@ -13,7 +17,9 @@ const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
 int messageValue = 0;
-List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED'];
+
+List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED','BLUEGREY'];
+
 Map alertMessage = {
   0 : " ",
   1 : " Don't ask us if you lose marks though 😐 ",
@@ -28,10 +34,18 @@ Map alertMessage = {
   10 : " NASA wants to know your location. ",
 };
 
+//Developer touch, for fun. On long pressing the "did you know"
+//button, the card colours change to red and the button reads
+//"how did you know ?"
+
+String myDidYouKnowText = "Did you know ?";
+Color mySettingsCardColor = Colors.grey[200];
+Timer timer;
+
 Widget mySettingsCard({Widget child}){
   return Card(
     elevation: 10,
-    color: Colors.grey[200],
+    color: mySettingsCardColor,
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10)
     ),
@@ -43,7 +57,19 @@ class _settingsState extends State<settings> {
 
   void initState(){
     messageValue = 0;
+    myDidYouKnowText = "Did you know ?";
+    mySettingsCardColor = Colors.grey[200];
   }
+
+  //Did you know long press, changes the colors of cards. Just for fun.
+  void changeCardColor(){
+    timer = Timer.periodic(Duration(milliseconds: 500), (Timer t){
+      setState(() {
+        mySettingsCardColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -53,6 +79,7 @@ class _settingsState extends State<settings> {
           dropDownColor = colorTheme;
           sliderValue = precision;
         });
+        timer.cancel();
         Navigator.pop(context);
         return;
       },
@@ -225,6 +252,12 @@ class _settingsState extends State<settings> {
                       width: MediaQuery. of(context). size. width - 30,
                       padding: EdgeInsets.all(15),
                       child: TextButton.icon(
+                        onLongPress: (){
+                          changeCardColor();
+                          setState(() {
+                            myDidYouKnowText = "How did you know ?";
+                          });
+                        },
                         onPressed: (){
                           Navigator.pushNamed(context, '/didYouKnow');
                         },
@@ -233,7 +266,7 @@ class _settingsState extends State<settings> {
                           color: Colors.black,
                         ),
                         label: Text(
-                          "Did you know ?",
+                          myDidYouKnowText,
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black

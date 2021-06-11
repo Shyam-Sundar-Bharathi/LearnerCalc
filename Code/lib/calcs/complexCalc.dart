@@ -3,6 +3,51 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String complexChoice(String a1, String b1, String a2, String b2, int fn){
+
+  //Automating zero for empty input.
+  if(fn == 2 || fn == 3 || fn == 10 || fn == 11){
+    if(a1 == "" && b1 == ""){
+      return "CHECK INPUT";
+    }
+    if(a2 == "" && b2 == ""){
+      return "CHECK INPUT";
+    }
+    if(a1 == ""){
+      a1 = '0';
+    }
+    if(b1 == ""){
+      b1 = '0';
+    }
+    if(a2 == ""){
+      a2 = '0';
+    }if(b2 == ""){
+      b2 = '0';
+    }
+  }
+
+  else if(fn == 0 || fn == 4 || fn == 5 || fn == 6 || fn == 8 || fn == 9){
+    if(a1 == "" && b1 == ""){
+      return "CHECK INPUT";
+    }
+    if (a1 == ""){
+      a1 = '0';
+    }
+    if (b1 == ""){
+      b1 = '0';
+    }
+  }
+
+  else if(fn == 1 || fn == 7){
+    if(a2 == "" && b2 == ""){
+      return "CHECK INPUT";
+    }
+    if (a2 == ""){
+      a2 = '0';
+    }
+    if (b2 == ""){
+      b2 = '0';
+    }
+  }
   String result;
   switch(fn){
     case 0: result = mod(a1, b1);
@@ -47,17 +92,13 @@ String formatComplex(String ans){
 }
 
 String mod(String a, String b){
-  if(a == "" || b == ""){
-    return "CHECK INPUT";
-  }
+
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return formatNumber(c.module.toDouble().toStringAsFixedNoZero(precision));
 }
 
 String add(String a1, String b1, String a2, String b2){
-  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
-    return "CHECK INPUT";
-  }
+
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -68,9 +109,7 @@ String add(String a1, String b1, String a2, String b2){
 }
 
 String sub(String a1, String b1, String a2, String b2){
-  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
-    return "CHECK INPUT";
-  }
+
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -81,25 +120,19 @@ String sub(String a1, String b1, String a2, String b2){
 }
 
 String power(String a, String b, int power){
-  if(a == "" || b == ""){
-    return "CHECK INPUT";
-  }
+
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return formatComplex(c.pow(power).toString());
 }
 
 String arg(String a, String b){
-  if(a == "" || b == ""){
-    return "CHECK INPUT";
-  }
+
   final c = Complex(re: double.parse(a), im: double.parse(b));
   return c.argument.toDouble().toStringAsFixedNoZero(precision);
 }
 
 String roots(String a, String b, int power){
-  if(a == "" || b == ""){
-    return "CHECK INPUT";
-  }
+
   final c = Complex(re: double.parse(a), im: double.parse(b));
   List roots = c.rootsOf(power);
   if(power == 2){
@@ -112,9 +145,7 @@ String roots(String a, String b, int power){
 }
 
 String mul(String a1, String b1, String a2, String b2) {
-  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
-    return "CHECK INPUT";
-  }
+
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
@@ -126,9 +157,7 @@ String mul(String a1, String b1, String a2, String b2) {
 
 
 String div(String a1, String b1, String a2, String b2) {
-  if(a1 == "" || b1 == "" || a2 == "" || b2 == ""){
-    return "CHECK INPUT";
-  }
+
   double A1 = double.parse(a1);
   double B1 = double.parse(b1);
   double A2 = double.parse(a2);
