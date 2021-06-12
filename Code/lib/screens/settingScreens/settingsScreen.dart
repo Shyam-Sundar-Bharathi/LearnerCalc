@@ -65,10 +65,19 @@ class _settingsState extends State<settings> {
 
   //Did you know long press, changes the colors of cards. Just for fun.
   void changeCardColor(){
+    hiddenFeatureActivated = true;
     timer = Timer.periodic(Duration(milliseconds: 500), (Timer t){
       setState(() {
         mySettingsCardColor = Colors.primaries[Random().nextInt(Colors.primaries.length)];
       });
+    });
+  }
+
+  void stopChangeCardColor(){
+    timer.cancel();
+    setState(() {
+      mySettingsCardColor = Colors.grey[200];
+      hiddenFeatureActivated = false;
     });
   }
 
@@ -262,10 +271,10 @@ class _settingsState extends State<settings> {
                       padding: EdgeInsets.all(15),
                       child: TextButton.icon(
                         onLongPress: (){
-                          changeCardColor();
+                          hiddenFeatureActivated ? stopChangeCardColor() : changeCardColor();
                           setState(() {
                             myDidYouKnowText = "How did you know ?";
-                            hiddenFeatureActivated = true;
+                            // hiddenFeatureActivated = true;
                           });
                         },
                         onPressed: (){

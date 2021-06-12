@@ -24,14 +24,14 @@ class _complexState extends State<complex> {
     );
   }
 
-  Widget myComplexTextField(TextEditingController cont){
+  Widget myComplexTextField(TextEditingController cont,{bool lastBox = false}){
     return Expanded(
       flex: 2,
       child: TextField(
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
-        textInputAction: TextInputAction.next,
+        textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
         enableInteractiveSelection: true,
         onSubmitted: (text){},
         inputFormatters: [
@@ -100,7 +100,7 @@ class _complexState extends State<complex> {
                     myComplexText('B : ', fontSize: 30),
                     myComplexTextField(a2),
                     myComplexText(' +'),
-                    myComplexTextField(b2),
+                    myComplexTextField(b2, lastBox: true),
                     myComplexText(' i'),
                   ],
                 ),

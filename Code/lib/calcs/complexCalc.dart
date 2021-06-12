@@ -1,3 +1,4 @@
+import 'package:dream_calc/calcs/trigCalc.dart';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
@@ -128,7 +129,7 @@ String power(String a, String b, int power){
 String arg(String a, String b){
 
   final c = Complex(re: double.parse(a), im: double.parse(b));
-  return c.argument.toDouble().toStringAsFixedNoZero(precision);
+  return toDegree(c.argument.toDouble()).toStringAsFixedNoZero(precision) + '°';
 }
 
 String roots(String a, String b, int power){

@@ -35,7 +35,7 @@ class _linearOneState extends State<linearOne> {
                   children: [
                     myLinearExpandedTextField(a),
                     myLinearText('   x   + '),
-                    myLinearExpandedTextField(b),
+                    myLinearExpandedTextField(b, lastBox: true),
                     myLinearText(' =   0 '),
                   ],
                 ),

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 
-Widget myExpandedTextField(TextEditingController a) {
+Widget myExpandedTextField(TextEditingController a, {bool lastBox = false}) {
   return Expanded(
     flex: 1,
     child: TextField(
@@ -12,7 +12,7 @@ Widget myExpandedTextField(TextEditingController a) {
       controller: a,
       keyboardType: TextInputType.number,
       enableInteractiveSelection: true,
-      textInputAction: TextInputAction.next,
+      textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
       inputFormatters: [
         FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
       ],
@@ -150,7 +150,7 @@ class _matrixFourState extends State<matrixFour> {
                           myExpandedTextField(a4),
                           myExpandedTextField(b4),
                           myExpandedTextField(c4),
-                          myExpandedTextField(d4),
+                          myExpandedTextField(d4, lastBox: true),
                         ],
                       ),
                       SizedBox(height: 20,),

@@ -13,14 +13,14 @@ class vector extends StatefulWidget {
 
 class _vectorState extends State<vector> {
 
-  Widget myVectorTextField(TextEditingController cont){
+  Widget myVectorTextField(TextEditingController cont, {bool lastBox = false}){
     return Expanded(
       flex: 3,
       child: TextField(
           textAlign: TextAlign.center,
           controller: cont,
           keyboardType: TextInputType.number,
-          textInputAction: TextInputAction.next,
+          textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
           enableInteractiveSelection: true,
           onSubmitted: (text){},
           inputFormatters: [
@@ -111,7 +111,7 @@ class _vectorState extends State<vector> {
                     myVectorText(' i +'),
                     myVectorTextField(b2),
                     myVectorText(' j +'),
-                    myVectorTextField(c2),
+                    myVectorTextField(c2, lastBox: true),
                     myVectorText(' k  '),
                   ],
                 ),

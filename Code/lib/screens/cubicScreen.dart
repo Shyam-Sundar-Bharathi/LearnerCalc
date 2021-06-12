@@ -24,14 +24,14 @@ class _cubicCalcState extends State<cubicCalc> {
     );
   }
 
-  Widget myCubicTextField(TextEditingController cont, {String regExp = '[0-9.-]'}){
+  Widget myCubicTextField(TextEditingController cont, {String regExp = '[0-9.-]', bool lastBox = false}){
     return Expanded(
       flex: 1,
       child: TextField(
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
-        textInputAction: TextInputAction.next,
+        textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
         enableInteractiveSelection: true,
         inputFormatters: [
           FilteringTextInputFormatter(RegExp(regExp), allow: true),
@@ -48,12 +48,6 @@ class _cubicCalcState extends State<cubicCalc> {
           child: Container(
             alignment: Alignment.center,
             height: 70,
-            // decoration: BoxDecoration(
-            //   border: Border.all(),
-            //   color: Colors.white,
-            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
-            //                  bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
-            // ),
             child: FittedBox(
               child: Text(
                 item,
@@ -69,12 +63,6 @@ class _cubicCalcState extends State<cubicCalc> {
           flex: 3,
           child: Container(
             height: 70,
-            // decoration: BoxDecoration(
-            //   border: Border.all(),
-            //   color: Colors.white,
-            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
-            //                  bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
-            // ),
             child: Center(
               child: Text(
                 answer,
@@ -148,7 +136,7 @@ class _cubicCalcState extends State<cubicCalc> {
                           SizedBox(width: 20,),
                           myCubicText('d : '),
                           SizedBox(width: 5,),
-                          myCubicTextField(userInputD, regExp: '[0-9-]'),
+                          myCubicTextField(userInputD, regExp: '[0-9-]', lastBox: true),
                           SizedBox(width: 5,)
                         ],
                       ),

@@ -23,12 +23,14 @@ extension Ext on String {
   String toStringAsFixedNoZero(int precision) {
     double num = double.parse(this.replaceAll(',', ''));
     String result = double.parse(num.toStringAsFixed(precision)).toString();
+
     if(num.toDouble() != 0 && double.parse(result) == 0){
       while(num.toDouble()!= 0 && double.parse(result) == 0 && precision < 6){
         precision++;
         result = double.parse(num.toStringAsFixed(precision)).toString();
       }
     }
+
     int length = result.length;
     if(result.substring(length-2,length) == '.0'){
       return result.substring(0,length-2);

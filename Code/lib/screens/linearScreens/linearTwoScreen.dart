@@ -50,7 +50,7 @@ class _linearTwoState extends State<linearTwo> {
                     myLinearText(' x   + '),
                     myLinearExpandedTextField(b2),
                     myLinearText(' y = '),
-                    myLinearExpandedTextField(c2),
+                    myLinearExpandedTextField(c2, lastBox: true),
                   ],
                 ),
                   SizedBox(height: 20,),

@@ -69,7 +69,7 @@ class _matrixTwoState extends State<matrixTwo> {
                 Row(
                   children: [
                     myExpandedTextField(a2),
-                    myExpandedTextField(b2),
+                    myExpandedTextField(b2, lastBox: true),
                   ],
                 ),
                 SizedBox(height: 20,),

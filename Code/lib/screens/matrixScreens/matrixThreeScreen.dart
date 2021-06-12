@@ -80,7 +80,7 @@ class _matrixThreeState extends State<matrixThree> {
                         children: [
                           myExpandedTextField(a3),
                           myExpandedTextField(b3),
-                          myExpandedTextField(c3),
+                          myExpandedTextField(c3, lastBox: true),
                         ],
                       ),
                       SizedBox(height: 20,),

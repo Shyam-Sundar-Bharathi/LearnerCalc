@@ -51,12 +51,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
           child: Container(
             alignment: Alignment.center,
             height: 70,
-            // decoration: BoxDecoration(
-            //   border: Border.all(),
-            //   color: Colors.white,
-            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topLeft: Radius.circular(10)) :
-            //                  bottomBlock == 1 ? BorderRadius.only(bottomLeft: Radius.circular(10)) : BorderRadius.zero,
-            // ),
             child: FittedBox(
               child: Text(
                 item,
@@ -72,12 +66,6 @@ class _quadraticCalcState extends State<quadraticCalc> {
           flex: 3,
           child: Container(
             height: 70,
-            // decoration: BoxDecoration(
-            //   border: Border.all(),
-            //   color: Colors.white,
-            //   borderRadius:  topBlock == 1 ? BorderRadius.only(topRight: Radius.circular(10)) :
-            //                  bottomBlock == 1 ? BorderRadius.only(bottomRight: Radius.circular(10)) : BorderRadius.zero,
-            // ),
             child: Center(
               child: FittedBox(
                 child: Text(

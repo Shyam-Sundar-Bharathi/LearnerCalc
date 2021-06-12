@@ -8,30 +8,31 @@ String displayConvert(String unitElement, String unitChoiceOne, String unitChoic
   double input = 0;
   double answer = 0;
   input = double.parse(userInput);
+
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);
 
   if(unitElement.toLowerCase() == 'length'){
-    answer = (frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, 10));
+    answer = (frommeter(tometer(unitChoiceOne, input), unitChoiceTwo));
   }
 
   if(unitElement.toLowerCase() == 'mass')
-    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'plane angle')
-    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'speed')
-    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'energy')
-    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'area')
-    answer = fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'volume')
-    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, 10);
+    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo);
 
   return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(10));
 }
@@ -42,33 +43,35 @@ String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, S
   userInput = userInput.replaceAll(',', '');
   double input = 0;
   double answer = 0;
+  int unitPrecision = 10;
   input = double.parse(userInput);
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);
 
   if(unitElement.toLowerCase() == 'length'){
-    answer = frommeter(tometer(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = frommeter(tometer(unitChoiceOne, input), unitChoiceTwo);
   }
 
   if(unitElement.toLowerCase() == 'mass')
-    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'plane angle')
-    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'speed')
-    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'energy')
-    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'area')
-    answer =  fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer =  fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'volume')
-    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo, precision);
+    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo);
 
-   return formatNumber(answer.toStringAsFixedNoZero(precision));
+
+  return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(5));
 }
 
 double tocumeter(String unitChoiceOne, double userInput){
@@ -87,7 +90,7 @@ double tocumeter(String unitChoiceOne, double userInput){
   return 0;
 }
 
-double fromcumeter(double ans1, String unitChoiceTwo, int precision){
+double fromcumeter(double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'cubic meter')
     return ans1;
   if(unitChoiceTwo == 'liter')
@@ -123,7 +126,7 @@ double tosqmeter(String unitChoiceOne, double userInput){
   return 0;
 }
 
-double fromsqmeter(double ans1, String unitChoiceTwo, int precision){
+double fromsqmeter(double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'sq. meter')
     return ans1;
   if(unitChoiceTwo == 'sq. foot')
@@ -161,7 +164,7 @@ double tojoule(String unitChoiceOne, double userInput){
   return 0;
 }
 
-double fromjoule(double ans1, String unitChoiceTwo, int precision){
+double fromjoule(double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'joule')
     return ans1;
   if(unitChoiceTwo == 'calorie')
@@ -191,7 +194,7 @@ double tomps (String unitChoiceOne, double userInput){
   return 0;
 }
 
-double frommps (double ans1, String unitChoiceTwo, int precision){
+double frommps (double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'meter per second')
     return ans1;
   if(unitChoiceTwo == 'kilometer per hour')
@@ -217,7 +220,7 @@ double todegree(String unitChoiceOne, double userInput){
   return 0;
 }
 
-double fromdegree (double ans1, String unitChoiceTwo, int precision){
+double fromdegree (double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'degree')
     return ans1;
   if(unitChoiceTwo == 'radian')
@@ -249,7 +252,7 @@ double togram (String unitChoiceOne, double userInput){
   return 0;
 }
 
-double fromgram (double ans1, String unitChoiceTwo, int precision){
+double fromgram (double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'gram')
     return ans1;
   if (unitChoiceTwo == 'tonne')
@@ -287,7 +290,7 @@ double tometer(String unitChoiceOne, double userInput){
   return 0;
 }
 
-double frommeter(double ans1, String unitChoiceTwo, int precision){
+double frommeter(double ans1, String unitChoiceTwo){
   if(unitChoiceTwo == 'meter')
     return ans1;
   if (unitChoiceTwo == 'centimeter')

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/globalWidgets.dart';
 
-Widget myLinearExpandedTextField(TextEditingController a){
+Widget myLinearExpandedTextField(TextEditingController a, {bool lastBox = false}){
   return Expanded(
     flex: 1,
     child: TextField(
@@ -12,7 +12,7 @@ Widget myLinearExpandedTextField(TextEditingController a){
       controller: a,
       keyboardType: TextInputType.number,
       enableInteractiveSelection: true,
-      textInputAction: TextInputAction.next,
+      textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
       inputFormatters: [
         FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
       ],
@@ -123,7 +123,7 @@ class _linearThreeState extends State<linearThree> {
                     myLinearText(' y + '),
                     myLinearExpandedTextField(c3),
                     myLinearText(' z =  '),
-                    myLinearExpandedTextField(d3),
+                    myLinearExpandedTextField(d3, lastBox: true),
                   ],
                 ),
                 SizedBox(height: 20,),
