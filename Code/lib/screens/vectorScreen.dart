@@ -20,6 +20,7 @@ class _vectorState extends State<vector> {
           textAlign: TextAlign.center,
           controller: cont,
           keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.next,
           enableInteractiveSelection: true,
           onSubmitted: (text){},
           inputFormatters: [

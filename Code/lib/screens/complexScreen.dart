@@ -31,6 +31,7 @@ class _complexState extends State<complex> {
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
+        textInputAction: TextInputAction.next,
         enableInteractiveSelection: true,
         onSubmitted: (text){},
         inputFormatters: [

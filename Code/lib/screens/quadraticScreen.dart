@@ -33,6 +33,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
           textAlign: TextAlign.center,
           controller: cont,
           keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.next,
           enableInteractiveSelection: true,
           inputFormatters: [
             FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),

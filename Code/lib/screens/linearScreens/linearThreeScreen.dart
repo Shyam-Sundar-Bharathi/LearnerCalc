@@ -12,7 +12,7 @@ Widget myLinearExpandedTextField(TextEditingController a){
       controller: a,
       keyboardType: TextInputType.number,
       enableInteractiveSelection: true,
-      onSubmitted: (text){},
+      textInputAction: TextInputAction.next,
       inputFormatters: [
         FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
       ],

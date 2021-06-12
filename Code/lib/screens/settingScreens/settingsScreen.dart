@@ -83,6 +83,9 @@ class _settingsState extends State<settings> {
         });
 
         if(hiddenFeatureActivated){
+          setState(() {
+            hiddenFeatureActivated = false;
+          });
           timer.cancel();
         }
 

@@ -31,6 +31,7 @@ class _cubicCalcState extends State<cubicCalc> {
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
+        textInputAction: TextInputAction.next,
         enableInteractiveSelection: true,
         inputFormatters: [
           FilteringTextInputFormatter(RegExp(regExp), allow: true),

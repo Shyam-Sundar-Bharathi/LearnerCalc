@@ -17,6 +17,7 @@ class _percentCalcState extends State<percentCalc> {
           onChanged: func,
           controller: cont,
           keyboardType: TextInputType.number,
+          textInputAction: TextInputAction.next,
           textAlign: TextAlign.center,
           enableInteractiveSelection: true,
           inputFormatters: [

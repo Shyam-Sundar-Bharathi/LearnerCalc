@@ -135,7 +135,7 @@ String roots(String a, String b, int power){
 
   if(double.parse(b) == 0 && double.parse(a)<=0 && power == 2){
     double root = pow(-double.parse(a),0.5);
-    return "√A = 0 + ${root}i\n√A = 0 - ${root}i";
+    return "√A = 0 + ${root.toStringAsFixedNoZero(precision)}i\n√A = 0 - ${root.toStringAsFixedNoZero(precision)}i";
   }
   final c = Complex(re: double.parse(a), im: double.parse(b));
   List roots = c.rootsOf(power);
