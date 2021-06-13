@@ -61,7 +61,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                     FilteringTextInputFormatter(RegExp('[0-9,]'), allow: true),
                   ],
                   decoration: InputDecoration(
-                    labelText: "Enter comma separated numbers",
+                    labelText: "Enter comma separated positive integers",
                     labelStyle: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -85,7 +85,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                     FilteringTextInputFormatter(RegExp('[0-9]'), allow: true),
                   ],
                   decoration: InputDecoration(
-                    labelText: "Enter number",
+                    labelText: "Enter a positive integer",
                     labelStyle: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -113,7 +113,8 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            result == "CHECK INPUT" ? result :
+                            result == "CHECK INPUT" || result == "0 CAN NOT BE AN INPUT." ?
+                            result :
                             choice == " " ? result :
                             "$choice = $result",
                             style: TextStyle(

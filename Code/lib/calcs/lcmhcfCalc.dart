@@ -27,10 +27,13 @@ double gcd(double a, double b) {
 }
 
 String primeFactors(String userInput){
-  if(userInput == "") {
+  if(userInput == "" || double.parse(userInput) == 0) {
     return 'CHECK INPUT';
   }
   String factor = '';
+  if(double.parse(userInput) == 1){
+    return "NO PRIME FACTORS.";
+  }
   double number = double.parse(userInput);
   while (number % 2 == 0)
   {
@@ -57,8 +60,11 @@ String primeFactors(String userInput){
 }
 
 String factors(String userInput){
-  if(userInput == "")
+  if(userInput == "" || double.parse(userInput) == 0)
     return 'CHECK INPUT';
+  if(double.parse(userInput) == 1){
+    return userInput;
+  }
   String factor = "1, ";
   double number = double.parse(userInput);
   for(int i=2; i<=number/2; i++){
@@ -79,6 +85,9 @@ String lcm(String userInput){
   int iter= 0;
   for(iter=0; iter<sArray.length; iter++)
     iArray.add(double.parse(sArray[iter]));
+  if(iArray.contains(0)){
+    return "0 CAN NOT BE AN INPUT.";
+  }
   iArray.sort();
   lcm = iArray[0];
   for(iter = 1; iter<iArray.length; iter++){
@@ -102,6 +111,9 @@ String hcf (String userInput) {
   for(iter=0; iter<sArray.length; iter++)
   {
     iArray.add(int.parse(sArray[iter]));
+  }
+  if(iArray.contains(0)){
+    return "0 CAN NOT BE AN INPUT.";
   }
   iArray.sort();
   hcf = iArray[0];
@@ -133,7 +145,7 @@ String isPrime(String userInput){
   if(userInput == "")
     return 'CHECK INPUT';
   if(userInput == "1"){
-    return '1 NEITHER PRIME NOR COMPOSITE.';
+    return '1 IS NEITHER PRIME NOR COMPOSITE.';
   }
   final c = Integer(int.parse(userInput));
   return c.isPrime() ? '$userInput IS A PRIME NUMBER.' : '$userInput IS NOT A PRIME NUMBER.';

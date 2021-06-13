@@ -1281,8 +1281,8 @@ kotlin.collections.MapsKt
 androidx.core.view.NestedScrollingChild3
 io.flutter.BuildConfig
 androidx.core.content.res.TypedArrayUtils
-kotlin.collections.ArraysKt___ArraysKt
 kotlin.NumbersKt__BigDecimalsKt
+kotlin.collections.ArraysKt___ArraysKt
 kotlin.UInt$Companion
 kotlin.jvm.functions.Function3
 androidx.fragment.app.FragmentContainer
@@ -1522,8 +1522,8 @@ io.flutter.plugin.platform.PlatformViewRegistryImpl:
     public boolean registerViewFactory(java.lang.String,io.flutter.plugin.platform.PlatformViewFactory)
 androidx.core.app.ServiceCompat$StopForegroundFlags
 androidx.loader.R$style
-kotlin.UIntArray$Iterator
 kotlin.collections.ArraysKt
+kotlin.UIntArray$Iterator
 androidx.core.net.ConnectivityManagerCompat
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$1
 kotlin.text.MatcherMatchResult$groupValues$1
@@ -2628,8 +2628,8 @@ androidx.customview.widget.ExploreByTouchHelper$1
 androidx.core.graphics.PathSegment
 androidx.core.app.SharedElementCallback
 androidx.core.graphics.drawable.IconCompat$IconType
-kotlin.io.AccessDeniedException
 kotlin.UnsignedKt
+kotlin.io.AccessDeniedException
 io.flutter.plugins.urllauncher.BuildConfig
 android.support.v4.os.IResultReceiver
 androidx.core.graphics.drawable.RoundedBitmapDrawable
