@@ -8,7 +8,7 @@ List<String> quadCalc(String A, String B, String C){
     return ["CHECK INPUT","CHECK INPUT","CHECK INPUT"];
   }
   if(A == "" || double.parse(A) == 0){
-    return ["a CAN'T BE 0.","a CAN'T BE 0","a CAN'T BE 0"];
+    return ["a CAN'T BE 0","a CAN'T BE 0","a CAN'T BE 0"];
   }
   if(B == ""){
     B = '0';

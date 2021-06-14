@@ -76,6 +76,17 @@ class _didYouKnowState extends State<didYouKnow> {
                 ),
                 SizedBox(height: 20,),
                 myDidYouKnowCard(
+                  child: Text(
+                    "Higher precision means more numbers after the decimal point and hence greater accuracy of the answer. However, LearnerCalc supersedes your setting and automatically adjusts precision when necessary to avoid null answers.",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                myDidYouKnowCard(
                   child: RichText(
                     text: TextSpan(
                       children: [

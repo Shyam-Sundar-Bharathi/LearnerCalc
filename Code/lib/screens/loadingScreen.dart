@@ -18,9 +18,12 @@ class _loadingState extends State<loading> {
     final precisionValue = prefs.getInt(precisionKey) ?? 4;
     final colorKey = 'colorTheme';
     final colorValue = prefs.getString(colorKey) ?? 'GRAYSCALE';
+    final nameKey = 'userName';
+    final nameValue = prefs.getString(nameKey) ?? '';
     setState(() {
       precision = precisionValue;
       colorTheme = colorValue;
+      userName = nameValue;
     });
     Navigator.pushReplacementNamed(context, '/genScreen');
   }

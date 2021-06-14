@@ -19,18 +19,18 @@ int sliderValue =  precision;
 int messageValue = 0;
 bool hiddenFeatureActivated = false;
 
-List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED','BLUEGREY'];
+List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED','BLUEGRAY'];
 
 Map alertMessage = {
   0 : " ",
-  1 : " Don't ask us if you lose marks though 😐 ",
-  2 : " Good enough ",
-  3 : " Yep. This is ideal. ",
-  4 : " Alright. Precise results on the way ",
-  5 : " Alright. Precise results on the way ",
+  1 : " You like to take risks. ",
+  2 : " Good enough. ",
+  3 : " Yes. This is ideal. ",
+  4 : " Alright. Precise results on the way. ",
+  5 : " Alright. Precise results on the way. ",
   6 : " Alright. Precise results on the way. ",
-  7 : " Woah. So you're a scientist ",
-  8 : " Woah. So you're a scientist ",
+  7 : " Woah. So you're a scientist. ",
+  8 : " Woah. So you're a scientist. ",
   9 : " NASA wants to know your location. ",
   10 : " NASA wants to know your location. ",
 };
@@ -61,6 +61,7 @@ class _settingsState extends State<settings> {
     myDidYouKnowText = "Did you know ?";
     mySettingsCardColor = Colors.grey[200];
     hiddenFeatureActivated = false;
+    userNameController.text = userName;
   }
 
   //Did you know long press, changes the colors of cards. Just for fun.
@@ -80,6 +81,8 @@ class _settingsState extends State<settings> {
       hiddenFeatureActivated = false;
     });
   }
+
+  TextEditingController userNameController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -106,9 +109,65 @@ class _settingsState extends State<settings> {
         appBar: myAppBar("SETTINGS"),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
+            padding: EdgeInsets.all(15),
             child: Column(
               children: [
+                mySettingsCard(
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        FittedBox(
+                          child: Text(
+                            "Give Learner your good name",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        TextField(
+                          textAlign: TextAlign.center,
+                          autocorrect: false,
+                          controller: userNameController,
+                          cursorColor: colors[colorTheme][11],
+                          onSubmitted: (text){
+                            setState(() {
+                              userNameController.text = userNameController.text.toUpperCase();
+                            });
+                          },
+                          keyboardType: TextInputType.visiblePassword,
+                          maxLength: 10,
+                          enableInteractiveSelection: true,
+                          inputFormatters: [
+                            FilteringTextInputFormatter(RegExp('[a-zA-Z]'), allow: true),
+                          ],
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: colors[colorTheme][9],
+                            decoration: TextDecoration.none
+                          ),
+
+                          decoration: InputDecoration(
+                            counterText: "",
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1.5, color: colors[colorTheme][5]),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 1.5, color: colors[colorTheme][5]),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ),
+                SizedBox(height: 20,),
                 mySettingsCard(
                   child: Container(
                   padding: EdgeInsets.all(15),
@@ -146,6 +205,7 @@ class _settingsState extends State<settings> {
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
+                          color: colors[colorTheme][9]
                         ),
                       ),
                       Text(
@@ -156,15 +216,6 @@ class _settingsState extends State<settings> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 5,),
-                      Text(
-                        "Higher precision means more numbers after the decimal point and greater accuracy of the answer."
-                            "However, Learner automatically adjusts precision, if necessary, to avoid a zero answer.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 10,
-                        ),
-                      )
                     ],
                   ),
                     ),
@@ -224,6 +275,7 @@ class _settingsState extends State<settings> {
                       Navigator.pop(context, {
                         'precision': sliderValue,
                         'colorTheme' : dropDownColor,
+                        'userName' : userNameController.text.toUpperCase()
                       }
                       );
                     },
@@ -273,7 +325,7 @@ class _settingsState extends State<settings> {
                         onLongPress: (){
                           hiddenFeatureActivated ? stopChangeCardColor() : changeCardColor();
                           setState(() {
-                            myDidYouKnowText = "How did you know ?";
+                            myDidYouKnowText = hiddenFeatureActivated? "How did you know ?" : "Did you know ?";
                             // hiddenFeatureActivated = true;
                           });
                         },

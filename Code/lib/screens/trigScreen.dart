@@ -122,7 +122,6 @@ class _trigonometryState extends State<trigonometry> {
   }
 
   String checkAnswer(double answer){
-    print(answer);
     if(answer == 1248){
       return "Infinity";
     }

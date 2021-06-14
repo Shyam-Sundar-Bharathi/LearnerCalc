@@ -12,6 +12,7 @@ class home extends StatefulWidget {
 dynamic result;
 int precision = 0;
 String colorTheme = '';
+String userName = '';
 
 Map colors = {
   'BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
@@ -21,7 +22,7 @@ Map colors = {
   'ORANGE' : [Colors.white, Colors.yellow[100], Colors.yellow[200],Colors.yellow[300], Colors.yellow[400], Colors.yellow[500], Colors.yellow[600], Colors.yellow[700], Colors.yellow[800], Colors.yellow[900], Colors.black, Colors.yellow[900]],
   'PURPLE' : [Colors.white, Colors.purple[100], Colors.purple[200],Colors.purple[300], Colors.purple[400], Colors.purple[500], Colors.purple[600], Colors.purple[700], Colors.purple[800], Colors.purple[900], Colors.black, Colors.purpleAccent],
   'RED' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
-  'BLUEGREY' : [Colors.white, Colors.blueGrey[100], Colors.blueGrey[200],Colors.blueGrey[300], Colors.blueGrey[400], Colors.blueGrey[500], Colors.blueGrey[600], Colors.blueGrey[700], Colors.blueGrey[800], Colors.blueGrey[900], Colors.black, Colors.blueGrey[700]],
+  'BLUEGRAY' : [Colors.white, Colors.blueGrey[100], Colors.blueGrey[200],Colors.blueGrey[300], Colors.blueGrey[400], Colors.blueGrey[500], Colors.blueGrey[600], Colors.blueGrey[700], Colors.blueGrey[800], Colors.blueGrey[900], Colors.black, Colors.blueGrey[700]],
 };
 
 class _homeState extends State<home> {
@@ -35,6 +36,9 @@ class _homeState extends State<home> {
     final colorKey = 'colorTheme';
     final colorValue = colorTheme;
     prefs.setString(colorKey, colorValue);
+    final nameKey = 'userName';
+    final nameValue = userName;
+    prefs.setString(nameKey, nameValue);
   }
 
   Map routes = {
@@ -62,14 +66,16 @@ class _homeState extends State<home> {
       backgroundColor: colors[colorTheme][1],
       appBar: AppBar(
         backgroundColor: colors[colorTheme][9],
-        title: Text(
-          "LEARNER",
-          style: TextStyle(
-            fontFamily: "Times",
-            fontSize: 30,
-            fontWeight: FontWeight.w900,
-            color: Colors.white
-            //colors[colorTheme][1]
+        title: FittedBox(
+          child: Text(
+            userName == "" ? "LEARNER" : "LEARNER $userName",
+            style: TextStyle(
+              fontFamily: "Times",
+              fontSize: 25,
+              fontWeight: FontWeight.w900,
+              color: Colors.white
+              //colors[colorTheme][1]
+            ),
           ),
         ),
         centerTitle: true,
@@ -83,6 +89,7 @@ class _homeState extends State<home> {
             setState(() {
               precision = result['precision'];
               colorTheme = result['colorTheme'];
+              userName = result['userName'];
               saveToDevice();
             });
           },
