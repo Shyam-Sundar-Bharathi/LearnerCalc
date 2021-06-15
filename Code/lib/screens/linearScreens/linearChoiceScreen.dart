@@ -23,7 +23,7 @@ class _linearChoiceState extends State<linearChoice> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
       backgroundColor: colors[colorTheme][2],
-      appBar: myAppBar("LINEAR EQUATION"),
+      appBar: myAppBar("LINEAR EQUATIONS"),
       body: Center(
         child: ListView.builder(
             shrinkWrap: true,

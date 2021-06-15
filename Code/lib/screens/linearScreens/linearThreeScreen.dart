@@ -83,7 +83,7 @@ class _linearThreeState extends State<linearThree> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("LINEAR EQUATION"),
+        appBar: myAppBar("LINEAR EQUATIONS"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),

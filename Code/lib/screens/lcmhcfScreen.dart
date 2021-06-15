@@ -57,13 +57,28 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   controller: userInput,
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
+                  textAlign: TextAlign.center,
+                  cursorColor: Colors.black,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,]'), allow: true),
                   ],
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500
+                  ),
                   decoration: InputDecoration(
                     labelText: "Enter comma separated positive integers",
                     labelStyle: TextStyle(
+                      color: Colors.black,
                       fontSize: 20.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
@@ -81,13 +96,28 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   controller: userInputf,
                   keyboardType: TextInputType.number,
                   enableInteractiveSelection: true,
+                  cursorColor: Colors.black,
+                  textAlign: TextAlign.center,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9]'), allow: true),
                   ],
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500
+                  ),
                   decoration: InputDecoration(
                     labelText: "Enter a positive integer",
                     labelStyle: TextStyle(
+                      color: Colors.black,
                       fontSize: 20.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),

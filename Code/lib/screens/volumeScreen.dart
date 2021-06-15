@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/calcs/volumeCalc.dart';
@@ -43,15 +44,31 @@ class _volumeCalcState extends State<volumeCalc> {
               children: [
                 TextField(
                   controller: userInput,
+                  textAlign: TextAlign.center,
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),
                   ],
+                  cursorColor: Colors.black,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500
+                  ),
                   decoration: InputDecoration(
                     labelText: "${disp[dropDownValue]}",
                     labelStyle: TextStyle(
+                      color: Colors.black,
                       fontSize: 20.0,
+                    ),
+                    alignLabelWithHint: true,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),

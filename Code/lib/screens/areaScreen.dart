@@ -59,13 +59,28 @@ class _areaCalcState extends State<areaCalc> {
                   controller: userInput,
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
+                  cursorColor: Colors.black,
+                  textAlign: TextAlign.center,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),
                   ],
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500
+                  ),
                   decoration: InputDecoration(
                     labelText: "${disp[dropDownValue]}",
                     labelStyle: TextStyle(
+                      color: Colors.black,
                       fontSize: 20.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),

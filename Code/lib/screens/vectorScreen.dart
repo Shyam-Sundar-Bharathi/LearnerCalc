@@ -86,7 +86,7 @@ class _vectorState extends State<vector> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("VECTOR"),
+        appBar: myAppBar("VECTORS"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),

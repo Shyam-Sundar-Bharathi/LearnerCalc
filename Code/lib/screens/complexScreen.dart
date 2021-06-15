@@ -79,7 +79,7 @@ class _complexState extends State<complex> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("COMPLEX"),
+        appBar: myAppBar("COMPLEX NUMBERS"),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(10),

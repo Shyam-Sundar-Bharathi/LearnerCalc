@@ -1,52 +1,19 @@
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
-String displayConvert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
+String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput, {int display = 0}){
   if(userInput == "")
     return "";
   userInput = userInput.replaceAll(',', '');
   double input = 0;
   double answer = 0;
-  input = double.parse(userInput);
-
-  if(unitElement.toLowerCase() == "temperature")
-    return temperature(unitChoiceOne, unitChoiceTwo, userInput);
-
-  if(unitElement.toLowerCase() == 'length'){
-    answer = (frommeter(tometer(unitChoiceOne, input), unitChoiceTwo));
-  }
-
-  if(unitElement.toLowerCase() == 'mass')
-    answer = fromgram(togram(unitChoiceOne, input), unitChoiceTwo);
-
-  if(unitElement.toLowerCase() == 'plane angle')
-    answer = fromdegree(todegree(unitChoiceOne, input), unitChoiceTwo);
-
-  if(unitElement.toLowerCase() == 'speed')
-    answer = frommps(tomps(unitChoiceOne, input), unitChoiceTwo);
-
-  if(unitElement.toLowerCase() == 'energy')
-    answer = fromjoule(tojoule(unitChoiceOne, input), unitChoiceTwo);
-
-  if(unitElement.toLowerCase() == 'area')
-    answer = fromsqmeter(tosqmeter(unitChoiceOne, input), unitChoiceTwo);
-
-  if(unitElement.toLowerCase() == 'volume')
-    answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo);
-
-  return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(10));
-}
-
-String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput){
-  if(userInput == "")
-    return "";
-  userInput = userInput.replaceAll(',', '');
-  double input = 0;
-  double answer = 0;
-  int unitPrecision = 10;
+  int unitPrecision = display == 0 ? 5 : 10;
   input = double.parse(userInput);
   if(unitElement.toLowerCase() == "temperature")
     return temperature(unitChoiceOne, unitChoiceTwo, userInput);
+
+  if(unitElement.toLowerCase() == "time")
+    answer = fromsecond(tosecond(unitChoiceOne, input), unitChoiceTwo);
 
   if(unitElement.toLowerCase() == 'length'){
     answer = frommeter(tometer(unitChoiceOne, input), unitChoiceTwo);
@@ -70,8 +37,29 @@ String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, S
   if(unitElement.toLowerCase() == 'volume')
     answer = fromcumeter(tocumeter(unitChoiceOne, input), unitChoiceTwo);
 
+  return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(unitPrecision));
+}
 
-  return answer > 1 ? formatNumber(answer.toStringAsFixedNoZero(precision)) : formatNumber(answer.toStringAsFixedNoZero(5));
+double tosecond(String unitChoiceOne, double userInput){
+  if(unitChoiceOne == 'second')
+    return userInput;
+  if(unitChoiceOne == 'minute')
+    return userInput*60;
+  if(unitChoiceOne == 'hour')
+    return userInput*3600;
+  if(unitChoiceOne == 'day')
+    return userInput*86400;
+}
+
+double fromsecond(double ans1, String unitChoiceTwo){
+  if(unitChoiceTwo == 'second')
+    return ans1;
+  if(unitChoiceTwo == 'minute')
+    return ans1/60;
+  if(unitChoiceTwo == 'hour')
+    return ans1/3600;
+  if(unitChoiceTwo == 'day')
+    return ans1/86400;
 }
 
 double tocumeter(String unitChoiceOne, double userInput){
@@ -119,8 +107,14 @@ double tosqmeter(String unitChoiceOne, double userInput){
     return userInput*2590000;
   if(unitChoiceOne == 'sq. inch')
     return userInput*0.00064516;
+  if(unitChoiceOne == 'sq. yard')
+    return userInput/1.1959900463011;
+  if(unitChoiceOne == 'ground')
+    return userInput*222.9654403567;
+  if(unitChoiceOne == 'cent')
+    return userInput/0.024710538146717;
   if(unitChoiceOne == 'acre')
-    return userInput*4046.86;
+    return userInput/0.0002471053815;
   if(unitChoiceOne == 'hectare')
     return userInput*10000;
   return 0;
@@ -139,8 +133,14 @@ double fromsqmeter(double ans1, String unitChoiceTwo){
     return ans1/2590000;
   if(unitChoiceTwo == 'sq. inch')
     return ans1/0.00064516;
+  if(unitChoiceTwo == 'sq. yard')
+    return ans1*1.1959900463011;
+  if(unitChoiceTwo == 'ground')
+    return ans1/222.9654403567;
+  if(unitChoiceTwo == 'cent')
+    return ans1*0.024710538146717;
   if(unitChoiceTwo == 'acre')
-    return ans1/4046.86;
+    return ans1*0.0002471053815;
   if(unitChoiceTwo == 'hectare')
     return ans1/10000;
   return 0;
@@ -283,7 +283,7 @@ double tometer(String unitChoiceOne, double userInput){
     return userInput*1609.34;
   if (unitChoiceOne == 'millimeter')
     return userInput/1000;
-  if (unitChoiceOne == 'feet')
+  if (unitChoiceOne == 'foot')
     return userInput*0.3048;
   if (unitChoiceOne == 'yard')
     return userInput/1.09361;
@@ -303,7 +303,7 @@ double frommeter(double ans1, String unitChoiceTwo){
     return ans1/1609.34;
   if (unitChoiceTwo == 'millimeter')
     return ans1*1000;
-  if (unitChoiceTwo == 'feet')
+  if (unitChoiceTwo == 'foot')
     return ans1/0.3048;
   if (unitChoiceTwo == 'yard')
     return ans1*1.09361;

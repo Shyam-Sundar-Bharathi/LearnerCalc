@@ -47,7 +47,7 @@ class _centTendCalcState extends State<centTendCalc> {
       },
       child: Scaffold(
         backgroundColor: colors[colorTheme][2],
-        appBar: myAppBar("CENTRAL TENDENCY"),
+        appBar: myAppBar("STATISTICS"),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(10.0),
@@ -57,13 +57,28 @@ class _centTendCalcState extends State<centTendCalc> {
                   controller: userInput,
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
+                  textAlign: TextAlign.center,
+                  cursorColor: Colors.black,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),
                   ],
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500
+                  ),
                   decoration: InputDecoration(
                     labelText: "Enter comma separated positive numbers",
                     labelStyle: TextStyle(
+                      color: Colors.black,
                       fontSize: 20.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
