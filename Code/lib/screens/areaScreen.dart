@@ -59,7 +59,7 @@ class _areaCalcState extends State<areaCalc> {
                   controller: userInput,
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
-                  cursorColor: Colors.black,
+                  cursorColor: colors[colorTheme][9],
                   textAlign: TextAlign.center,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,.]'), allow: true),
@@ -75,11 +75,11 @@ class _areaCalcState extends State<areaCalc> {
                       fontSize: 20.0,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderSide: BorderSide(width: 1.5, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderSide: BorderSide(width: 2, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),

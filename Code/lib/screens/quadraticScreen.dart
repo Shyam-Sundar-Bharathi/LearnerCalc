@@ -32,6 +32,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
           key: key,
           textAlign: TextAlign.center,
           controller: cont,
+          cursorColor: colors[colorTheme][9],
+          style: TextStyle(fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.next,
           enableInteractiveSelection: true,
@@ -115,9 +117,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
             padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
             child: Column(
               children : [
-              Center(
-                child: myQuadraticText('ax² + bx + c = 0',fontSize: 30),
-              ),
+              myDisplayCard("ax² + bx + c = 0"),
               SizedBox(height: 30,),
               Column(
                 children: [

@@ -10,6 +10,8 @@ Widget myExpandedTextField(TextEditingController a, {bool lastBox = false}) {
     child: TextField(
       textAlign: TextAlign.center,
       controller: a,
+      cursorColor: colors[colorTheme][9],
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.number,
       enableInteractiveSelection: true,
       textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
@@ -19,8 +21,12 @@ Widget myExpandedTextField(TextEditingController a, {bool lastBox = false}) {
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black, width: 2.0),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colors[colorTheme][9], width: 1),
+          borderRadius: BorderRadius.zero,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: colors[colorTheme][9], width: 2.0),
           borderRadius: BorderRadius.zero,
         ),
         labelStyle: TextStyle(

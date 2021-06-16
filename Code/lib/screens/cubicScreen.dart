@@ -30,6 +30,8 @@ class _cubicCalcState extends State<cubicCalc> {
       child: TextField(
         textAlign: TextAlign.center,
         controller: cont,
+        cursorColor: colors[colorTheme][9],
+        style: TextStyle(fontWeight: FontWeight.bold),
         keyboardType: TextInputType.number,
         textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
         enableInteractiveSelection: true,
@@ -98,16 +100,8 @@ class _cubicCalcState extends State<cubicCalc> {
               padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
               child: Column(
                 children : [
-                  Center(
-                    child: myCubicText('ax³ + bx² + cx + d = 0', fontSize: 30)
-                  ),
+                  myDisplayCard("ax³ + bx² + cx + d = 0"),
                   SizedBox(height: 2,),
-                  // Text(
-                  //   'Please note that d is an integer',
-                  //   style: TextStyle(
-                  //     fontSize: 15
-                  //   ),
-                  // ),
                   SizedBox(height: 30,),
                   Column(
                     children: [

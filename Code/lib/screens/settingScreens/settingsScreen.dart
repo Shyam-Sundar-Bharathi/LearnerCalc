@@ -388,7 +388,7 @@ class _settingsState extends State<settings> {
                     SizedBox(height: 2,),
                     FittedBox(
                         child: Text(
-                            "The Learner's Daily - June 2021 - Version 1.0.0+1",
+                            "The Learner's Daily - June 2021 - Version 1.0.0",
                           style: TextStyle(
                               color: Colors.grey[700]
                           ),

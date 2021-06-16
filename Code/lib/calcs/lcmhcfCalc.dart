@@ -79,6 +79,9 @@ String factors(String userInput){
 String lcm(String userInput){
   if(userInput == "")
     return 'CHECK INPUT';
+  if(userInput[0] == ','){
+    return "CHECK INPUT";
+  }
   var sArray = userInput.split(",");
   var iArray = [];
   double lcm;
@@ -101,6 +104,9 @@ String lcm(String userInput){
 String hcf (String userInput) {
   if(userInput == "")
     return 'CHECK INPUT';
+  if(userInput[0] == ','){
+    return "CHECK INPUT";
+  }
   var sArray = userInput.split(",");
   var length = sArray.length;
   var iArray = [];

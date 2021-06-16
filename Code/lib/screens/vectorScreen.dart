@@ -19,6 +19,8 @@ class _vectorState extends State<vector> {
       child: TextField(
           textAlign: TextAlign.center,
           controller: cont,
+          cursorColor: colors[colorTheme][9],
+          style: TextStyle(fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
           enableInteractiveSelection: true,

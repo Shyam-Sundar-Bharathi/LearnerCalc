@@ -148,13 +148,13 @@ class _unitconversionState extends State<unitconversion> {
                           fillColor: Colors.white,
                           filled: true,
                           labelText: inFocusOne? 'Enter here' : 'Answer',
-                          labelStyle: TextStyle(color: Colors.black),
+                          labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 1.5),
+                            borderSide: BorderSide(color: colors[colorTheme][9], width: 1.5),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2),
+                            borderSide: BorderSide(color: colors[colorTheme][9], width: 2.5),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
@@ -226,13 +226,13 @@ class _unitconversionState extends State<unitconversion> {
                           fillColor: Colors.white,
                           filled: true,
                           labelText: inFocusOne? (inFocusTwo ? 'or here' : 'Answer') : 'Enter here',
-                          labelStyle: TextStyle(color: Colors.black),
+                          labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 1.5),
+                            borderSide: BorderSide(color: colors[colorTheme][9], width: 1.5),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2),
+                            borderSide: BorderSide(color: colors[colorTheme][9], width: 2.5),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
@@ -273,27 +273,11 @@ class _unitconversionState extends State<unitconversion> {
                   ],
                 ),
                 SizedBox(height: 50,),
-                Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1.5),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: FittedBox(
-                      child: Text(
-                        inFocusOne?
-                        "1 $unitChoiceOne = ${convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1', display: 1)} ${plurals(unitChoiceTwo)}" :
-                        "1 $unitChoiceTwo = ${convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1', display: 1)} ${plurals(unitChoiceOne)}",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                myDisplayCard(inFocusOne?
+                "1 $unitChoiceOne = ${convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1', display: 1)} ${plurals(unitChoiceTwo)}" :
+                "1 $unitChoiceTwo = ${convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1', display: 1)} ${plurals(unitChoiceOne)}",
+                  fontSize: 20
+                ),
               ],
             ),
           ),

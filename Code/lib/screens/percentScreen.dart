@@ -11,11 +11,15 @@ class percentCalc extends StatefulWidget {
 
 class _percentCalcState extends State<percentCalc> {
 
+  String labelText = "Enter";
+
   Widget myPercentTextField(TextEditingController cont, func(String text)){
     return Expanded(
         child: TextField(
           onChanged: func,
           controller: cont,
+          cursorColor: colors[colorTheme][9],
+          style: TextStyle(fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.next,
           textAlign: TextAlign.center,
@@ -23,7 +27,7 @@ class _percentCalcState extends State<percentCalc> {
           inputFormatters: [
             FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
           ],
-          decoration: myInputDecoration(labelText: "Enter"),
+          decoration: myInputDecoration(labelText: labelText),
         ),
       );
   }

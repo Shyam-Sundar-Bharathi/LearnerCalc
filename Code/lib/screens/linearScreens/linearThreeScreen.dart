@@ -1,4 +1,5 @@
 import 'package:dream_calc/calcs/linearCalc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/menu.dart';
@@ -10,6 +11,8 @@ Widget myLinearExpandedTextField(TextEditingController a, {bool lastBox = false}
     child: TextField(
       textAlign: TextAlign.center,
       controller: a,
+      cursorColor: colors[colorTheme][9],
+      style: TextStyle(fontWeight: FontWeight.bold),
       keyboardType: TextInputType.number,
       enableInteractiveSelection: true,
       textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,

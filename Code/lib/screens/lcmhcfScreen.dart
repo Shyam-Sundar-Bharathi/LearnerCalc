@@ -58,7 +58,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   keyboardType: TextInputType.text,
                   enableInteractiveSelection: true,
                   textAlign: TextAlign.center,
-                  cursorColor: Colors.black,
+                  cursorColor: colors[colorTheme][9],
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9,]'), allow: true),
                   ],
@@ -73,11 +73,11 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                       fontSize: 20.0,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderSide: BorderSide(width: 1.5, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderSide: BorderSide(width: 2, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
@@ -96,7 +96,7 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                   controller: userInputf,
                   keyboardType: TextInputType.number,
                   enableInteractiveSelection: true,
-                  cursorColor: Colors.black,
+                  cursorColor: colors[colorTheme][9],
                   textAlign: TextAlign.center,
                   inputFormatters: [
                     FilteringTextInputFormatter(RegExp('[0-9]'), allow: true),
@@ -112,11 +112,11 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                       fontSize: 20.0,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1.5, color: Colors.black),
+                      borderSide: BorderSide(width: 1.5, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 2, color: Colors.black),
+                      borderSide: BorderSide(width: 2.5, color: colors[colorTheme][9]),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),

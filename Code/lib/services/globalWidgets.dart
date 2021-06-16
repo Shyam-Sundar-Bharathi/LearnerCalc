@@ -39,13 +39,19 @@ InputDecoration myInputDecoration({String labelText, Color color = Colors.white}
   return InputDecoration(
     fillColor: color,
     filled: true,
-    border:OutlineInputBorder(
-      borderSide: const BorderSide(color: Colors.black, width: 2.0),
-      borderRadius: BorderRadius.circular(10),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: colors[colorTheme][9], width: 1.5),
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: colors[colorTheme][9], width: 2.5),
+      borderRadius: BorderRadius.circular(10.0),
     ),
     labelText: labelText,
     labelStyle: TextStyle(
+      color: Colors.black,
       fontSize: 20.0,
+      fontWeight: FontWeight.w500
     ),
   );
 }
@@ -185,5 +191,27 @@ Widget myContactUsButton({String text, IconData icon, String launcher }){
       launch(launcher,
       forceWebView: false);
     },
+  );
+}
+
+Widget myDisplayCard(String text, {double fontSize = 30}){
+  return Card(
+    elevation: 2,
+    shape: RoundedRectangleBorder(
+      side: BorderSide(width: 1.5),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Padding(
+      padding: EdgeInsets.all(10),
+      child: FittedBox(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ),
   );
 }

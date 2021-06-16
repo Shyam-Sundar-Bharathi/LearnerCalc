@@ -68,6 +68,8 @@ class _trigonometryState extends State<trigonometry> {
         onTap: onTap,
         onChanged: onChanged,
         readOnly: readOnly,
+        cursorColor: colors[colorTheme][9],
+        style: TextStyle(fontWeight: FontWeight.bold),
         textAlign: TextAlign.center,
         controller: cont,
         keyboardType: TextInputType.number,
