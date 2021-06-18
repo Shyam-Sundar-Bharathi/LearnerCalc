@@ -101,7 +101,6 @@ class _cubicCalcState extends State<cubicCalc> {
               child: Column(
                 children : [
                   myDisplayCard("ax³ + bx² + cx + d = 0"),
-                  SizedBox(height: 2,),
                   SizedBox(height: 30,),
                   Column(
                     children: [

@@ -22,6 +22,7 @@ import 'package:dream_calc/screens/matrixScreens/matrixTwoScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
+import 'package:dream_calc/screens/straightLineTwoPoint.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
@@ -80,6 +81,7 @@ void main() {
         '/integralFormulae' : (context) => integralFormula(),
         '/contactUs' : (context) => contactUs(),
         '/didYouKnow' : (context) => didYouKnow(),
+        '/straightLine' : (context) => straightLineTwoPoint(),
       },
     ));
   }

@@ -27,6 +27,30 @@ Map colors = {
 
 class _homeState extends State<home> {
 
+  void search(String Text){
+    String text = Text.toLowerCase();
+    if(text == ""){
+      for(int i=0; i<16; i++){
+        setState(() {
+          searchList[i] = 0;
+        });
+      }
+      return;
+    }
+    for(int i=0; i<16; i++){
+      if(tileNames[i].contains(text)){
+        setState(() {
+          searchList[i] = 1;
+        });
+      }
+      else{
+        setState(() {
+          searchList[i] = 0;
+        });
+      }
+    }
+  }
+
   Color myColor = Colors.blueGrey;
   saveToDevice() async {
     final prefs = await SharedPreferences.getInstance();
@@ -57,8 +81,11 @@ class _homeState extends State<home> {
     12 : ['AREA', '/area'],
     13 : ['VOLUME', '/volume'],
     14 : ['PERCENTAGE', '/percentage'],
+    15 : ['STRAIGHT\n     LINE','/straightLine']
   };
 
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line'];
+  List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -74,7 +101,6 @@ class _homeState extends State<home> {
               fontSize: 25,
               fontWeight: FontWeight.w900,
               color: Colors.white
-              //colors[colorTheme][1]
             ),
           ),
         ),
@@ -97,6 +123,35 @@ class _homeState extends State<home> {
       ),
       body: Column(
         children: [
+          Container(
+            padding: EdgeInsets.fromLTRB(5, 5, 5, 2),
+            child: TextField(
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500
+              ),
+              cursorColor: colors[colorTheme][1],
+              onChanged: search,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                fillColor: colors[colorTheme][9],
+                filled: true,
+                prefixIcon: Icon(
+                    Icons.search,
+                  color: colors[colorTheme][1],
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: colors[colorTheme][9]),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 5, color: colors[colorTheme][9]),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: Container(
               child: GridView.builder(
@@ -117,7 +172,7 @@ class _homeState extends State<home> {
                                     borderRadius: BorderRadius.all(Radius.circular(10))
                                 ),
                             ),
-                          backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
+                          backgroundColor: MaterialStateProperty.all(searchList[index] == 1? Colors.white : colors[colorTheme][9]),
                           elevation: MaterialStateProperty.all(15)
                         ),
                         child: FittedBox(
@@ -125,7 +180,7 @@ class _homeState extends State<home> {
                               routes[index][0],
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.white
+                              color: searchList[index] == 1? Colors.black : Colors.white
                             ),
                           ),
                         ),
