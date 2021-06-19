@@ -11,18 +11,21 @@ import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart'
 import 'package:dream_calc/screens/formulaeScreens/trigFormulaeScreen.dart';
 import 'package:dream_calc/screens/genCalcScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/integralFormulaeScreen.dart';
-import 'package:dream_calc/screens/linearScreens/linearChoiceScreen.dart';
-import 'package:dream_calc/screens/linearScreens/linearThreeScreen.dart';
-import 'package:dream_calc/screens/linearScreens/linearTwoScreen.dart';
+import 'package:dream_calc/screens/linearScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/linearScreens/threeScreen.dart';
+import 'package:dream_calc/screens/linearScreens/twoScreen.dart';
 import 'package:dream_calc/screens/loadingScreen.dart';
-import 'package:dream_calc/screens/matrixScreens/matrixChoiceScreen.dart';
-import 'package:dream_calc/screens/matrixScreens/matrixFourScreen.dart';
-import 'package:dream_calc/screens/matrixScreens/matrixThreeScreen.dart';
-import 'package:dream_calc/screens/matrixScreens/matrixTwoScreen.dart';
+import 'package:dream_calc/screens/matrixScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/matrixScreens/fourScreen.dart';
+import 'package:dream_calc/screens/matrixScreens/threeScreen.dart';
+import 'package:dream_calc/screens/matrixScreens/twoScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
-import 'package:dream_calc/screens/straightLineTwoPoint.dart';
+import 'package:dream_calc/screens/straightLineScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/straightLineScreens/normalScreen.dart';
+import 'package:dream_calc/screens/straightLineScreens/pointSlopeScreen.dart';
+import 'package:dream_calc/screens/straightLineScreens/twoPointScreen.dart';
 import 'package:dream_calc/screens/trigScreen.dart';
 import 'package:dream_calc/screens/unitScreen.dart';
 import 'package:dream_calc/screens/vectorScreen.dart';
@@ -36,7 +39,7 @@ import 'package:dream_calc/screens/settingScreens/settingsScreen.dart';
 import 'package:dream_calc/screens/percentScreen.dart';
 import 'package:flutter/services.dart';
 import 'package:dream_calc/screens/cubicScreen.dart';
-import 'package:dream_calc/screens/linearScreens/linearOneScreen.dart';
+import 'package:dream_calc/screens/linearScreens/oneScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,7 +84,10 @@ void main() {
         '/integralFormulae' : (context) => integralFormula(),
         '/contactUs' : (context) => contactUs(),
         '/didYouKnow' : (context) => didYouKnow(),
-        '/straightLine' : (context) => straightLineTwoPoint(),
+        '/straightLineChoice' : (context) => straightLineChoice(),
+        '/straightLineTwoPoint' : (context) => straightLineTwoPoint(),
+        '/straightLinePointSlope' : (context) => straightLinePointSlope(),
+        '/straightLineNormal' : (context) => straightLineNormal()
       },
     ));
   }

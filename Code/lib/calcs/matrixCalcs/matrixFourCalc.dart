@@ -1,4 +1,4 @@
-import 'package:dream_calc/screens/matrixScreens/matrixChoiceScreen.dart';
+import 'package:dream_calc/screens/matrixScreens/choiceScreen.dart';
 import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';

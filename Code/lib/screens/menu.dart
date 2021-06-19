@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,6 +14,7 @@ dynamic result;
 int precision = 0;
 String colorTheme = '';
 String userName = '';
+int numberOfTilesFound = 0;
 
 Map colors = {
   'BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
@@ -28,19 +30,24 @@ Map colors = {
 class _homeState extends State<home> {
 
   void search(String Text){
+    setState(() {
+      numberOfTilesFound = 0;
+    });
     String text = Text.toLowerCase();
     if(text == ""){
-      for(int i=0; i<16; i++){
+      for(int i=0; i<18; i++){
         setState(() {
           searchList[i] = 0;
+          numberOfTilesFound = 0;
         });
       }
       return;
     }
-    for(int i=0; i<16; i++){
+    for(int i=0; i<18; i++){
       if(tileNames[i].contains(text)){
         setState(() {
           searchList[i] = 1;
+          numberOfTilesFound++;
         });
       }
       else{
@@ -81,11 +88,13 @@ class _homeState extends State<home> {
     12 : ['AREA', '/area'],
     13 : ['VOLUME', '/volume'],
     14 : ['PERCENTAGE', '/percentage'],
-    15 : ['STRAIGHT\n     LINE','/straightLine']
+    15 : ['STRAIGHT\n     LINE','/straightLineChoice'],
+    16 : ['CIRCLE', '/circleChoice'],
+    17 : ['COMING \n  SOON ','\comingSoon']
   };
 
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line'];
-  List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line','circle','coming soon'];
+  List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -140,6 +149,11 @@ class _homeState extends State<home> {
                 prefixIcon: Icon(
                     Icons.search,
                   color: colors[colorTheme][1],
+                ),
+                suffixText: '$numberOfTilesFound found',
+                suffixStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(width: 3, color: colors[colorTheme][9]),

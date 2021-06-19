@@ -154,11 +154,11 @@ class _settingsState extends State<settings> {
                           decoration: InputDecoration(
                             counterText: "",
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1.5, color: colors[colorTheme][5]),
+                              borderSide: BorderSide(width: 2.0, color: colors[colorTheme][5]),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 1.5, color: colors[colorTheme][5]),
+                              borderSide: BorderSide(width: 3.0, color: colors[colorTheme][5]),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                           ),

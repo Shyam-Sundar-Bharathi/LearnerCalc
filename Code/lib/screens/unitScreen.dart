@@ -128,6 +128,8 @@ class _unitconversionState extends State<unitconversion> {
                             userInputTwo.text=answer;
                           });
                         },
+                        minLines: 1,
+                        maxLines: 2,
                         textAlign: TextAlign.right,
                         onChanged: (text){
                             userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
@@ -136,6 +138,7 @@ class _unitconversionState extends State<unitconversion> {
                         keyboardType: TextInputType.number,
                         enableInteractiveSelection: true,
                         style: TextStyle(
+                          //overflow: TextOverflow.fade,
                           color: inFocusOne ? Colors.black : Colors.green[700],
                           fontSize: 20,
                           fontWeight: inFocusOne ? FontWeight.w500 : FontWeight.bold
@@ -165,8 +168,6 @@ class _unitconversionState extends State<unitconversion> {
                       child: DropdownButton<String>(
                         value: unitChoiceOne,
                         icon: Icon(Icons.keyboard_arrow_down),
-                        // iconSize: 50,
-                        // elevation: 16,
                         style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20,
@@ -206,6 +207,8 @@ class _unitconversionState extends State<unitconversion> {
                             userInputOne.text = answer;
                           });
                         },
+                        minLines: 1,
+                        maxLines: 2,
                         textAlign: TextAlign.right,
                         cursorColor: Colors.black,
                         onChanged: (text){
@@ -243,7 +246,6 @@ class _unitconversionState extends State<unitconversion> {
                     child: DropdownButton<String>(
                       value: unitChoiceTwo,
                       icon: Icon(Icons.keyboard_arrow_down),
-                      // iconSize: 50,
                       elevation: 16,
                       style: const TextStyle(
                           color: Colors.black,

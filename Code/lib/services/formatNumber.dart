@@ -104,3 +104,42 @@ String formatNumber(dynamic number, {bool eReturnZero = false}){
   String result = isNegative? '-' + reverseString(formattedNumber) : reverseString(formattedNumber);
   return double.parse(decimal) == 0.0? result  : result + '.' + decimal;
 }
+
+int gcd(int a, int b)
+{
+  if (a == 0)
+    return b;
+  else if (b == 0)
+    return a;
+  if (a < b)
+    return gcd(a, b % a);
+  else
+    return gcd(b, a % b);
+}
+
+// Function to convert decimal to fraction
+List<double> decimalToFraction(double number)
+{
+  // Fetch integral value of the decimal
+  double intVal = number.floorToDouble();
+
+  // Fetch fractional part of the decimal
+  double fVal = number - intVal;
+
+  // Consider precision value to
+  // convert fractional part to
+  // integral equivalent
+  const int pVal = 1000000000;
+
+  // Calculate GCD of integral
+  // equivalent of fractional
+  // part and precision value
+  int gcdVal = gcd((fVal * pVal).round(), pVal);
+
+  // Calculate num and deno
+  double num = (fVal * pVal).round()/ gcdVal;
+  double deno = pVal / gcdVal;
+  double numerator = (intVal*deno) + num;
+  double denominator = deno;
+  return [numerator,denominator];
+}
