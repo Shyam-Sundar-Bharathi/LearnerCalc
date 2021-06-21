@@ -31,7 +31,7 @@ final Uri _emailLaunchUri = Uri(
     scheme: 'mailto',
     path: 'thelearnersdaily@gmail.com',
     queryParameters: {
-      'subject': 'Feedback on LearnerCalc'
+      'subject': 'LearnerCalc'
     }
 );
 

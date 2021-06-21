@@ -141,6 +141,7 @@ class _centTendCalcState extends State<centTendCalc> {
                             choice == " " ? result :
                             "$choice = $result",
                             style: TextStyle(
+                              color: result == "CHECK INPUT" || result == "INPUT CAN'T CONTAIN 0" ? Colors.red : Colors.black,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),

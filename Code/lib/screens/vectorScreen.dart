@@ -163,6 +163,7 @@ class _vectorState extends State<vector> {
                           child: Text(
                             result == "CHECK INPUT" ? result : "$choice = $result",
                             style: TextStyle(
+                              color: result == "CHECK INPUT" ? Colors.red : Colors.black,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),

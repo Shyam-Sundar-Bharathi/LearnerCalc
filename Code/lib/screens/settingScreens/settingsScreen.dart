@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share/share.dart';
 
 class settings extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class settings extends StatefulWidget {
 }
 
 const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
+const playStoreURL = "https://play.google.com/store/apps/details?id=thelearnersdaily.wordpress.dream_calc";
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
 int messageValue = 0;
@@ -319,6 +321,59 @@ class _settingsState extends State<settings> {
                 SizedBox(height: 20,),
                 mySettingsCard(
                   child: Container(
+                    width: MediaQuery. of(context). size. width - 30,
+                    padding: EdgeInsets.all(15),
+                    child: TextButton.icon(
+                      onPressed: (){
+                        Share.share('Check out LearnerCalc - The ultimate and the only mathematics app you need: https://play.google.com/store/apps/details?id=thelearnersdaily.wordpress.dream_calc', subject: 'Share LearnerCalc on Google Play');
+                      },
+                      icon: Icon(
+                        Icons.share,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "Share LearnerCalc with friends",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                mySettingsCard(
+                  child: Container(
+                    width: MediaQuery. of(context). size. width - 30,
+                    padding: EdgeInsets.all(15),
+                    child: TextButton.icon(
+                      onPressed: (){
+                          launch(playStoreURL,
+                              forceWebView: false);
+                          },
+                      icon: Icon(
+                        Icons.star_half,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "Give us 5-stars on the Play Store",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                mySettingsCard(
+                  child: Container(
                       width: MediaQuery. of(context). size. width - 30,
                       padding: EdgeInsets.all(15),
                       child: TextButton.icon(
@@ -388,7 +443,7 @@ class _settingsState extends State<settings> {
                     SizedBox(height: 2,),
                     FittedBox(
                         child: Text(
-                            "The Learner's Daily - June 2021 - Version 1.0.0",
+                            "The Learner's Daily - June 2021 - Version 1.3.0",
                           style: TextStyle(
                               color: Colors.grey[700]
                           ),

@@ -46,6 +46,7 @@ Widget myLinearResult(String result){
         child: Text(
           result,
           style: TextStyle(
+            color: result == "CHECK INPUT" ? Colors.red : Colors.black,
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),

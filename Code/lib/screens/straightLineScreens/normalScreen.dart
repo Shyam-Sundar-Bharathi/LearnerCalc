@@ -171,7 +171,7 @@ class _straightLineNormalState extends State<straightLineNormal> {
                               choice == '' ? result :
                               "$choice = $result"),
                               style: TextStyle(
-                                color: Colors.black,
+                                color: result == "INPUT" ? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),

@@ -75,10 +75,10 @@ library {
   maven_library {
     groupId: "androidx.core"
     artifactId: "core"
-    version: "1.1.0"
+    version: "1.3.1"
   }
   digests {
-    sha256: "v\307\317\276Yo\343\300\232i\203\277\034\211\350\211)\234\b\254\232;R\316Q\202\240\210\320Vd~"
+    sha256: "\351.\246Z7\325\211\224=@ZjT\321\276\235\022\242%\224\217&\304\344\036Q\035\325^\201\357\266"
   }
 }
 library {
@@ -263,7 +263,7 @@ library {
 }
 library {
   digests {
-    sha256: "%\004\206\237t\362B\333\227uI\245\225\372s~\262\354Y\002\350E\372\275p\210|5m\003\016\337"
+    sha256: "0\343\024\316\252\"1f\0267\177\342\202r\210\r\275S*\032\373\002\237\177\2438\372%C\377\035\345"
   }
 }
 library_dependencies {
@@ -311,6 +311,7 @@ library_dependencies {
 }
 library_dependencies {
   library_index: 13
+  library_dep_index: 5
   library_dep_index: 8
 }
 library_dependencies {

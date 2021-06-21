@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.1.62
 # min_api: 16
-# pg_map_id: 26a69e8
+# pg_map_id: c1ec7ea
 # common_typos_disable
 androidx.activity.Cancellable -> androidx.activity.a:
 androidx.activity.ComponentActivity -> androidx.activity.b:
@@ -167,6 +167,30 @@ androidx.core.app.RemoteActionCompat -> androidx.core.app.RemoteActionCompat:
     boolean mEnabled -> e
     boolean mShouldShowIcon -> f
     android.app.PendingIntent mActionIntent -> d
+androidx.core.content.ContextCompat -> a.c.a.a:
+    java.io.File[] getExternalCacheDirs(android.content.Context) -> a
+    java.io.File[] getExternalFilesDirs(android.content.Context,java.lang.String) -> b
+androidx.core.content.FileProvider -> a.c.a.b:
+    java.io.File DEVICE_ROOT -> c
+    androidx.core.content.FileProvider$PathStrategy mStrategy -> a
+    java.util.HashMap sCache -> d
+    java.lang.String[] COLUMNS -> b
+    java.io.File buildPath(java.io.File,java.lang.String[]) -> a
+    java.lang.Object[] copyOf(java.lang.Object[],int) -> b
+    java.lang.String[] copyOf(java.lang.String[],int) -> c
+    androidx.core.content.FileProvider$PathStrategy getPathStrategy(android.content.Context,java.lang.String) -> d
+    android.net.Uri getUriForFile(android.content.Context,java.lang.String,java.io.File) -> e
+    int modeToMode(java.lang.String) -> f
+    androidx.core.content.FileProvider$PathStrategy parsePathStrategy(android.content.Context,java.lang.String) -> g
+androidx.core.content.FileProvider$PathStrategy -> a.c.a.b$a:
+    java.io.File getFileForUri(android.net.Uri) -> a
+    android.net.Uri getUriForFile(java.io.File) -> b
+androidx.core.content.FileProvider$SimplePathStrategy -> a.c.a.b$b:
+    java.util.HashMap mRoots -> b
+    java.lang.String mAuthority -> a
+    java.io.File getFileForUri(android.net.Uri) -> a
+    android.net.Uri getUriForFile(java.io.File) -> b
+    void addRoot(java.lang.String,java.io.File) -> c
 androidx.core.graphics.drawable.IconCompat -> androidx.core.graphics.drawable.IconCompat:
     android.graphics.PorterDuff$Mode DEFAULT_TINT_MODE -> j
     java.lang.String mTintModeStr -> i
@@ -2010,6 +2034,37 @@ io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener -> io.
     void schedule(android.view.View,java.lang.Runnable) -> a
 io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener$1 -> io.flutter.plugin.platform.k$b$a:
     io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener this$0 -> a
+io.flutter.plugins.share.MethodCallHandler -> io.flutter.plugins.share.a:
+    io.flutter.plugins.share.Share share -> a
+    void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
+    void expectMapArguments(io.flutter.plugin.common.MethodCall) -> b
+io.flutter.plugins.share.Share -> io.flutter.plugins.share.b:
+    android.content.Context context -> a
+    android.app.Activity activity -> b
+    void clearExternalShareFolder() -> a
+    void copy(java.io.File,java.io.File) -> b
+    java.io.File copyToExternalShareFolder(java.io.File) -> c
+    boolean fileIsOnExternal(java.io.File) -> d
+    android.content.Context getContext() -> e
+    java.io.File getExternalShareFolder() -> f
+    java.lang.String getMimeTypeBase(java.lang.String) -> g
+    java.util.ArrayList getUrisForPaths(java.util.List) -> h
+    java.lang.String reduceMimeTypes(java.util.List) -> i
+    void setActivity(android.app.Activity) -> j
+    void share(java.lang.String,java.lang.String) -> k
+    void shareFiles(java.util.List,java.util.List,java.lang.String,java.lang.String) -> l
+    void startActivity(android.content.Intent) -> m
+io.flutter.plugins.share.SharePlugin -> io.flutter.plugins.share.c:
+    io.flutter.plugins.share.MethodCallHandler handler -> a
+    io.flutter.plugins.share.Share share -> b
+    io.flutter.plugin.common.MethodChannel methodChannel -> c
+    void onDetachedFromActivity() -> a
+    void onAttachedToActivity(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> b
+    void onReattachedToActivityForConfigChanges(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> c
+    void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> d
+    void onDetachedFromActivityForConfigChanges() -> e
+    void onAttachedToEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> f
+    void setUpChannel(android.content.Context,android.app.Activity,io.flutter.plugin.common.BinaryMessenger) -> g
 io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl -> io.flutter.plugins.a.a:
     android.os.Handler handler -> c
     android.content.SharedPreferences preferences -> a

@@ -61,6 +61,7 @@ Widget transposeFour(String A1, String B1, String C1, String D1, String A2, Stri
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -137,6 +138,7 @@ Widget inverseFour(String A1, String B1, String C1, String D1, String A2, String
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -224,6 +226,7 @@ Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2,
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -261,6 +264,7 @@ Widget traceFour(String A1, String B1, String C1, String D1, String A2, String B
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),

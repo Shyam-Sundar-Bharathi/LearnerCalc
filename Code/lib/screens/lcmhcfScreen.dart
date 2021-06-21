@@ -143,11 +143,12 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            result == "CHECK INPUT" || result == "0 CAN NOT BE AN INPUT." ?
+                            result == "CHECK INPUT" || result == "INPUT CAN'T CONTAIN 0" ?
                             result :
                             choice == " " ? result :
                             "$choice = $result",
                             style: TextStyle(
+                              color: result == "CHECK INPUT" || result == "INPUT CAN'T CONTAIN 0" ? Colors.red : Colors.black,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),

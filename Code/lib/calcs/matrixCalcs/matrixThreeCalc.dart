@@ -36,6 +36,7 @@ Widget transposeThree(String A1, String B1, String C1, String A2, String B2, Str
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -91,6 +92,7 @@ Widget inverseThree(String A1, String B1, String C1, String A2, String B2, Strin
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -157,6 +159,7 @@ Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -187,6 +190,7 @@ Widget traceThree(String A1, String B1, String C1, String A2, String B2, String 
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),

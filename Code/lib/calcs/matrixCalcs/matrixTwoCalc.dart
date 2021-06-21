@@ -35,6 +35,7 @@ Widget transposeTwo(String A, String B, String C, String D){
     return Text(
         "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -76,6 +77,7 @@ Widget detTwo (String A, String B, String C, String D){
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -100,6 +102,7 @@ Widget traceTwo (String A, String B, String C, String D){
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),
@@ -124,6 +127,7 @@ Widget inverseTwo(String A, String B, String C, String D){
     return Text(
       "CHECK INPUT",
       style: TextStyle(
+        color: Colors.red,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),

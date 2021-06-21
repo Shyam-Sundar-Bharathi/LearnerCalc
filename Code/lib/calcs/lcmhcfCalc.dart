@@ -89,7 +89,7 @@ String lcm(String userInput){
   for(iter=0; iter<sArray.length; iter++)
     iArray.add(double.parse(sArray[iter]));
   if(iArray.contains(0)){
-    return "0 CAN NOT BE AN INPUT.";
+    return "INPUT CAN'T CONTAIN 0";
   }
   iArray.sort();
   lcm = iArray[0];
@@ -119,7 +119,7 @@ String hcf (String userInput) {
     iArray.add(int.parse(sArray[iter]));
   }
   if(iArray.contains(0)){
-    return "0 CAN NOT BE AN INPUT.";
+    return "INPUT CAN'T CONTAIN 0";
   }
   iArray.sort();
   hcf = iArray[0];

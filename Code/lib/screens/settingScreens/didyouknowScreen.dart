@@ -91,7 +91,7 @@ class _didYouKnowState extends State<didYouKnow> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "I answer to all student-related queries, specially on mathematics, examinations, high-school and universities. Visit our Quora by ",
+                          text: "I answer to all student-related queries, specially on mathematics, examinations, high-school and universities. Visit my Quora by  ",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -118,7 +118,7 @@ class _didYouKnowState extends State<didYouKnow> {
                           text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "There's a high-school blog by the name of The Learner's Daily where I write about everything high-school. I mean, everything. Visit our blog by ",
+                                  text: "There's a high-school blog by the name of The Learner's Daily where I write about everything high-school. Visit my blog by  ",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,

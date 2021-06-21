@@ -2,6 +2,7 @@ android.content.res.Resources#getIdentifier present: true
 Web content present: true
 Referenced Strings:
   %s.%sParcelizer
+  .flutter.share_provider
   0
   0x%08x
   ACCESSIBLE_NAVIGATION
@@ -237,6 +238,7 @@ Referenced Strings:
   TextInputType.visiblePassword
   UNKNOWN
   URI
+  URI_MASKABLE
   URL
   UTF8
   UrlLauncherPlugin
@@ -246,6 +248,8 @@ Referenced Strings:
   VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu
   VISIBLE_PASSWORD
   WORDS
+  _display_name
+  _size
   accessibility
   action
   actionLabel
@@ -262,7 +266,13 @@ Referenced Strings:
   alwaysUse24HourFormat
   android
   android.intent.action.RUN
+  android.intent.action.SEND
+  android.intent.action.SEND_MULTIPLE
   android.intent.action.VIEW
+  android.intent.extra.STREAM
+  android.intent.extra.SUBJECT
+  android.intent.extra.TEXT
+  android.support.FILE_PROVIDER_PATHS
   android.type.verbatim
   android.util.LongArray
   android.view.View
@@ -308,6 +318,7 @@ Referenced Strings:
   componentName
   composingBase
   composingExtent
+  content
   contextMenu
   copy
   countryName
@@ -421,6 +432,7 @@ Referenced Strings:
   method
   middleInitial
   middleName
+  mimeTypes
   move
   name
   namePrefix
@@ -451,6 +463,8 @@ Referenced Strings:
   overlay
   params
   password
+  path
+  paths
   personFamilyName
   personGivenName
   personMiddleInitial
@@ -465,6 +479,7 @@ Referenced Strings:
   plainCodePoint
   platformBrightness
   plugins
+  plugins.flutter.io/share
   plugins.flutter.io/shared_preferences
   plugins.flutter.io/url_launcher
   popRoute
@@ -478,6 +493,7 @@ Referenced Strings:
   push
   pushRoute
   put
+  r
   read
   registerWith
   remove
@@ -499,6 +515,8 @@ Referenced Strings:
   resizeUpRight
   resizeUpRightDownLeft
   route
+  rw
+  rwt
   scanCode
   selectionBase
   selectionExtent
@@ -510,6 +528,8 @@ Referenced Strings:
   setLocale
   setString
   setStringList
+  share
+  shareFiles
   signed
   smsOTPCode
   source
@@ -517,6 +537,7 @@ Referenced Strings:
   statusBarIconBrightness
   streetAddress
   string
+  subject
   surface
   systemNavigationBarColor
   systemNavigationBarDividerColor
@@ -548,10 +569,13 @@ Referenced Strings:
   verticalText
   viewFocused
   viewType
+  w
+  wa
   wait
   width
   window
   write
+  wt
   x
   zoomIn
   zoomOut
@@ -596,6 +620,9 @@ Marking id:accessibility_custom_action_7:2131034142 used because its prefix matc
 Marking id:accessibility_custom_action_8:2131034143 used because its prefix matches string pool constant accessibility
 Marking id:accessibility_custom_action_9:2131034144 used because its prefix matches string pool constant accessibility
 Marking drawable:launch_background:2130968576 used because its prefix matches string pool constant launch
+Marking xml:flutter_share_file_paths:2131492864 used because its prefix matches string pool constant flutter
+Marking color:androidx_core_ripple_material_light:2130837504 used because its prefix matches string pool constant android
+Marking color:androidx_core_secondary_text_default_material_light:2130837505 used because its prefix matches string pool constant android
 Marking attr:android_colorBackground:-1 used because its prefix matches string pool constant android
 Marking attr:android_color:-1 used because its prefix matches string pool constant android
 Marking attr:android_alpha:-1 used because its prefix matches string pool constant android
@@ -618,12 +645,12 @@ Marking attr:android_endY:-1 used because its prefix matches string pool constan
 Marking attr:android_tileMode:-1 used because its prefix matches string pool constant android
 Marking attr:android_offset:-1 used because its prefix matches string pool constant android
 Resource Reference Graph:
-color:notification_action_color_filter:2130837504 => [color:secondary_text_default_material_light:2130837507]
+color:notification_action_color_filter:2130837506 => [color:androidx_core_secondary_text_default_material_light:2130837505]
 dimen:notification_media_narrow_margin:2130903054 => [dimen:notification_content_margin_start:2130903050]
-drawable:notification_action_background:2130968577 => [color:ripple_material_light:2130837506, dimen:compat_button_inset_vertical_material:2130903041, dimen:compat_button_inset_horizontal_material:2130903040, dimen:compat_control_corner_material:2130903044, dimen:compat_button_padding_vertical_material:2130903043, dimen:compat_button_padding_horizontal_material:2130903042]
+drawable:notification_action_background:2130968577 => [color:androidx_core_ripple_material_light:2130837504, dimen:compat_button_inset_vertical_material:2130903041, dimen:compat_button_inset_horizontal_material:2130903040, dimen:compat_control_corner_material:2130903044, dimen:compat_button_padding_vertical_material:2130903043, dimen:compat_button_padding_horizontal_material:2130903042]
 drawable:notification_bg:2130968578 => [drawable:notification_bg_normal_pressed:2130968583, drawable:notification_bg_normal:2130968582]
 drawable:notification_bg_low:2130968579 => [drawable:notification_bg_low_pressed:2130968581, drawable:notification_bg_low_normal:2130968580]
-drawable:notification_icon_background:2130968584 => [color:notification_icon_bg_color:2130837505]
+drawable:notification_icon_background:2130968584 => [color:notification_icon_bg_color:2130837507]
 drawable:notification_tile_bg:2130968587 => [drawable:notify_panel_notification_icon_bg:2130968588]
 layout:notification_action:2131165185 => [style:Widget_Compat_NotificationActionContainer:2131361799, dimen:notification_action_icon_size:2130903047, style:Widget_Compat_NotificationActionText:2131361800]
 layout:notification_action_tombstone:2131165186 => [style:Widget_Compat_NotificationActionContainer:2131361799, dimen:notification_action_icon_size:2130903047, style:Widget_Compat_NotificationActionText:2131361800]
@@ -637,10 +664,12 @@ style:TextAppearance_Compat_Notification_Info:2131361795 => [style:TextAppearanc
 style:TextAppearance_Compat_Notification_Line2:2131361796 => [style:TextAppearance_Compat_Notification_Info:2131361795]
 style:TextAppearance_Compat_Notification_Time:2131361797 => [style:TextAppearance_Compat_Notification:2131361794, style:TextAppearance_Compat:-1, style:TextAppearance:-1]
 style:Widget_Compat_NotificationActionContainer:2131361799 => [drawable:notification_action_background:2130968577]
-style:Widget_Compat_NotificationActionText:2131361800 => [color:secondary_text_default_material_light:2130837507, dimen:notification_action_text_size:2130903048]
+style:Widget_Compat_NotificationActionText:2131361800 => [color:androidx_core_secondary_text_default_material_light:2130837505, dimen:notification_action_text_size:2130903048]
 
 The root reachable resources are:
-drawable:launch_background:2130968576,
+color:androidx_core_ripple_material_light:2130837504,
+   color:androidx_core_secondary_text_default_material_light:2130837505,
+   drawable:launch_background:2130968576,
    id:accessibility_action_clickable_span:2131034112,
    id:accessibility_custom_action_0:2131034113,
    id:accessibility_custom_action_1:2131034114,
@@ -684,6 +713,7 @@ drawable:launch_background:2130968576,
    mipmap:ic_launcher:2131230720,
    style:LaunchTheme:2131361792,
    style:NormalTheme:2131361793,
+   xml:flutter_share_file_paths:2131492864,
    attr:android_colorBackground:-1,
    attr:android_color:-1,
    attr:android_alpha:-1,

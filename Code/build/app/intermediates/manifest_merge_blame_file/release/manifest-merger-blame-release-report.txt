@@ -13,7 +13,7 @@
 11    <application
 11-->/Users/shyamsundarbharathi/DreamCalculator/Code/android/app/src/main/AndroidManifest.xml:3:4-40:19
 12        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-12-->[androidx.core:core:1.1.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
+12-->[androidx.core:core:1.3.1] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/9d2ac2ae8a44d697ec01e22fb5b300b2/core-1.3.1/AndroidManifest.xml:24:18-86
 13        android:icon="@mipmap/ic_launcher"
 13-->/Users/shyamsundarbharathi/DreamCalculator/Code/android/app/src/main/AndroidManifest.xml:5:9-43
 14        android:label="LearnerCalc" >
@@ -89,6 +89,24 @@
 59-->[:url_launcher] /Users/shyamsundarbharathi/DreamCalculator/Code/build/url_launcher/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
 60            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 60-->[:url_launcher] /Users/shyamsundarbharathi/DreamCalculator/Code/build/url_launcher/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
-61    </application>
-62
-63</manifest>
+61
+62        <provider
+62-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:8:9-16:20
+63            android:name="io.flutter.plugins.share.ShareFileProvider"
+63-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:9:13-70
+64            android:authorities="thelearnersdaily.wordpress.dream_calc.flutter.share_provider"
+64-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:10:13-74
+65            android:exported="false"
+65-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:11:13-37
+66            android:grantUriPermissions="true" >
+66-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:12:13-47
+67            <meta-data
+67-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:13:13-15:68
+68                android:name="android.support.FILE_PROVIDER_PATHS"
+68-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:14:17-67
+69                android:resource="@xml/flutter_share_file_paths" />
+69-->[:share] /Users/shyamsundarbharathi/DreamCalculator/Code/build/share/intermediates/library_manifest/release/AndroidManifest.xml:15:17-65
+70        </provider>
+71    </application>
+72
+73</manifest>
