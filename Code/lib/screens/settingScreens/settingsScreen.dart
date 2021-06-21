@@ -119,7 +119,7 @@ class _settingsState extends State<settings> {
                       children: [
                         FittedBox(
                           child: Text(
-                            "Give Learner your good name",
+                            "Give LearnerCalc your good name",
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.black,

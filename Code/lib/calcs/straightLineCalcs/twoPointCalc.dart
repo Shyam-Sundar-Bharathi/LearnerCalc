@@ -8,7 +8,7 @@ import 'package:extended_math/extended_math.dart';
 
 String straightLineTwoPointChoice(String X1, String Y1, String X2, String Y2, int fn){
   if(X1 == '' || Y1 == '' || X2 == '' || Y2 == '')
-    return "CHECK INPUT";
+    return "INPUT";
   double x1 = double.parse(X1);
   double y1 = double.parse(Y1);
   double x2 = double.parse(X2);
@@ -39,6 +39,35 @@ String slope(double x1, double y1, double x2, double y2,{bool forCalc = false}){
 }
 
 String equation(double x1, double y1, double x2, double y2){
+  if(x1 == x2 && y1 == y2){
+    return r"CHECK\ INPUT";
+  }
+
+  if(x1 == x2){
+    double constant = x1;
+    String Constant = x1.toStringAsFixedNoZero(precision);
+    return "x = ${Constant}";
+  }
+
+  if(y1 == y2){
+    double constant = y1;
+    String Constant = y1.toStringAsFixedNoZero(precision);
+    return "y = ${Constant}";
+  }
+  double slope = (y2-y1)/(x2-x1);
+  double constant = y1 - slope * x1;
+  String Slope = slope.toStringAsFixedNoZero(precision);
+  String Constant = constant.toStringAsFixedNoZero(precision);
+  String sign = constant >=0 ? '+' : '';
+  if(slope == 1)
+    Slope = '';
+  if(slope == -1)
+    Slope = '-';
+  if(constant == 0){
+    Constant = '';
+    sign = '';
+  }
+  return "y = ${Slope}x ${sign} ${Constant}";
 }
 
 String x_intercept(double x1, double y1, double x2, double y2){

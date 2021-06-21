@@ -126,7 +126,7 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      myStraightLineButton('SLOPE', 'SLOPE', 0),
+                      myStraightLineButton('m', 'SLOPE', 0),
                       SizedBox(width: 20,),
                       myStraightLineButton('', 'EQUATION', 1),
                     ],
@@ -136,9 +136,9 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      myStraightLineButton('X - INTERCEPT', 'X - INTERCEPT', 2),
+                      myStraightLineButton('x', 'X - INTERCEPT', 2),
                       SizedBox(width: 20,),
-                      myStraightLineButton('Y - INTERCEPT', 'Y - INTERCEPT', 3),
+                      myStraightLineButton('y', 'Y - INTERCEPT', 3),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -161,11 +161,12 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
                         child: FittedBox(
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              result == "CHECK INPUT" ? result :
+                            child: DefaultTextStyle(
+                              child : CaTeX(result == "INPUT" ? result :
                               choice == '' ? result :
-                              "$choice = $result",
+                              "$choice = $result"),
                               style: TextStyle(
+                                color: Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),

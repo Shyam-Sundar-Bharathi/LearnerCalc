@@ -121,9 +121,9 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      myStraightLineButton('X - INTERCEPT', 'X - INTERCEPT', 1),
+                      myStraightLineButton('x', 'X - INTERCEPT', 1),
                       SizedBox(width: 20,),
-                      myStraightLineButton('Y - INTERCEPT', 'Y - INTERCEPT', 2),
+                      myStraightLineButton('y', 'Y - INTERCEPT', 2),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -146,11 +146,12 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
                         child: FittedBox(
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              result == "CHECK INPUT" ? result :
+                            child: DefaultTextStyle(
+                              child : CaTeX(result == "INPUT" ? result :
                               choice == '' ? result :
-                              "$choice = $result",
+                              "$choice = $result"),
                               style: TextStyle(
+                                color: Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),

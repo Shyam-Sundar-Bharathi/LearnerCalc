@@ -12,6 +12,29 @@ class straightLineNormal extends StatefulWidget {
 
 class _straightLineNormalState extends State<straightLineNormal> {
 
+  Widget myTrigCard({Widget child}){
+    return Card(
+      color: colors[colorTheme][8],
+      elevation: 10,
+      child: Container(
+        padding: EdgeInsets.all(10),
+        child: child,
+      ),
+    );
+  }
+
+  Widget myTrigFootNotes(String text){
+    return FittedBox(
+      child: DefaultTextStyle(
+        child: CaTeX(text),
+        style: TextStyle(
+            fontSize: 30,
+            color: Colors.white
+        ),
+      ),
+    );
+  }
+
   TextEditingController length = new TextEditingController();
   TextEditingController angle = new TextEditingController();
 
@@ -108,7 +131,7 @@ class _straightLineNormalState extends State<straightLineNormal> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      myStraightLineButton('SLOPE', 'SLOPE', 0),
+                      myStraightLineButton('m', 'SLOPE', 0),
                       SizedBox(width: 20,),
                       myStraightLineButton('', 'EQUATION', 1),
                     ],
@@ -118,9 +141,9 @@ class _straightLineNormalState extends State<straightLineNormal> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      myStraightLineButton('X - INTERCEPT', 'X - INTERCEPT', 2),
+                      myStraightLineButton('x', 'X - INTERCEPT', 2),
                       SizedBox(width: 20,),
-                      myStraightLineButton('Y - INTERCEPT', 'Y - INTERCEPT', 3),
+                      myStraightLineButton('y', 'Y - INTERCEPT', 3),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -143,11 +166,12 @@ class _straightLineNormalState extends State<straightLineNormal> {
                         child: FittedBox(
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              result == "CHECK INPUT" ? result :
+                            child: DefaultTextStyle(
+                              child: CaTeX(result == "INPUT" ? result :
                               choice == '' ? result :
-                              "$choice = $result",
+                              "$choice = $result"),
                               style: TextStyle(
+                                color: Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -156,7 +180,30 @@ class _straightLineNormalState extends State<straightLineNormal> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 40,),
+                  myTrigCard(
+                    child: Container(
+                      //width: MediaQuery.of(context).size.width-30,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 5,),
+                          myTrigFootNotes(r'0.7071 = \frac{1}{\sqrt{2}}'),
+                          SizedBox(height: 10,),
+                          myTrigFootNotes(r'0.8660 = \frac{\sqrt{3}}{2}'),
+                          SizedBox(height: 10,),
+                          myTrigFootNotes(r'0.5774 = \frac{1}{\sqrt{3}}'),
+                          SizedBox(height: 10,),
+                          myTrigFootNotes(r'1.4142 = \sqrt{2}'),
+                          SizedBox(height: 10,),
+                          myTrigFootNotes(r'1.1547 = \frac{2}{\sqrt{3}}'),
+                          SizedBox(height: 10,),
+                          myTrigFootNotes(r'1.7321 = \sqrt{3}'),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],

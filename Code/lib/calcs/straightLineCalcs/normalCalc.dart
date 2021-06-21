@@ -5,7 +5,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String straightLineNormalChoice(String L, String Angle, int fn){
   if(L == '' || Angle == '')
-    return "CHECK INPUT";
+    return "INPUT";
   double l = double.parse(L);
   double angle = toRadian(double.parse(Angle));
   String result = '';
@@ -30,7 +30,28 @@ String slope(double angle){
 }
 
 String equation(double l, double angle){
-  return 'to be done';
+  double coex = cos(angle);
+  double coey = sin(angle);
+  double constant = l;
+  String Coex = coex.toStringAsFixedNoZero(precision);
+  String Coey = coey.toStringAsFixedNoZero(precision);
+  String Constant = constant.toStringAsFixedNoZero(precision);
+  String sign = coey >=0 ? '+' : '';
+  if(coex == 1)
+    Coex = '';
+  if(coex == -1)
+    Coex = '-';
+  if(coey == 1)
+    Coey = '';
+  if(coey == -1)
+    Coey = '-';
+
+  if(Coex == '0')
+    return "${Coey}y = ${Constant}";
+  if(Coey == '0')
+    return "${Coex}x = ${Constant}";
+
+  return '${Coex}x ${sign} ${Coey}y = ${Constant}';
 }
 
 String x_intercept(double l, double angle){
