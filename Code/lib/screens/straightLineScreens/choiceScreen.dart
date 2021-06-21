@@ -14,7 +14,8 @@ class _straightLineChoiceState extends State<straightLineChoice> {
   Map choices = {
     0 : ['TWO POINT FORM', '/straightLineTwoPoint'],
     1 : ['POINT SLOPE FORM', '/straightLinePointSlope'],
-    2 : ['NORMAL FORM', '/straightLineNormal']
+    2 : ['NORMAL FORM', '/straightLineNormal'],
+    3 : ['EQUATION FORM','/straightLineEquation']
   };
 
 

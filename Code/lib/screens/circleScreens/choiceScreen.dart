@@ -14,6 +14,7 @@ class _circleChoiceState extends State<circleChoice> {
   Map choices = {
     0 : ['CENTER RADIUS FORM', '/circleCenterRadius'],
     1 : ['CENTER POINT FORM', '/circleCenterPoint'],
+    2 : ['EQUATION FORM','/circleEquation']
   };
 
 

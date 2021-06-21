@@ -1,6 +1,7 @@
 import 'package:dream_calc/screens/circleScreens/centerPointScreen.dart';
 import 'package:dream_calc/screens/circleScreens/centerRadiusScreen.dart';
 import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/circleScreens/equationScreen.dart';
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
@@ -26,6 +27,7 @@ import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/straightLineScreens/equationScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/normalScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/pointSlopeScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/twoPointScreen.dart';
@@ -90,10 +92,12 @@ void main() {
         '/straightLineChoice' : (context) => straightLineChoice(),
         '/straightLineTwoPoint' : (context) => straightLineTwoPoint(),
         '/straightLinePointSlope' : (context) => straightLinePointSlope(),
+        '/straightLineEquation' : (context) => straightLineEquation(),
         '/straightLineNormal' : (context) => straightLineNormal(),
         '/circleChoice' : (context) => circleChoice(),
         '/circleCenterRadius' : (context) => circleCenterRadius(),
         '/circleCenterPoint' : (context) => circleCenterPoint(),
+        '/circleEquation' : (context) => circleEquation(),
       },
     ));
   }
