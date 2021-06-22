@@ -118,7 +118,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
             padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
             child: Column(
               children : [
-              myDisplayCard("ax² + bx + c = 0"),
+              myCatexDisplayCard("ax^2 + bx + c = 0"),
               SizedBox(height: 30,),
               Column(
                 children: [

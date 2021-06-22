@@ -88,9 +88,19 @@ class _arithmeticProgressionState extends State<arithmeticProgression> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Column(
                 children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard(r"First\ Term => a"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard(r"Common\ Difference => d"),
+                      SizedBox(height: 10,),
+                    ],
+                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

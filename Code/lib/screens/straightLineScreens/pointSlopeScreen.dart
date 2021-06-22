@@ -88,9 +88,18 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Column(
                 children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard("Point => (x,y)"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard("Slope => m"),
+                    ],
+                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

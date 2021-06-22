@@ -1,5 +1,6 @@
 import 'package:dream_calc/screens/menu.dart';
 import 'package:dream_calc/services/formatNumber.dart';
+import 'package:extended_math/extended_math.dart';
 
 String harmonicChoice(String A, String D, String N, int fn){
   if(A == '' || D == '' || N == '')
@@ -24,5 +25,13 @@ String nthTerm(double a, double d, double n){
 }
 
 String sum(double a, double d, double n){
-  return 'comingsoon';
+  if(d == 0){
+    double sum = n/a;
+    String Sum = sum.toStringAsFixedNoZero(precision);
+    return Sum;
+  }
+  double sum  = (1/d)*log((2*a + (2*n - 1)*d)/(2*a - d));
+  print(sum);
+  String Sum = sum.toStringAsFixedNoZero(precision);
+  return Sum;
 }

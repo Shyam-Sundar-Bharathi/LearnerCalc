@@ -89,9 +89,18 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Column(
                 children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard("P_1 => (x_1,y_1)"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard("P_2 => (x_2, y_2)"),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

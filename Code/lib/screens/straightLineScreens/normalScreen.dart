@@ -110,9 +110,18 @@ class _straightLineNormalState extends State<straightLineNormal> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Column(
                 children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard("Distance => l"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard(r"Angle => \theta"),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -215,3 +215,26 @@ Widget myDisplayCard(String text, {double fontSize = 30}){
     ),
   );
 }
+
+Widget myCatexDisplayCard(String text, {double fontSize = 20}){
+  return Card(
+    elevation: 2,
+    shape: RoundedRectangleBorder(
+      side: BorderSide(width: 1.5),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Padding(
+      padding: EdgeInsets.all(10),
+      child: FittedBox(
+        child: DefaultTextStyle(
+          child: CaTeX(text),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+  );
+}

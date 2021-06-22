@@ -91,8 +91,8 @@ class _straightLineEquationState extends State<straightLineEquation> {
               Column(
                 children: [
                   SizedBox(height: 20,),
-                  myDisplayCard("ax + by + c = 0"),
-                  SizedBox(height: 30,),
+                  myCatexDisplayCard("ax + by + c = 0"),
+                  SizedBox(height: 20,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
