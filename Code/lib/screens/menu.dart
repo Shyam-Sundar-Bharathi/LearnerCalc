@@ -90,10 +90,10 @@ class _homeState extends State<home> {
     14 : ['PERCENTAGE', '/percentage'],
     15 : ['STRAIGHT\n     LINE','/straightLineChoice'],
     16 : ['CIRCLE', '/circleChoice'],
-    17 : ['COMING \n  SOON ','\comingSoon']
+    17 : ['PROGRESSIONS','/progressionsChoice']
   };
 
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line','circle','coming soon'];
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line','circle','progressions'];
   List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   @override
   Widget build(BuildContext context) {

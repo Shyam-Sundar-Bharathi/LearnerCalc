@@ -23,6 +23,10 @@ import 'package:dream_calc/screens/matrixScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/fourScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/threeScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/twoScreen.dart';
+import 'package:dream_calc/screens/progressionsScreens/arithmeticScreen.dart';
+import 'package:dream_calc/screens/progressionsScreens/choiceScreen.dart';
+import 'package:dream_calc/screens/progressionsScreens/geometricScreen.dart';
+import 'package:dream_calc/screens/progressionsScreens/harmonicScreen.dart';
 import 'package:dream_calc/screens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
@@ -98,6 +102,10 @@ void main() {
         '/circleCenterRadius' : (context) => circleCenterRadius(),
         '/circleCenterPoint' : (context) => circleCenterPoint(),
         '/circleEquation' : (context) => circleEquation(),
+        '/progressionsChoice' : (context) => progressionsChoice(),
+        '/arithmeticProgression' : (context) => arithmeticProgression(),
+        '/geometricProgression' : (context) => geometricProgression(),
+        '/harmonicProgression' : (context) => harmonicProgression(),
       },
     ));
   }

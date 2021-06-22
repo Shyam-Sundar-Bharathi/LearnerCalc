@@ -388,7 +388,7 @@ class _settingsState extends State<settings> {
                           Navigator.pushNamed(context, '/didYouKnow');
                         },
                         icon: Icon(
-                          Icons.info_outline,
+                          Icons.info_rounded,
                           color: Colors.black,
                         ),
                         label: Text(
@@ -415,7 +415,7 @@ class _settingsState extends State<settings> {
                                 forceWebView: false);
                           },
                           icon: Icon(
-                              Icons.policy_outlined,
+                              Icons.policy_sharp,
                             color: Colors.black,
                           ),
                           label: Text(
