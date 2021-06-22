@@ -17,14 +17,16 @@ String userName = '';
 int numberOfTilesFound = 0;
 
 Map colors = {
-  'BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
-  'PINK' : [Colors.white, Colors.pink[100], Colors.pink[200],Colors.pink[300], Colors.pink[400], Colors.pink[500], Colors.pink[600], Colors.pink[700], Colors.pink[800], Colors.pink[900], Colors.black, Colors.pinkAccent ],
+  'SKY BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
+  'ROSE' : [Colors.white, Colors.pink[100], Colors.pink[200],Colors.pink[300], Colors.pink[400], Colors.pink[500], Colors.pink[600], Colors.pink[700], Colors.pink[800], Colors.pink[900], Colors.black, Colors.pinkAccent ],
   'GRAYSCALE' : [Colors.white, Colors.grey[100], Colors.grey[200],Colors.grey[300], Colors.grey[400], Colors.grey[500], Colors.grey[600], Colors.grey[700], Colors.grey[800], Colors.grey[900], Colors.black, Colors.blueGrey ],
-  'GREEN' : [Colors.white, Colors.green[100], Colors.green[200],Colors.green[300], Colors.green[400], Colors.green[500], Colors.green[600], Colors.green[700], Colors.green[800], Colors.green[900], Colors.black, Colors.green[800]],
-  'ORANGE' : [Colors.white, Colors.yellow[100], Colors.yellow[200],Colors.yellow[300], Colors.yellow[400], Colors.yellow[500], Colors.yellow[600], Colors.yellow[700], Colors.yellow[800], Colors.yellow[900], Colors.black, Colors.yellow[900]],
-  'PURPLE' : [Colors.white, Colors.purple[100], Colors.purple[200],Colors.purple[300], Colors.purple[400], Colors.purple[500], Colors.purple[600], Colors.purple[700], Colors.purple[800], Colors.purple[900], Colors.black, Colors.purpleAccent],
-  'RED' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
+  'EMERALD' : [Colors.white, Colors.green[100], Colors.green[200],Colors.green[300], Colors.green[400], Colors.green[500], Colors.green[600], Colors.green[700], Colors.green[800], Colors.green[900], Colors.black, Colors.green[800]],
+  'SAFFRON' : [Colors.white, Colors.deepOrange[100], Colors.deepOrange[200],Colors.deepOrange[300], Colors.deepOrange[400], Colors.deepOrange[500], Colors.deepOrange[600], Colors.deepOrange[700], Colors.deepOrange[800], Colors.deepOrange[900], Colors.black, Colors.deepOrange],
+  'LAVENDER' : [Colors.white, Colors.purple[100], Colors.purple[200],Colors.purple[300], Colors.purple[400], Colors.purple[500], Colors.purple[600], Colors.purple[700], Colors.purple[800], Colors.purple[900], Colors.black, Colors.purpleAccent],
+  'CHERRY' : [Colors.white, Colors.red[100], Colors.red[200],Colors.red[300], Colors.red[400], Colors.red[500], Colors.red[600], Colors.red[700], Colors.red[800], Colors.red[900], Colors.black, Colors.redAccent],
   'BLUEGRAY' : [Colors.white, Colors.blueGrey[100], Colors.blueGrey[200],Colors.blueGrey[300], Colors.blueGrey[400], Colors.blueGrey[500], Colors.blueGrey[600], Colors.blueGrey[700], Colors.blueGrey[800], Colors.blueGrey[900], Colors.black, Colors.blueGrey[700]],
+  'CHOCOLATE' : [Colors.white, Colors.brown[100], Colors.brown[200],Colors.brown[300], Colors.brown[400], Colors.brown[500], Colors.brown[600], Colors.brown[700], Colors.brown[800], Colors.brown[900], Colors.black, Colors.brown],
+  'TURQUOISE' : [Colors.white, Colors.teal[100], Colors.teal[200],Colors.teal[300], Colors.teal[400], Colors.teal[500], Colors.teal[600], Colors.teal[700], Colors.teal[800], Colors.teal[900], Colors.black, Colors.teal],
 };
 
 class _homeState extends State<home> {
@@ -84,13 +86,13 @@ class _homeState extends State<home> {
     8 : ['MATRIX','/matrixChoice'],
     9 : ['TRIGONO\n  METRY', '/trigonometry'],
     10 : ['STATISTICS', '/centTend'],
-    11 : ['NUMBER\n THEORY','/lcmhcf'],
-    12 : ['AREA', '/area'],
-    13 : ['VOLUME', '/volume'],
-    14 : ['PERCENTAGE', '/percentage'],
-    15 : ['STRAIGHT\n     LINE','/straightLineChoice'],
-    16 : ['CIRCLE', '/circleChoice'],
-    17 : ['PROGRESSIONS','/progressionsChoice']
+    11 : ['PERCENTAGE', '/percentage'],
+    12 : ['STRAIGHT\n     LINE','/straightLineChoice'],
+    13 : ['CIRCLE', '/circleChoice'],
+    14 : ['PROGRESSIONS','/progressionsChoice'],
+    15 : ['NUMBER\n THEORY','/lcmhcf'],
+    16 : ['AREA', '/area'],
+    17 : ['VOLUME', '/volume'],
   };
 
   List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line','circle','progressions'];

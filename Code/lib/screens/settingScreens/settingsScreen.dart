@@ -21,7 +21,7 @@ int sliderValue =  precision;
 int messageValue = 0;
 bool hiddenFeatureActivated = false;
 
-List<String> colorsAvailable = ['GRAYSCALE','BLUE','GREEN','PINK','ORANGE', 'PURPLE','RED','BLUEGRAY'];
+List<String> colorsAvailable = ['GRAYSCALE', 'CHOCOLATE', 'ROSE', 'SKY BLUE', 'LAVENDER', 'TURQUOISE', 'EMERALD', 'SAFFRON', 'CHERRY','BLUEGRAY'];
 
 Map alertMessage = {
   0 : " ",
