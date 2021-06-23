@@ -137,6 +137,23 @@ class _trigonometryFormulaState extends State<trigonometryFormula> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Center(
+                    child: ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/trigonometry');
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "GO TO TRIGONOMETRY CALCULATOR",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
                   myFormulaHeading("COMPLEMENTARY", bigGap: 0),
                   myFormula(comp[0]),
                   myFormula(comp[1]),

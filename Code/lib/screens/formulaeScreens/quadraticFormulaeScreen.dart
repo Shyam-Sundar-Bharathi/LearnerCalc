@@ -40,7 +40,7 @@ class _quadraticFormulaState extends State<quadraticFormula> {
                   },
                   child: FittedBox(
                     child: Text(
-                      "GO TO QUADRATIC EQUATION CALCULATOR",
+                      "GO TO QUADRATIC EQUATIONS CALCULATOR",
                       style: TextStyle(
                         color: Colors.white,
                       ),

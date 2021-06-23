@@ -80,6 +80,23 @@ class _inverseTrigonometryFormulaState extends State<inverseTrigonometryFormula>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/trigonometry');
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "GO TO INVERSE TRIGONOMETRY CALCULATOR",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
                   myFormulaHeading("DOMAIN AND RANGE", bigGap: 0),
                   Container(
                       height: 560,

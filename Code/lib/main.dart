@@ -4,15 +4,18 @@ import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/circleScreens/equationScreen.dart';
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/coordinateFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/linearFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/powersOfTenScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/progressionFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/trigFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/volumeFormulaeScreen.dart';
 import 'package:dream_calc/screens/genCalcScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/integralFormulaeScreen.dart';
 import 'package:dream_calc/screens/linearScreens/choiceScreen.dart';
@@ -91,6 +94,9 @@ void main() {
         '/inverseTrigonometryFormulae' : (context) => inverseTrigonometryFormula() ,
         '/differentialFormulae' : (context) => differentialFormula(),
         '/integralFormulae' : (context) => integralFormula(),
+        '/linearFormulae' : (context) => linearFormula(),
+        '/areaFormulae' : (context) => areaFormula(),
+        '/volumeFormulae' : (context) => volumeFormula(),
         '/contactUs' : (context) => contactUs(),
         '/didYouKnow' : (context) => didYouKnow(),
         '/straightLineChoice' : (context) => straightLineChoice(),

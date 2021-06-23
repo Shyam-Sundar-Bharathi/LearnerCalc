@@ -147,7 +147,7 @@ Widget myFormulaTableBlock(String formula){
   return Expanded(
     child: Container(
       height: 80,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(),
       ),
@@ -156,7 +156,7 @@ Widget myFormulaTableBlock(String formula){
             child: DefaultTextStyle(
               child: CaTeX(formula),
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   color: Colors.black
               ),
             )

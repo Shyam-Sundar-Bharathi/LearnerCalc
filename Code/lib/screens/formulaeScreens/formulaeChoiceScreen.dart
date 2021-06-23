@@ -13,15 +13,19 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
     0 : ['POWERS OF TEN','/powersOfTenFormulae'],
-    1 : ['ALGEBRA', '/algebraFormulae'],
-    2 : ['PROGRESSION', '/progressionFormulae'],
-    3 : ['CENTRAL TENDENCY', '/centTendFormulae'],
-    4 : ['QUADRATIC EQUATION','/quadraticFormulae'],
-    5 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
-    6 : ['TRIGONOMETRY', '/trigonometryFormulae'],
-    7 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
-    8 : ['DIFFERENTIATION', '/differentialFormulae'],
-    9 : ['INTEGRATION', '/integralFormulae'],
+    1 : ['GEOMETRIC AREA','/areaFormulae'],
+    2 : ['GEOMETRIC VOLUME','/volumeFormulae'],
+    3 : ['ALGEBRA', '/algebraFormulae'],
+    4 : ['PROGRESSION', '/progressionFormulae'],
+    5 : ['CENTRAL TENDENCY', '/centTendFormulae'],
+    6 : ['LINEAR EQUATIONS', '/linearFormulae'],
+    7 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    8 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
+    9 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    10 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
+    11 : ['DIFFERENTIATION', '/differentialFormulae'],
+    12 : ['INTEGRATION', '/integralFormulae'],
+
   };
 
   @override
@@ -31,7 +35,7 @@ class _formulaChoiceState extends State<formulaChoice> {
       backgroundColor: colors[colorTheme][2],
       appBar: myAppBar("FORMULAE SHEET"),
       body: Container(
-        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+        padding: EdgeInsets.fromLTRB(2, 8, 2, 0),
         child: Center(
           child: ListView.builder(
             shrinkWrap: true,
@@ -44,7 +48,7 @@ class _formulaChoiceState extends State<formulaChoice> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: MediaQuery. of(context). size. width - 50,
+                            width: MediaQuery. of(context). size. width - 10,
                             child: ElevatedButton(
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
@@ -59,7 +63,16 @@ class _formulaChoiceState extends State<formulaChoice> {
                                   ),
                                 ),
                               ),
-                              style: myButtonStyle,
+                              style: ButtonStyle(
+                                  elevation: MaterialStateProperty.all(10),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                   RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(Radius.circular(0)),
+                                      )
+                                    ),
+                                  backgroundColor: MaterialStateProperty.resolveWith((states) => colors[colorTheme][9]),
+                                  minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                              ),
                               onPressed: (){
                                 Navigator.pushNamed(context, choices[index][1]);
                               },
@@ -67,7 +80,7 @@ class _formulaChoiceState extends State<formulaChoice> {
                           ),
                         ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 10,),
                   ],
                 );
             }
