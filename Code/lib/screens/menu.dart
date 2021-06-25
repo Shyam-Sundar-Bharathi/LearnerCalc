@@ -84,7 +84,7 @@ class _homeState extends State<home> {
     6 : ['VECTORS', '/vector'],
     7 : ['COMPLEX\nNUMBERS', '/complex'],
     8 : ['MATRIX','/matrixChoice'],
-    9 : ['TRIGONO\n  METRY', '/trigonometry'],
+    9 : ['TRIGONOMETRY', '/trigonometry'],
     10 : ['STATISTICS', '/centTend'],
     11 : ['PERCENTAGE', '/percentage'],
     12 : ['STRAIGHT\n    LINES','/straightLineChoice'],
@@ -148,9 +148,12 @@ class _homeState extends State<home> {
               decoration: InputDecoration(
                 fillColor: colors[colorTheme][9],
                 filled: true,
-                prefixIcon: Icon(
-                    Icons.search,
-                  color: colors[colorTheme][1],
+                prefixIcon: IconButton(
+                    icon: Icon(
+                        Icons.search,
+                      color: Colors.white,
+                    ),
+                  onPressed: (){FocusScope.of(context).unfocus();},
                 ),
                 suffixText: '$numberOfTilesFound found',
                 suffixStyle: TextStyle(

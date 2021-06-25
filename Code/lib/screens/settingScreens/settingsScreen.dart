@@ -186,21 +186,41 @@ class _settingsState extends State<settings> {
                           ),
                         ),
                       ),
-                      Slider(
-                        value: sliderValue.toDouble(),
-                        onChanged: (double newValue){
-                          setState(() {
-                            sliderValue = newValue.round();
-                            messageValue = sliderValue;
-                          });
-                        },
-                        min: 1.0,
-                        max: 10.0,
-                        divisions: 10,
-                        label: "Precision",
-                        activeColor: colors[colorTheme][9],
-                        inactiveColor: colors[colorTheme][7],
+                      SizedBox(height: 20,),
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackShape: RoundedRectSliderTrackShape(),
+                          trackHeight: 20.0,
+                          activeTrackColor: colors[colorTheme][9],
+                          inactiveTrackColor: colors[colorTheme][3],
+                          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 14.0, disabledThumbRadius: 0.0, elevation: 0),
+                          thumbColor: colors[colorTheme][11],
+                          overlayColor: colors[colorTheme][1],
+                          valueIndicatorColor: colors[colorTheme][11],
+                          overlayShape: RoundSliderOverlayShape(overlayRadius: 10.0),
+                          tickMarkShape: RoundSliderTickMarkShape(),
+                          activeTickMarkColor: colors[colorTheme][9],
+                          inactiveTickMarkColor: colors[colorTheme][3],
+                          valueIndicatorShape: PaddleSliderValueIndicatorShape(),
+                          valueIndicatorTextStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: Slider(
+                          value: sliderValue.toDouble(),
+                          onChanged: (double newValue){
+                            setState(() {
+                              sliderValue = newValue.round();
+                              messageValue = sliderValue;
+                            });
+                          },
+                          min: 1.0,
+                          max: 10.0,
+                          divisions: 9,
+                          label: sliderValue.toString(),
+                        ),
                       ),
+                      SizedBox(height: 20,),
                       Text(
                         sliderValue.toString(),
                         textAlign: TextAlign.center,
