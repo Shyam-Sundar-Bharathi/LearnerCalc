@@ -20,10 +20,13 @@ class _loadingState extends State<loading> {
     final colorValue = prefs.getString(colorKey) ?? 'GRAYSCALE';
     final nameKey = 'userName';
     final nameValue = prefs.getString(nameKey) ?? '';
+    final showSearchBarKey = 'showSearchBar';
+    final showSearchBarValue = prefs.getBool(showSearchBarKey) ?? true;
     setState(() {
       precision = precisionValue;
       colorTheme = colorValue;
       userName = nameValue;
+      showSearchBar = showSearchBarValue;
     });
     Navigator.pushReplacementNamed(context, '/genScreen');
   }

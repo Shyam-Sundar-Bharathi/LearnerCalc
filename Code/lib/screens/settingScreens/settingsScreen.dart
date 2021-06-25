@@ -16,8 +16,10 @@ class settings extends StatefulWidget {
 
 const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 const playStoreURL = "https://play.google.com/store/apps/details?id=thelearnersdaily.wordpress.dream_calc";
+
 String dropDownColor = colorTheme;
 int sliderValue =  precision;
+bool showSearchBarToggle = showSearchBar;
 int messageValue = 0;
 bool hiddenFeatureActivated = false;
 
@@ -94,6 +96,7 @@ class _settingsState extends State<settings> {
         setState(() {
           dropDownColor = colorTheme;
           sliderValue = precision;
+          showSearchBarToggle = showSearchBar;
         });
 
         if(hiddenFeatureActivated){
@@ -191,16 +194,16 @@ class _settingsState extends State<settings> {
                         data: SliderTheme.of(context).copyWith(
                           trackShape: RoundedRectSliderTrackShape(),
                           trackHeight: 20.0,
-                          activeTrackColor: colors[colorTheme][9],
-                          inactiveTrackColor: colors[colorTheme][3],
+                          activeTrackColor: colors[colorTheme][5],
+                          inactiveTrackColor: colors[colorTheme][1],
                           thumbShape: RoundSliderThumbShape(enabledThumbRadius: 14.0, disabledThumbRadius: 0.0, elevation: 0),
                           thumbColor: colors[colorTheme][11],
                           overlayColor: colors[colorTheme][1],
                           valueIndicatorColor: colors[colorTheme][11],
                           overlayShape: RoundSliderOverlayShape(overlayRadius: 10.0),
                           tickMarkShape: RoundSliderTickMarkShape(),
-                          activeTickMarkColor: colors[colorTheme][9],
-                          inactiveTickMarkColor: colors[colorTheme][3],
+                          activeTickMarkColor: colors[colorTheme][5],
+                          inactiveTickMarkColor: colors[colorTheme][1],
                           valueIndicatorShape: PaddleSliderValueIndicatorShape(),
                           valueIndicatorTextStyle: TextStyle(
                             color: Colors.white,
@@ -292,12 +295,50 @@ class _settingsState extends State<settings> {
                     ),
                 ),
                 SizedBox(height: 20,),
+                mySettingsCard(
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Show Search Bar in Menu",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500
+                          ),
+                        ),
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Switch(
+                            onChanged: (bool value){
+                              if(showSearchBarToggle)
+                                setState(() {
+                                  showSearchBarToggle = false;
+                                });
+                              else
+                                setState(() {
+                                  showSearchBarToggle = true;
+                                });
+                            },
+                            value: showSearchBarToggle,
+                            activeColor: colors[colorTheme][5],
+                            activeTrackColor: colors[colorTheme][5],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ),
+                SizedBox(height: 20,),
                 ElevatedButton(
                     onPressed: (){
                       Navigator.pop(context, {
                         'precision': sliderValue,
                         'colorTheme' : dropDownColor,
-                        'userName' : userNameController.text.toUpperCase()
+                        'userName' : userNameController.text.toUpperCase(),
+                        'showSearchBar' : showSearchBarToggle,
                       }
                       );
                     },

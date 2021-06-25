@@ -1548,8 +1548,8 @@ io.flutter.plugin.platform.PlatformViewRegistryImpl:
     public boolean registerViewFactory(java.lang.String,io.flutter.plugin.platform.PlatformViewFactory)
 androidx.core.app.ServiceCompat$StopForegroundFlags
 androidx.loader.R$style
-kotlin.collections.ArraysKt
 kotlin.UIntArray$Iterator
+kotlin.collections.ArraysKt
 androidx.core.net.ConnectivityManagerCompat
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$1
 androidx.core.view.DisplayCompat$ModeCompat
@@ -2033,9 +2033,9 @@ kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.fragment.app.FragmentManagerViewModel
 androidx.customview.widget.ExploreByTouchHelper
 androidx.annotation.CheckResult
-io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
-    private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.PlatformChannel:
+    private static final java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
     private static final java.lang.String TAG
 kotlin.Suppress
 androidx.core.graphics.drawable.WrappedDrawableApi21

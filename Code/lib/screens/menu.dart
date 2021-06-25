@@ -15,6 +15,7 @@ int precision = 0;
 String colorTheme = '';
 String userName = '';
 int numberOfTilesFound = 0;
+bool showSearchBar = true;
 
 Map colors = {
   'SKY BLUE' : [Colors.white, Colors.blue[100], Colors.blue[200],Colors.blue[300], Colors.blue[400], Colors.blue[500], Colors.blue[600], Colors.blue[700], Colors.blue[800], Colors.blue[900],  Colors.black, Colors.blueAccent ],
@@ -72,6 +73,9 @@ class _homeState extends State<home> {
     final nameKey = 'userName';
     final nameValue = userName;
     prefs.setString(nameKey, nameValue);
+    final showSearchBarKey = 'showSearchBar';
+    final showSearchBarValue = showSearchBar;
+    prefs.setBool(showSearchBarKey, showSearchBarValue);
   }
 
   Map routes = {
@@ -127,6 +131,8 @@ class _homeState extends State<home> {
               precision = result['precision'];
               colorTheme = result['colorTheme'];
               userName = result['userName'];
+              showSearchBar = result['showSearchBar'];
+              print(showSearchBar);
               saveToDevice();
             });
           },
@@ -134,7 +140,7 @@ class _homeState extends State<home> {
       ),
       body: Column(
         children: [
-          Container(
+          showSearchBar ? Container(
             padding: EdgeInsets.fromLTRB(5, 5, 5, 2),
             child: TextField(
               style: TextStyle(
@@ -170,7 +176,7 @@ class _homeState extends State<home> {
                 ),
               ),
             ),
-          ),
+          ) : Container(),
           Expanded(
             child: Container(
               child: GridView.builder(

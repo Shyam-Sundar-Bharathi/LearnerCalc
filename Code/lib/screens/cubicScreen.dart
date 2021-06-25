@@ -69,7 +69,7 @@ class _cubicCalcState extends State<cubicCalc> {
               child: Text(
                 answer,
                 style: TextStyle(
-                  color: answer == "CHECK INPUT" ? Colors.red : Colors.black,
+                  color: answer == "CHECK INPUT" || answer == "a CAN'T BE 0" ? Colors.red : Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
