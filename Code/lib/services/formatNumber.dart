@@ -66,7 +66,7 @@ String formatNumber(dynamic number, {bool eReturnZero = false}){
     num = double.parse(number.toString());
   }
 
-  //IF NUMBER IS TOO SMALL SO HAS e, OR IS NaN, OR IS COMPLEX SO HAS i, RETURN AS IS.
+  //IF NUMBER IS TOO SMALL SO HAS e, OR IS NaN, OR IS COMPLEX SO HAS i, OR IS Infinity so has I RETURN AS IS.
   if(num.toString().contains('e') || num.toString().contains('I') || num.toString().contains('i') || num.toString().contains('N') || num.toString().contains('n')){
     return num.toString();
   }

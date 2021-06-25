@@ -89,7 +89,7 @@ class _circleCenterPointState extends State<circleCenterPoint> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(height: 20,),
               Column(
                 children: [
                   Row(
@@ -146,11 +146,10 @@ class _circleCenterPointState extends State<circleCenterPoint> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child : CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT" ? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT"? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -159,7 +158,7 @@ class _circleCenterPointState extends State<circleCenterPoint> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],

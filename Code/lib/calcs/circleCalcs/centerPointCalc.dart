@@ -5,9 +5,9 @@ import 'package:extended_math/extended_math.dart';
 
 String circleCenterPointChoice(String H, String K, String X, String Y, int fn){
   if(H == '' || K == '' || X == '' || Y == '')
-    return "INPUT";
+    return "CHECK INPUT";
   if(H == X && K == Y){
-    return "INPUT";
+    return "CHECK INPUT";
   }
   double h = double.parse(H);
   double k = double.parse(K);
@@ -26,7 +26,7 @@ String circleCenterPointChoice(String H, String K, String X, String Y, int fn){
 String radius(double h, double k, double x, double y){
   double radius = pow( pow(y-k, 2) + pow(x-h, 2) , 0.5);
   String Radius = radius.toStringAsFixedNoZero(precision);
-  return Radius;
+  return formatNumber(Radius);
 }
 
 String equation(double h, double k, double x, double y){

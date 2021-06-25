@@ -113,15 +113,6 @@ class _straightLineNormalState extends State<straightLineNormal> {
               SizedBox(height: 20,),
               Column(
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard("Distance => l"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard(r"Angle => \theta"),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +123,7 @@ class _straightLineNormalState extends State<straightLineNormal> {
                       SizedBox(width: 20,),
                       myStraightLineText(r'\theta\degree : '),
                       SizedBox(width: 5,),
-                      myStraightLineTextField(angle),
+                      myStraightLineTextField(angle, lastBox: true),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -176,11 +167,10 @@ class _straightLineNormalState extends State<straightLineNormal> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child: CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT" ? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT"? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -190,7 +180,16 @@ class _straightLineNormalState extends State<straightLineNormal> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 40,),
+                  SizedBox(height: 20,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard("Distance => l"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard(r"Angle => \theta"),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
                   myTrigCard(
                     child: Container(
                       //width: MediaQuery.of(context).size.width-30,

@@ -172,9 +172,9 @@ Widget myContactUsButton({String text, IconData icon, String launcher }){
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon),
+        FittedBox(child: Icon(icon)),
         SizedBox(width: 10,),
-        Text(text),
+        FittedBox(child: Text(text)),
       ],
     ),
     style: ButtonStyle(
@@ -184,8 +184,9 @@ Widget myContactUsButton({String text, IconData icon, String launcher }){
             borderRadius: BorderRadius.all(Radius.circular(15)),
           )
       ),
-      backgroundColor: MaterialStateProperty.resolveWith((states) => Color(0xFF545a62)),
+      backgroundColor: MaterialStateProperty.resolveWith((states) => Color(0xFF545a62) ),
       minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+
     ),
     onPressed: (){
       launch(launcher,

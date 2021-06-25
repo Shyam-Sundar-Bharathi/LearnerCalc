@@ -90,7 +90,7 @@ class _straightLineEquationState extends State<straightLineEquation> {
             children: [
               Column(
                 children: [
-                  SizedBox(height: 20,),
+                  SizedBox(height: 10,),
                   myCatexDisplayCard("ax + by + c = 0"),
                   SizedBox(height: 20,),
                   Row(
@@ -107,7 +107,7 @@ class _straightLineEquationState extends State<straightLineEquation> {
                       SizedBox(width: 5,),
                       myStraightLineText('c : '),
                       SizedBox(width: 5,),
-                      myStraightLineTextField(c),
+                      myStraightLineTextField(c, lastBox: true),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -149,11 +149,10 @@ class _straightLineEquationState extends State<straightLineEquation> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child : CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT" ? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT"? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -162,7 +161,7 @@ class _straightLineEquationState extends State<straightLineEquation> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],

@@ -7,7 +7,7 @@ import 'package:equations/equations.dart';
 
 String straightLinePointSlopeChoice(String X, String Y, String M, int fn){
   if(X == '' || Y == '' || M == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double x = double.parse(X);
   double y = double.parse(Y);
   double m = double.parse(M);
@@ -49,11 +49,11 @@ String equation(double x, double y, double m){
 }
 
 String x_intercept(double x, double y, double m){
-  return (x - (y/m)).toStringAsFixedNoZero(precision);
+  return formatNumber((x - (y/m)).toStringAsFixedNoZero(precision));
 }
 
 String y_intercept(double x, double y, double m){
-  return (y - m*x).toStringAsFixedNoZero(precision);
+  return formatNumber((y - m*x).toStringAsFixedNoZero(precision));
 }
 
 String xAxisAngle(double m){

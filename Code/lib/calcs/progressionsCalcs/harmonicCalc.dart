@@ -4,7 +4,7 @@ import 'package:extended_math/extended_math.dart';
 
 String harmonicChoice(String A, String D, String N, int fn){
   if(A == '' || D == '' || N == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double a = double.parse(A);
   double d = double.parse(D);
   double n = double.parse(N);
@@ -21,7 +21,7 @@ String harmonicChoice(String A, String D, String N, int fn){
 String nthTerm(double a, double d, double n){
   double term = 1/(a + ((n-1)*d));
   String Term = term.toStringAsFixedNoZero(precision);
-  return Term;
+  return formatNumber(Term);
 }
 
 String sum(double a, double d, double n){
@@ -33,5 +33,5 @@ String sum(double a, double d, double n){
   double sum  = (1/d)*log((2*a + (2*n - 1)*d)/(2*a - d));
   print(sum);
   String Sum = sum.toStringAsFixedNoZero(precision);
-  return Sum;
+  return formatNumber(Sum);
 }

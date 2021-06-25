@@ -91,7 +91,7 @@ class _circleEquationState extends State<circleEquation> {
             children: [
               Column(
                 children: [
-                  SizedBox(height: 20,),
+                  SizedBox(height: 10,),
                  myCatexDisplayCard('ax^2 + ay^2 + bx + cy + d = 0'),
                   SizedBox(height: 20,),
                   Row(
@@ -144,11 +144,10 @@ class _circleEquationState extends State<circleEquation> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child : CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" || result == "IMPOSSIBLE CIRCLE" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT"? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT" || result == "IMPOSSIBLE CIRCLE" ? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -157,7 +156,7 @@ class _circleEquationState extends State<circleEquation> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ],

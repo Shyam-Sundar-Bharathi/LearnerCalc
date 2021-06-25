@@ -87,7 +87,7 @@ class _homeState extends State<home> {
     9 : ['TRIGONO\n  METRY', '/trigonometry'],
     10 : ['STATISTICS', '/centTend'],
     11 : ['PERCENTAGE', '/percentage'],
-    12 : ['STRAIGHT\n     LINE','/straightLineChoice'],
+    12 : ['STRAIGHT\n    LINES','/straightLineChoice'],
     13 : ['CIRCLE', '/circleChoice'],
     14 : ['PROGRESSIONS','/progressionsChoice'],
     15 : ['NUMBER\n THEORY','/lcmhcf'],
@@ -95,7 +95,7 @@ class _homeState extends State<home> {
     17 : ['VOLUME', '/volume'],
   };
 
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation', 'cubic equation', 'vectors', 'complex numbers', 'matrix', 'trigonometry', 'statistics', 'number theory', 'area', 'volume','percentage','straight line','circle','progressions'];
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume'];
   List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   @override
   Widget build(BuildContext context) {
@@ -138,7 +138,7 @@ class _homeState extends State<home> {
             padding: EdgeInsets.fromLTRB(5, 5, 5, 2),
             child: TextField(
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Colors.white,
                   fontWeight: FontWeight.w500
               ),

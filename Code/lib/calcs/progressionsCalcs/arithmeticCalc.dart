@@ -6,7 +6,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String arithmeticChoice(String A, String D, String N, int fn){
   if(A == '' || D == '' || N == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double a = double.parse(A);
   double d = double.parse(D);
   double n = double.parse(N);
@@ -23,11 +23,11 @@ String arithmeticChoice(String A, String D, String N, int fn){
 String nthTerm(double a, double d, double n){
   double term = a + ((n-1)*d);
   String Term = term.toStringAsFixedNoZero(precision);
-  return Term;
+  return formatNumber(Term);
 }
 
 String sum(double a, double d, double n){
   double sum = (n/2)*((2*a) + (n-1)*d);
   String Sum = sum.toStringAsFixedNoZero(precision);
-  return Sum;
+  return formatNumber(Sum);
 }

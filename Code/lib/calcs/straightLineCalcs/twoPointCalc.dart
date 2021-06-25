@@ -8,9 +8,9 @@ import 'package:extended_math/extended_math.dart';
 
 String straightLineTwoPointChoice(String X1, String Y1, String X2, String Y2, int fn){
   if(X1 == '' || Y1 == '' || X2 == '' || Y2 == '')
-    return "INPUT";
+    return "CHECK INPUT";
   if(X1 == X2 && Y1 == Y2){
-    return "INPUT";
+    return "CHECK INPUT";
   }
   double x1 = double.parse(X1);
   double y1 = double.parse(Y1);
@@ -38,7 +38,7 @@ String slope(double x1, double y1, double x2, double y2,{bool forCalc = false}){
   if(forCalc){
     return ((y2 - y1)/(x2 - x1)).toStringAsFixedNoZero(10);
   }
-  return ((y2 - y1)/(x2 - x1)).toStringAsFixedNoZero(precision);
+  return formatNumber(((y2 - y1)/(x2 - x1)).toStringAsFixedNoZero(precision));
 }
 
 String equation(double x1, double y1, double x2, double y2){
@@ -71,12 +71,12 @@ String equation(double x1, double y1, double x2, double y2){
 
 String x_intercept(double x1, double y1, double x2, double y2){
   double m = double.parse(slope(x1, y1, x2, y2, forCalc: true));
-  return "${(x1 - y1/m).toStringAsFixedNoZero(precision)}";
+  return formatNumber((x1 - y1/m).toStringAsFixedNoZero(precision));
 }
 
 String y_intercept(double x1, double y1, double x2, double y2){
   double m = double.parse(slope(x1, y1, x2, y2, forCalc: true));
-  return "${(y1 - m*x1).toStringAsFixedNoZero(precision)}";
+  return formatNumber((y1 - m*x1).toStringAsFixedNoZero(precision));
 }
 
 String xAxisAngle(double x1, double y1, double x2, double y2){

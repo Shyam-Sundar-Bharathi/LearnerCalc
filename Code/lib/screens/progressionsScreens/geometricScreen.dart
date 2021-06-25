@@ -91,15 +91,6 @@ class _geometricProgressionState extends State<geometricProgression> {
               SizedBox(height: 20,),
               Column(
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard(r"First\ Term => a"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard(r"Common\ Ratio => r"),
-                      SizedBox(height: 20,),
-                    ],
-                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +105,7 @@ class _geometricProgressionState extends State<geometricProgression> {
                       SizedBox(width: 5,),
                       myGeometricText('n : '),
                       SizedBox(width: 5,),
-                      myGeometricTextField(n, regExp: '[0-9]'),
+                      myGeometricTextField(n, regExp: '[0-9]', lastBox: true),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -138,11 +129,10 @@ class _geometricProgressionState extends State<geometricProgression> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child : CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT" ? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT"? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -151,7 +141,17 @@ class _geometricProgressionState extends State<geometricProgression> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 20,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard(r"First\ Term => a"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard(r"Common\ Ratio => r"),
+                      SizedBox(height: 20,),
+                    ],
+                  ),
                 ],
               ),
             ],

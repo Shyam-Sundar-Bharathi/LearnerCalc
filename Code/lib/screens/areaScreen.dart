@@ -160,7 +160,7 @@ class _areaCalcState extends State<areaCalc> {
                               child: Text(
                                 result,
                                 style: TextStyle(
-                                  color: result == "CHECK INPUT" ? Colors.red : Colors.black,
+                                  color: result == "CHECK INPUT" || result == "IMPOSSIBLE TRIANGLE" ? Colors.red : Colors.black,
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
                                 ),

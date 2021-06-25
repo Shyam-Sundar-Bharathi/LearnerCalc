@@ -91,15 +91,6 @@ class _circleCenterRadiusState extends State<circleCenterRadius> {
               SizedBox(height: 20,),
               Column(
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard("Center => (x,y)"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard("Radius => r"),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -136,11 +127,10 @@ class _circleCenterRadiusState extends State<circleCenterRadius> {
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: DefaultTextStyle(
-                              child : CaTeX(result == "INPUT" ? result :
-                              choice == '' ? result :
-                              "$choice = $result"),
+                              child : result == "CHECK INPUT" ? Text(result) :
+                              CaTeX(choice == '' ? result : "$choice = $result"),
                               style: TextStyle(
-                                color: result == "INPUT" ? Colors.red : Colors.black,
+                                color: result == "CHECK INPUT"? Colors.red : Colors.black,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -149,7 +139,16 @@ class _circleCenterRadiusState extends State<circleCenterRadius> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 20,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      myCatexDisplayCard("Center => (x,y)"),
+                      SizedBox(height: 10,),
+                      myCatexDisplayCard("Radius => r"),
+                    ],
+                  ),
                 ],
               ),
             ],

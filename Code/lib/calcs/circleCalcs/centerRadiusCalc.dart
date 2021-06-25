@@ -5,7 +5,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String cirlceCenterRadiusChoice(String X, String Y, String R, int fn){
   if(X == '' || Y == '' || R == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double x = double.parse(X);
   double y = double.parse(Y);
   double r = double.parse(R);

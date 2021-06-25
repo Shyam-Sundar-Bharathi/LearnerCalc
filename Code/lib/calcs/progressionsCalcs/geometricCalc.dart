@@ -4,7 +4,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String geometricChoice(String A, String R, String N, int fn){
   if(A == '' || R == '' || N == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double a = double.parse(A);
   double r = double.parse(R);
   double n = double.parse(N);
@@ -21,7 +21,7 @@ String geometricChoice(String A, String R, String N, int fn){
 String nthTerm(double a, double r, double n){
   double term = a*pow(r, n-1);
   String Term = term.toStringAsFixedNoZero(precision);
-  return Term;
+  return formatNumber(Term);
 }
 
 String sum(double a, double r, double n){
@@ -34,5 +34,5 @@ String sum(double a, double r, double n){
   String Sum = sum.toStringAsFixedNoZero(precision);
   if(Sum == '-0')
     Sum = '0';
-  return Sum;
+  return formatNumber(Sum);
 }

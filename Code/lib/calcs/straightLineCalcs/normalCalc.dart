@@ -5,7 +5,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String straightLineNormalChoice(String L, String Angle, int fn){
   if(L == '' || Angle == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double l = double.parse(L);
   double angle = toRadian(double.parse(Angle));
   String result = '';
@@ -26,7 +26,7 @@ String straightLineNormalChoice(String L, String Angle, int fn){
 }
 
 String slope(double angle){
-  return (-(1/tan(angle))).toStringAsFixedNoZero(precision);
+  return formatNumber((-(1/tan(angle))).toStringAsFixedNoZero(precision));
 }
 
 String equation(double l, double angle){
@@ -55,11 +55,11 @@ String equation(double l, double angle){
 }
 
 String x_intercept(double l, double angle){
-  return (l/cos(angle)).toStringAsFixedNoZero(precision);
+  return formatNumber((l/cos(angle)).toStringAsFixedNoZero(precision));
 }
 
 String y_intercept(double l, double angle){
-  return (l/sin(angle)).toStringAsFixedNoZero(precision);
+  return formatNumber((l/sin(angle)).toStringAsFixedNoZero(precision));
 }
 
 String xAxisAngle(double angle){

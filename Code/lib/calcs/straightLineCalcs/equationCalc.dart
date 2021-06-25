@@ -6,7 +6,7 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 String straightLineEquationChoice(String A, String B, String C, int fn){
   if(A == '' || B == '' || C == '')
-    return "INPUT";
+    return "CHECK INPUT";
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -29,19 +29,19 @@ String straightLineEquationChoice(String A, String B, String C, int fn){
 String slope(double a, double b){
   double slope = -a/b;
   String Slope = slope.toStringAsFixedNoZero(precision);
-  return Slope;
+  return formatNumber(Slope);
 }
 
 String x_intercept(double a, double c){
   double intercept = -c/a;
   String Intercept = intercept.toStringAsFixedNoZero(precision);
-  return Intercept;
+  return formatNumber(Intercept);
 }
 
 String y_intercept(double b, double c){
   double intercept = -c/b;
   String Intercept = intercept.toStringAsFixedNoZero(precision);
-  return Intercept;
+  return formatNumber(Intercept);
 }
 
 String xAxisAngle(double a, double b){
