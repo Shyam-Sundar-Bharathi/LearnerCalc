@@ -18,7 +18,7 @@ const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 const playStoreURL = "https://play.google.com/store/apps/details?id=thelearnersdaily.wordpress.dream_calc";
 
 String dropDownColor = colorTheme;
-int sliderValue =  precision;
+double sliderValue =  precision.toDouble();
 bool showSearchBarToggle = showSearchBar;
 int messageValue = 0;
 bool hiddenFeatureActivated = false;
@@ -29,12 +29,12 @@ Map alertMessage = {
   0 : " ",
   1 : " You like to take risks. ",
   2 : " Good enough. ",
-  3 : " Yes. This is ideal. ",
-  4 : " Alright. Precise results on the way. ",
-  5 : " Alright. Precise results on the way. ",
-  6 : " Alright. Precise results on the way. ",
-  7 : " Woah. So you're a scientist. ",
-  8 : " Woah. So you're a scientist. ",
+  3 : " This is ideal. ",
+  4 : " Precise results on the way. ",
+  5 : " Precise results on the way. ",
+  6 : " Precise results on the way. ",
+  7 : " So you're a scientist. ",
+  8 : " So you're a scientist. ",
   9 : " NASA wants to know your location. ",
   10 : " NASA wants to know your location. ",
 };
@@ -95,7 +95,7 @@ class _settingsState extends State<settings> {
       onWillPop: (){
         setState(() {
           dropDownColor = colorTheme;
-          sliderValue = precision;
+          sliderValue = precision.toDouble();
           showSearchBarToggle = showSearchBar;
         });
 
@@ -196,8 +196,8 @@ class _settingsState extends State<settings> {
                           trackHeight: 20.0,
                           activeTrackColor: colors[colorTheme][5],
                           inactiveTrackColor: colors[colorTheme][1],
-                          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 14.0, disabledThumbRadius: 0.0, elevation: 0),
-                          thumbColor: colors[colorTheme][11],
+                          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0, disabledThumbRadius: 0.0, elevation: 5),
+                          thumbColor: Colors.white,
                           overlayColor: colors[colorTheme][1],
                           valueIndicatorColor: colors[colorTheme][11],
                           overlayShape: RoundSliderOverlayShape(overlayRadius: 10.0),
@@ -205,27 +205,29 @@ class _settingsState extends State<settings> {
                           activeTickMarkColor: colors[colorTheme][5],
                           inactiveTickMarkColor: colors[colorTheme][1],
                           valueIndicatorShape: PaddleSliderValueIndicatorShape(),
-                          valueIndicatorTextStyle: TextStyle(
-                            color: Colors.white,
-                          ),
+                          valueIndicatorTextStyle: TextStyle(color: Colors.white),
                         ),
                         child: Slider(
                           value: sliderValue.toDouble(),
                           onChanged: (double newValue){
                             setState(() {
-                              sliderValue = newValue.round();
-                              messageValue = sliderValue;
+                              sliderValue = newValue;
+                              messageValue = sliderValue.toInt();
+                            });
+                          },
+                          onChangeEnd: (double newValue){
+                            setState(() {
+                              sliderValue = newValue.truncateToDouble();
                             });
                           },
                           min: 1.0,
                           max: 10.0,
-                          divisions: 9,
-                          label: sliderValue.toString(),
+                          label: sliderValue.round().toString(),
                         ),
                       ),
                       SizedBox(height: 20,),
                       Text(
-                        sliderValue.toString(),
+                        sliderValue.floor().toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 25,
@@ -309,23 +311,21 @@ class _settingsState extends State<settings> {
                               fontWeight: FontWeight.w500
                           ),
                         ),
-                        Transform.scale(
-                          scale: 1.5,
-                          child: Switch(
-                            onChanged: (bool value){
-                              if(showSearchBarToggle)
-                                setState(() {
-                                  showSearchBarToggle = false;
-                                });
-                              else
-                                setState(() {
-                                  showSearchBarToggle = true;
-                                });
-                            },
-                            value: showSearchBarToggle,
-                            activeColor: colors[colorTheme][5],
-                            activeTrackColor: colors[colorTheme][5],
-                          ),
+                        CupertinoSwitch(
+                          onChanged: (bool value){
+                            if(showSearchBarToggle)
+                              setState(() {
+                                showSearchBarToggle = false;
+                              });
+                            else
+                              setState(() {
+                                showSearchBarToggle = true;
+                              });
+                          },
+                          value: showSearchBarToggle,
+                          activeColor: colors[colorTheme][5],
+                          //trackColor: Colors.white,
+                          // thumbColor: MaterialStateProperty.all(colors[colorTheme][11]),
                         ),
                       ],
                     ),
@@ -335,7 +335,7 @@ class _settingsState extends State<settings> {
                 ElevatedButton(
                     onPressed: (){
                       Navigator.pop(context, {
-                        'precision': sliderValue,
+                        'precision': sliderValue.round(),
                         'colorTheme' : dropDownColor,
                         'userName' : userNameController.text.toUpperCase(),
                         'showSearchBar' : showSearchBarToggle,

@@ -132,7 +132,6 @@ class _homeState extends State<home> {
               colorTheme = result['colorTheme'];
               userName = result['userName'];
               showSearchBar = result['showSearchBar'];
-              print(showSearchBar);
               saveToDevice();
             });
           },
