@@ -43,7 +43,7 @@ class _cubicCalcState extends State<cubicCalc> {
     );
   }
 
-  Widget myCubicAnswerRow(String item, String answer,{topBlock=0, bottomBlock=0}){
+  Widget myCubicAnswerRow(String item, String answer,{topBlock=0, bottomBlock=0, isDisc=0}){
     return Row(
       children: [
         Expanded(
@@ -69,7 +69,8 @@ class _cubicCalcState extends State<cubicCalc> {
               child: Text(
                 answer,
                 style: TextStyle(
-                  color: answer == "CHECK INPUT" || answer == "a CAN'T BE 0" ? Colors.red : Colors.black,
+                  color: answer == "CHECK INPUT" || answer == "a CAN'T BE 0" ? Colors.red :
+                  answer.contains("i") || isDisc ==1 ? Colors.black : Colors.green,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -160,7 +161,7 @@ class _cubicCalcState extends State<cubicCalc> {
                         myCubicAnswerRow(' Root 1 : ', answers[0], topBlock: 1),
                         myCubicAnswerRow(' Root 2 : ', answers[1]),
                         myCubicAnswerRow(' Root 3 : ', answers[2]),
-                        myCubicAnswerRow(' Disc : ', answers[3], bottomBlock: 1),
+                        myCubicAnswerRow(' Disc : ', answers[3], bottomBlock: 1, isDisc: 1),
                       ],
                     ),
                   )

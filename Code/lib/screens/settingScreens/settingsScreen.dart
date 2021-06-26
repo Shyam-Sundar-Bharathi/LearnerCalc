@@ -181,7 +181,7 @@ class _settingsState extends State<settings> {
                     children: [
                       FittedBox(
                         child: Text(
-                          "Set precision for decimal values",
+                          "Set Precision for decimal values",
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
@@ -239,6 +239,7 @@ class _settingsState extends State<settings> {
                         alertMessage[messageValue],
                         textAlign: TextAlign.center,
                         style: TextStyle(
+                          color: colors[colorTheme][7],
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -348,7 +349,7 @@ class _settingsState extends State<settings> {
                     ),
                   style: ButtonStyle(
                     elevation: MaterialStateProperty.all(20),
-                    shape: MaterialStateProperty.all<StadiumBorder>(StadiumBorder()),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50)))),
                     backgroundColor: MaterialStateProperty.resolveWith((states) => colors[colorTheme][9]),
                     minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
                   ),

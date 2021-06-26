@@ -45,7 +45,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
       );
   }
 
-  Widget myQuadraticAnswerRow(String item, String answer,{topBlock = 0, bottomBlock = 0}){
+  Widget myQuadraticAnswerRow(String item, String answer,{topBlock = 0, bottomBlock = 0, isDisc = 0}){
     return Row(
       children: [
         Expanded(
@@ -73,7 +73,8 @@ class _quadraticCalcState extends State<quadraticCalc> {
                 child: Text(
                   answer,
                   style: TextStyle(
-                    color: answer == "CHECK INPUT" || answer == "a CAN'T BE 0" ? Colors.red : Colors.black,
+                    color: answer == "CHECK INPUT" || answer == "a CAN'T BE 0" ? Colors.red :
+                    answer.contains("i") || isDisc == 1? Colors.black : Colors.green,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -187,7 +188,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     children: [
                       myQuadraticAnswerRow(' Root 1 : ', answers[0],topBlock: 1),
                       myQuadraticAnswerRow(' Root 2 : ', answers[1]),
-                      myQuadraticAnswerRow(' Disc : ', answers[2],bottomBlock: 1),
+                      myQuadraticAnswerRow(' Disc : ', answers[2],bottomBlock: 1, isDisc: 1),
                     ],
                   ),
                 )

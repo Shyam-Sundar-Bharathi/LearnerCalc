@@ -53,6 +53,22 @@ class _progressionFormulaState extends State<progressionFormula> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/progressionsChoice');
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "GO TO PROGRESSIONS CALCULATOR",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   myFormulaHeading("ARITHMETIC PROGRESSION", mainHeading: 1, bigGap: 0),
                   myFormula(progs[0][0]),
                   myFormula(progs[0][1]),
