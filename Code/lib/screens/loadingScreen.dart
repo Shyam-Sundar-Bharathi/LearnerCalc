@@ -17,7 +17,21 @@ class _loadingState extends State<loading> {
     final precisionKey = 'precision';
     final precisionValue = prefs.getInt(precisionKey) ?? 4;
     final colorKey = 'colorTheme';
-    final colorValue = prefs.getString(colorKey) ?? 'GRAYSCALE';
+    String colorValue = prefs.getString(colorKey) ?? 'GRAYSCALE';
+    if(colorValue == 'PINK')
+      colorValue = 'ROSE';
+    if(colorValue == 'BLUE')
+      colorValue = 'SKY BLUE';
+    if(colorValue == 'PURPLE')
+      colorValue = 'LAVENDER';
+    if(colorValue == 'GREEN')
+      colorValue = 'EMERALD';
+    if(colorValue == 'ORANGE')
+      colorValue = 'SAFFRON';
+    if(colorValue == 'RED')
+      colorValue = 'CHERRY';
+    if(!colors.containsKey(colorValue))
+      colorValue = 'GRAYSCALE';
     final nameKey = 'userName';
     final nameValue = prefs.getString(nameKey) ?? '';
     final showSearchBarKey = 'showSearchBar';
