@@ -32,36 +32,30 @@ Map colors = {
 
 class _homeState extends State<home> {
 
+  Map displayRoutes = {};
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume'];
   void search(String Text){
+    String text = Text.toLowerCase();
     setState(() {
+      displayRoutes = {};
       numberOfTilesFound = 0;
     });
-    String text = Text.toLowerCase();
     if(text == ""){
-      for(int i=0; i<18; i++){
-        setState(() {
-          searchList[i] = 0;
-          numberOfTilesFound = 0;
-        });
-      }
+      setState(() {
+        displayRoutes = routes;
+      });
       return;
     }
-    for(int i=0; i<18; i++){
+    for(int i = 0; i < 18; i++){
       if(tileNames[i].contains(text)){
         setState(() {
-          searchList[i] = 1;
+          displayRoutes[numberOfTilesFound] = [routes[i][0], routes[i][1]];
           numberOfTilesFound++;
-        });
-      }
-      else{
-        setState(() {
-          searchList[i] = 0;
         });
       }
     }
   }
 
-  Color myColor = Colors.blueGrey;
   saveToDevice() async {
     final prefs = await SharedPreferences.getInstance();
     final precisionKey = 'precision';
@@ -99,8 +93,12 @@ class _homeState extends State<home> {
     17 : ['VOLUME', '/volume'],
   };
 
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume'];
-  List searchList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  void initState(){
+    setState(() {
+      displayRoutes = routes;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -180,7 +178,7 @@ class _homeState extends State<home> {
             child: Container(
               child: GridView.builder(
                 padding: EdgeInsets.all(0),
-                itemCount: routes.length,
+                itemCount: displayRoutes.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 0,
                     crossAxisCount: 3,
@@ -196,19 +194,19 @@ class _homeState extends State<home> {
                                     borderRadius: BorderRadius.all(Radius.circular(10))
                                 ),
                             ),
-                          backgroundColor: MaterialStateProperty.all(searchList[index] == 1? Colors.white : colors[colorTheme][9]),
+                          backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
                           elevation: MaterialStateProperty.all(15)
                         ),
                         child: FittedBox(
                           child: Text(
-                              routes[index][0],
+                              displayRoutes[index][0],
                             style: TextStyle(
                               fontSize: 18,
-                              color: searchList[index] == 1? Colors.black : Colors.white
+                              color: Colors.white,
                             ),
                           ),
                         ),
-                        onPressed: (){Navigator.pushNamed(context, routes[index][1]);},
+                        onPressed: (){Navigator.pushNamed(context, displayRoutes[index][1]);},
                       ),
                     ),
                   );
