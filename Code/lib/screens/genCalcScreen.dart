@@ -23,7 +23,7 @@ class _genCalcState extends State<genCalc> {
     '^',
     '(',
     ')',
-    'C',
+    'C/AC',
     '7',
     '8',
     '9',
