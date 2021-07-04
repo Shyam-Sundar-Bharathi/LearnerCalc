@@ -18,7 +18,7 @@ class _unitconversionState extends State<unitconversion> {
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   String unitElementsValue = "LENGTH";
-  List<String> unitElements = ["LENGTH","MASS","TEMPERATURE","TIME", "PLANE ANGLE","SPEED","ENERGY","AREA","VOLUME"];
+  List<String> unitElements = ["LENGTH","MASS","TEMPERATURE","TIME", "PLANE ANGLE","SPEED","ENERGY","AREA","VOLUME","COMPUTER"];
   Map unitChoices = {
     'LENGTH' : ['meter','centimeter','kilometer','inch','foot','mile','millimeter','yard'],
     'MASS' : ['kilogram','gram','milligram','tonne','pound', 'ounce','us ton'],
@@ -28,7 +28,8 @@ class _unitconversionState extends State<unitconversion> {
     'SPEED' : ['meter per second', 'kilometer per hour', 'mile per hour', 'foot per second'],
     'ENERGY' : ['joule','calorie','kilojoule','kilocalorie','watt hour','kilowatt hour', 'foot-pound'],
     'AREA' : ['sq. meter', 'sq. foot', 'sq. kilometer', 'sq. centimeter', 'sq. mile', 'sq. inch', 'sq. yard', 'cent', 'ground', 'acre', 'hectare'],
-    'VOLUME' : ['cubic meter','liter','cubic centimeter','milliliter','cubic foot','cubic inch']
+    'VOLUME' : ['cubic meter','liter','cubic centimeter','milliliter','cubic foot','cubic inch'],
+    "COMPUTER" : ['binary','decimal', 'octal', 'hexadecimal'],
   };
 
   String plurals(String singular){
@@ -275,6 +276,7 @@ class _unitconversionState extends State<unitconversion> {
                   ],
                 ),
                 SizedBox(height: 50,),
+                unitElementsValue == "COMPUTER" ? Container() :
                 myDisplayCard(inFocusOne?
                 "1 $unitChoiceOne = ${convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1', display: 1)} ${plurals(unitChoiceTwo)}" :
                 "1 $unitChoiceTwo = ${convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1', display: 1)} ${plurals(unitChoiceOne)}",

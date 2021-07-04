@@ -1,8 +1,4 @@
 import 'dart:io';
-import 'dart:math';
-
-import 'package:dream_calc/screens/settingScreens/settingsScreen.dart';
-import 'package:dream_calc/services/globalWidgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
