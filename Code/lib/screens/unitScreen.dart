@@ -29,7 +29,7 @@ class _unitconversionState extends State<unitconversion> {
     'ENERGY' : ['joule','calorie','kilojoule','kilocalorie','watt hour','kilowatt hour', 'foot-pound'],
     'AREA' : ['sq. meter', 'sq. foot', 'sq. kilometer', 'sq. centimeter', 'sq. mile', 'sq. inch', 'sq. yard', 'cent', 'ground', 'acre', 'hectare'],
     'VOLUME' : ['cubic meter','liter','cubic centimeter','milliliter','cubic foot','cubic inch'],
-    "COMPUTER" : ['binary','decimal', 'octal', 'hexadecimal'],
+    'COMPUTER' : ['decimal', 'binary', 'octal', 'hexadecimal']
   };
 
   String plurals(String singular){
@@ -136,7 +136,7 @@ class _unitconversionState extends State<unitconversion> {
                             userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
                             },
                         controller: userInputOne,
-                        keyboardType: TextInputType.number,
+                        keyboardType: unitChoiceOne == 'hexadecimal' ? TextInputType.visiblePassword : TextInputType.number,
                         enableInteractiveSelection: true,
                         style: TextStyle(
                           //overflow: TextOverflow.fade,
@@ -146,6 +146,10 @@ class _unitconversionState extends State<unitconversion> {
                         ),
                         cursorColor: Colors.black,
                         inputFormatters: [
+                          unitChoiceOne == 'binary' ? FilteringTextInputFormatter(RegExp('[0-1]'), allow: true) :
+                          unitChoiceOne == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
+                          unitChoiceOne == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
+                          unitChoiceOne == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-F]'), allow: true) :
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
@@ -176,13 +180,25 @@ class _unitconversionState extends State<unitconversion> {
                         ),
                         underline: Container(height: 0),
                         onChanged: (String newValue) {
-                          setState(() {
-                            if(newValue == unitChoiceTwo){
-                              unitChoiceTwo = unitChoiceOne;
-                            }
-                            unitChoiceOne = newValue;
-                            userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
-                          });
+                          if(unitElementsValue == "COMPUTER"){
+                            setState(() {
+                              if(newValue == unitChoiceTwo){
+                                unitChoiceTwo = unitChoiceOne;
+                              }
+                              unitChoiceOne = newValue;
+                              userInputOne.text = "";
+                              userInputTwo.text = "";
+                            });
+                          }
+                          else{
+                            setState(() {
+                              if(newValue == unitChoiceTwo){
+                                unitChoiceTwo = unitChoiceOne;
+                              }
+                              unitChoiceOne = newValue;
+                              userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
+                            });
+                          }
                         },
                         items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
@@ -216,7 +232,7 @@ class _unitconversionState extends State<unitconversion> {
                             userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
                             },
                         controller: userInputTwo,
-                        keyboardType: TextInputType.number,
+                        keyboardType: unitChoiceTwo == 'hexadecimal' ? TextInputType.visiblePassword : TextInputType.number,
                         enableInteractiveSelection: true,
                         style: TextStyle(
                             color: inFocusOne ? Colors.green[700] : Colors.black,
@@ -224,7 +240,11 @@ class _unitconversionState extends State<unitconversion> {
                             fontWeight: inFocusOne ? FontWeight.bold : FontWeight.w500
                         ),
                         inputFormatters: [
-                          FilteringTextInputFormatter(RegExp('[0-9,. ]'), allow: true),
+                          unitChoiceTwo == 'binary' ? FilteringTextInputFormatter(RegExp('[0-1]'), allow: true) :
+                          unitChoiceTwo == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
+                          unitChoiceTwo == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
+                          unitChoiceTwo == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-F]'), allow: true) :
+                          FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
                           fillColor: Colors.white,
@@ -257,13 +277,25 @@ class _unitconversionState extends State<unitconversion> {
                         height: 0,
                       ),
                       onChanged: (String newValue) {
-                        setState(() {
-                          if(newValue == unitChoiceOne){
-                            unitChoiceOne = unitChoiceTwo;
-                          }
-                          unitChoiceTwo = newValue;
-                          userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
-                        });
+                        if(unitElementsValue == "COMPUTER"){
+                          setState(() {
+                            if(newValue == unitChoiceOne){
+                              unitChoiceOne = unitChoiceTwo;
+                            }
+                            unitChoiceTwo = newValue;
+                            userInputOne.text = "";
+                            userInputTwo.text = "";
+                          });
+                        }
+                        else{
+                          setState(() {
+                            if(newValue == unitChoiceOne){
+                              unitChoiceOne = unitChoiceTwo;
+                            }
+                            unitChoiceTwo = newValue;
+                            userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
+                          });
+                        }
                       },
                       items: unitChoices[unitElementsValue].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(

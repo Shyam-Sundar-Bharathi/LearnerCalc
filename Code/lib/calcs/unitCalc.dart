@@ -1,9 +1,15 @@
+import 'dart:math';
+
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, String userInput, {int display = 0}){
   if(userInput == "")
     return "";
+  if(unitElement.toLowerCase() == "computer"){
+    String answer = computerConvert(unitChoiceOne, unitChoiceTwo, userInput);
+    return answer;
+  }
   userInput = userInput.replaceAll(',', '');
   double input = 0;
   double answer = 0;
@@ -324,4 +330,67 @@ String temperature (String unitChoiceOne, String unitChoiceTwo, String userInput
   if (unitChoiceOne == 'kelvin' && unitChoiceTwo == 'farenheit')
     return (temperature('celcius','farenheit',temperature('kelvin', 'celcius', userInput)));
   return "";
+}
+
+String computerConvert(String unitChoiceOne, String unitChoiceTwo, String userInput){
+  if(unitChoiceOne == "binary" && unitChoiceTwo == "decimal")
+    return binaryToDecimal(userInput);
+  if(unitChoiceOne == "octal" && unitChoiceTwo == "decimal")
+    return octalToDecimal(userInput);
+  if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "decimal")
+    return hexadecimalToDecimal(userInput);
+}
+
+String binaryToDecimal(String userInput){
+  double answer = 0;
+  double number = double.parse(userInput);
+  int i = 0;
+  while(number > 0){
+    answer += pow(2,i)*(number%10);
+    i++;
+    number /= 10;
+    number = number.truncateToDouble();
+  }
+  return answer.toStringAsFixedNoZero(precision);
+}
+
+String octalToDecimal(String userInput){
+  double answer = 0;
+  double number = double.parse(userInput);
+  int i = 0;
+  while(number > 0){
+    answer += pow(8,i)*(number%10);
+    i++;
+    number /= 10;
+    number = number.truncateToDouble();
+  }
+  return answer.toStringAsFixedNoZero(precision);
+}
+
+String hexadecimalToDecimal(String userInput){
+  double answer = 0;
+  int i = 0;
+  List digits = [];
+  for(int i=userInput.length - 1; i >=0 ; i--){
+    if(userInput[i] == 'A')
+      digits.add(10);
+    else if(userInput[i] == 'B')
+      digits.add(11);
+    else if(userInput[i] == 'C')
+      digits.add(12);
+    else if(userInput[i] == 'D')
+      digits.add(13);
+    else if(userInput[i] == 'E')
+      digits.add(14);
+    else if(userInput[i] == 'F')
+      digits.add(15);
+    else digits.add(double.parse(userInput[i]));
+  }
+  int number = 0;
+  while(number < digits.length){
+    answer += pow(16,i)*digits[number];
+    i++;
+    number++;
+  }
+  return answer.toStringAsFixedNoZero(precision);
 }
