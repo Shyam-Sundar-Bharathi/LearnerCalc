@@ -1271,10 +1271,10 @@ io.flutter.plugins.share.R$styleable
 kotlin.collections.ArraysKt___ArraysKt$asSequence$$inlined$Sequence$1
 androidx.core.app.NotificationCompat$1
 io.flutter.plugins.share.R$attr
+kotlin.coroutines.ContinuationKt$Continuation$1
 androidx.lifecycle.LifecycleRegistry$ObserverWithState:
     void <init>(androidx.lifecycle.LifecycleObserver,androidx.lifecycle.Lifecycle$State)
 androidx.loader.app.LoaderManagerImpl$LoaderObserver
-kotlin.coroutines.ContinuationKt$Continuation$1
 kotlin.SynchronizedLazyImpl
 androidx.core.graphics.drawable.TintAwareDrawable
 kotlin.sequences.SequencesKt___SequencesKt$filterIsInstance$1
@@ -2067,9 +2067,9 @@ kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.fragment.app.FragmentManagerViewModel
 androidx.customview.widget.ExploreByTouchHelper
 androidx.annotation.CheckResult
-io.flutter.embedding.engine.systemchannels.PlatformChannel:
-    private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
+    private static final java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformChannel:
     private static final java.lang.String TAG
 kotlin.Suppress
 androidx.core.graphics.drawable.WrappedDrawableApi21

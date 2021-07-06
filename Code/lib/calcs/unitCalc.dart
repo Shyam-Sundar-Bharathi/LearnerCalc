@@ -339,6 +339,24 @@ String computerConvert(String unitChoiceOne, String unitChoiceTwo, String userIn
     return octalToDecimal(userInput);
   if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "decimal")
     return hexadecimalToDecimal(userInput);
+  if(unitChoiceOne == "decimal" && unitChoiceTwo == "binary")
+    return decimalToBinary(userInput);
+  if(unitChoiceOne == "decimal" && unitChoiceTwo == "octal")
+    return decimalToOctal(userInput);
+  if(unitChoiceOne == "decimal" && unitChoiceTwo == "hexadecimal")
+    return decimalToHexadecimal(userInput);
+  if(unitChoiceOne == "binary" && unitChoiceTwo == "octal")
+    return decimalToOctal(binaryToDecimal(userInput));
+  if(unitChoiceOne == "octal" && unitChoiceTwo == "binary")
+    return decimalToBinary(octalToDecimal(userInput));
+  if(unitChoiceOne == "binary" && unitChoiceTwo == "hexadecimal")
+    return decimalToHexadecimal(binaryToDecimal(userInput));
+  if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "binary")
+    return decimalToBinary(hexadecimalToDecimal(userInput));
+  if(unitChoiceOne == "octal" && unitChoiceTwo == "hexadecimal")
+    return decimalToOctal(hexadecimalToDecimal(userInput));
+  if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "octal")
+    return decimalToOctal(hexadecimalToDecimal(userInput));
 }
 
 String binaryToDecimal(String userInput){
@@ -393,4 +411,70 @@ String hexadecimalToDecimal(String userInput){
     number++;
   }
   return answer.toStringAsFixedNoZero(precision);
+}
+
+String decimalToBinary(String userInput){
+  double number = double.parse(userInput);
+  if(number == 0)
+    return '0';
+  List binary = [];
+  String answer = '';
+  while(number>0){
+    binary.add((number%2).toInt());
+    number /= 2;
+    number = number.truncateToDouble();
+  }
+  for(int i = binary.length - 1; i >= 0; i--){
+    answer += binary[i].toString();
+  }
+  return answer.toStringAsFixedNoZero(precision);
+}
+
+String decimalToOctal(String userInput){
+  double number = double.parse(userInput);
+  if(number == 0)
+    return '0';
+  List binary = [];
+  String answer = '';
+  while(number>0){
+    binary.add((number%8).toInt());
+    number /= 8;
+    number = number.truncateToDouble();
+  }
+  for(int i = binary.length - 1; i >= 0; i--){
+    answer += binary[i].toString();
+  }
+  return answer.toStringAsFixedNoZero(precision);
+}
+
+String decimalToHexadecimal(String userInput){
+  double number = double.parse(userInput);
+  if(number == 0)
+    return '0';
+  List binary = [];
+  int num = 0;
+  String answer = '';
+  while(number>0){
+    num = (number % 16).toInt();
+    if(num == 15)
+      binary.add('F');
+    else if(num == 14)
+      binary.add('E');
+    else if(num == 13)
+      binary.add('D');
+    else if(num == 12)
+      binary.add('C');
+    else if(num == 11)
+      binary.add('B');
+    else if(num == 10)
+      binary.add('A');
+    else binary.add(num);
+
+    number /= 16;
+    number = number.truncateToDouble();
+  }
+  for(int i = binary.length - 1; i >= 0; i--){
+    answer += binary[i].toString();
+  }
+  return answer;
 }
