@@ -132,129 +132,126 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
-    return WillPopScope(
-      onWillPop: _onWillPop,
-      child: Scaffold(
-        backgroundColor: colors[colorTheme][1],
-        appBar: AppBar(
-          backgroundColor: colors[colorTheme][9],
-          title: FittedBox(
-            child: GestureDetector(
-              onTap: (){FocusScope.of(context).unfocus();},
-              onLongPress: _onWillPop,
-              child: Text(
-                userName == "" ? "LEARNER" : "LEARNER $userName",
-                style: TextStyle(
-                  fontFamily: "Times",
-                  fontSize: 25,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white
-                ),
+    return Scaffold(
+      backgroundColor: colors[colorTheme][1],
+      appBar: AppBar(
+        backgroundColor: colors[colorTheme][9],
+        title: FittedBox(
+          child: GestureDetector(
+            onTap: (){FocusScope.of(context).unfocus();},
+            onLongPress: _onWillPop,
+            child: Text(
+              userName == "" ? "LEARNER" : "LEARNER $userName",
+              style: TextStyle(
+                fontFamily: "Times",
+                fontSize: 25,
+                fontWeight: FontWeight.w900,
+                color: Colors.white
               ),
             ),
           ),
-          centerTitle: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: colors[colorTheme][1],
-          ),
-            onPressed: () async {
-              result = await Navigator.pushNamed(context, '/settings');
-              setState(() {
-                precision = result['precision'];
-                colorTheme = result['colorTheme'];
-                userName = result['userName'];
-                showSearchBar = result['showSearchBar'];
-                saveToDevice();
-              });
-            },
-          ),
         ),
-        body: Column(
-          children: [
-            showSearchBar ? Container(
-              padding: EdgeInsets.fromLTRB(5, 5, 5, 2),
-              child: TextField(
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(
+            Icons.settings,
+            color: colors[colorTheme][1],
+        ),
+          onPressed: () async {
+            result = await Navigator.pushNamed(context, '/settings');
+            setState(() {
+              precision = result['precision'];
+              colorTheme = result['colorTheme'];
+              userName = result['userName'];
+              showSearchBar = result['showSearchBar'];
+              saveToDevice();
+            });
+          },
+        ),
+      ),
+      body: Column(
+        children: [
+          showSearchBar ? Container(
+            padding: EdgeInsets.fromLTRB(5, 5, 5, 2),
+            child: TextField(
+              style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500
+              ),
+              cursorColor: colors[colorTheme][1],
+              onChanged: search,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                fillColor: colors[colorTheme][9],
+                filled: true,
+                prefixIcon: IconButton(
+                    icon: Icon(
+                        Icons.search,
+                      color: Colors.white,
+                    ),
+                  onPressed: (){FocusScope.of(context).unfocus();},
                 ),
-                cursorColor: colors[colorTheme][1],
-                onChanged: search,
-                keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
-                  fillColor: colors[colorTheme][9],
-                  filled: true,
-                  prefixIcon: IconButton(
-                      icon: Icon(
-                          Icons.search,
-                        color: Colors.white,
-                      ),
-                    onPressed: (){FocusScope.of(context).unfocus();},
-                  ),
-                  suffixText: '$numberOfTilesFound found',
-                  suffixStyle: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 3, color: colors[colorTheme][9]),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 5, color: colors[colorTheme][9]),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                suffixText: '$numberOfTilesFound found',
+                suffixStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 3, color: colors[colorTheme][9]),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 5, color: colors[colorTheme][9]),
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
-            ) : Container(),
-            Expanded(
-              child: Container(
-                child: GridView.builder(
-                  padding: EdgeInsets.all(0),
-                  itemCount: displayRoutes.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 0,
-                      crossAxisCount: 3,
-                    ),
-                    itemBuilder: (BuildContext context, int index){
-                    return Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Container(
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(10))
-                                  ),
-                              ),
-                            backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
-                            elevation: MaterialStateProperty.all(15)
-                          ),
-                          child: FittedBox(
-                            child: Text(
-                                displayRoutes[index][0],
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
+            ),
+          ) : Container(),
+          Expanded(
+            child: Container(
+              child: GridView.builder(
+                padding: EdgeInsets.all(0),
+                itemCount: displayRoutes.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 0,
+                    crossAxisCount: 3,
+                  ),
+                  itemBuilder: (BuildContext context, int index){
+                  return Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Container(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(10))
+                                ),
+                            ),
+                          backgroundColor: MaterialStateProperty.all(colors[colorTheme][9]),
+                          elevation: MaterialStateProperty.all(15)
+                        ),
+                        child: FittedBox(
+                          child: Text(
+                              displayRoutes[index][0],
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
                             ),
                           ),
-                          onPressed: (){Navigator.pushNamed(context, displayRoutes[index][1]);},
                         ),
+                        onPressed: (){Navigator.pushNamed(context, displayRoutes[index][1]);},
                       ),
-                    );
-                    }
-                ),
+                    ),
+                  );
+                  }
               ),
             ),
-            Container(
-              color: Colors.black,
-            )
-          ],
-        ),
+          ),
+          Container(
+            color: Colors.black,
+          )
+        ],
       ),
     );
   }

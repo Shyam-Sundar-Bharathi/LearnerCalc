@@ -166,6 +166,29 @@ Widget myFormulaTableBlock(String formula){
   );
 }
 
+Widget myFormulaTableBlockNormalText(String formula){
+  return Expanded(
+    child: Container(
+      height: 80,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        border: Border.all(),
+      ),
+      child: Center(
+        child: FittedBox(
+            child: DefaultTextStyle(
+              child: Text(formula),
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.black
+              ),
+            )
+        ),
+      ),
+    ),
+  );
+}
+
 //CONTACT US SCREEN - SETTINGS - LINKS TO SOCIALS
 Widget myContactUsButton({String text, IconData icon, String launcher }){
   return ElevatedButton(

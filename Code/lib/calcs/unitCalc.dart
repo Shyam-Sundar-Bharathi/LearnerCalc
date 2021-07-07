@@ -354,7 +354,7 @@ String computerConvert(String unitChoiceOne, String unitChoiceTwo, String userIn
   if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "binary")
     return decimalToBinary(hexadecimalToDecimal(userInput));
   if(unitChoiceOne == "octal" && unitChoiceTwo == "hexadecimal")
-    return decimalToOctal(hexadecimalToDecimal(userInput));
+    return decimalToHexadecimal(octalToDecimal(userInput));
   if(unitChoiceOne == "hexadecimal" && unitChoiceTwo == "octal")
     return decimalToOctal(hexadecimalToDecimal(userInput));
 }

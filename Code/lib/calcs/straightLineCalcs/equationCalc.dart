@@ -5,8 +5,14 @@ import 'package:dream_calc/services/formatNumber.dart';
 
 
 String straightLineEquationChoice(String A, String B, String C, int fn){
-  if(A == '' || B == '' || C == '')
+  if(A == '' && B == '')
     return "CHECK INPUT";
+  if(A == '')
+    A = '0';
+  if(B == '')
+    B = '0';
+  if(C == '')
+    C = '0';
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -27,6 +33,10 @@ String straightLineEquationChoice(String A, String B, String C, int fn){
 }
 
 String slope(double a, double b){
+  if(a != 0 && b == 0)
+    a*=-1;
+  else if(a == 0 && b != 0)
+    b*=-1;
   double slope = -a/b;
   String Slope = slope.toStringAsFixedNoZero(precision);
   return formatNumber(Slope);
@@ -45,6 +55,10 @@ String y_intercept(double b, double c){
 }
 
 String xAxisAngle(double a, double b){
+  if(a != 0 && b == 0)
+    a*=-1;
+  else if(a == 0 && b != 0)
+    b*=-1;
   double slope = -a/b;
   double angle = toDegree(atan(slope));
   String Angle = angle.toStringAsFixedNoZero(precision);
@@ -52,6 +66,10 @@ String xAxisAngle(double a, double b){
 }
 
 String yAxisAngle(double a, double b){
+  if(a != 0 && b == 0)
+    a*=-1;
+  else if(a == 0 && b != 0)
+    b*=-1;
   double slope = -a/b;
   double angle = 90 - toDegree(atan(slope));
   String Angle = angle.toStringAsFixedNoZero(precision);

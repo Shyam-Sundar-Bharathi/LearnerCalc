@@ -6,6 +6,7 @@ import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/constantsFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/coordinateFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/differentialFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
@@ -95,6 +96,7 @@ void main() {
         '/differentialFormulae' : (context) => differentialFormula(),
         '/integralFormulae' : (context) => integralFormula(),
         '/linearFormulae' : (context) => linearFormula(),
+        '/constantsFormulae' : (context) => constantsFormula(),
         '/areaFormulae' : (context) => areaFormula(),
         '/volumeFormulae' : (context) => volumeFormula(),
         '/contactUs' : (context) => contactUs(),

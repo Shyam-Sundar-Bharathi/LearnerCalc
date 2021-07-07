@@ -4,8 +4,14 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:extended_math/extended_math.dart';
 
 String circleEquationChoice(String A, String B, String C, String D, int fn){
-  if(A == '' || B == '' || C == '' || D == '' || double.parse(A) == 0)
+  if(A == '' || double.parse(A) == 0)
     return "CHECK INPUT";
+  if(B == '')
+    B = '0';
+  if(C == '')
+    C = '0';
+  if(D == '')
+    D = '0';
   double a = double.parse(A);
   double b = double.parse(B);
   double c = double.parse(C);
@@ -29,6 +35,10 @@ String circleEquationChoice(String A, String B, String C, String D, int fn){
 String center(double h, double k){
   String X = h.toStringAsFixedNoZero(precision);
   String Y = k.toStringAsFixedNoZero(precision);
+  if(X == '-0')
+    X = '0';
+  if(Y == '-0')
+    Y = '0';
   return "($X,$Y)";
 }
 

@@ -13,18 +13,19 @@ class _formulaChoiceState extends State<formulaChoice> {
 
   Map choices = {
     0 : ['POWERS OF TEN','/powersOfTenFormulae'],
-    1 : ['GEOMETRIC AREA','/areaFormulae'],
-    2 : ['GEOMETRIC VOLUME','/volumeFormulae'],
-    3 : ['ALGEBRA', '/algebraFormulae'],
-    4 : ['PROGRESSION', '/progressionFormulae'],
-    5 : ['CENTRAL TENDENCY', '/centTendFormulae'],
-    6 : ['LINEAR EQUATIONS', '/linearFormulae'],
-    7 : ['QUADRATIC EQUATION','/quadraticFormulae'],
-    8 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
-    9 : ['TRIGONOMETRY', '/trigonometryFormulae'],
-    10 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
-    11 : ['DIFFERENTIATION', '/differentialFormulae'],
-    12 : ['INTEGRATION', '/integralFormulae'],
+    1 : ['PHYSICAL CONSTANTS', '/constantsFormulae'],
+    2 : ['GEOMETRIC AREA','/areaFormulae'],
+    3 : ['GEOMETRIC VOLUME','/volumeFormulae'],
+    4 : ['ALGEBRA', '/algebraFormulae'],
+    5 : ['PROGRESSION', '/progressionFormulae'],
+    6 : ['CENTRAL TENDENCY', '/centTendFormulae'],
+    7 : ['LINEAR EQUATIONS', '/linearFormulae'],
+    8 : ['QUADRATIC EQUATION','/quadraticFormulae'],
+    9 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
+    10 : ['TRIGONOMETRY', '/trigonometryFormulae'],
+    11 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
+    12 : ['DIFFERENTIATION', '/differentialFormulae'],
+    13 : ['INTEGRATION', '/integralFormulae'],
 
   };
 
