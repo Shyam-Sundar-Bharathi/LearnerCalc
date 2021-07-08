@@ -108,26 +108,26 @@ class _homeState extends State<home> {
     );
   }
 
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Are you sure?'),
-        content: Text('Do you want to exit?'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text('No'),
-          ),
-          TextButton(
-            onPressed: () => exit(0),
-            child: Text("Yes"),
-          ),
-        ],
-      ),
-    ) ??
-        false;
-  }
+  // Future<bool> _onWillPop() {
+  //   return showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: Text('Are you sure?'),
+  //       content: Text('Do you want to exit?'),
+  //       actions: <Widget>[
+  //         TextButton(
+  //           onPressed: () => Navigator.of(context).pop(false),
+  //           child: Text('No'),
+  //         ),
+  //         TextButton(
+  //           onPressed: () => exit(0),
+  //           child: Text("Yes"),
+  //         ),
+  //       ],
+  //     ),
+  //   ) ??
+  //       false;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +139,7 @@ class _homeState extends State<home> {
         title: FittedBox(
           child: GestureDetector(
             onTap: (){FocusScope.of(context).unfocus();},
-            onLongPress: _onWillPop,
+            //onLongPress: _onWillPop,
             child: Text(
               userName == "" ? "LEARNER" : "LEARNER $userName",
               style: TextStyle(

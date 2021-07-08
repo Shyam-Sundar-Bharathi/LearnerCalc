@@ -25,7 +25,7 @@ class _algebraicFormulaState extends State<algebraicFormula> {
     10 : r'(a+b+c)^2 = a^2 + b^2 + c^2 + 2ab + 2bc + 2ca',
     11 : r'(a+b-c)^2 = a^2 + b^2 + c^2 + 2ab - 2bc - 2ca',
     12 : r'(a-b-c)^2 = a^2 + b^2 + c^2 - 2ab + 2bc - 2ca',
-    13 : r'x^3 + y^3 + z^3 = (x+y+z)(x^2 + y^2 + z^2 -xy - yz - zx)',
+    13 : r'x^3 + y^3 + z^3 - 3xyz = (x+y+z)(x^2 + y^2 + z^2 -xy - yz - zx)',
     14 : r'x^2 + y^2 + z^2 - xy - yz - zx = \frac{1}{2}[(x-y)^2 + (y-z)^2 + (z-x)^2]'
 
   };

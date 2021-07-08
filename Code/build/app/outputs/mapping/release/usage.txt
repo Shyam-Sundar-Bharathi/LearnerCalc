@@ -942,8 +942,8 @@ kotlin.coroutines.experimental.ContinuationInterceptor$Key
 kotlin.jvm.internal.markers.KMutableSet
 kotlin.jvm.internal.IntSpreadBuilder
 kotlin.sequences.SequencesKt___SequencesKt
-androidx.core.graphics.BlendModeColorFilterCompat
 androidx.core.content.res.FontResourcesParserCompat$FamilyResourceEntry
+androidx.core.graphics.BlendModeColorFilterCompat
 kotlin.sequences.SequencesKt___SequencesKt$groupingBy$1
 io.flutter.app.FlutterPlayStoreSplitApplication
 io.flutter.embedding.engine.plugins.service.ServiceControlSurface
@@ -2067,9 +2067,9 @@ kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.fragment.app.FragmentManagerViewModel
 androidx.customview.widget.ExploreByTouchHelper
 androidx.annotation.CheckResult
-io.flutter.embedding.engine.systemchannels.PlatformChannel:
-    private static final java.lang.String TAG
 io.flutter.embedding.engine.systemchannels.PlatformViewsChannel:
+    private static final java.lang.String TAG
+io.flutter.embedding.engine.systemchannels.PlatformChannel:
     private static final java.lang.String TAG
 kotlin.Suppress
 androidx.core.graphics.drawable.WrappedDrawableApi21
@@ -2809,8 +2809,8 @@ io.flutter.plugin.common.BinaryCodec
 kotlin.reflect.KTypeParameter
 androidx.core.text.PrecomputedTextCompat
 kotlin.jvm.functions.Function5
-kotlin.text.StringsKt__StringsKt
 kotlin.text.Regex$findAll$1
+kotlin.text.StringsKt__StringsKt
 com.github.adee42.keyboardvisibility.R$string
 kotlin.contracts.Returns
 io.flutter.Log:
