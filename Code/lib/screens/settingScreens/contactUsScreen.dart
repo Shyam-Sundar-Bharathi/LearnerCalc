@@ -48,7 +48,7 @@ ElevatedButton myLinkedInButton = myContactUsButton(text: "Connect with me on Li
 ElevatedButton myTwitterButton = myContactUsButton(text: "Follow me on Twitter", icon: Icons.phone_iphone_sharp, launcher: twitterURL);
 ElevatedButton myQuoraButton = myContactUsButton(text: "Ask me a question on Quora", icon: Icons.question_answer_outlined, launcher: quoraURL);
 ElevatedButton myGitHubButton = myContactUsButton(text: "Check out our code on GitHub", icon: Icons.code, launcher: githubURL);
-ElevatedButton myYouTubeButton = myContactUsButton(text: "Watch me on YouTube", icon: Icons.live_tv_sharp, launcher: youtubeURL);
+ElevatedButton myYouTubeButton = myContactUsButton(text: "Watch us on YouTube", icon: Icons.live_tv_sharp, launcher: youtubeURL);
 
 class _contactUsState extends State<contactUs> {
   @override
@@ -97,13 +97,9 @@ class _contactUsState extends State<contactUs> {
                       SizedBox(height: 15,),
                       myLinkedInButton,
                       SizedBox(height: 15,),
+                      myYouTubeButton,
+                      SizedBox(height: 15,),
                       myQuoraButton,
-                      SizedBox(height: 15,),
-                      myTwitterButton,
-                      SizedBox(height: 15,),
-                      myBlogButton,
-                      // SizedBox(height: 15,),
-                      // myYouTubeButton,
                       SizedBox(height: 50,),
                     ],
                   ),

@@ -16,6 +16,7 @@ class settings extends StatefulWidget {
 
 const eulaURL = "https://shyam-sundar-bharathi.github.io/LearnerCalc/";
 const playStoreURL = "https://play.google.com/store/apps/details?id=thelearnersdaily.wordpress.dream_calc";
+const youtubeURL = "https://www.youtube.com/channel/UCPzsDFExFNHQ_weZiSC65tg";
 
 String dropDownColor = colorTheme;
 double sliderValue =  precision.toDouble();
@@ -436,6 +437,33 @@ class _settingsState extends State<settings> {
                 SizedBox(height: 20,),
                 mySettingsCard(
                   child: Container(
+                    width: MediaQuery. of(context). size. width - 30,
+                    padding: EdgeInsets.all(15),
+                    child: TextButton.icon(
+                      onPressed: (){
+                        launch(youtubeURL,
+                            forceWebView: false);
+                      },
+                      icon: Icon(
+                        Icons.live_tv_outlined,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "Watch us on YouTube",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                mySettingsCard(
+                  child: Container(
                       width: MediaQuery. of(context). size. width - 30,
                       padding: EdgeInsets.all(15),
                       child: TextButton.icon(
@@ -505,7 +533,7 @@ class _settingsState extends State<settings> {
                     SizedBox(height: 2,),
                     FittedBox(
                         child: Text(
-                            "The Learner's Daily - June 2021 - Version 1.4.0",
+                            "The Learner's Daily - June 2021 - Version 1.4.1",
                           style: TextStyle(
                               color: Colors.grey[700]
                           ),
