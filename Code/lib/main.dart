@@ -3,6 +3,7 @@ import 'package:dream_calc/screens/circleScreens/centerRadiusScreen.dart';
 import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/circleScreens/equationScreen.dart';
 import 'package:dream_calc/screens/complexScreen.dart';
+import 'package:dream_calc/screens/cubicScreens/cubicChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
@@ -31,7 +32,8 @@ import 'package:dream_calc/screens/progressionsScreens/arithmeticScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/geometricScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/harmonicScreen.dart';
-import 'package:dream_calc/screens/quadraticScreen.dart';
+import 'package:dream_calc/screens/quadraticScreens/quadraticChoice.dart';
+import 'package:dream_calc/screens/quadraticScreens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/choiceScreen.dart';
@@ -51,7 +53,7 @@ import 'package:dream_calc/screens/volumeScreen.dart';
 import 'package:dream_calc/screens/settingScreens/settingsScreen.dart';
 import 'package:dream_calc/screens/percentScreen.dart';
 import 'package:flutter/services.dart';
-import 'package:dream_calc/screens/cubicScreen.dart';
+import 'package:dream_calc/screens/cubicScreens/cubicScreen.dart';
 import 'package:dream_calc/screens/linearScreens/oneScreen.dart';
 
 void main() {
@@ -114,6 +116,8 @@ void main() {
         '/arithmeticProgression' : (context) => arithmeticProgression(),
         '/geometricProgression' : (context) => geometricProgression(),
         '/harmonicProgression' : (context) => harmonicProgression(),
+        '/quadraticChoice' : (context) => quadraticChoice(),
+        '/cubicChoice' : (context) => cubicChoice(),
       },
     ));
   }

@@ -41,6 +41,7 @@ const twitterURL = "https://twitter.com/bharathi_shyam1";
 const githubURL = "https://github.com/Shyam-Sundar-Bharathi/LearnerCalc";
 const quoraURL = "https://www.quora.com/profile/Shyam-Sundar-Bharathi";
 const youtubeURL = "https://www.youtube.com/channel/UCPzsDFExFNHQ_weZiSC65tg";
+const websiteURL = "https://shyamsundarbharathi.com";
 
 ElevatedButton myEmailButton = myContactUsButton(text: "thelearnersdaily@gmail.com", icon: Icons.mail, launcher: _emailLaunchUri.toString());
 ElevatedButton myBlogButton = myContactUsButton(text: "Read The Learner's Daily Blog", icon: Icons.library_books, launcher: blogURL);
@@ -49,6 +50,7 @@ ElevatedButton myTwitterButton = myContactUsButton(text: "Follow me on Twitter",
 ElevatedButton myQuoraButton = myContactUsButton(text: "Ask me a question on Quora", icon: Icons.question_answer_outlined, launcher: quoraURL);
 ElevatedButton myGitHubButton = myContactUsButton(text: "Check out our code on GitHub", icon: Icons.code, launcher: githubURL);
 ElevatedButton myYouTubeButton = myContactUsButton(text: "Watch us on YouTube", icon: Icons.live_tv_sharp, launcher: youtubeURL);
+ElevatedButton myWebsiteButton = myContactUsButton(text: "Visit my Website", icon: Icons.web_sharp, launcher: websiteURL);
 
 class _contactUsState extends State<contactUs> {
   @override
@@ -98,6 +100,8 @@ class _contactUsState extends State<contactUs> {
                       myLinkedInButton,
                       SizedBox(height: 15,),
                       myYouTubeButton,
+                      SizedBox(height: 15,),
+                      myWebsiteButton,
                       SizedBox(height: 15,),
                       myQuoraButton,
                       SizedBox(height: 50,),
