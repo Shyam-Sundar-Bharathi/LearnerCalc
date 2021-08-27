@@ -32,6 +32,8 @@ import 'package:dream_calc/screens/progressionsScreens/arithmeticScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/geometricScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/harmonicScreen.dart';
+import 'package:dream_calc/screens/quadraticScreens/formImaginaryScreen.dart';
+import 'package:dream_calc/screens/quadraticScreens/formRealScreen.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticChoice.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
@@ -118,6 +120,8 @@ void main() {
         '/harmonicProgression' : (context) => harmonicProgression(),
         '/quadraticChoice' : (context) => quadraticChoice(),
         '/cubicChoice' : (context) => cubicChoice(),
+        '/quadraticFormReal' : (context) => quadraticFormReal(),
+        '/quadraticFormImaginary' : (context) => quadraticFormImaginary(),
       },
     ));
   }

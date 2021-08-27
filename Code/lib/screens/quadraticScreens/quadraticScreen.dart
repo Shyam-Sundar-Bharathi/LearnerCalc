@@ -1,4 +1,4 @@
-import 'package:dream_calc/calcs/quadraticCalc.dart';
+import 'package:dream_calc/calcs/quadraticCalcs/quadraticCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

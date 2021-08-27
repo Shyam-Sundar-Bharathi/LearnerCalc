@@ -13,8 +13,8 @@ class _quadraticChoiceState extends State<quadraticChoice> {
 
   Map choices = {
     0 : ['SOLVE', '/quadratic'],
-    1 : ['FORM - REAL', '/geometricProgression'],
-    2 : ['FORM - IMAGINARY', '/geometricProgression'],
+    1 : ['FORM - REAL', '/quadraticFormReal'],
+    2 : ['FORM - IMAGINARY', '/quadraticFormImaginary'],
   };
 
 
