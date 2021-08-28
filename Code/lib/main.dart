@@ -4,6 +4,7 @@ import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/circleScreens/equationScreen.dart';
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/cubicScreens/cubicChoiceScreen.dart';
+import 'package:dream_calc/screens/cubicScreens/cubicRealFormScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
@@ -33,7 +34,7 @@ import 'package:dream_calc/screens/progressionsScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/geometricScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/harmonicScreen.dart';
 import 'package:dream_calc/screens/quadraticScreens/formImaginaryScreen.dart';
-import 'package:dream_calc/screens/quadraticScreens/formRealScreen.dart';
+import 'package:dream_calc/screens/quadraticScreens/quadraticFormRealScreen.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticChoice.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
@@ -122,6 +123,7 @@ void main() {
         '/cubicChoice' : (context) => cubicChoice(),
         '/quadraticFormReal' : (context) => quadraticFormReal(),
         '/quadraticFormImaginary' : (context) => quadraticFormImaginary(),
+        '/cubicFormReal' : (context) => cubicFormReal(),
       },
     ));
   }

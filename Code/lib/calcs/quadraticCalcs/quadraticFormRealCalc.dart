@@ -20,7 +20,7 @@ String equation(String userInputOne, String userInputTwo){
     return "x^2 ${signTwo} ${product} = 0";
   }
   if(productOfRoots == 0){
-    return "x^2 ${signOne} ${sum} = 0";
+    return "x^2 ${signOne} ${sum}x = 0";
   }
   return "x^2 ${signOne} ${sum}x ${signTwo} ${product} = 0";
 }

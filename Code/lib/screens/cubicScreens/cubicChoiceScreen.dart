@@ -13,7 +13,7 @@ class _cubicChoiceState extends State<cubicChoice> {
 
   Map choices = {
     0 : ['SOLVE', '/cubic'],
-    1 : ['FORM - REAL', '/geometricProgression'],
+    1 : ['FORM - REAL', '/cubicFormReal'],
     2 : ['FORM - IMAGINARY', '/geometricProgression'],
   };
 

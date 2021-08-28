@@ -1,4 +1,4 @@
-import 'package:dream_calc/calcs/cubicCalc.dart';
+import 'package:dream_calc/calcs/cubicCalcs/cubicCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -149,6 +149,7 @@ class _quadraticCalcState extends State<quadraticCalc> {
                             textAlign: TextAlign.center,
                             controller: userInputC,
                             keyboardType: TextInputType.number,
+                            style: TextStyle(fontWeight: FontWeight.bold),
                             enableInteractiveSelection: true,
                             inputFormatters: [
                               FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
