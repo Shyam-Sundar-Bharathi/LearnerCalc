@@ -41,11 +41,13 @@ class _straightLineChoiceState extends State<straightLineChoice> {
                           child: ElevatedButton(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                choices[index][0],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:30
+                              child: FittedBox(
+                                child: Text(
+                                  choices[index][0],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:30
+                                  ),
                                 ),
                               ),
                             ),

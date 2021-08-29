@@ -14,7 +14,7 @@ class _cubicChoiceState extends State<cubicChoice> {
   Map choices = {
     0 : ['SOLVE', '/cubic'],
     1 : ['FORM - REAL', '/cubicFormReal'],
-    2 : ['FORM - IMAGINARY', '/cubicFormImaginary'],
+    2 : ['FORM - COMPLEX', '/cubicFormImaginary'],
   };
 
 
@@ -40,11 +40,13 @@ class _cubicChoiceState extends State<cubicChoice> {
                           child: ElevatedButton(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                choices[index][0],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:30
+                              child: FittedBox(
+                                child: Text(
+                                  choices[index][0],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:30
+                                  ),
                                 ),
                               ),
                             ),

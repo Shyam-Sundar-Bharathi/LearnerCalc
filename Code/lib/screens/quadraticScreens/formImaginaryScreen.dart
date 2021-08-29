@@ -46,24 +46,24 @@ class _quadraticFormImaginaryState extends State<quadraticFormImaginary> {
     );
   }
 
+  Widget myQuadraticCatexText(String text, {double fontSize = 20}){
+    return FittedBox(
+      child: DefaultTextStyle(
+        child: CaTeX(text),
+        style: TextStyle(
+            color: Colors.black,
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold
+        ),
+      ),
+    );
+  }
+
   String result = " ";
-  double width;
   TextEditingController real = new TextEditingController();
   TextEditingController imaginary = new TextEditingController();
 
-  @override
   Widget build(BuildContext context) {
-
-    GlobalKey keyImaginary = new GlobalKey();
-    void initState() {
-      super.initState();
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        setState(() {
-          width = keyImaginary.currentContext.size.width;
-        });
-        print(width);
-      });
-    }
 
     SystemChrome.setEnabledSystemUIOverlays([]);
     return GestureDetector(
@@ -77,25 +77,20 @@ class _quadraticFormImaginaryState extends State<quadraticFormImaginary> {
           child: Container(
             padding: EdgeInsets.all(10),
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 myCatexDisplayCard(r"Roots=> \alpha + i\beta\ ,\ \alpha - i\beta"),
-                myCatexDisplayCard(r"Real\ \ part=> \alpha"),
-                myCatexDisplayCard(r"Imaginary\ \ part=> \beta"),
-                SizedBox(height: 30,),
+                SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    myQuadraticText("Real part: "),
+                    myQuadraticCatexText(r"\alpha :"),
+                    SizedBox(width: 20,),
                     myQuadraticTextField(real),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    myQuadraticText("Imaginary part: "),
+                    SizedBox(width: 20,),
+                    myQuadraticCatexText(r"\beta :"),
+                    SizedBox(width: 20,),
                     myQuadraticTextField(imaginary, lastBox: true, imaginary: true),
                   ],
                 ),

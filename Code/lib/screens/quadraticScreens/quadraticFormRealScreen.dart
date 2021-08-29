@@ -71,7 +71,7 @@ class _quadraticFormRealState extends State<quadraticFormReal> {
                   children: [
                     myQuadraticText("Root 1 : "),
                     myQuadraticTextField(userInput1),
-                    SizedBox(width: 10,),
+                    SizedBox(width: 20,),
                     myQuadraticText("Root 2 : "),
                     myQuadraticTextField(userInput2, lastBox: true),
                   ],

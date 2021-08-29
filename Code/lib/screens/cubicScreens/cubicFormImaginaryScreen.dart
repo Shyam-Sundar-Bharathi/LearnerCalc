@@ -39,7 +39,7 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
     );
   }
 
-  Widget myCubicTextField(TextEditingController cont,{Key key}){
+  Widget myCubicTextField(TextEditingController cont,{Key key, complex = false, lastBox = false}){
     return Expanded(
       flex: 1,
       child: TextField(
@@ -49,10 +49,10 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
         cursorColor: colors[colorTheme][9],
         style: TextStyle(fontWeight: FontWeight.bold),
         keyboardType: TextInputType.number,
-        textInputAction: TextInputAction.next,
+        textInputAction: lastBox ? TextInputAction.done : TextInputAction.next,
         enableInteractiveSelection: true,
         inputFormatters: [
-          FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
+          complex ? FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true) : FilteringTextInputFormatter(RegExp('[0-9.-]'), allow: true),
         ],
         decoration: myInputDecoration(),
       ),
@@ -93,7 +93,7 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
                 children : [
                   Column(
                     children: [
-                      myCatexDisplayCard("Real Root => x"),
+                      myCatexDisplayCard(r"Real\ Root => x"),
                       myCatexDisplayCard(r"Complex\ Root\ 1 = > \alpha + i\beta"),
                       myCatexDisplayCard(r"Complex\ Root\ 2 = > \alpha - i\beta"),
                       SizedBox(height: 20,),
@@ -123,7 +123,7 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
                         children: [
                           myCubicCatexText(r'\beta : '),
                           SizedBox(width: 20,),
-                          myCubicTextField(userInput3),
+                          myCubicTextField(userInput3, complex: true, lastBox: true),
                         ],
                       ),
                       SizedBox(height: 20,),

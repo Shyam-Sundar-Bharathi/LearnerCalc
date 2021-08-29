@@ -14,7 +14,7 @@ class _quadraticChoiceState extends State<quadraticChoice> {
   Map choices = {
     0 : ['SOLVE', '/quadratic'],
     1 : ['FORM - REAL', '/quadraticFormReal'],
-    2 : ['FORM - IMAGINARY', '/quadraticFormImaginary'],
+    2 : ['FORM - COMPLEX', '/quadraticFormImaginary'],
   };
 
 
@@ -40,11 +40,13 @@ class _quadraticChoiceState extends State<quadraticChoice> {
                           child: ElevatedButton(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                choices[index][0],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:30
+                              child: FittedBox(
+                                child: Text(
+                                  choices[index][0],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:30
+                                  ),
                                 ),
                               ),
                             ),

@@ -533,7 +533,7 @@ class _settingsState extends State<settings> {
                     SizedBox(height: 2,),
                     FittedBox(
                         child: Text(
-                            "The Learner's Daily - June 2021 - Version 1.4.1",
+                            "Shyam Sundar Bharathi - June 2021 - Version 1.6.0",
                           style: TextStyle(
                               color: Colors.grey[700]
                           ),
