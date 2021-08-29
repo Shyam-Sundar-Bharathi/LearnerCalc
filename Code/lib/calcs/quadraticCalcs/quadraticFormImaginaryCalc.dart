@@ -11,7 +11,7 @@ String equation(String userInputOne, String userInputTwo){
   if(real == 0 && imaginary == 0)
     return "x^2 = 0";
   double sumOfRoots = 2*real;
-  double productOfRoots = pow(real, 2) + imaginary;
+  double productOfRoots = pow(real, 2) + pow(imaginary, 2);
   String signOne = sumOfRoots < 0 ? '+' : '-';
   String signTwo = productOfRoots < 0 ? '-' : '+';
   String sum = sumOfRoots > 0 ? sumOfRoots.toStringAsFixedNoZero(precision) : (-sumOfRoots).toStringAsFixedNoZero(precision);

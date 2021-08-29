@@ -4,6 +4,7 @@ import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/circleScreens/equationScreen.dart';
 import 'package:dream_calc/screens/complexScreen.dart';
 import 'package:dream_calc/screens/cubicScreens/cubicChoiceScreen.dart';
+import 'package:dream_calc/screens/cubicScreens/cubicFormImaginaryScreen.dart';
 import 'package:dream_calc/screens/cubicScreens/cubicRealFormScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
@@ -124,6 +125,7 @@ void main() {
         '/quadraticFormReal' : (context) => quadraticFormReal(),
         '/quadraticFormImaginary' : (context) => quadraticFormImaginary(),
         '/cubicFormReal' : (context) => cubicFormReal(),
+        '/cubicFormImaginary' : (context) => cubicFormImaginary(),
       },
     ));
   }
