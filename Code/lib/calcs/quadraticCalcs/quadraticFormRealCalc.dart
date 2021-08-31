@@ -14,8 +14,8 @@ String equation(String userInputOne, String userInputTwo){
   double productOfRoots = rootOne*rootTwo;
   String signOne = sumOfRoots < 0 ? '+' : '-';
   String signTwo = productOfRoots < 0 ? '-' : '+';
-  String sum = sumOfRoots > 0 ? sumOfRoots.toStringAsFixedNoZero(precision) : (-sumOfRoots).toStringAsFixedNoZero(precision);
-  String product = productOfRoots > 0 ? productOfRoots.toStringAsFixedNoZero(precision) : (-productOfRoots).toStringAsFixedNoZero(precision);
+  String sum = sumOfRoots > 0 ? formatNumber(sumOfRoots.toStringAsFixedNoZero(precision)) : formatNumber((-sumOfRoots).toStringAsFixedNoZero(precision));
+  String product = productOfRoots > 0 ? formatNumber(productOfRoots.toStringAsFixedNoZero(precision)) : formatNumber((-productOfRoots).toStringAsFixedNoZero(precision));
   if(sumOfRoots == 0){
     return "x^2 ${signTwo} ${product} = 0";
   }

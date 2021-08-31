@@ -110,7 +110,6 @@ class _straightLineNormalState extends State<straightLineNormal> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 20,),
               Column(
                 children: [
                   Row(

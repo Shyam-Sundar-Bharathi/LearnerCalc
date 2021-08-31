@@ -1,4 +1,4 @@
-#Mon Aug 30 00:07:55 IST 2021
+#Tue Aug 31 13:56:50 IST 2021
 base.0=/Users/shyamsundarbharathi/LearnerCalc/Code/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

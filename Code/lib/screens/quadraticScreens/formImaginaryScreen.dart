@@ -80,7 +80,7 @@ class _quadraticFormImaginaryState extends State<quadraticFormImaginary> {
               //crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 myCatexDisplayCard(r"Roots=> \alpha + i\beta\ ,\ \alpha - i\beta"),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,

@@ -88,7 +88,6 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 20,),
               Column(
                 children: [
                   Row(

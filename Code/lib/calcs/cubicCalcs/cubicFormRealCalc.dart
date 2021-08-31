@@ -17,9 +17,18 @@ String equation(String userInputOne, String userInputTwo, String userInputThree)
   String signOne = sumOfRoots < 0 ? '+' : '-';
   String signTwo = sumOfRootsTwo < 0 ? '-' : '+';
   String signThree = productOfRoots < 0 ? '+' : '-';
-  String sum = sumOfRoots > 0 ? sumOfRoots.toStringAsFixedNoZero(precision) : (-sumOfRoots).toStringAsFixedNoZero(precision);
-  String sumTwo = sumOfRootsTwo > 0 ? sumOfRootsTwo.toStringAsFixedNoZero(precision) : (-sumOfRootsTwo).toStringAsFixedNoZero(precision);
-  String product = productOfRoots > 0 ? productOfRoots.toStringAsFixedNoZero(precision) : (-productOfRoots).toStringAsFixedNoZero(precision);
+  String sum = sumOfRoots > 0 ? formatNumber(sumOfRoots.toStringAsFixedNoZero(precision)) : formatNumber((-sumOfRoots).toStringAsFixedNoZero(precision));
+  String sumTwo = sumOfRootsTwo > 0 ? formatNumber(sumOfRootsTwo.toStringAsFixedNoZero(precision)) : formatNumber((-sumOfRootsTwo).toStringAsFixedNoZero(precision));
+  String product = productOfRoots > 0 ? formatNumber(productOfRoots.toStringAsFixedNoZero(precision)) : formatNumber((-productOfRoots).toStringAsFixedNoZero(precision));
+  if(sumOfRoots == 0 && sumOfRootsTwo == 0){
+    return "x^3 ${signThree} ${product} = 0";
+  }
+  if(sumOfRoots == 0 && productOfRoots == 0){
+    return "x^3 ${signTwo} ${sumTwo}x = 0";
+  }
+  if(sumOfRootsTwo == 0 && productOfRoots == 0){
+    return "x^3 ${signOne} ${sum}x^2 = 0";
+  }
   if(sumOfRoots == 0){
     return "x^3 ${signTwo} ${sumTwo}x ${signThree} ${product} = 0";
   }

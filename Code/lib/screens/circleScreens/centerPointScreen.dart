@@ -89,7 +89,6 @@ class _circleCenterPointState extends State<circleCenterPoint> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              SizedBox(height: 20,),
               Column(
                 children: [
                   Row(

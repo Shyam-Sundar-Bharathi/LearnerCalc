@@ -91,9 +91,8 @@ class _circleEquationState extends State<circleEquation> {
             children: [
               Column(
                 children: [
-                  SizedBox(height: 10,),
                  myCatexDisplayCard('ax^2 + ay^2 + bx + cy + d = 0'),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 10,),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,

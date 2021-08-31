@@ -99,11 +99,11 @@ class _cubicCalcState extends State<cubicCalc> {
         appBar: myAppBar("CUBIC EQUATION"),
         body: SingleChildScrollView(
             child : Container(
-              padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
+              padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
               child: Column(
                 children : [
                   myCatexDisplayCard("ax^3 + bx^2 + cx + d = 0"),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 10,),
                   Column(
                     children: [
                       Row(
