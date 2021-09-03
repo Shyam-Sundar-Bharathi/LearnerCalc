@@ -131,22 +131,45 @@ class _linearThreeState extends State<linearThree> {
                   ],
                 ),
                 SizedBox(height: 20,),
-                ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                      result = calcxyz(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text);
-                    });
-                  },
-                  child: FittedBox(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(
-                        color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          result = calcxyz(a1.text, b1.text, c1.text, d1.text, a2.text, b2.text, c2.text, d2.text, a3.text, b3.text, c3.text, d3.text);
+                        });
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "CALCULATE",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    SizedBox(width: 20,),
+                    myClearButton((){
+                      setState(() {
+                          a1.text = "";
+                          a2.text = "";
+                          a3.text = "";
+                          b1.text = "";
+                          b2.text = "";
+                          b3.text = "";
+                          c1.text = "";
+                          c2.text = "";
+                          c3.text = "";
+                          d1.text = "";
+                          d2.text = "";
+                          d3.text = "";
+                          result = " ";
+                      });
+                    })
+                  ],
                 ),
                 SizedBox(height: 20,),
                 result == " "? Container() :

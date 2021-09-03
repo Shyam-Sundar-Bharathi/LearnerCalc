@@ -147,6 +147,15 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
                               ),
                             ),
                           ),
+                          SizedBox(width: 20,),
+                          myClearButton((){
+                            setState(() {
+                              userInput1.text = "";
+                              userInput2.text = "";
+                              userInput3.text = "";
+                              result = " ";
+                            });
+                          })
                         ],
                       )
                     ],

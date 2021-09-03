@@ -95,22 +95,35 @@ class _quadraticFormImaginaryState extends State<quadraticFormImaginary> {
                   ],
                 ),
                 SizedBox(height: 20,),
-                ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                      result = equation(real.text, imaginary.text);
-                    });
-                  },
-                  child: FittedBox(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(
-                        color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          result = equation(real.text, imaginary.text);
+                        });
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "CALCULATE",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    SizedBox(width: 20,),
+                    myClearButton((){
+                      setState(() {
+                        real.text = "";
+                        imaginary.text = "";
+                        result = " ";
+                      });
+                    })
+                  ],
                 ),
                 SizedBox(height: 10,),
                 SizedBox(height: 30,),

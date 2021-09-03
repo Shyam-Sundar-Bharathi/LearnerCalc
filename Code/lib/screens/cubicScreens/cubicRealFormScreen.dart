@@ -137,6 +137,14 @@ class _cubicFormRealState extends State<cubicFormReal> {
                         ],
                       ),
                       SizedBox(height: 20,),
+                      myClearButton((){
+                        setState(() {
+                          userInput1.text = "";
+                          userInput2.text = "";
+                          userInput3.text = "";
+                          result = " ";
+                        });
+                      })
                     ],
                   ),
                   SizedBox(height: 30,),

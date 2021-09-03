@@ -222,10 +222,19 @@ class _trigonometryState extends State<trigonometry> {
                   children: [
                     SizedBox(width: 20,),
                     ElevatedButton(
-                      style: myButtonStyle,
+                      style: ButtonStyle(
+                        elevation: MaterialStateProperty.all(10),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15)),
+                            )
+                        ),
+                        backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.red),
+                        minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+                      ),
                       onPressed: clear,
                       child: Text(
-                        "CLEAR",
+                        "CLEAR ALL",
                         style: TextStyle(
                           color: Colors.white,
                         ),

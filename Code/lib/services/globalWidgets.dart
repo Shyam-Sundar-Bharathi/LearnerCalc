@@ -33,6 +33,30 @@ ButtonStyle myButtonStyle = ButtonStyle(
   minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
 );
 
+//CLEAR ALL TEXT FIELDS ON SCREEN
+Widget myClearButton(onPressed()){
+  return ElevatedButton(
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(10),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          )
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.red),
+      minimumSize: MaterialStateProperty.resolveWith((states) => Size(70, 50)),
+    ),
+    onPressed: onPressed,
+    child: FittedBox(
+      child: Text(
+        "CLEAR ALL",
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+    ),
+  );
+}
 
 //STYLING FOR TEXT FIELDS
 InputDecoration myInputDecoration({String labelText, Color color = Colors.white}){

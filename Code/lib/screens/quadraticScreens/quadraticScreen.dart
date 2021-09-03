@@ -180,6 +180,15 @@ class _quadraticCalcState extends State<quadraticCalc> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      userInputA.text = "";
+                      userInputB.text = "";
+                      userInputC.text = "";
+                      answers = ['','',''];
+                    });
+                  }),
+                  SizedBox(height: 20,),
                 ],
               ),
                 SizedBox(height: 20,),

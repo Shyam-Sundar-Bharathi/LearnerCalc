@@ -40,22 +40,35 @@ class _linearOneState extends State<linearOne> {
                   ],
                 ),
                 SizedBox(height: 20,),
-                ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                      result = calcx(a.text, b.text);
-                    });
-                  },
-                  child: FittedBox(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(
-                        color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          result = calcx(a.text, b.text);
+                        });
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "CALCULATE",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    SizedBox(width: 20,),
+                    myClearButton((){
+                      setState(() {
+                        a.text = "";
+                        b.text = "";
+                        result = " ";
+                      });
+                    })
+                  ],
                 ),
                 SizedBox(height: 40,),
                 result ==  " " ? Container() :

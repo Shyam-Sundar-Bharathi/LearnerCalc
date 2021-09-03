@@ -136,20 +136,35 @@ class _cubicCalcState extends State<cubicCalc> {
                         ],
                       ),
                       SizedBox(height: 20,),
-                      ElevatedButton(
-                        style: myButtonStyle,
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(FocusNode());
-                          setState(() {
-                            answers = cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                          });
-                        },
-                        child: Text(
-                          "CALCULATE",
-                          style: TextStyle(
-                            color: Colors.white,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: myButtonStyle,
+                            onPressed: () {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                              setState(() {
+                                answers = cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
+                              });
+                            },
+                            child: Text(
+                              "CALCULATE",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
-                        ),
+                          SizedBox(width: 20,),
+                          myClearButton((){
+                            setState(() {
+                              userInputA.text = "";
+                              userInputB.text = "";
+                              userInputC.text = "";
+                              userInputD.text = "";
+                              answers = ['','','',''];
+                            });
+                          })
+                        ],
                       )
                     ],
                   ),

@@ -54,23 +54,40 @@ class _linearTwoState extends State<linearTwo> {
                   ],
                 ),
                   SizedBox(height: 20,),
-                  ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                      result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text);
-                    });
-                  },
-                  child: FittedBox(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(
-                        color: Colors.white,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                      style: myButtonStyle,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        setState(() {
+                          result = calcxy(a1.text, b1.text, c1.text, a2.text, b2.text, c2.text);
+                        });
+                      },
+                      child: FittedBox(
+                        child: Text(
+                          "CALCULATE",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
+                      SizedBox(width: 20,),
+                      myClearButton((){
+                        setState(() {
+                          a1.text = "";
+                          b1.text = "";
+                          c1.text = "";
+                          a2.text = "";
+                          b2.text = "";
+                          c2.text = "";
+                          result = " ";
+                         });
+                      })
+                    ],
                   ),
-                ),
                 SizedBox(height: 20,),
                 result == " " ? Container() :
                 myResultCard(
