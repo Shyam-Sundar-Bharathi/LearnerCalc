@@ -31,7 +31,6 @@ String sum(double a, double d, double n){
     return Sum;
   }
   double sum  = (1/d)*log((2*a + (2*n - 1)*d)/(2*a - d));
-  print(sum);
   String Sum = sum.toStringAsFixedNoZero(precision);
   return formatNumber(Sum);
 }

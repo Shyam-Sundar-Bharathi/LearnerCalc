@@ -136,6 +136,16 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      x.text = "";
+                      y.text = "";
+                      m.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
@@ -160,14 +170,14 @@ class _straightLinePointSlopeState extends State<straightLinePointSlope> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard("Point => (x,y)"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard("Slope => m"),
-                    ],
-                  ),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     myCatexDisplayCard("Point => (x,y)"),
+                  //     SizedBox(height: 10,),
+                  //     myCatexDisplayCard("Slope => m"),
+                  //   ],
+                  // ),
                 ],
               ),
             ],

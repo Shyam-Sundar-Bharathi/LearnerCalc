@@ -152,6 +152,16 @@ class _complexState extends State<complex> {
                   ],
                 ),
                 SizedBox(height: 20,),
+                myClearButton((){
+                  setState(() {
+                    a1.text = "";
+                    a2.text = "";
+                    b1.text = "";
+                    b2.text = "";
+                    result = " ";
+                  });
+                }),
+                SizedBox(height: 20,),
                 result == " " ? Container() :
                 myResultCard(
                   child: Container(

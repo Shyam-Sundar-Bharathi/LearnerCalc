@@ -135,7 +135,15 @@ class _percentCalcState extends State<percentCalc> {
                 ],
               ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
+            myClearButton((){
+              setState(() {
+                userInputOne.text = "";
+                userInputTwo.text = "";
+                answer1 = " ";
+              });
+            }),
+            SizedBox(height: 20,),
             myPercentCard(
               child: Column(
                 children: [
@@ -166,7 +174,15 @@ class _percentCalcState extends State<percentCalc> {
                 ],
               ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
+            myClearButton((){
+              setState(() {
+                userInputThree.text = "";
+                userInputFour.text = "";
+                answer2 = " ";
+              });
+            }),
+            SizedBox(height: 20,),
             myPercentCard(
                   child: Column(
                     children: [
@@ -207,6 +223,15 @@ class _percentCalcState extends State<percentCalc> {
                     ],
                   ),
                 ),
+            SizedBox(height: 20,),
+            myClearButton((){
+              setState(() {
+                userInputFive.text = "";
+                userInputSix.text = "";
+                userInputSeven.text = "";
+                answer3 = " ";
+              });
+            }),
             SizedBox(height: 50,)
           ],
         ),

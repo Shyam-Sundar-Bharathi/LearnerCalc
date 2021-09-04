@@ -138,6 +138,16 @@ class _straightLineEquationState extends State<straightLineEquation> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      a.text = "";
+                      b.text = "";
+                      c.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(

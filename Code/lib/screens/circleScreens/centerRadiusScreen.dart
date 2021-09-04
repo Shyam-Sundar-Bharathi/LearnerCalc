@@ -109,10 +109,20 @@ class _circleCenterRadiusState extends State<circleCenterRadius> {
                   ),
                   SizedBox(height: 20,),
                   Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       myCircleButton('', 'EQUATION', 0),
+                      SizedBox(width: 20,),
+                      myClearButton((){
+                        setState(() {
+                          x.text = "";
+                          y.text = "";
+                          r.text = "";
+                          choice = "";
+                          result = "";
+                        });
+                      }),
                     ],
                   ),
                   SizedBox(height: 20,),

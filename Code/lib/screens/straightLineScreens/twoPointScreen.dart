@@ -152,6 +152,17 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      x1.text = "";
+                      x2.text = "";
+                      y1.text = "";
+                      y2.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
@@ -176,13 +187,13 @@ class _straightLineTwoPointState extends State<straightLineTwoPoint> {
                     ),
                   ),
                   SizedBox(height: 20,),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard("P_1 => (x_1,y_1)"),
-                      myCatexDisplayCard("P_2 => (x_2, y_2)"),
-                    ],
-                  ),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     myCatexDisplayCard("P_1 => (x_1,y_1)"),
+                  //     myCatexDisplayCard("P_2 => (x_2, y_2)"),
+                  //   ],
+                  // ),
                 ],
               ),
             ],

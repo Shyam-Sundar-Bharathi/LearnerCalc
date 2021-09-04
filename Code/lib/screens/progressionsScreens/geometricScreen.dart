@@ -118,6 +118,16 @@ class _geometricProgressionState extends State<geometricProgression> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      a.text = "";
+                      r.text = "";
+                      n.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
@@ -142,15 +152,15 @@ class _geometricProgressionState extends State<geometricProgression> {
                     ),
                   ),
                   SizedBox(height: 20,),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard(r"First\ Term => a"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard(r"Common\ Ratio => r"),
-                      SizedBox(height: 20,),
-                    ],
-                  ),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     myCatexDisplayCard(r"First\ Term => a"),
+                  //     SizedBox(height: 10,),
+                  //     myCatexDisplayCard(r"Common\ Ratio => r"),
+                  //     SizedBox(height: 20,),
+                  //   ],
+                  // ),
                 ],
               ),
             ],

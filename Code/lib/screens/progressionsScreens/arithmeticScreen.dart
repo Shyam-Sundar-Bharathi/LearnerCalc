@@ -118,6 +118,16 @@ class _arithmeticProgressionState extends State<arithmeticProgression> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      a.text = "";
+                      d.text = "";
+                      n.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
@@ -142,15 +152,15 @@ class _arithmeticProgressionState extends State<arithmeticProgression> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard(r"First\ Term => a"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard(r"Common\ Difference => d"),
-                      SizedBox(height: 10,),
-                    ],
-                  ),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     myCatexDisplayCard(r"First\ Term => a"),
+                  //     SizedBox(height: 10,),
+                  //     myCatexDisplayCard(r"Common\ Difference => d"),
+                  //     SizedBox(height: 10,),
+                  //   ],
+                  // ),
                 ],
               ),
             ],

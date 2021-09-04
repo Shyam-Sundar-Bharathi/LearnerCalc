@@ -132,7 +132,16 @@ class _lcmhcfCalcState extends State<lcmhcfCalc> {
                    mylcmhcfButton(" ", "IS PRIME ?", 4),
                  ],
                ),
-                SizedBox(height: 40),
+                SizedBox(height: 20),
+                myClearButton(() {
+                  setState(() {
+                    userInput.text = "";
+                    userInputf.text = "";
+                    choice = " ";
+                    result = " ";
+                  });
+                }),
+                SizedBox(height: 20),
                 result == " " ? Container() :
                 myResultCard(
                   child: Container(

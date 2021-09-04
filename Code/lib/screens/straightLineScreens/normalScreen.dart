@@ -156,6 +156,15 @@ class _straightLineNormalState extends State<straightLineNormal> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      length.text = "";
+                      angle.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
@@ -179,15 +188,15 @@ class _straightLineNormalState extends State<straightLineNormal> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20,),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      myCatexDisplayCard("Distance => l"),
-                      SizedBox(height: 10,),
-                      myCatexDisplayCard(r"Angle => \theta"),
-                    ],
-                  ),
+                  // SizedBox(height: 20,),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     myCatexDisplayCard("Distance => l"),
+                  //     SizedBox(height: 10,),
+                  //     myCatexDisplayCard(r"Angle => \theta"),
+                  //   ],
+                  // ),
                   SizedBox(height: 20,),
                   myTrigCard(
                     child: Container(

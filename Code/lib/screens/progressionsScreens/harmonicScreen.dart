@@ -118,6 +118,16 @@ class _harmonicProgressionState extends State<harmonicProgression> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      a.text = "";
+                      d.text = "";
+                      n.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(

@@ -73,22 +73,36 @@ class _volumeCalcState extends State<volumeCalc> {
                   ),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(
-                  style: myButtonStyle,
-                  onPressed: () {
-                    FocusScope.of(context).requestFocus(FocusNode());
-                    setState(() {
-                      result = volume(userInput.text, dropDownValue);
-                    });
-                  },
-                  child: Text(
-                    "VOLUME",
-                    style: TextStyle(
-                      color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        style: myButtonStyle,
+                        onPressed: () {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          setState(() {
+                            result = volume(userInput.text, dropDownValue);
+                          });
+                        },
+                        child: Text(
+                          "VOLUME",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(width: 20,),
+                    myClearButton((){
+                      setState(() {
+                        userInput.text = "";
+                        result = " ";
+                      });
+                    }),
+                  ],
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 myDropDownBox(context,
                 child: DropdownButton<String>(
                   value: dropDownValue,
@@ -116,7 +130,7 @@ class _volumeCalcState extends State<volumeCalc> {
                   }).toList(),
                 ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
                 result == " "? Container() :
                 myResultCard(
                   child: Container(

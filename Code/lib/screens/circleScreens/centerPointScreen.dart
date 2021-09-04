@@ -135,6 +135,17 @@ class _circleCenterPointState extends State<circleCenterPoint> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      x1.text = "";
+                      x2.text = "";
+                      y1.text = "";
+                      y2.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(

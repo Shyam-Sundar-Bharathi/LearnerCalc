@@ -126,7 +126,15 @@ class _centTendCalcState extends State<centTendCalc> {
                     myCentTendButton("SMP. STD. DEVIATION", "             SAMPLE\nSTANDARD DEVIATION", 3),
                   ],
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 20),
+                myClearButton((){
+                  setState(() {
+                    userInput.text = "";
+                    choice = " ";
+                    result = " ";
+                  });
+                }),
+                SizedBox(height: 20),
                 result == " " ? Container() :
                 myResultCard(
                   child: Container(

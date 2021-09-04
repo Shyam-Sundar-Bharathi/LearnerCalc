@@ -88,7 +88,18 @@ class _matrixTwoState extends State<matrixTwo> {
                     myMatrixButton("INVERSE","INVERSE", 3),
                   ],
                 ),
-                SizedBox(height: 40,),
+                SizedBox(height: 20,),
+                myClearButton((){
+                  setState(() {
+                    a1.text = "";
+                    a2.text = "";
+                    b1.text = "";
+                    b2.text = "";
+                    choice = " ";
+                    result = Container();
+                  });
+                }),
+                SizedBox(height: 20,),
                 choice == " "?
                 Container() : 
                 myResultCard(

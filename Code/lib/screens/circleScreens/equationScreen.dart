@@ -133,6 +133,17 @@ class _circleEquationState extends State<circleEquation> {
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      a.text = "";
+                      b.text = "";
+                      c.text = "";
+                      d.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
+                  SizedBox(height: 20,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
