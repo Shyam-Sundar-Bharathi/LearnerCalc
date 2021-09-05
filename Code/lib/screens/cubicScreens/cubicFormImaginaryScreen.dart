@@ -130,19 +130,21 @@ class _cubicFormImaginaryState extends State<cubicFormImaginary> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ElevatedButton(
-                            style: myButtonStyle,
-                            onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              setState(() {
-                                result = equation(userInput1.text, userInput2.text, userInput3.text);
-                              });
-                            },
-                            child: FittedBox(
-                              child: Text(
-                                "CALCULATE",
-                                style: TextStyle(
-                                  color: Colors.white,
+                          Expanded(
+                            child: ElevatedButton(
+                              style: myButtonStyle,
+                              onPressed: () {
+                                FocusScope.of(context).requestFocus(FocusNode());
+                                setState(() {
+                                  result = equation(userInput1.text, userInput2.text, userInput3.text);
+                                });
+                              },
+                              child: FittedBox(
+                                child: Text(
+                                  "CALCULATE",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),

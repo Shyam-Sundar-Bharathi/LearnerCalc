@@ -527,17 +527,29 @@ class _settingsState extends State<settings> {
                     Text(
                         "LearnerCalc",
                       style: TextStyle(
-                        color: Colors.grey[700]
+                        color: Colors.black
                       ),
                     ),
                     SizedBox(height: 2,),
                     FittedBox(
-                        child: Text(
-                            "Shyam Sundar Bharathi - June 2021 - Version 1.6.0",
-                          style: TextStyle(
-                              color: Colors.grey[700]
-                          ),
-                        )
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Shyam Sundar Bharathi",
+                              style: TextStyle(
+                                  color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                                text: " - June 2021 - Version 1.7.0",
+                              style: TextStyle(
+                                  color: Colors.grey[700]
+                              ),
+                            ),
+                          ]
+                        ),
+                      ),
                     ),
                     SizedBox(height: 5,),
                   ],

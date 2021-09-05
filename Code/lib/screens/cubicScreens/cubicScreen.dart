@@ -139,18 +139,20 @@ class _cubicCalcState extends State<cubicCalc> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ElevatedButton(
-                            style: myButtonStyle,
-                            onPressed: () {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              setState(() {
-                                answers = cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
-                              });
-                            },
-                            child: Text(
-                              "CALCULATE",
-                              style: TextStyle(
-                                color: Colors.white,
+                          Expanded(
+                            child: ElevatedButton(
+                              style: myButtonStyle,
+                              onPressed: () {
+                                FocusScope.of(context).requestFocus(FocusNode());
+                                setState(() {
+                                  answers = cubeCalc(userInputA.text, userInputB.text, userInputC.text, userInputD.text);
+                                });
+                              },
+                              child: Text(
+                                "CALCULATE",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

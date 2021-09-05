@@ -112,33 +112,6 @@ class _didYouKnowState extends State<didYouKnow> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
-                myDidYouKnowCard(
-                        child: RichText(
-                          text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "There's a high-school blog by the name of The Learner's Daily where I write about everything high-school. Visit my blog by  ",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "clicking here.",
-                                  recognizer: new TapGestureRecognizer()
-                                    ..onTap = () { launch(blogURL);},
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500
-                                  ),
-                                ),
-                              ]
-                          ),
-                        ),
-                      ),
                 SizedBox(height: 10,),
               ],
             ),
