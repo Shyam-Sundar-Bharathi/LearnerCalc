@@ -99,22 +99,30 @@ class _matrixThreeState extends State<matrixThree> {
                           myMatrixButton("INVERSE", "INVERSE", 3),
                         ],
                       ),
-                      SizedBox(height: 20,),
-                      myClearButton((){
-                        setState(() {
-                          a1.text = "";
-                          a2.text = "";
-                          a3.text = "";
-                          b1.text = "";
-                          b2.text = "";
-                          b3.text = "";
-                          c1.text = "";
-                          c2.text = "";
-                          c3.text = "";
-                          choice = " ";
-                          result = Container();
-                        });
-                      }),
+                      SizedBox(height: 10,),
+                      Row(
+                        children: [
+                          myMatrixButton("NORM","NORM", 4),
+                          SizedBox(width: 20,),
+                          Expanded(
+                            child: myClearButton((){
+                              setState(() {
+                                a1.text = "";
+                                a2.text = "";
+                                a3.text = "";
+                                b1.text = "";
+                                b2.text = "";
+                                b3.text = "";
+                                c1.text = "";
+                                c2.text = "";
+                                c3.text = "";
+                                choice = " ";
+                                result = Container();
+                              });
+                            }),
+                          ),
+                        ],
+                      ),
                       SizedBox(height: 20,),
                       choice == " "?
                       Container() :

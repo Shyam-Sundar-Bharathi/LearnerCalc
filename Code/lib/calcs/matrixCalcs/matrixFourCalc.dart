@@ -6,15 +6,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget matrixFourChoice(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4, int fn){
+  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        color: Colors.red,
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+  double a1 = double.parse(A1);
+  double b1 = double.parse(B1);
+  double c1 = double.parse(C1);
+  double d1 = double.parse(D1);
+  double a2 = double.parse(A2);
+  double b2 = double.parse(B2);
+  double c2 = double.parse(C2);
+  double d2 = double.parse(D2);
+  double a3 = double.parse(A3);
+  double b3 = double.parse(B3);
+  double c3 = double.parse(C3);
+  double d3 = double.parse(D3);
+  double a4 = double.parse(A4);
+  double b4 = double.parse(B4);
+  double c4 = double.parse(C4);
+  double d4 = double.parse(D4);
   Widget result;
   switch(fn){
-    case 0: result = transposeFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    case 0: result = transposeFour(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);
     break;
-    case 1: result = detFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    case 1: result = detFour(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);
     break;
-    case 2: result = traceFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    case 2: result = traceFour(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);
     break;
-    case 3: result = inverseFour(A1, B1, C1, D1, A2, B2, C2, D2, A3, B3, C3, D3, A4, B4, C4, D4);
+    case 3: result = inverseFour(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);
+    break;
+    case 4: result = normFour(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);
     break;
   }
   return result;
@@ -56,33 +84,8 @@ List checkMatrix(Matrix m){
   return answers;
 }
 
-Widget transposeFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
-  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double d1 = double.parse(D1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double d2 = double.parse(D2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
-  double d3 = double.parse(D3);
-  double a4 = double.parse(A4);
-  double b4 = double.parse(B4);
-  double c4 = double.parse(C4);
-  double d4 = double.parse(D4);
+Widget transposeFour(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4 ){
+
   final matrix = Matrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   Matrix result = matrix.transpose();
   List answers = checkMatrix(result);
@@ -133,33 +136,8 @@ Widget transposeFour(String A1, String B1, String C1, String D1, String A2, Stri
   );
 }
 
-Widget inverseFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
-  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double d1 = double.parse(D1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double d2 = double.parse(D2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
-  double d3 = double.parse(D3);
-  double a4 = double.parse(A4);
-  double b4 = double.parse(B4);
-  double c4 = double.parse(C4);
-  double d4 = double.parse(D4);
+Widget inverseFour(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4 ){
+
   final matrix = SquareMatrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   if(matrix.determinant() == 0){
     return FittedBox(
@@ -221,33 +199,8 @@ Widget inverseFour(String A1, String B1, String C1, String D1, String A2, String
   );
 }
 
-Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
-  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double d1 = double.parse(D1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double d2 = double.parse(D2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
-  double d3 = double.parse(D3);
-  double a4 = double.parse(A4);
-  double b4 = double.parse(B4);
-  double c4 = double.parse(C4);
-  double d4 = double.parse(D4);
+Widget detFour(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4 ){
+
   final matrix = SquareMatrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   return Text(
       formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
@@ -259,36 +212,22 @@ Widget detFour(String A1, String B1, String C1, String D1, String A2, String B2,
 }
 
 
-Widget traceFour(String A1, String B1, String C1, String D1, String A2, String B2, String C2, String D2, String A3, String B3, String C3, String D3, String A4, String B4, String C4, String D4 ){
-  if(A1 == "" || B1 == "" || C1 == "" || D1 == ""|| A2 == "" || B2 == "" || C2 == "" || D2 == ""|| A3 == "" || B3 == "" || C3 == "" || D3 == "" || A4 == "" || B4 == "" || C4 == "" || D4 == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double d1 = double.parse(D1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double d2 = double.parse(D2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
-  double d3 = double.parse(D3);
-  double a4 = double.parse(A4);
-  double b4 = double.parse(B4);
-  double c4 = double.parse(C4);
-  double d4 = double.parse(D4);
+Widget traceFour(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4 ){
+
   final matrix = SquareMatrix([[a1,b1,c1,d1],[a2,b2,c2,d2], [a3,b3,c3,d3],[a4,b4,c4,d4]]);
   return Text(
       formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
+    style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold
+    ),
+  );
+}
+
+Widget normFour(double a1, double b1, double c1, double d1, double a2, double b2, double c2, double d2, double a3, double b3, double c3, double d3, double a4, double b4, double c4, double d4 ){
+  double norm = sqrt(pow(a1,2) + pow(b1,2) + pow(c1,2) + pow(d1,2) + pow(a2,2) + pow(b2,2) + pow(c2,2) + pow(d2,2) + pow(a3,2) + pow(b3,2) + pow(c3,2) + pow(d3,2) + pow(a4,2) + pow(b4,2) + pow(c4,2) + pow(d4,2));
+  return Text(
+    formatNumber(norm.toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold

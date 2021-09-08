@@ -6,15 +6,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget matrixTwoChoice(String A, String B, String C, String D, int fn){
+  if(A == "" || B == "" || C == ""  || D == ""){
+    return Text(
+      "CHECK INPUT",
+      style: TextStyle(
+        color: Colors.red,
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+  double a = double.parse(A);
+  double b = double.parse(B);
+  double c = double.parse(C);
+  double d = double.parse(D);
   Widget result;
   switch(fn){
-    case 0: result = transposeTwo(A, B, C, D);
+    case 0: result = transposeTwo(a, b, c, d);
     break;
-    case 1: result = detTwo(A, B, C, D);
+    case 1: result = detTwo(a, b, c, d);
     break;
-    case 2: result = traceTwo(A, B, C, D);
+    case 2: result = traceTwo(a, b, c, d);
     break;
-    case 3: result = inverseTwo(A, B, C, D);
+    case 3: result = inverseTwo(a, b, c, d);
+    break;
+    case 4: result = normTwo(a, b, c, d);
     break;
   }
   return result;
@@ -30,21 +46,8 @@ List checkMatrix(Matrix m, int n){
   return answers;
 }
 
-Widget transposeTwo(String A, String B, String C, String D){
-  if(A == "" || B == "" || C == ""  || D == ""){
-    return Text(
-        "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a = double.parse(A);
-  double b = double.parse(B);
-  double c = double.parse(C);
-  double d = double.parse(D);
+Widget transposeTwo(double a, double b, double c, double d){
+
   final matrix = Matrix([[a,b],[c,d]]);
   Matrix result = matrix.transpose();
   List answers = checkMatrix(result, 2);
@@ -72,21 +75,8 @@ Widget transposeTwo(String A, String B, String C, String D){
   );
 }
 
-Widget detTwo (String A, String B, String C, String D){
-  if(A == "" || B == "" || C == ""  || D == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a = double.parse(A);
-  double b = double.parse(B);
-  double c = double.parse(C);
-  double d = double.parse(D);
+Widget detTwo (double a, double b, double c, double d){
+
   final matrix = SquareMatrix([[a,b],[c,d]]);
   return Text(
     formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
@@ -97,21 +87,8 @@ Widget detTwo (String A, String B, String C, String D){
   );
 }
 
-Widget traceTwo (String A, String B, String C, String D){
-  if(A == "" || B == "" || C == ""  || D == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a = double.parse(A);
-  double b = double.parse(B);
-  double c = double.parse(C);
-  double d = double.parse(D);
+Widget traceTwo (double a, double b, double c, double d){
+
   final matrix = Matrix([[a,b],[c,d]]);
   return Text(
     formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
@@ -122,21 +99,8 @@ Widget traceTwo (String A, String B, String C, String D){
   );
 }
 
-Widget inverseTwo(String A, String B, String C, String D){
-  if(A == "" || B == "" || C == ""  || D == ""){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a = double.parse(A);
-  double b = double.parse(B);
-  double c = double.parse(C);
-  double d = double.parse(D);
+Widget inverseTwo(double a, double b, double c, double d){
+
   final matrix = SquareMatrix([[a,b],[c,d]]);
   if(matrix.determinant() == 0){
     return FittedBox(
@@ -175,3 +139,13 @@ Widget inverseTwo(String A, String B, String C, String D){
   );
 }
 
+Widget normTwo(double a, double b, double c, double d){
+  double norm = sqrt(pow(a,2) + pow(b,2) + pow(c,2) + pow(d,2));
+  return Text(
+    formatNumber(norm.toStringAsFixedNoZero(precision)),
+    style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold
+    ),
+  );
+}

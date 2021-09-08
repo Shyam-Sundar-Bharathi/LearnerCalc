@@ -7,31 +7,6 @@ import 'package:dream_calc/calcs/matrixCalcs/matrixFourCalc.dart';
 
 
 Widget matrixThreeChoice(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3, int fn){
-  Widget result;
-  switch(fn){
-    case 0: result = transposeThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
-    break;
-    case 1: result = detThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
-    break;
-    case 2: result = traceThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
-    break;
-    case 3: result = inverseThree(A1, B1, C1, A2, B2, C2, A3, B3, C3);
-    break;
-  }
-  return result;
-}
-
-List checkMatrix(Matrix m, int n){
-  List answers = [];
-  for(int i=1; i<=n; i++){
-    for(int j=1; j<=n; j++){
-      answers.add(m.itemAt(i, j).toDouble().toStringAsFixedNoZero(precision));
-    }
-  }
-  return answers;
-}
-
-Widget transposeThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3, ){
   if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
     return Text(
       "CHECK INPUT",
@@ -51,6 +26,34 @@ Widget transposeThree(String A1, String B1, String C1, String A2, String B2, Str
   double a3 = double.parse(A3);
   double b3 = double.parse(B3);
   double c3 = double.parse(C3);
+  Widget result;
+  switch(fn){
+    case 0: result = transposeThree(a1, b1, c1, a2, b2, c2, a3, b3, c3);
+    break;
+    case 1: result = detThree(a1, b1, c1, a2, b2, c2, a3, b3, c3);
+    break;
+    case 2: result = traceThree(a1, b1, c1, a2, b2, c2, a3, b3, c3);
+    break;
+    case 3: result = inverseThree(a1, b1, c1, a2, b2, c2, a3, b3, c3);
+    break;
+    case 4: result = normThree(a1, b1, c1, a2, b2, c2, a3, b3, c3);
+    break;
+  }
+  return result;
+}
+
+List checkMatrix(Matrix m, int n){
+  List answers = [];
+  for(int i=1; i<=n; i++){
+    for(int j=1; j<=n; j++){
+      answers.add(m.itemAt(i, j).toDouble().toStringAsFixedNoZero(precision));
+    }
+  }
+  return answers;
+}
+
+Widget transposeThree(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3, ){
+
   final matrix = Matrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   Matrix result = matrix.transpose();
   List answers = checkMatrix(result, 3);
@@ -87,26 +90,8 @@ Widget transposeThree(String A1, String B1, String C1, String A2, String B2, Str
   );
 }
 
-Widget inverseThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
-  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
+Widget inverseThree(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3, ){
+
   final matrix = SquareMatrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   if(matrix.determinant() == 0){
     return FittedBox(
@@ -154,26 +139,8 @@ Widget inverseThree(String A1, String B1, String C1, String A2, String B2, Strin
   );
 }
 
-Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
-  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
+Widget detThree(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3, ){
+
   final matrix = SquareMatrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   return Text(
     formatNumber(matrix.determinant().toDouble().toStringAsFixedNoZero(precision)),
@@ -185,29 +152,22 @@ Widget detThree(String A1, String B1, String C1, String A2, String B2, String C2
 }
 
 
-Widget traceThree(String A1, String B1, String C1, String A2, String B2, String C2, String A3, String B3, String C3 ){
-  if(A1 == "" || B1 == "" || C1 == "" || A2 == "" || B2 == "" || C2 == "" || A3 == "" || B3 == "" || C3 == "" ){
-    return Text(
-      "CHECK INPUT",
-      style: TextStyle(
-        color: Colors.red,
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-  double a1 = double.parse(A1);
-  double b1 = double.parse(B1);
-  double c1 = double.parse(C1);
-  double a2 = double.parse(A2);
-  double b2 = double.parse(B2);
-  double c2 = double.parse(C2);
-  double a3 = double.parse(A3);
-  double b3 = double.parse(B3);
-  double c3 = double.parse(C3);
+Widget traceThree(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3, ){
+
   final matrix = SquareMatrix([[a1,b1,c1],[a2,b2,c2], [a3,b3,c3]]);
   return Text(
       formatNumber(matrix.trace().toDouble().toStringAsFixedNoZero(precision)),
+    style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold
+    ),
+  );
+}
+
+Widget normThree(double a1, double b1, double c1, double a2, double b2, double c2, double a3, double b3, double c3){
+  double norm = sqrt(pow(a1,2) + pow(b1,2) + pow(c1,2) + pow(a2,2) + pow(b2,2) + pow(c2,2) + pow(a3,2) + pow(b3,2) + pow(c3,2));
+  return Text(
+    formatNumber(norm.toStringAsFixedNoZero(precision)),
     style: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold
