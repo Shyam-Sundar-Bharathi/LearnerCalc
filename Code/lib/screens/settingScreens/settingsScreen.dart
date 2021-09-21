@@ -542,7 +542,7 @@ class _settingsState extends State<settings> {
                               ),
                             ),
                             TextSpan(
-                                text: " - June 2021 - Version 1.7.0",
+                                text: " - June 2021 - Version 1.10.1",
                               style: TextStyle(
                                   color: Colors.grey[700]
                               ),

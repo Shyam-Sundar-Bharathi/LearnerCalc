@@ -390,17 +390,17 @@ String hexadecimalToDecimal(String userInput){
   int i = 0;
   List digits = [];
   for(int i=userInput.length - 1; i >=0 ; i--){
-    if(userInput[i] == 'A')
+    if(userInput[i] == 'A' || userInput[i] == 'a' )
       digits.add(10);
-    else if(userInput[i] == 'B')
+    else if(userInput[i] == 'B' || userInput[i] == 'b' )
       digits.add(11);
-    else if(userInput[i] == 'C')
+    else if(userInput[i] == 'C' || userInput[i] == 'c' )
       digits.add(12);
-    else if(userInput[i] == 'D')
+    else if(userInput[i] == 'D' || userInput[i] == 'd' )
       digits.add(13);
-    else if(userInput[i] == 'E')
+    else if(userInput[i] == 'E' || userInput[i] == 'e' )
       digits.add(14);
-    else if(userInput[i] == 'F')
+    else if(userInput[i] == 'F' || userInput[i] == 'f' )
       digits.add(15);
     else digits.add(double.parse(userInput[i]));
   }

@@ -149,7 +149,7 @@ class _unitconversionState extends State<unitconversion> {
                           unitChoiceOne == 'binary' ? FilteringTextInputFormatter(RegExp('[0-1]'), allow: true) :
                           unitChoiceOne == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
                           unitChoiceOne == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
-                          unitChoiceOne == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-F]'), allow: true) :
+                          unitChoiceOne == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-Fa-f]'), allow: true) :
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
@@ -243,7 +243,7 @@ class _unitconversionState extends State<unitconversion> {
                           unitChoiceTwo == 'binary' ? FilteringTextInputFormatter(RegExp('[0-1]'), allow: true) :
                           unitChoiceTwo == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
                           unitChoiceTwo == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
-                          unitChoiceTwo == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-F]'), allow: true) :
+                          unitChoiceTwo == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-Fa-f]'), allow: true) :
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
