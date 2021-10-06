@@ -18,7 +18,7 @@ class _unitconversionState extends State<unitconversion> {
   TextEditingController userInputOne = new TextEditingController();
   TextEditingController userInputTwo = new TextEditingController();
   String unitElementsValue = "LENGTH";
-  List<String> unitElements = ["LENGTH","MASS","TEMPERATURE","TIME", "PLANE ANGLE","SPEED","ENERGY","AREA","VOLUME","COMPUTER"];
+  List<String> unitElements = ["LENGTH","MASS","TEMPERATURE","TIME", "PLANE ANGLE","SPEED","ENERGY","AREA","VOLUME","COMPUTER", "ASCII"];
   Map unitChoices = {
     'LENGTH' : ['meter','centimeter','kilometer','inch','foot','mile','millimeter','yard'],
     'MASS' : ['kilogram','gram','milligram','tonne','pound', 'ounce','us ton'],
@@ -29,7 +29,8 @@ class _unitconversionState extends State<unitconversion> {
     'ENERGY' : ['joule','calorie','kilojoule','kilocalorie','watt hour','kilowatt hour', 'foot-pound'],
     'AREA' : ['sq. meter', 'sq. foot', 'sq. kilometer', 'sq. centimeter', 'sq. mile', 'sq. inch', 'sq. yard', 'cent', 'ground', 'acre', 'hectare'],
     'VOLUME' : ['cubic meter','liter','cubic centimeter','milliliter','cubic foot','cubic inch'],
-    'COMPUTER' : ['decimal', 'binary', 'octal', 'hexadecimal']
+    'COMPUTER' : ['decimal', 'binary', 'octal', 'hexadecimal'],
+    'ASCII' : ['code','character'],
   };
 
   String plurals(String singular){
@@ -131,12 +132,13 @@ class _unitconversionState extends State<unitconversion> {
                         },
                         minLines: 1,
                         maxLines: 2,
+                        maxLength: unitChoiceOne == 'character' ? 1 : 20,
                         textAlign: TextAlign.right,
                         onChanged: (text){
                             userInputTwo.text = convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, userInputOne.text);
                             },
                         controller: userInputOne,
-                        keyboardType: unitChoiceOne == 'hexadecimal' ? TextInputType.visiblePassword : TextInputType.number,
+                        keyboardType: unitChoiceOne == 'hexadecimal' || unitChoiceOne == 'character' ? TextInputType.visiblePassword : TextInputType.number,
                         enableInteractiveSelection: true,
                         style: TextStyle(
                           //overflow: TextOverflow.fade,
@@ -150,9 +152,12 @@ class _unitconversionState extends State<unitconversion> {
                           unitChoiceOne == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
                           unitChoiceOne == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
                           unitChoiceOne == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-Fa-f]'), allow: true) :
+                          unitChoiceOne == 'code' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
+                          unitChoiceOne == 'character' ? FilteringTextInputFormatter(RegExp(''), allow: false) :
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          counterText: unitChoiceOne == 'character' ? null : "",
                           fillColor: Colors.white,
                           filled: true,
                           labelText: inFocusOne? 'Enter here' : 'Answer',
@@ -180,7 +185,7 @@ class _unitconversionState extends State<unitconversion> {
                         ),
                         underline: Container(height: 0),
                         onChanged: (String newValue) {
-                          if(unitElementsValue == "COMPUTER"){
+                          if(unitElementsValue == "COMPUTER" || unitElementsValue == "ASCII"){
                             setState(() {
                               if(newValue == unitChoiceTwo){
                                 unitChoiceTwo = unitChoiceOne;
@@ -226,13 +231,15 @@ class _unitconversionState extends State<unitconversion> {
                         },
                         minLines: 1,
                         maxLines: 2,
+                        maxLength: unitChoiceTwo == 'character' ? 1 : 20,
+
                         textAlign: TextAlign.right,
                         cursorColor: Colors.black,
                         onChanged: (text){
                             userInputOne.text = convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, userInputTwo.text);
                             },
                         controller: userInputTwo,
-                        keyboardType: unitChoiceTwo == 'hexadecimal' ? TextInputType.visiblePassword : TextInputType.number,
+                        keyboardType: unitChoiceTwo == 'hexadecimal' || unitChoiceTwo == 'character' ? TextInputType.visiblePassword : TextInputType.number,
                         enableInteractiveSelection: true,
                         style: TextStyle(
                             color: inFocusOne ? Colors.green[700] : Colors.black,
@@ -244,9 +251,12 @@ class _unitconversionState extends State<unitconversion> {
                           unitChoiceTwo == 'octal' ? FilteringTextInputFormatter(RegExp('[0-7]'), allow: true) :
                           unitChoiceTwo == 'decimal' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
                           unitChoiceTwo == 'hexadecimal' ? FilteringTextInputFormatter(RegExp('[0-9A-Fa-f]'), allow: true) :
+                          unitChoiceTwo == 'code' ? FilteringTextInputFormatter(RegExp('[0-9]'), allow: true) :
+                          unitChoiceTwo == 'character' ? FilteringTextInputFormatter(RegExp(''), allow: false) :
                           FilteringTextInputFormatter(RegExp('[0-9.]'), allow: true),
                         ],
                         decoration: InputDecoration(
+                          counterText: unitChoiceTwo == 'character' ? null : "",
                           fillColor: Colors.white,
                           filled: true,
                           labelText: inFocusOne? (inFocusTwo ? 'or here' : 'Answer') : 'Enter here',
@@ -277,7 +287,7 @@ class _unitconversionState extends State<unitconversion> {
                         height: 0,
                       ),
                       onChanged: (String newValue) {
-                        if(unitElementsValue == "COMPUTER"){
+                        if(unitElementsValue == "COMPUTER" || unitElementsValue == "ASCII"){
                           setState(() {
                             if(newValue == unitChoiceOne){
                               unitChoiceOne = unitChoiceTwo;
@@ -309,6 +319,20 @@ class _unitconversionState extends State<unitconversion> {
                 ),
                 SizedBox(height: 50,),
                 unitElementsValue == "COMPUTER" ? Container() :
+                unitElementsValue == "ASCII" ? ElevatedButton(
+                  style: myButtonStyle,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/linearChoice');
+                  },
+                  child: FittedBox(
+                    child: Text(
+                      "GO TO ASCII CHART",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ) :
                 myDisplayCard(inFocusOne?
                 "1 $unitChoiceOne = ${convert(unitElementsValue, unitChoiceOne, unitChoiceTwo, '1', display: 1)} ${plurals(unitChoiceTwo)}" :
                 "1 $unitChoiceTwo = ${convert(unitElementsValue, unitChoiceTwo, unitChoiceOne, '1', display: 1)} ${plurals(unitChoiceOne)}",

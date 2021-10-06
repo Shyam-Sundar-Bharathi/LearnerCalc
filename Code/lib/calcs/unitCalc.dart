@@ -10,6 +10,10 @@ String convert(String unitElement, String unitChoiceOne, String unitChoiceTwo, S
     String answer = computerConvert(unitChoiceOne, unitChoiceTwo, userInput);
     return answer;
   }
+  if(unitElement.toLowerCase() == "ascii"){
+    String answer = asciiConvert(unitChoiceOne, unitChoiceTwo, userInput);
+    return answer;
+  }
   userInput = userInput.replaceAll(',', '');
   double input = 0;
   double answer = 0;
@@ -477,4 +481,15 @@ String decimalToHexadecimal(String userInput){
     answer += binary[i].toString();
   }
   return answer;
+}
+
+String asciiConvert(String unitChoiceOne, String unitChoiceTwo, String userInput){
+  if(unitChoiceOne == "code"){
+      if(int.parse(userInput) > 127)
+          return '';
+      if(int.parse(userInput) < 32)
+        return ' ';
+      return String.fromCharCode(int.parse(userInput));
+  }
+  return userInput.codeUnitAt(0).toString();
 }
