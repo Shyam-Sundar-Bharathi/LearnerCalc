@@ -167,8 +167,9 @@ Widget myResultCard({Widget child}){
 }
 
 //FORMULA SCREENS - FORMULA TABLE
-Widget myFormulaTableBlock(String formula){
+Widget myFormulaTableBlock(String formula, {int flex : 1}){
   return Expanded(
+    flex: flex,
     child: Container(
       height: 80,
       padding: EdgeInsets.all(10),
@@ -190,8 +191,9 @@ Widget myFormulaTableBlock(String formula){
   );
 }
 
-Widget myFormulaTableBlockNormalText(String formula){
+Widget myFormulaTableBlockNormalText(String formula, {int flex : 1}){
   return Expanded(
+    flex: flex,
     child: Container(
       height: 80,
       padding: EdgeInsets.all(10),

@@ -485,7 +485,7 @@ String decimalToHexadecimal(String userInput){
 
 String asciiConvert(String unitChoiceOne, String unitChoiceTwo, String userInput){
   if(unitChoiceOne == "code"){
-      if(int.parse(userInput) > 127)
+      if(int.parse(userInput) >= 127)
           return '';
       if(int.parse(userInput) < 32)
         return ' ';

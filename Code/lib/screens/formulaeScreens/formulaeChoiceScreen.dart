@@ -14,7 +14,7 @@ class _formulaChoiceState extends State<formulaChoice> {
   Map choices = {
     0 : ['POWERS OF TEN','/powersOfTenFormulae'],
     1 : ['PHYSICAL CONSTANTS', '/constantsFormulae'],
-    2 : ['ASCII CHART',''],
+    2 : ['ASCII CHART','/asciiChart'],
     3 : ['GEOMETRIC AREA','/areaFormulae'],
     4 : ['GEOMETRIC VOLUME','/volumeFormulae'],
     5 : ['ALGEBRA', '/algebraFormulae'],

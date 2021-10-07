@@ -60,8 +60,8 @@ class _constantsFormulaState extends State<constantsFormula> {
                     itemBuilder: (context, index){
                       return Row(
                         children: [
-                          myFormulaTableBlock(constants[index][0]),
-                          myFormulaTableBlock(constants[index][1]),
+                          myFormulaTableBlock(constants[index][0], flex: 1),
+                          myFormulaTableBlock(constants[index][1], flex: 2),
                         ],
                       );
                     },

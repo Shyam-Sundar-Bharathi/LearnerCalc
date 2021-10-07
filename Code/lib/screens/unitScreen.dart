@@ -322,7 +322,7 @@ class _unitconversionState extends State<unitconversion> {
                 unitElementsValue == "ASCII" ? ElevatedButton(
                   style: myButtonStyle,
                   onPressed: () {
-                    Navigator.pushNamed(context, '/linearChoice');
+                    Navigator.pushNamed(context, '/asciiChart');
                   },
                   child: FittedBox(
                     child: Text(
