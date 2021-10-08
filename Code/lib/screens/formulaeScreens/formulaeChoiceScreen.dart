@@ -25,8 +25,9 @@ class _formulaChoiceState extends State<formulaChoice> {
     10 : ['CO-ORDINATE GEOMETRY','/coordinateGeoFormulae'],
     11 : ['TRIGONOMETRY', '/trigonometryFormulae'],
     12 : ['INVERSE TRIGONOMETRY', '/inverseTrigonometryFormulae'],
-    13 : ['DIFFERENTIATION', '/differentialFormulae'],
-    14 : ['INTEGRATION', '/integralFormulae'],
+    13 : ['PERMUTATION COMBINATION', '/'],
+    14 : ['DIFFERENTIATION', '/differentialFormulae'],
+    15 : ['INTEGRATION', '/integralFormulae'],
 
   };
 

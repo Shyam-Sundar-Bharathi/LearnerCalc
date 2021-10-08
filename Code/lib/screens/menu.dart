@@ -35,7 +35,7 @@ Map colors = {
 class _homeState extends State<home> {
 
   Map displayRoutes = {};
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume'];
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume', 'permutation combination'];
   void search(String Text){
     String text = Text.toLowerCase();
     setState(() {
@@ -48,7 +48,7 @@ class _homeState extends State<home> {
       });
       return;
     }
-    for(int i = 0; i < 18; i++){
+    for(int i = 0; i < 19; i++){
       if(tileNames[i].contains(text)){
         setState(() {
           displayRoutes[numberOfTilesFound] = [routes[i][0], routes[i][1]];
@@ -93,6 +93,7 @@ class _homeState extends State<home> {
     15 : ['NUMBER\n THEORY','/lcmhcf'],
     16 : ['AREA', '/area'],
     17 : ['VOLUME', '/volume'],
+    18 : ['PERMUTATION\nCOMBINATION','/']
   };
 
   void initState(){
