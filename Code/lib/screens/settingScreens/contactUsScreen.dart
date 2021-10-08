@@ -29,7 +29,7 @@ Widget myContactUsText({String text, double fontSize = 20, String fontFamily = "
 
 final Uri _emailLaunchUri = Uri(
     scheme: 'mailto',
-    path: 'thelearnersdaily@gmail.com',
+    path: 'shyamsundarbharathi@gmail.com',
     queryParameters: {
       'subject': 'LearnerCalc'
     }
@@ -43,7 +43,7 @@ const quoraURL = "https://www.quora.com/profile/Shyam-Sundar-Bharathi";
 const youtubeURL = "https://www.youtube.com/channel/UCPzsDFExFNHQ_weZiSC65tg";
 const websiteURL = "https://shyamsundarbharathi.com";
 
-ElevatedButton myEmailButton = myContactUsButton(text: "thelearnersdaily@gmail.com", icon: Icons.mail, launcher: _emailLaunchUri.toString());
+ElevatedButton myEmailButton = myContactUsButton(text: "shyamsundarbharathi@gmail.com", icon: Icons.mail, launcher: _emailLaunchUri.toString());
 ElevatedButton myBlogButton = myContactUsButton(text: "Read The Learner's Daily Blog", icon: Icons.library_books, launcher: blogURL);
 ElevatedButton myLinkedInButton = myContactUsButton(text: "Connect with me on LinkedIn", icon: Icons.laptop_mac_sharp, launcher: linkedInURL);
 ElevatedButton myTwitterButton = myContactUsButton(text: "Follow me on Twitter", icon: Icons.phone_iphone_sharp, launcher: twitterURL);

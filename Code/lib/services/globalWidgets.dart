@@ -191,11 +191,11 @@ Widget myFormulaTableBlock(String formula, {int flex : 1}){
   );
 }
 
-Widget myFormulaTableBlockNormalText(String formula, {int flex : 1}){
+Widget myFormulaTableBlockNormalText(String formula, {int flex : 1, double height : 80}){
   return Expanded(
     flex: flex,
     child: Container(
-      height: 80,
+      height: height,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(),

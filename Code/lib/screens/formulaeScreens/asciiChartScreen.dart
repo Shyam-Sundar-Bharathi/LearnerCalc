@@ -49,8 +49,11 @@ class _asciiChartState extends State<asciiChart> {
     127 : "DEL (rubout)"
   };
 
+  int counter = 32;
+
   @override
   Widget build(BuildContext context) {
+    counter = 32;
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -65,28 +68,32 @@ class _asciiChartState extends State<asciiChart> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 10240,
+                  height: 4050,
                   child: ListView.builder(
-                    itemCount: 128,
+                    itemCount: 81,
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index){
-                      if(index<33 || index == 127)
+                      if(index<33 || counter+1 == 127){
+                        if(counter+1 == 127) index = 127;
                         return Row(
                           children: [
-                            myFormulaTableBlockNormalText(index.toString(), flex: 1),
-                            myFormulaTableBlockNormalText(asciiSpecial[index], flex: 2),
+                            myFormulaTableBlockNormalText(index.toString(), flex: 1, height: 50),
+                            myFormulaTableBlockNormalText(asciiSpecial[index], flex: 2, height: 50),
                           ],
                         );
+                      }
                       else return Row(
                         children: [
-                          myFormulaTableBlockNormalText(index.toString(), flex: 1),
-                          myFormulaTableBlockNormalText(String.fromCharCode(index), flex: 2),
+                          myFormulaTableBlockNormalText((++counter).toString(), flex: 1, height: 50),
+                          myFormulaTableBlockNormalText(String.fromCharCode(counter), flex: 2, height: 50),
+                          myFormulaTableBlockNormalText((++counter).toString(), flex: 1, height: 50),
+                          myFormulaTableBlockNormalText(String.fromCharCode(counter), flex: 2, height: 50),
                         ],
                       );
                     },
                   ),
                 ),
-                SizedBox(height: 50,)
+                SizedBox(height: 30,)
               ],
             ),
           ),
