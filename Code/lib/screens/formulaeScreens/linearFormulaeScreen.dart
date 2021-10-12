@@ -21,8 +21,9 @@ class _linearFormulaState extends State<linearFormula> {
     6 : r'\rightarrow NO\ SOLUTION.',
     7 : r'\rightarrow Lines\ are\ parallel.',
     8 : r'\frac{a_1}{a_2} \neq \frac{b_1}{b_2}',
-    9 : r'\rightarrow x = \frac{b_1c_2 - b_2c_1}{a_1b_2 - a_2b_1}',
-    10 : r'\rightarrow y = \frac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}',
+    9 : r'\rightarrow UNIQUE\ SOLUTION.',
+    10 : r'\rightarrow x = \frac{b_1c_2 - b_2c_1}{a_1b_2 - a_2b_1}',
+    11 : r'\rightarrow y = \frac{c_1a_2 - c_2a_1}{a_1b_2 - a_2b_1}',
   };
 
   @override
@@ -71,6 +72,7 @@ class _linearFormulaState extends State<linearFormula> {
                       myFormula(linears[8]),
                       myFormula(linears[9]),
                       myFormula(linears[10]),
+                      myFormula(linears[11]),
                       SizedBox(height: 50,),
                     ],
                   ),

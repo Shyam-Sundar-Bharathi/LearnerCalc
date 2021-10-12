@@ -16,6 +16,7 @@ import 'package:dream_calc/screens/formulaeScreens/differentialFormulaeScreen.da
 import 'package:dream_calc/screens/formulaeScreens/formulaeChoiceScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/inverseTrigFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/linearFormulaeScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/pncFomulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/powersOfTenScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/progressionFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/quadraticFormulaeScreen.dart';
@@ -130,6 +131,7 @@ void main() {
         '/cubicFormImaginary' : (context) => cubicFormImaginary(),
         '/asciiChart' : (context) => asciiChart(),
         '/pnc' : (context) => permutationAndCombination(),
+        '/pncFormulae' : (context) => pncFormula(),
       },
     ));
   }
