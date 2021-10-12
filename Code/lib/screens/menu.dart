@@ -93,7 +93,7 @@ class _homeState extends State<home> {
     15 : ['NUMBER\n THEORY','/lcmhcf'],
     16 : ['AREA', '/area'],
     17 : ['VOLUME', '/volume'],
-    18 : ['PERMUTATION\nCOMBINATION','/']
+    18 : ['PERMUTATION\nCOMBINATION','/pnc']
   };
 
   void initState(){

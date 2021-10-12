@@ -31,6 +31,7 @@ import 'package:dream_calc/screens/matrixScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/fourScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/threeScreen.dart';
 import 'package:dream_calc/screens/matrixScreens/twoScreen.dart';
+import 'package:dream_calc/screens/pncScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/arithmeticScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/choiceScreen.dart';
 import 'package:dream_calc/screens/progressionsScreens/geometricScreen.dart';
@@ -128,6 +129,7 @@ void main() {
         '/cubicFormReal' : (context) => cubicFormReal(),
         '/cubicFormImaginary' : (context) => cubicFormImaginary(),
         '/asciiChart' : (context) => asciiChart(),
+        '/pnc' : (context) => permutationAndCombination(),
       },
     ));
   }
