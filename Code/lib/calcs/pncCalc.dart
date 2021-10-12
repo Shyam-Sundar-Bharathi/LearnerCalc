@@ -24,10 +24,11 @@ String pncChoice(String N, String R, int fn){
     break;
     case 3: result = combinationWithoutRepetition(n, r);
     break;
-    case 4: result = nfactorial(n);
+    case 4: result = fact(n);
     break;
-    case 5: result = nfactorial(r);
+    case 5: result = fact(r);
     break;
+    case 6: result = fact(n-r);
   }
   return formatNumber(result.toStringAsFixedNoZero(precision));
 }
@@ -46,10 +47,6 @@ double combinationWithRepetition(double n, double r){
 
 double combinationWithoutRepetition(double n, double r){
   return fact(n)/(fact(r) * fact(n-r));
-}
-
-double nfactorial(double n){
-  return fact(n);
 }
 
 

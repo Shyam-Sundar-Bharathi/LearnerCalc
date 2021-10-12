@@ -144,17 +144,18 @@ class _permutationAndCombinationState extends State<permutationAndCombination> {
                       SizedBox(width: 20,),
                       myPnCButton('r!', 'r !', 5),
                       SizedBox(width: 20,),
-                      myClearButton((){
-                        setState(() {
-                          n.text = "";
-                          r.text = "";
-                          choice = "";
-                          result = "";
-                        });
-                      }),
+                      myPnCButton('( n - r ) !', '( n - r ) !', 6),
                     ],
                   ),
                   SizedBox(height: 20,),
+                  myClearButton((){
+                    setState(() {
+                      n.text = "";
+                      r.text = "";
+                      choice = "";
+                      result = "";
+                    });
+                  }),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
