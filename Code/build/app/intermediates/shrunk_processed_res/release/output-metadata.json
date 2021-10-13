@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "SHRUNK_PROCESSED_RES",
+    "kind": "Directory"
+  },
+  "applicationId": "thelearnersdaily.wordpress.dream_calc",
+  "variantName": "processReleaseResources",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 13,
+      "versionName": "1.15.0",
+      "outputFile": "resources-release-stripped.ap_"
+    }
+  ]
+}

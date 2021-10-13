@@ -35,6 +35,7 @@ Map colors = {
 class _homeState extends State<home> {
 
   Map displayRoutes = {};
+  TextEditingController searchCont = new TextEditingController();
   List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume', 'permutation combination'];
   void search(String Text){
     String text = Text.toLowerCase();
@@ -139,7 +140,14 @@ class _homeState extends State<home> {
         backgroundColor: colors[colorTheme][9],
         title: FittedBox(
           child: GestureDetector(
-            onTap: (){FocusScope.of(context).unfocus();},
+            onTap: (){
+              setState(() {
+                searchCont.text = "";
+              });
+              search("");
+              FocusScope.of(context).unfocus();
+              }
+              ,
             //onLongPress: _onWillPop,
             child: Text(
               userName == "" ? "LEARNER" : "LEARNER $userName",
@@ -181,6 +189,7 @@ class _homeState extends State<home> {
                   fontWeight: FontWeight.w500
               ),
               cursorColor: colors[colorTheme][1],
+              controller: searchCont,
               onChanged: search,
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(

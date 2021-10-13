@@ -8,8 +8,17 @@ double fact(double n){
 }
 
 String pncChoice(String N, String R, int fn){
-  if(N == '' || R == '')
+  bool flag = false;
+  if(fn == 4 && N == '')
     return "CHECK INPUT";
+  if(fn == 5 && R == '')
+    return "CHECK INPUT";
+  if(N == '' || R == ''){
+    if(fn == 4){ if(N == '') flag = true; else R = '0';}
+    else if(fn == 5){ if(R == '') flag = true; else N = '0';}
+    else flag = true;
+  }
+  if(flag) return "CHECK INPUT";
   double n = double.parse(N);
   double r = double.parse(R);
   if(r > n)

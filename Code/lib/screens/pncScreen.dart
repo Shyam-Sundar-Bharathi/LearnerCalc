@@ -156,6 +156,7 @@ class _permutationAndCombinationState extends State<permutationAndCombination> {
                       result = "";
                     });
                   }),
+                  SizedBox(height: 10,),
                   result == "" ? Container() :
                   myResultCard(
                     child: Container(
