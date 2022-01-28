@@ -28,6 +28,7 @@ class _formulaChoiceState extends State<formulaChoice> {
     13 : ['PERMUTATION COMBINATION', '/pncFormulae'],
     14 : ['DIFFERENTIATION', '/differentialFormulae'],
     15 : ['INTEGRATION', '/integralFormulae'],
+    16 : ['BOOLEAN ALGEBRA', '/booleanFormulae']
 
   };
 
