@@ -1,3 +1,4 @@
+import 'package:dream_calc/screens/booleanAlgebraScreens/oneBitScreen.dart';
 import 'package:dream_calc/screens/circleScreens/centerPointScreen.dart';
 import 'package:dream_calc/screens/circleScreens/centerRadiusScreen.dart';
 import 'package:dream_calc/screens/circleScreens/choiceScreen.dart';
@@ -132,6 +133,7 @@ void main() {
         '/asciiChart' : (context) => asciiChart(),
         '/pnc' : (context) => permutationAndCombination(),
         '/pncFormulae' : (context) => pncFormula(),
+        '/booleanAlgebra' : (context) => oneBitBooleanAlgebra(),
       },
     ));
   }

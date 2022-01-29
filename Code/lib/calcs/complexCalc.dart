@@ -4,7 +4,6 @@ import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
 String complexChoice(String a1, String b1, String a2, String b2, int fn){
-
   //Automating zero for empty input.
   if(fn == 2 || fn == 3 || fn == 10 || fn == 11){
     if(a1 == "" && b1 == ""){
