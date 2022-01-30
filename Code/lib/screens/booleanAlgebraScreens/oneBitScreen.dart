@@ -1,3 +1,4 @@
+import 'package:catex/catex.dart';
 import 'package:dream_calc/calcs/booleanAlgebraCalcs/oneBitCalc.dart';
 import 'package:dream_calc/screens/menu.dart';
 import 'package:flutter/material.dart';
@@ -14,17 +15,18 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
 
   Widget myBooleanText(String text, {double fontSize = 20}){
     return Expanded(
-      child: Text(
-        text,
+      child: DefaultTextStyle(
+        child: CaTeX(text),
         style: TextStyle(
           fontSize: fontSize,
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
       ),
     );
   }
 
-  Widget myBooleanTextField(TextEditingController cont,{bool lastBox = false}){
+  Widget myBooleanTextField(TextEditingController cont,{bool lastBox = false, String labelText, Color labelColor = Colors.grey, bool alignLabel = true}){
     return Expanded(
       flex: 2,
       child: TextField(
@@ -40,7 +42,7 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
           FilteringTextInputFormatter(RegExp('[0-1]'), allow: true),
           LengthLimitingTextInputFormatter(1),
         ],
-        decoration: myInputDecoration(),
+        decoration: myInputDecoration(labelText : labelText, labelColor: labelColor, alignLabel: alignLabel),
       ),
     );
   }
@@ -57,10 +59,11 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
           });
         },
         child: FittedBox(
-          child: Text(
-            text,
+          child: DefaultTextStyle(
+            child: CaTeX(text),
             style: TextStyle(
               color: Colors.white,
+              fontSize: 20,
             ),
           ),
         ),
@@ -88,11 +91,9 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
               children: [
                 Row(
                   children: [
-                    myBooleanText('X : ',fontSize: 30),
-                    myBooleanTextField(X),
+                    myBooleanTextField(X, labelText: "x"),
                     SizedBox(width: 20,),
-                    myBooleanText('Y : ',fontSize: 30),
-                    myBooleanTextField(Y),
+                    myBooleanTextField(Y, labelText: "y")
                   ],
                 ),
                 SizedBox(height: 20,),
@@ -100,44 +101,44 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
                   //mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myBooleanButton("X", "X", 0),
+                    myBooleanButton(r"\tilde x", r"\tilde x", 0),
                     SizedBox(width: 20,),
-                    myBooleanButton("~Y", "~Y",1),
+                    myBooleanButton(r"\tilde y", r"\tilde y",1),
                     SizedBox(width: 20,),
-                    myBooleanButton("X+Y", "X+Y", 2),
+                    myBooleanButton("x+y", "x+y", 2),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myBooleanButton("X.Y", "X.Y", 10),
+                    myBooleanButton(r"\tilde(x+y)", r"\tilde(x+y)", 3),
                     SizedBox(width: 20,),
-                    myBooleanButton( "X^Y", "X^Y", 11),
+                    myBooleanButton( r"x.y", r"x.y", 4),
                     SizedBox(width: 20,),
-                    myBooleanButton("A - B", "A - B", 3),
+                    myBooleanButton(r"\tilde(x.y)", r"\tilde(x.y)", 5),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myBooleanButton("A^2", "A^2", 4),
+                    myBooleanButton(r"x \oplus y", r"x \oplus y", 6),
                     SizedBox(width: 20,),
-                    myBooleanButton("A^3", "A^3", 5),
+                    myBooleanButton(r"\tilde(x \oplus y)", r"\tilde(x \oplus y)", 7),
                     SizedBox(width: 20,),
-                    myBooleanButton("arg(A)", "arg(A)", 6),
+                    myBooleanButton(r"x \rightarrow y", r"x \rightarrow y", 8),
                   ],
                 ),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    myBooleanButton( " ",  "√A", 8),
+                    myBooleanButton(r"x \leftrightarrow y",  r"x \leftrightarrow y", 9),
                     SizedBox(width: 20,),
-                    myBooleanButton(" ", "∛A", 9),
+                    myBooleanButton(r"x+ \tilde y", r"x+ \tilde y", 10),
                     SizedBox(width: 20,),
-                    myBooleanButton("arg(B)", "arg(B)", 7),
+                    myBooleanButton(r"x. (\tilde y)", r"x. (\tilde y)", 11),
                   ],
                 ),
                 SizedBox(height: 20,),
@@ -158,14 +159,18 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
                       child: FittedBox(
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            result == "CHECK INPUT" ? result :
-                            choice == " " ? result :
-                            "$choice = $result",
+                          child: result == "CHECK INPUT" ? Text(
+                            result,
                             style: TextStyle(
-                              color: result == "CHECK INPUT" ? Colors.red : Colors.black,
+                              color: Colors.red,
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
+                            ),
+                          ) : DefaultTextStyle(
+                            child: CaTeX("$choice = $result"),
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
                             ),
                           ),
                         ),

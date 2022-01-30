@@ -59,7 +59,7 @@ Widget myClearButton(onPressed()){
 }
 
 //STYLING FOR TEXT FIELDS
-InputDecoration myInputDecoration({String labelText, Color color = Colors.white}){
+InputDecoration myInputDecoration({String labelText, Color color = Colors.white, Color labelColor = Colors.black, bool alignLabel = false}){
   return InputDecoration(
     fillColor: color,
     filled: true,
@@ -72,8 +72,9 @@ InputDecoration myInputDecoration({String labelText, Color color = Colors.white}
       borderRadius: BorderRadius.circular(10.0),
     ),
     labelText: labelText,
+    alignLabelWithHint: alignLabel,
     labelStyle: TextStyle(
-      color: Colors.black,
+      color: labelColor,
       fontSize: 20.0,
       fontWeight: FontWeight.w500
     ),
