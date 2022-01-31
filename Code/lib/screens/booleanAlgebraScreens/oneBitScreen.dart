@@ -17,6 +17,7 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
     return Expanded(
       child: DefaultTextStyle(
         child: CaTeX(text),
+        textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.black,
@@ -55,7 +56,7 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
           FocusScope.of(context).requestFocus(FocusNode());
           setState(() {
             choice = ch;
-            result = oneBitBooleanChoice(X.text, Y.text, fn);
+            result = oneBitBooleanChoice(X.text, Y.text, fn, ch);
           });
         },
         child: FittedBox(
@@ -167,7 +168,7 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
                               fontWeight: FontWeight.bold,
                             ),
                           ) : DefaultTextStyle(
-                            child: CaTeX("$choice = $result"),
+                            child: CaTeX(result),
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 30,

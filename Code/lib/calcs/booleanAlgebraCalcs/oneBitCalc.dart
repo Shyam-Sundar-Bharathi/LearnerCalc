@@ -2,7 +2,7 @@ import 'package:extended_math/extended_math.dart';
 import 'package:dream_calc/services/formatNumber.dart';
 import 'package:dream_calc/screens/menu.dart';
 
-String oneBitBooleanChoice(String X, String Y, int fn){
+String oneBitBooleanChoice(String X, String Y, int fn, String ch){
   if((fn == 0 && X == "") || (fn == 1 && Y == "")) return "CHECK INPUT";
   else if((fn != 0 && fn != 1) && (X == "" && Y == "")) return "CHECK INPUT";
   if (X == "") X = "0";
@@ -37,7 +37,8 @@ String oneBitBooleanChoice(String X, String Y, int fn){
     case 11: result = x * notX(y);
   }
   if(result > 1) result = 1;
-  return result.toString();
+  String rs = ch.replaceAll("x", x.toString()).replaceAll("y", y.toString());
+  return rs + " = " + result.toString();
 }
 
 int notX(int x){

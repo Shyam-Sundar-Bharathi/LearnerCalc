@@ -10,6 +10,7 @@ import 'package:dream_calc/screens/cubicScreens/cubicRealFormScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/algebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/areaFormualeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/asciiChartScreen.dart';
+import 'package:dream_calc/screens/formulaeScreens/booleanAlgebraFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/centTendFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/constantsFormulaeScreen.dart';
 import 'package:dream_calc/screens/formulaeScreens/coordinateFormulaeScreen.dart';
@@ -134,6 +135,7 @@ void main() {
         '/pnc' : (context) => permutationAndCombination(),
         '/pncFormulae' : (context) => pncFormula(),
         '/booleanAlgebra' : (context) => oneBitBooleanAlgebra(),
+        '/booleanFormulae' : (context) => booleanAlgebraFormula(),
       },
     ));
   }
