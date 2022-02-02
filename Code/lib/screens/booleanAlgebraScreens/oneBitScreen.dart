@@ -94,7 +94,7 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
                   children: [
                     myBooleanTextField(X, labelText: "x"),
                     SizedBox(width: 20,),
-                    myBooleanTextField(Y, labelText: "y")
+                    myBooleanTextField(Y, labelText: "y", lastBox: true)
                   ],
                 ),
                 SizedBox(height: 20,),
@@ -151,7 +151,9 @@ class _oneBitBooleanAlgebraState extends State<oneBitBooleanAlgebra> {
                   });
                 }),
                 SizedBox(height: 20,),
-                result == " " ? Container() :
+                result == " " ? Container(
+                  child: Text("You can leave x or y field empty to get answer in terms of x or y respectively."),
+                ) :
                 myResultCard(
                   child: Container(
                     width: MediaQuery.of(context).size.width - 30,

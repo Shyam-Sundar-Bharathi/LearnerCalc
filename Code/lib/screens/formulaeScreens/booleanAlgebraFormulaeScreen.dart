@@ -133,6 +133,17 @@ class _booleanAlgebraFormulaState extends State<booleanAlgebraFormula> {
     1 : r'x.(y.z) = (x.y).z',
   };
 
+  Map postulates = {
+    0 : r'0.0 = 0',
+    1 : r'1.1 = 1',
+    2 : r'1.0 = 0',
+    3 : r'0+0 = 0',
+    4 : r'1+1 = 1',
+    5 : r'1+0 = 1',
+    6 : r'\tilde 0 = 1',
+    7 : r'\tilde 1 = 0',
+  };
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -348,6 +359,15 @@ class _booleanAlgebraFormulaState extends State<booleanAlgebraFormula> {
                 myFormulaHeading("ASSOCIATIVE"),
                 myFormula(associative[0]),
                 myFormula(associative[1]),
+                myFormulaHeading("POSTULATES"),
+                myFormula(postulates[0]),
+                myFormula(postulates[1]),
+                myFormula(postulates[2]),
+                myFormula(postulates[3]),
+                myFormula(postulates[4]),
+                myFormula(postulates[5]),
+                myFormula(postulates[6]),
+                myFormula(postulates[7]),
                 SizedBox(height: 50,)
               ],
             ),

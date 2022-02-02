@@ -23,6 +23,7 @@ double sliderValue =  precision.toDouble();
 bool showSearchBarToggle = showSearchBar;
 int messageValue = 0;
 bool hiddenFeatureActivated = false;
+bool jellyFeatureActivated = false;
 
 List<String> colorsAvailable = ['GRAYSCALE', 'CHOCOLATE', 'ROSE', 'SKY BLUE', 'LAVENDER', 'TURQUOISE', 'EMERALD', 'SAFFRON', 'CHERRY','BLUEGRAY'];
 
@@ -66,6 +67,7 @@ class _settingsState extends State<settings> {
     myDidYouKnowText = "Did you know ?";
     mySettingsCardColor = Colors.grey[200];
     hiddenFeatureActivated = false;
+    jellyFeatureActivated = false;
     userNameController.text = userName;
   }
 
@@ -504,19 +506,24 @@ class _settingsState extends State<settings> {
                             launch(eulaURL,
                                 forceWebView: false);
                           },
+                          onLongPress: (){
+                            setState(() {
+                              jellyFeatureActivated  = jellyFeatureActivated ?  false : true;
+                            });
+                          },
                           icon: Icon(
-                              Icons.policy_sharp,
+                              jellyFeatureActivated? Icons.volunteer_activism :  Icons.policy_sharp,
                             color: Colors.black,
                           ),
                           label: Text(
-                            "License Agreement",
+                            jellyFeatureActivated ? "Jelly" : "License Agreement",
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.black
                             ),
                           ),
                           style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.grey[200]),
+                              backgroundColor: jellyFeatureActivated? MaterialStateProperty.all(Colors.pinkAccent[100]) : MaterialStateProperty.all(Colors.grey[200]),
                           ),
                         ),
                     ),
@@ -549,6 +556,13 @@ class _settingsState extends State<settings> {
                             ),
                           ]
                         ),
+                      ),
+                    ),
+                    SizedBox(height: 10,),
+                    Text(
+                      "shyamsundarbharathi.com",
+                      style: TextStyle(
+                          color: Colors.grey
                       ),
                     ),
                     SizedBox(height: 5,),
