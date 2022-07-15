@@ -8,7 +8,6 @@ MERGED from /Users/shyamsundarbharathi/LearnerCalc/Code/android/app/src/main/And
 MERGED from [:shared_preferences] /Users/shyamsundarbharathi/LearnerCalc/Code/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /Users/shyamsundarbharathi/LearnerCalc/Code/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:share] /Users/shyamsundarbharathi/LearnerCalc/Code/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-19:12
-MERGED from [:keyboard_visibility] /Users/shyamsundarbharathi/LearnerCalc/Code/build/keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/eb26273f8f7192460456ce62b9bdf9ef/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/d9536c14ffde0b7289f12ba6def6bfa4/loader-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -107,8 +106,6 @@ MERGED from [:url_launcher] /Users/shyamsundarbharathi/LearnerCalc/Code/build/ur
 MERGED from [:url_launcher] /Users/shyamsundarbharathi/LearnerCalc/Code/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:share] /Users/shyamsundarbharathi/LearnerCalc/Code/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:share] /Users/shyamsundarbharathi/LearnerCalc/Code/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:keyboard_visibility] /Users/shyamsundarbharathi/LearnerCalc/Code/build/keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:keyboard_visibility] /Users/shyamsundarbharathi/LearnerCalc/Code/build/keyboard_visibility/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/shyamsundarbharathi/.gradle/caches/transforms-2/files-2.1/eb26273f8f7192460456ce62b9bdf9ef/viewpager-1.0.0/AndroidManifest.xml:20:5-44

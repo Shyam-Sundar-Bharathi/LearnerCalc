@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:keyboard_visibility/keyboard_visibility.dart';
+//import 'package:keyboard_visibility/keyboard_visibility.dart';
 
 class home extends StatefulWidget {
   const home({Key key}) : super(key: key);
@@ -36,7 +36,7 @@ class _homeState extends State<home> {
 
   Map displayRoutes = {};
   TextEditingController searchCont = new TextEditingController();
-  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume', 'permutation combination', 'boolean algebra'];
+  List<String> tileNames = ['general calculator', 'unit conversion', 'formulae sheet', 'linear equations', 'quadratic equation','cubic equation','vectors','complex numbers','matrix','trigonometry','statistics','percentage','straight lines', 'circle', 'progressions','number theory', 'area', 'volume', 'permutation combination', 'boolean algebra', 'set theory'];
   void search(String Text){
     String text = Text.toLowerCase();
     setState(() {
@@ -79,36 +79,37 @@ class _homeState extends State<home> {
     0 : ['   GENERAL\nCALCULATOR', '/genCalc'],
     1 : ['        UNIT\nCONVERSION', '/unitConversion'],
     2 : ['FORMULAE\n    SHEET', '/formulaChoice'],
-    3 : ['   LINEAR\nEQUATIONS', '/linearChoice'],
-    4 : ['QUADRATIC\n EQUATION', '/quadraticChoice'],
-    5 : ['   CUBIC\nEQUATION', '/cubicChoice'],
-    6 : ['VECTORS', '/vector'],
-    7 : ['COMPLEX\nNUMBERS', '/complex'],
-    8 : ['MATRIX','/matrixChoice'],
-    9 : ['TRIGONOMETRY', '/trigonometry'],
-    10 : ['STATISTICS', '/centTend'],
-    11 : ['PERCENTAGE', '/percentage'],
-    12 : ['STRAIGHT\n    LINES','/straightLineChoice'],
-    13 : ['CIRCLE', '/circleChoice'],
-    14 : ['PROGRESSIONS','/progressionsChoice'],
-    15 : ['NUMBER\n THEORY','/lcmhcf'],
-    16 : ['AREA', '/area'],
-    17 : ['VOLUME', '/volume'],
+    3 : ['AREA', '/area'],
+    4 : ['VOLUME', '/volume'],
+    5 : ['STATISTICS', '/centTend'],
+    6 : ['NUMBER\n THEORY','/lcmhcf'],
+    7 : ['   SET\nTHEORY', '/setTheory'],
+    8 : ['TRIGONOMETRY', '/trigonometry'],
+    9 : ['   LINEAR\nEQUATIONS', '/linearChoice'],
+    10 : ['QUADRATIC\n EQUATIONS', '/quadraticChoice'],
+    11 : ['   CUBIC\nEQUATIONS', '/cubicChoice'],
+    12 : ['VECTORS', '/vector'],
+    13 : ['COMPLEX\nNUMBERS', '/complex'],
+    14 : ['MATRIX','/matrixChoice'],
+    15 : ['STRAIGHT\n    LINES','/straightLineChoice'],
+    16 : ['CIRCLE', '/circleChoice'],
+    17 : ['PROGRESSIONS','/progressionsChoice'],
     18 : ['PERMUTATION\nCOMBINATION','/pnc'],
     19 : ['BOOLEAN\nALGEBRA', '/booleanAlgebra'],
+    20 : ['PERCENTAGE', '/percentage']
   };
 
   void initState(){
     setState(() {
       displayRoutes = routes;
     });
-    KeyboardVisibilityNotification().addNewListener(
-      onChange: (bool visible) {
-        if(!visible){
-          FocusScope.of(context).unfocus();
-        }
-      },
-    );
+    // KeyboardVisibilityNotification().addNewListener(
+    //   onChange: (bool visible) {
+    //     if(!visible){
+    //       FocusScope.of(context).unfocus();
+    //     }
+    //   },
+    // );
   }
 
   // Future<bool> _onWillPop() {
@@ -151,7 +152,7 @@ class _homeState extends State<home> {
               ,
             //onLongPress: _onWillPop,
             child: Text(
-              userName == "" ? "LEARNER" : "LEARNER $userName",
+              userName == "" ? "LearnerCalc" : "LEARNER $userName",
               style: TextStyle(
                 fontFamily: "Times",
                 fontSize: 25,
