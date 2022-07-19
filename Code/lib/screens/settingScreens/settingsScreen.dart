@@ -560,7 +560,7 @@ class _settingsState extends State<settings> {
                     ),
                     SizedBox(height: 10,),
                     Text(
-                      "shyamsundarbharathi.com",
+                      "shyamsundarbharathi.me",
                       style: TextStyle(
                           color: Colors.grey
                       ),

@@ -35,8 +35,9 @@ String equation(double x, double y, double m){
     return "y = ${Constant}";
   }
   String Slope = slope.toStringAsFixedNoZero(precision);
-  String Constant = constant.toStringAsFixedNoZero(precision);
   String sign = constant >=0 ? '+' : '-';
+  if(constant < 0) constant *= -1;
+  String Constant = constant.toStringAsFixedNoZero(precision);
   if(slope == 1)
     Slope = '';
   if(slope == -1)

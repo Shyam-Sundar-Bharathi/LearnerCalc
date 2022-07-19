@@ -92,7 +92,7 @@ class _homeState extends State<home> {
     13 : ['COMPLEX\nNUMBERS', '/complex'],
     14 : ['MATRIX','/matrixChoice'],
     15 : ['STRAIGHT\n    LINES','/straightLineChoice'],
-    16 : ['CIRCLE', '/circleChoice'],
+    16 : ['CIRCLES', '/circleChoice'],
     17 : ['PROGRESSIONS','/progressionsChoice'],
     18 : ['PERMUTATION\nCOMBINATION','/pnc'],
     19 : ['BOOLEAN\nALGEBRA', '/booleanAlgebra'],

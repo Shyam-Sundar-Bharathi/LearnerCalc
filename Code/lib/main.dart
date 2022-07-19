@@ -43,6 +43,7 @@ import 'package:dream_calc/screens/quadraticScreens/formImaginaryScreen.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticFormRealScreen.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticChoice.dart';
 import 'package:dream_calc/screens/quadraticScreens/quadraticScreen.dart';
+import 'package:dream_calc/screens/setTheoryScreen.dart';
 import 'package:dream_calc/screens/settingScreens/contactUsScreen.dart';
 import 'package:dream_calc/screens/settingScreens/didyouknowScreen.dart';
 import 'package:dream_calc/screens/straightLineScreens/choiceScreen.dart';
@@ -136,6 +137,7 @@ void main() {
         '/pncFormulae' : (context) => pncFormula(),
         '/booleanAlgebra' : (context) => oneBitBooleanAlgebra(),
         '/booleanFormulae' : (context) => booleanAlgebraFormula(),
+        '/setTheory' : (context) => setTheory(),
       },
     ));
   }
